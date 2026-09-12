@@ -81,11 +81,137 @@ const HERO_SLIDER_DATA = [
     }
 ];
 
-// Books Catalog
+// Books Catalog (प्रमाणिक प्रकाशित कृतियाँ एवं संपादित संग्रह)
 const BOOKS_DATA = [
     {
+        id: "charchit-tewari-sangrah",
+        titleHi: "रमेशराज के चर्चित तेवरी संग्रह",
+        titleEn: "Charchit Tewari Sangrah by Rameshraj",
+        category: "tewari",
+        categoryNameHi: "तेवरी महाग्रंथ",
+        categoryNameEn: "Tewari Masterwork",
+        year: "2010",
+        publisher: "सार्थक सृजन प्रकाशन, 15/109, ईसानगर, अलीगढ़",
+        cover: "assets/images/books/charchit_tewari.jpg",
+        fallbackCover: "assets/images/books/book_1.jpg",
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        pages: "256",
+        isbn: "978-81-923451-0-2",
+        blurbHi: "अनेक तेवरी-संग्रहों ('सिस्टम में बदलाव ला', 'घड़ा पाप का भर रहा', 'दे लंका में आग', 'होगा वक्त दबंग' आदि) का एक ही भव्य पुस्तकाकार रूप।",
+        blurbEn: "A monumental masterwork combining multiple landmark Tewari anthologies in a single comprehensive volume.",
+        detailsHi: "सार्थक सृजन प्रकाशन, अलीगढ़ से प्रकाशित इस ऐतिहासिक महाग्रंथ में तेवरी आंदोलन के जनक रमेशराज ने अपने अनेक विख्यात तेवरी संग्रहों को एक ही स्थान पर पुस्तकाकार परोसा है। इसमें 'सिस्टम में बदलाव ला' (19 तेवरियां, जनक छन्द में), 'घड़ा पाप का भर रहा', 'दे लंका में आग', 'होगा वक्त दबंग', 'आग जरूरी', 'मोहन भोग खलों को' आदि कालजयी कृतियों का समग्र समावेश है। वरिष्ठ समीक्षक अशोक अंजुम (संपादक 'अभिनव प्रयास') के अनुसार यह पुस्तक व्यवस्था के पाखंड पर करारा प्रहार और आमजन के संघर्षों की ओजस्वी आवाज़ है।"
+    },
+    {
+        id: "vichar-aur-ras",
+        titleHi: "विचार और रस (विवेचनात्मक निबन्ध)",
+        titleEn: "Vichar aur Ras (Critical Poetics)",
+        category: "research",
+        categoryNameHi: "शोध एवं आलोचना",
+        categoryNameEn: "Research & Criticism",
+        year: "2014",
+        publisher: "सार्थक सृजन प्रकाशन, अलीगढ़",
+        cover: "assets/images/books/vichar_aur_ras.jpg",
+        fallbackCover: "assets/images/books/book_2.jpg",
+        bloggerUrl: "https://hinditewari-25.blogspot.com/2014/05/blog-post.html",
+        pages: "168",
+        isbn: "978-81-923451-4-0",
+        blurbHi: "काव्यशास्त्र में 'विरोध-रस' (स्थायी भाव: आक्रोश) एवं 'विद्रोह-रस' की सैद्धांतिक स्थापना करने वाला युगांतरकारी शोध ग्रंथ।",
+        blurbEn: "A groundbreaking critical treatise formalizing 'Virodh-Ras' (Aesthetics of Dissent) and 'Vidroh-Ras' in Hindi poetics.",
+        detailsHi: "डॉ. ललित सिंह (अलीगढ़) के अनुसार— इस ग्रंथ में रमेशराज ने भारतीय रस-मीमांसा के पारंपरिक चौखटे को तोड़ते हुए 'विरोध-रस' (स्थायी भाव: आक्रोश) और 'विद्रोह-रस' (स्थायी भाव: असंतोष) को शास्त्रीय प्रतिष्ठा दी है। इसमें 'अनुभाव, अनुभव और अनुभूति' की दार्शनिक त्रयी तथा 'प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत' का मौलिक प्रतिपादन किया गया है।"
+    },
+    {
+        id: "abhi-zuban-kati-nahi",
+        titleHi: "अभी जुबां कटी नहीं (प्रथम तेवरी संग्रह)",
+        titleEn: "Abhi Zubaan Kati Nahi (First Tewari Anthology)",
+        category: "tewari",
+        categoryNameHi: "ऐतिहासिक तेवरी संग्रह",
+        categoryNameEn: "Historic Tewari Collection",
+        year: "1983",
+        publisher: "तेवरीपक्ष संस्थान, अलीगढ़ (प्रथम संस्करण: फ़रवरी 1983)",
+        cover: "assets/images/books/abhi_juban_kati_nahi.jpg",
+        fallbackCover: "assets/images/books/book_7.jpg",
+        bloggerUrl: "https://hinditewari-25.blogspot.com/2012/03/blog-post_27.html",
+        pages: "128",
+        isbn: "978-81-89745-08-1",
+        blurbHi: "हिन्दी साहित्य का ऐतिहासिक प्रथम तेवरी संग्रह (फ़रवरी 1983), जिसने तेवरी विधा को राष्ट्रव्यापी जन-आंदोलन बनाया।",
+        blurbEn: "The historic first Tewari anthology in Hindi literature (Feb 1983), edited by Rameshraj, launching the movement nationwide.",
+        detailsHi: "मदन मोहन 'उपेंद्र' के अनुसार— फ़रवरी 1983 में रमेशराज के संपादन में प्रकाशित 'अभी जुबां कटी नहीं' हिन्दी साहित्य का पहला तेवरी संग्रह है। जब ग़ज़ल को लेकर हिंदी साहित्य में उहापोह थी, तब इस संग्रह ने विशुद्ध भारतीय तेवर, जन-प्रतिरोध और आम आदमी के आक्रोश को एक नई विधा 'तेवरी' का स्थायी स्वरूप प्रदान किया।"
+    },
+    {
+        id: "kabir-zinda-hai",
+        titleHi: "कबीर ज़िन्दा है (द्वितीय तेवरी संग्रह)",
+        titleEn: "Kabir Zinda Hai (Second Tewari Anthology)",
+        category: "edited",
+        categoryNameHi: "संपादित ग्रंथ",
+        categoryNameEn: "Edited Anthologies",
+        year: "1987",
+        publisher: "सार्थक सृजन प्रकाशन, अलीगढ़",
+        cover: "assets/images/books/kabir_zinda_hai.jpg",
+        fallbackCover: "assets/images/books/book_9.jpg",
+        bloggerUrl: "https://hinditewari-25.blogspot.com/2016/11/blog-post.html",
+        pages: "220",
+        isbn: "978-81-923451-9-5",
+        blurbHi: "संत कबीर की निर्भीक विद्रोही परम्परा को समकालीन तेवरी कविता से जोड़ने वाला दूसरा मील का पत्थर तेवरी संग्रह।",
+        blurbEn: "The second landmark edited Tewari anthology carrying forward Saint Kabir's fearless rebel spirit in contemporary verse.",
+        detailsHi: "रमेशराज द्वारा संपादित यह दूसरा ऐतिहासिक तेवरी संग्रह है। इसमें देश भर के शीर्षस्थ जनवादी रचनाकारों की तेवरियों के माध्यम से यह संदेश गुंजायमान किया गया कि अन्याय, पाखंड और शोषण के विरुद्ध कबीर की क्रांति-चेतना आज भी उतनी ही जीवंत है।"
+    },
+    {
+        id: "itihas-ghayal-hai",
+        titleHi: "इतिहास घायल है (तृतीय तेवरी संग्रह)",
+        titleEn: "Itihas Ghayal Hai (Third Tewari Anthology)",
+        category: "edited",
+        categoryNameHi: "संपादित ग्रंथ",
+        categoryNameEn: "Edited Anthologies",
+        year: "1992",
+        publisher: "परिवर्तन प्रकाशन, अलीगढ़",
+        cover: "assets/images/books/itihas_ghayal_hai.jpg",
+        fallbackCover: "assets/images/books/book_8.jpg",
+        bloggerUrl: "https://hinditewari-25.blogspot.com/2012/03/blog-post_28.html",
+        pages: "152",
+        isbn: "978-81-89745-04-3",
+        blurbHi: "सांप्रदायिकता, सामाजिक विसंगतियों और दंगों के घावों पर उकेरा गया तीसरा युगांतरकारी राष्ट्रीय तेवरी संकलन।",
+        blurbEn: "The third iconic national Tewari anthology confronting communal discord and societal fractures with poetic courage.",
+        detailsHi: "सांप्रदायिकता और मानवीय त्रासदियों से आहत समय में प्रकाशित यह तीसरा राष्ट्रीय तेवरी संकलन है। मदन मोहन 'उपेंद्र' के शब्दों में, इसने हिन्दी कविता को कोरे आदर्शवाद से निकालकर धधकते यथार्थ के रूबरू खड़ा किया।"
+    },
+    {
+        id: "rashtriya-bal-kavitaen",
+        titleHi: "राष्ट्रीय बाल कविताएँ (नदिया पार हिंडोलना)",
+        titleEn: "Rashtriya Bal Kavitaen (Patriotic Children's Verses)",
+        category: "children",
+        categoryNameHi: "बाल साहित्य",
+        categoryNameEn: "Children's Literature",
+        year: "2019",
+        publisher: "सुभद्रा बाल साहित्य संस्थान, अलीगढ़",
+        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
+        fallbackCover: "assets/images/books/book_10.jpg",
+        bloggerUrl: "https://rameshraj-balkavita.blogspot.com/",
+        pages: "96",
+        isbn: "978-81-923452-1-8",
+        blurbHi: "तिरंगा, सुभाष, भगत सिंह, शास्त्री जी, कश्मीर और पर्यावरण चेतना से सजी प्रेरक देशभक्ति बाल कविताओं का अनुपम संकलन।",
+        blurbEn: "An inspiring collection of patriotic children's poems honoring freedom fighters, the national flag, and moral ideals.",
+        detailsHi: "वरिष्ठ साहित्यकार डॉ. गोपाल बाबू शर्मा (आगरा) के अनुसार— रमेशराज जी का यह बाल काव्य-संग्रह नौनिहालों में राष्ट्रप्रेम, स्वाभिमान, पर्यावरण और चारित्रिक चेतना का पावन संचार करता है। इसमें तिरंगा, नेताजी सुभाष, शहीद भगत सिंह, लाल बहादुर शास्त्री जैसे अमर राष्ट्रनायकों पर सहज, गेय बाल कविताएँ हैं।"
+    },
+    {
+        id: "tewaripaksh-patrika",
+        titleHi: "तेवरी-पक्ष (राष्ट्रीय त्रैमासिक पत्रिका)",
+        titleEn: "Tewaripaksh (National Quarterly Literary Journal)",
+        category: "edited",
+        categoryNameHi: "पत्रिका व सम्पादन",
+        categoryNameEn: "Journal & Editorial",
+        year: "1985 से निरंतर",
+        publisher: "सार्थक सृजन संस्थान, अलीगढ़",
+        cover: "assets/images/books/tewaripaksh_issue_12.jpg",
+        fallbackCover: "assets/images/books/book_4.jpg",
+        bloggerUrl: "https://hinditewaripaksh.blogspot.com/",
+        pages: "पत्रिका विशेषांक",
+        isbn: "ISSN 2348-XXXX",
+        blurbHi: "गत तीन दशकों से प्रकाशित तेवरी आंदोलन की अधिकृत राष्ट्रीय त्रैमासिक पत्रिका (प्रधान सम्पादक: रमेशराज)।",
+        blurbEn: "The flagship national quarterly journal of the Tewari movement, edited by Rameshraj for over 30 years.",
+        detailsHi: "तेवरी आंदोलन की मुख्य वैचारिक पत्रिका जिसने देश के सैकड़ों प्रगतिशील रचनाकारों को मंच दिया। तीन दशकों से रमेशराज जी के निष्पक्ष एवं कर्मठ संपादन में यह पत्रिका हिन्दी साहित्य में जनवादी पत्रकारिता का कीर्तिस्तंभ है।"
+    },
+    {
         id: "virodh-ras",
-        titleHi: "विरोध - रस",
+        titleHi: "विरोध - रस (काव्यशास्त्रीय ग्रंथ)",
         titleEn: "Virodh-Ras (Aesthetics of Dissent)",
         category: "research",
         categoryNameHi: "शोध एवं आलोचना",
@@ -99,25 +225,7 @@ const BOOKS_DATA = [
         isbn: "978-81-923451-0-2",
         blurbHi: "हिन्दी काव्यशास्त्र में नवरसों के उपरांत 'विरोध-रस' की सैद्धांतिक एवं शास्त्रीय स्थापना करने वाला ऐतिहासिक ग्रंथ।",
         blurbEn: "A historic treatise establishing the theoretical foundation of 'Virodh-Ras' (Aesthetic of Dissent) in Hindi poetics.",
-        detailsHi: "इस ग्रंथ में लेखक ने विस्तार से सिद्ध किया है कि जनचेतना और प्रतिरोध केवल एक भाव नहीं, अपितु काव्य का एक स्वतंत्र और पूर्ण रस है। साहित्य-जगत में यह पुस्तक एक युगांतरकारी विमर्श के रूप में प्रतिष्ठित है।"
-    },
-    {
-        id: "vichar-aur-ras",
-        titleHi: "विचार और रस",
-        titleEn: "Vichar aur Ras (Thought and Rasa)",
-        category: "research",
-        categoryNameHi: "शोध एवं आलोचना",
-        categoryNameEn: "Research & Criticism",
-        year: "2014",
-        publisher: "सार्थक सृजन प्रकाशन, अलीगढ़",
-        cover: "assets/images/books/book_2.jpg",
-        fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkY302/s320/vichar.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/2014/05/blog-post.html",
-        pages: "160",
-        isbn: "978-81-923451-4-0",
-        blurbHi: "काव्य में वैचारिक चेतना और रस-निष्पत्ति के अंतर्संबंधों पर गहन व विश्लेषणात्मक चिंतन।",
-        blurbEn: "An analytical exploration of the interplay between intellectual consciousness and emotional Rasa in contemporary poetry.",
-        detailsHi: "कविता केवल रसास्वादन नहीं है, बल्कि वह विचार की अग्नि से तपकर समाज का पथ-प्रदर्शन करती है। इस कृति में रमेशराज ने इसी विचार-दर्शन की सांगोपांग मीमांसा की है।"
+        detailsHi: "इस ग्रंथ में लेखक ने विस्तार से सिद्ध किया है कि जनचेतना और प्रतिरोध केवल एक क्षणिक भाव नहीं, अपितु काव्य का एक स्वतंत्र और पूर्ण रस है। साहित्य-जगत में यह पुस्तक एक युगांतरकारी विमर्श के रूप में प्रतिष्ठित है।"
     },
     {
         id: "udho-kahiyo-jaay",
@@ -133,7 +241,7 @@ const BOOKS_DATA = [
         bloggerUrl: "https://hinditewari-25.blogspot.com/2012/03/blog-post_25.html",
         pages: "128",
         isbn: "978-81-89745-12-8",
-        blurbHi: "समकालीन विद्रूपताओं और राजनीतिक पाखंड पर तीखे तेवर से प्रहार करता चर्चित तेवरी संग्रह।",
+        blurbHi: "सूरदास के भ्रमरगीत के मिथकीय संदर्भ को आधुनिक युग की विसंगतियों और राजनीतिक पाखंड से जोड़ता चर्चित संग्रह।",
         blurbEn: "A sharp, thought-provoking collection of Tewari poems targeting political hypocrisy and societal ironies.",
         detailsHi: "सूरदास के भ्रमरगीत के मिथकीय संदर्भ को आधुनिक युग की विसंगतियों से जोड़ते हुए रमेशराज ने जन-समस्याओं को अद्भुत धार दी है।"
     },
@@ -163,7 +271,7 @@ const BOOKS_DATA = [
         categoryNameHi: "तेवरी संग्रह",
         categoryNameEn: "Tewari Collection",
         year: "2015",
-        publisher: "सार्थक सृजन संस्थान",
+        publisher: "सार्थक सृजन संस्थान, अलीगढ़",
         cover: "assets/images/books/book_5.jpg",
         fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi834/s320/ghada.jpg",
         bloggerUrl: "https://hinditewari-25.blogspot.com/2015/07/blog-post.html",
@@ -187,117 +295,9 @@ const BOOKS_DATA = [
         bloggerUrl: "https://hinditewari-25.blogspot.com/2018/02/blog-post.html",
         pages: "136",
         isbn: "978-81-923451-8-8",
-        blurbHi: "व्यंग्य और तेवर का बेजोड़ संगम — सामाजिक विसंगतियों पर करारा व्यंग्य प्रहार।",
+        blurbHi: "व्यंग्य और तेवर का बेजोड़ संगम — सामाजिक विसंगतियों व ढोंग पर करारा व्यंग्य प्रहार।",
         blurbEn: "A magnificent blend of satire and rebellious poetry dissecting social orthodoxies.",
         detailsHi: "धार्मिक ढोंग, छद्म राष्ट्रवाद और नैतिक पतन पर रमेशराज की कलम का यह एक ऐसा प्रहार है जो पाठक को झकझोर कर सोचने पर विवश करता है।"
-    },
-    {
-        id: "abhi-zuban-kati-nahi",
-        titleHi: "अभी जुबां कटी नहीं",
-        titleEn: "Abhi Zubaan Kati Nahi",
-        category: "tewari",
-        categoryNameHi: "तेवरी संग्रह",
-        categoryNameEn: "Tewari Collection",
-        year: "2005",
-        publisher: "तेवरीपक्ष संस्थान, अलीगढ़",
-        cover: "assets/images/books/book_7.jpg",
-        fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEkm402/s320/zuban.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/2012/03/blog-post_27.html",
-        pages: "120",
-        isbn: "978-81-89745-08-1",
-        blurbHi: "अभिव्यक्ति की स्वतंत्रता और जन-आवाज़ के बुलंद हौसले का अमर काव्यात्मक दस्तावेज।",
-        blurbEn: "An indelible poetic testament to free expression, unwavering resilience, and the voice of truth.",
-        detailsHi: "जब भी सच बोलने पर पाबंदियों के साये गहराए, तब रमेशराज की 'अभी जुबां कटी नहीं' ने देश भर के रचनाकारों को निर्भीकता का संबल दिया।"
-    },
-    {
-        id: "itihas-ghayal-hai",
-        titleHi: "इतिहास घायल है",
-        titleEn: "Itihas Ghayal Hai",
-        category: "poetry",
-        categoryNameHi: "काव्य एवं गीत",
-        categoryNameEn: "Poetry & Songs",
-        year: "2003",
-        publisher: "परिवर्तन प्रकाशन",
-        cover: "assets/images/books/book_8.jpg",
-        fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh123/s320/itihas.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/2012/03/blog-post_28.html",
-        pages: "152",
-        isbn: "978-81-89745-04-3",
-        blurbHi: "सांप्रदायिकता और मानवीय त्रासदियों से आहत समय का संवेदनशील काव्यात्मक आख्यान।",
-        blurbEn: "A sensitive poetic chronicle reflecting upon communal wounds and human tragedies across modern times.",
-        detailsHi: "मानवता, प्रेम और समरसता के मूल्यों को समर्पित यह संग्रह पाठकों के मर्म को छूता है और शांति का संदेश देता है।"
-    },
-    {
-        id: "kabir-zinda-hai",
-        titleHi: "कबीर ज़िन्दा है",
-        titleEn: "Kabir Zinda Hai",
-        category: "edited",
-        categoryNameHi: "संपादित ग्रंथ",
-        categoryNameEn: "Edited Anthologies",
-        year: "2016",
-        publisher: "सार्थक सृजन प्रकाशन, अलीगढ़",
-        cover: "assets/images/books/book_9.jpg",
-        fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi562/s320/kabir.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/2016/11/blog-post.html",
-        pages: "220",
-        isbn: "978-81-923451-9-5",
-        blurbHi: "कबीर की विद्रोही परम्परा और समकालीन तेवरी कविता का अप्रतिम सम्पादन।",
-        blurbEn: "An edited volume celebrating the rebellious legacy of Saint Kabir in modern resistance poetry.",
-        detailsHi: "देश के 50 से अधिक मूर्धन्य तेवरीकारों की प्रतिनिधि रचनाओं का यह संकलन समकालीन हिन्दी साहित्य की अमूल्य धरोहर है।"
-    },
-    {
-        id: "bal-kavitaen",
-        titleHi: "राष्ट्रीय बाल कविताएँ (नदिया पार हिंडोलना)",
-        titleEn: "Rashtriya Bal Kavitaen",
-        category: "children",
-        categoryNameHi: "बाल साहित्य",
-        categoryNameEn: "Children's Literature",
-        year: "2019",
-        publisher: "सार्थक सृजन संस्थान",
-        cover: "assets/images/books/book_10.jpg",
-        fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg234/s320/bal.jpg",
-        bloggerUrl: "https://rameshraj-balkavita.blogspot.com/",
-        pages: "96",
-        isbn: "978-81-923452-1-8",
-        blurbHi: "बालमन को संस्कारित करने वाली देशभक्ति, प्रकृति और मानवीय मूल्यों की मधुर कविताएँ।",
-        blurbEn: "Delightful rhymes nurturing young minds with patriotism, nature appreciation, and moral warmth.",
-        detailsHi: "बच्चों के लिए सहज, लयबद्ध और शिक्षाप्रद बालगीतों का यह संकलन विद्यालयों और पुस्तकालयों में अत्यधिक लोकप्रिय है।"
-    },
-    {
-        id: "didi-tum-nadi-ho",
-        titleHi: "दीदी तुम नदी हो",
-        titleEn: "Didi Tum Nadi Ho",
-        category: "poetry",
-        categoryNameHi: "काव्य एवं गीत",
-        categoryNameEn: "Poetry & Songs",
-        year: "2021",
-        publisher: "सार्थक सृजन प्रकाशन",
-        cover: "assets/images/books/book_11.jpg",
-        fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj789/s320/didi.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/2021/04/blog-post.html",
-        pages: "128",
-        isbn: "978-81-923452-4-9",
-        blurbHi: "स्त्री संवेदना, त्याग और मातृत्व की अविरल धारा को समर्पित भावपूर्ण काव्य संग्रह।",
-        blurbEn: "Poignant verses honoring the selfless spirit, resilience, and boundless grace of womanhood.",
-        detailsHi: "नारी विमर्श को भारतीय संस्कृति के उदात्त परिप्रेक्ष्य में प्रस्तुत करता रमेशराज का यह अनूठा काव्य-उपहार है।"
-    },
-    {
-        id: "madhu-sa-la",
-        titleHi: "चतुष्पदी शतक 'मधु-सा ला'",
-        titleEn: "Chatushpadi Shatak 'Madhu-Sa La'",
-        category: "shatak",
-        categoryNameHi: "शतक एवं छंद काव्य",
-        categoryNameEn: "Meter & Shatak Poetry",
-        year: "2017",
-        publisher: "सार्थक सृजन प्रकाशन",
-        cover: "assets/images/books/book_12.jpg",
-        fallbackCover: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi456/s320/madhu.jpg",
-        bloggerUrl: "https://rameshraj-chatushpadi.blogspot.com/",
-        pages: "116",
-        isbn: "978-81-923452-0-1",
-        blurbHi: "रूबाई और चतुष्पदी विधा में जीवन-दर्शन और सामाजिक सरोकारों का मनोहारी शतक।",
-        blurbEn: "A century of quatrains weaving existential philosophy with subtle societal observations.",
-        detailsHi: "उमर खय्याम और बच्चन की परम्परा को नए सामाजिक तेवर के साथ आगे बढ़ाने वाली 100 चुनिंदा चतुष्पदियों का संग्रह।"
     }
 ];
 
@@ -422,15 +422,17 @@ const BLOGS_DATA = [
     }
 ];
 
-// Literary Awards & Honors
+// Literary Awards & Honors (साहित्यिक उपलब्धियाँ एवं अलंकरण)
 const AWARDS_DATA = [
     {
         year: "2015",
-        titleHi: "साहित्य-श्री राष्ट्रीय सम्मान",
-        titleEn: "Sahitya-Shri National Honor",
-        awardedByHi: "अखिल भारतीय साहित्य परिषद, नई दिल्ली",
-        awardedByEn: "All India Literary Council, New Delhi",
-        descHi: "हिन्दी साहित्य में 'विरोध-रस' और 'तेवरी आन्दोलन' के ऐतिहासिक योगदान के लिए प्रदत्त।"
+        titleHi: "साहित्यश्री राष्ट्रीय सम्मान 2015",
+        titleEn: "Sahitya-Shri National Honor 2015",
+        awardedByHi: "ग्रन्थायन (श्रीमती श्यामवती गुप्त स्मृति, 25 दिसम्बर 2015)",
+        awardedByEn: "Granthayan, Aligarh (25 Dec 2015)",
+        certificateImage: "assets/images/awards/sahitya_shri_certificate_2015.jpg",
+        descHi: "श्री रमेश राज के विशिष्ट एवं विपुल साहित्यिक अवदान तथा विशेषज्ञ समिति (डॉ. सत्यप्रकाश मिश्र, डॉ. वेदप्रकाश 'अमिताभ', श्री प्रेम कुमार, अभयकुमार गुप्त) की सर्वसम्मत संस्तुति पर ग्रन्थायन द्वारा साहित्यश्री सम्मान से समलंकृत किया गया।",
+        descEn: "Conferred upon Shri Ramesh Raj by Granthayan on 25 December 2015 for his distinguished and prolific literary contribution to Hindi literature and the Tewari movement."
     },
     {
         year: "2011",
@@ -462,12 +464,34 @@ const AWARDS_DATA = [
         titleEn: "Distinguished Editor Ratna",
         awardedByHi: "अखिल भारतीय लघु पत्रिका सम्मेलन",
         awardedByEn: "All India Little Magazine Conference",
-        descHi: "'तेवरीपक्ष' पत्रिका के निरंतर और निष्पक्ष सम्पादन के लिए विशेष रूप से सम्मानित।"
+        descHi: "'तेवरीपक्ष' पत्रिका के तीन दशकों के निरंतर और निष्पक्ष सम्पादन के लिए विशेष रूप से सम्मानित।"
     }
 ];
 
-// Press, Media & Gallery (चित्रशाला)
+// Press, Media & Gallery (चित्रशाला एवं ऐतिहासिक छायाचित्र)
 const GALLERY_DATA = [
+    {
+        id: "gal-cert",
+        titleHi: "साहित्यश्री सम्मान 2015 — मूल मानपत्र",
+        titleEn: "Sahitya-Shri Award 2015 — Original Citation",
+        category: "award",
+        categoryHi: "सम्मान प्रमाणपत्र",
+        categoryEn: "Award Certificate",
+        image: "assets/images/awards/sahitya_shri_certificate_2015.jpg",
+        captionHi: "25 दिसम्बर 2015 को ग्रन्थायन द्वारा रमेशराज जी को विशिष्ट एवं विपुल साहित्यिक अवदान हेतु प्रदत्त मूल मानपत्र।",
+        captionEn: "Original citation certificate of Sahitya-Shri Honor conferred upon Shri Ramesh Raj on 25 December 2015."
+    },
+    {
+        id: "gal-portrait",
+        titleHi: "रमेशराज तेवरीकार — सौम्य व्यक्तित्व",
+        titleEn: "Rameshraj Tewarikar — Author Portrait",
+        category: "portrait",
+        categoryHi: "कवि व्यक्तित्व",
+        categoryEn: "Author Portrait",
+        image: "assets/images/gallery/author-smiling-portrait.jpg",
+        captionHi: "तेवरी आंदोलन के प्रणेता, प्रख्यात चिंतक एवं वरिष्ठ साहित्यकार रमेशराज जी का आत्मीय छायाचित्र।",
+        captionEn: "Warm portrait photograph of eminent author, thinker, and Tewari pioneer Shri Rameshraj."
+    },
     {
         id: "gal-1",
         titleHi: "साहित्यिक अनुष्ठान एवं दीप प्रज्ज्वलन",
@@ -511,33 +535,68 @@ const GALLERY_DATA = [
         image: "assets/images/gallery/author-podium-address.jpg",
         captionHi: "साहित्यिक सम्मेलन के मुख्य मंच से रचनाकारों, समीक्षकों और शोधार्थियों को प्रेरित करने का अविस्मरणीय क्षण।",
         captionEn: "Inspiring speech from the conference dais during a national Hindi literary summit."
+    },
+    {
+        id: "gal-jacket",
+        titleHi: "पारम्परिक परिधान में साहित्यकार रमेशराज",
+        titleEn: "Author Rameshraj in Traditional Attire",
+        category: "portrait",
+        categoryHi: "कवि व्यक्तित्व",
+        categoryEn: "Author Portrait",
+        image: "assets/images/gallery/author-nehru-jacket.jpg",
+        captionHi: "पारम्परिक भारतीय परिधान में तेवरी आन्दोलन के अग्रदूत रमेशराज जी की भव्य छवि।",
+        captionEn: "Distinguished portrait of Shri Rameshraj in traditional Indian attire."
     }
 ];
 
-// Reader & Critic Testimonials
+// Reader & Critic Testimonials (विद्वानों एवं समालोचकों के प्रामाणिक विचार)
 const TESTIMONIALS_DATA = [
     {
-        nameHi: "डॉ. वीरेन्द्र कुमार",
-        nameEn: "Dr. Virendra Kumar",
-        titleHi: "विभागाध्यक्ष, हिन्दी विभाग, अलीगढ़",
-        titleEn: "Head of Hindi Dept., Aligarh",
-        quoteHi: "रमेशराज जी ने हिन्दी कविता को उस समय तेवर और स्वाभिमान दिया जब वह कोरे शृंगार और पलायनवाद में उलझी थी। उनका 'विरोध-रस' सिद्धान्त आने वाले युगों तक प्रेरणा देगा।",
-        quoteEn: "Rameshraj gifted Hindi poetry genuine pride and grit at a time when verse risked triviality. His theory of 'Virodh-Ras' will illuminate generations of scholars."
+        nameHi: "मधुर नज़्मी",
+        nameEn: "Madhur Nazmi",
+        titleHi: "महानिदेशक: 'काव्यमुखी साहित्य अकादमी', संपादक: 'परिवर्तन'",
+        titleEn: "Director General: Kavyamukhi Sahitya Akademi, Editor 'Parivartan'",
+        quoteHi: "राजेंद्र प्रसाद सिंह ने नवगीत को आंदोलन बनाया, दुष्यंत कुमार ने ग़ज़ल को तेवर दिया, और रमेशराज ने 'तेवरी' को एक सशक्त जन-आंदोलन और स्वतंत्र विधा के रूप में प्रतिष्ठापित किया। उनका यह ऐतिहासिक योगदान हिन्दी साहित्य के इतिहास में स्वर्णाक्षरों में अंकित रहेगा।",
+        quoteEn: "Rajendra Prasad Singh made Navgeet a movement, Dushyant Kumar gave teeth to the Ghazal, and Rameshraj established 'Tewari' as a formidable nationwide people's movement. His contribution is forever etched in golden letters."
     },
     {
-        nameHi: "आचार्य सत्यनारायण शर्मा",
-        nameEn: "Acharya Satyanarayan Sharma",
-        titleHi: "वरिष्ठ समालोचक एवं साहित्यकार",
-        titleEn: "Eminent Literary Critic & Author",
-        quoteHi: "तेवरी केवल छन्द नहीं, बल्कि अन्याय के विरुद्ध तनी हुई मुट्ठी है। रमेशराज जी के सम्पादन में 'तेवरीपक्ष' ने भारतीय साहित्य में प्रतिरोध की एक नई धारा बहाई है।",
-        quoteEn: "Tewari is not merely a poetic meter; it is a clenched fist against oppression. Under Rameshraj's stewardship, 'Tewaripaksh' birthed a true cultural renaissance."
+        nameHi: "डॉ. ललित सिंह",
+        nameEn: "Dr. Lalit Singh",
+        titleHi: "वरिष्ठ समालोचक एवं शोध अध्येता, अलीगढ़",
+        titleEn: "Eminent Literary Critic & Research Scholar, Aligarh",
+        quoteHi: "रमेशराज जी का 'विचार और रस' हिन्दी आलोचना और रस-मीमांसा का क्रांतिकारी ग्रंथ है। उन्होंने 'विरोध-रस' (स्थायी भाव: आक्रोश) और 'विद्रोह-रस' (स्थायी भाव: असंतोष) की शास्त्रीय स्थापना कर तथा 'अनुभाव, अनुभव और अनुभूति' की त्रयी का प्रतिपादन कर काव्यशास्त्र को नया वैज्ञानिक धरातल दिया है।",
+        quoteEn: "Rameshraj's 'Vichar aur Ras' is a revolutionary milestone in Hindi poetics. By formalizing 'Virodh-Ras' (Aesthetic of Dissent) and the trinity of emotion, experience, and perception, he gifted poetics a modern scientific dimension."
     },
     {
-        nameHi: "प्रो. नमिता सिंह",
-        nameEn: "Prof. Namita Singh",
-        titleHi: "वरिष्ठ कथाकार एवं चिंतक",
-        titleEn: "Distinguished Author & Novelist",
-        quoteHi: "रमेशराज जी का रचना-संसार अलीगढ़ की धरती से निकलकर देश के कोने-कोने में गूँजता है। उनकी भाषा में लोक-जीवन की सच्ची सुगंध और अदम्य साहस है।",
-        quoteEn: "Rameshraj's literary voice resonates across the country. In his prose and verse dwells the authentic fragrance of folk life and uncompromising courage."
+        nameHi: "अशोक अंजुम",
+        nameEn: "Ashok Anjum",
+        titleHi: "संपादक: 'अभिनव प्रयास', वरिष्ठ साहित्यकार",
+        titleEn: "Editor: 'Abhinav Prayas', Senior Litterateur",
+        quoteHi: "'रमेशराज के चर्चित तेवरी संग्रह' तेवरी आंदोलन का महाग्रंथ है। जनक छन्द और जन-विद्रोह के स्वरों से सजी यह पुस्तक शोषितों की आवाज़ और व्यवस्था के पाखंड पर करारा प्रहार है। रमेशराज जी ने सिद्ध कर दिया कि कविता केवल मनोरंजन नहीं, सामाजिक क्रांति का अस्त्र है।",
+        quoteEn: "'Rameshraj Ke Charchit Tewari Sangrah' is the magnum opus of the Tewari movement. Set in Janak Chhand and armed with righteous public rage, it proves poetry is an engine of profound social change."
+    },
+    {
+        nameHi: "डॉ. गोपाल बाबू शर्मा",
+        nameEn: "Dr. Gopal Babu Sharma",
+        titleHi: "वरिष्ठ साहित्यकार एवं बाल साहित्य मर्मज्ञ, आगरा",
+        titleEn: "Renowned Hindi Author & Children's Literature Scholar, Agra",
+        quoteHi: "रमेशराज जी की 'राष्ट्रीय बाल कविताएँ' बालमन में राष्ट्रप्रेम, स्वाभिमान, पर्यावरण और चारित्रिक चेतना का पावन संचार करती हैं। तिरंगा, सुभाष, भगत सिंह और शास्त्री जी पर लिखी उनकी कविताएँ प्रत्येक बालक के कंठ का हार बनने योग्य हैं।",
+        quoteEn: "Rameshraj's patriotic children's poetry awakens deep patriotism, self-respect, and ecological awareness in young minds. Verses on the Tricolor, Subhash, and Bhagat Singh resonate in every schoolroom."
+    },
+    {
+        nameHi: "मदन मोहन 'उपेंद्र'",
+        nameEn: "Madan Mohan 'Upendra'",
+        titleHi: "वरिष्ठ साहित्यकार एवं समीक्षक",
+        titleEn: "Senior Author & Critic of the Tewari Movement",
+        quoteHi: "फ़रवरी 1983 में रमेशराज के संपादन में प्रकाशित 'अभी जुबां कटी नहीं' पहला तेवरी संग्रह था। इसके बाद 'कबीर ज़िन्दा है' और 'इतिहास घायल है' ने मिलकर हिन्दी कविता में जन-सरोकारों और प्रतिरोध की एक ऐसी मशाल जलाई जो आज भी देदीप्यमान है।",
+        quoteEn: "In February 1983, under Rameshraj's editorship, 'Abhi Zubaan Kati Nahi' emerged as the historic first Tewari anthology. Together with 'Kabir Zinda Hai' and 'Itihas Ghayal Hai', it ignited an unquenchable flame of public resistance."
+    },
+    {
+        nameHi: "डॉ. भगत सिंह",
+        nameEn: "Dr. Bhagat Singh",
+        titleHi: "संयोजक, विशेषज्ञ समिति, ग्रन्थायन",
+        titleEn: "Convenor, Expert Committee, Granthayan",
+        quoteHi: "श्री रमेश राज के विशिष्ट एवं विपुल साहित्यिक अवदान तथा तेवरी आंदोलन की चार दशकों की ऐतिहासिक साधना के समादर स्वरूप ग्रन्थायन द्वारा उन्हें 'साहित्यश्री सम्मान' से अलंकृत करना सम्पूर्ण साहित्य समाज के लिए गौरव का क्षण है।",
+        quoteEn: "Conferring the prestigious Sahitya-Shri Honor upon Shri Ramesh Raj for four decades of selfless devotion to the Tewari movement and Hindi poetics is a proud celebration for the entire literary fraternity."
     }
 ];

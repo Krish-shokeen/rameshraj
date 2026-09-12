@@ -1761,3 +1761,105 @@ img {
         gap: 0.75rem;
     }
 }
+
+/* ==========================================================================
+   THEORETICAL FOUNDATIONS & METRIC INVENTIONS (मौलिक स्थापनाएँ)
+   ========================================================================== */
+.foundations-section {
+    margin-top: 4.5rem;
+    padding-top: 3.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.foundations-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.foundations-header h3 {
+    font-size: 1.85rem;
+    color: var(--color-bg-dark);
+    margin-bottom: 0.5rem;
+}
+
+.foundations-header p {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+}
+
+.foundations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.foundation-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.foundation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-amber));
+    opacity: 0.8;
+}
+
+.foundation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold);
+}
+
+.foundation-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: var(--color-gold-soft);
+    border: 1px solid rgba(194, 136, 42, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold-dark);
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.foundation-card h4 {
+    font-size: 1.2rem;
+    color: var(--color-bg-dark);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-heading);
+}
+
+.foundation-card .foundation-pill {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--color-amber);
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: 0.85rem;
+    align-self: flex-start;
+}
+
+.foundation-card p {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+    flex: 1;
+}
