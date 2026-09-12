@@ -1665,50 +1665,61 @@ img {
     }
 
     .section {
-        padding: 4rem 0;
+        padding: 2.25rem 0;
     }
 
     .section-header {
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.75rem;
     }
 
     .section-title {
-        font-size: clamp(1.85rem, 6vw, 2.35rem);
+        font-size: clamp(1.35rem, 5.2vw, 1.6rem);
     }
 
     .section-subtitle {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        line-height: 1.55;
+    }
+
+    .section-badge {
+        font-size: 0.72rem;
+        padding: 0.18rem 0.65rem;
+        margin-bottom: 0.45rem;
     }
 
     /* --- Top Header & Brand --- */
+    .site-header {
+        z-index: 2005 !important;
+    }
+
     .site-header .navbar {
-        height: 68px;
+        height: 64px;
     }
 
     .brand-logo .brand-name {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
 
     .brand-logo .brand-subtitle {
-        font-size: 0.68rem;
-        letter-spacing: 1px;
+        font-size: 0.64rem;
+        letter-spacing: 0.8px;
     }
 
     .nav-actions {
-        gap: 0.6rem;
+        gap: 0.5rem;
     }
 
     .mobile-nav-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         border-radius: 8px;
         background: var(--color-gold-soft);
         border: 1px solid rgba(217, 119, 6, 0.35);
         color: var(--color-gold-dark);
-        font-size: 1.2rem;
+        font-size: 1.15rem;
         cursor: pointer;
         transition: all 0.2s ease;
     }
@@ -1726,7 +1737,7 @@ img {
         background: rgba(11, 15, 25, 0.68);
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
-        z-index: 1999;
+        z-index: 1999 !important;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -1740,31 +1751,36 @@ img {
     }
 
     .nav-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 86%;
-        max-width: 320px;
-        background: #ffffff;
-        z-index: 2000;
-        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.28);
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 1.25rem;
-        gap: 0;
-        overflow-y: auto;
-        transform: translateX(100%);
-        visibility: hidden;
-        pointer-events: none;
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-height: 100vh !important;
+        max-height: 100dvh !important;
+        width: 84% !important;
+        max-width: 320px !important;
+        background: #ffffff !important;
+        z-index: 2010 !important;
+        box-shadow: -8px 0 36px rgba(0, 0, 0, 0.35) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 1.25rem !important;
+        gap: 0 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        transform: translateX(100%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease !important;
     }
 
     .nav-menu.open {
-        transform: translateX(0);
-        visibility: visible;
-        pointer-events: auto;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
     }
 
     .nav-drawer-header {
@@ -1830,7 +1846,7 @@ img {
         display: block;
         width: 100%;
         padding: 0.85rem 0.6rem;
-        font-size: 1.05rem;
+        font-size: 1.02rem;
         font-weight: 600;
         color: #1e293b;
         border-bottom: 1px solid #f1f5f9;
@@ -1858,165 +1874,247 @@ img {
 
     /* --- Hero Landing Carousel --- */
     .hero-landing-section {
-        padding-top: 68px;
+        padding-top: 64px;
     }
 
     .hero-carousel {
-        height: 380px;
-        max-height: 55vh;
+        height: 240px;
+        max-height: 40vh;
     }
 
     .carousel-control {
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
     }
 
     .carousel-control.prev {
-        left: 8px;
+        left: 6px;
     }
 
     .carousel-control.next {
-        right: 8px;
+        right: 6px;
     }
 
     .carousel-caption-bar {
-        padding: 2.25rem 0.75rem 1rem;
+        padding: 1.5rem 0.65rem 0.65rem;
     }
 
     .caption-tag {
-        font-size: 0.75rem;
-        padding: 0.2rem 0.7rem;
+        font-size: 0.7rem;
+        padding: 0.15rem 0.55rem;
     }
 
     .caption-title {
-        font-size: clamp(1.15rem, 4vw, 1.45rem);
-        margin-bottom: 0.2rem;
+        font-size: clamp(1.05rem, 3.8vw, 1.25rem);
+        margin-bottom: 0.15rem;
     }
 
     .caption-desc {
-        font-size: 0.82rem;
-        line-height: 1.4;
+        font-size: 0.78rem;
+        line-height: 1.35;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        max-width: 92%;
+        max-width: 94%;
         margin: 0 auto;
     }
 
     .carousel-dots {
-        bottom: 8px;
-        gap: 0.4rem;
+        bottom: 6px;
+        gap: 0.35rem;
     }
 
     .carousel-dot {
-        width: 8px;
-        height: 8px;
+        width: 7px;
+        height: 7px;
     }
 
     .carousel-dot.active {
-        width: 22px;
+        width: 18px;
     }
 
-    /* --- Hero Manifesto & Stats --- */
+    /* --- Hero Manifesto & Stats (Compact & Clean) --- */
     .hero-manifesto-strip {
-        padding: 3rem 0 2.25rem;
+        padding: 1.75rem 0 1.5rem;
     }
 
     .manifesto-wrapper {
-        margin-bottom: 2.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .manifesto-badge {
+        font-size: 0.72rem;
+        padding: 0.18rem 0.6rem;
+        margin-bottom: 0.5rem;
     }
 
     .manifesto-quote-title {
-        font-size: clamp(1.45rem, 5.5vw, 1.85rem);
-        line-height: 1.4;
+        font-size: clamp(1.2rem, 4.8vw, 1.45rem);
+        line-height: 1.38;
+        margin-bottom: 0.4rem;
     }
 
-    .manifesto-subtitle {
-        font-size: 0.98rem;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
+    .manifesto-subtext {
+        font-size: 0.82rem;
+        line-height: 1.5;
+        margin-bottom: 1.15rem;
     }
 
     .manifesto-btn-group {
         flex-direction: column;
         width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-        gap: 0.85rem;
+        max-width: 290px;
+        margin: 0 auto 1.35rem;
+        gap: 0.6rem;
     }
 
     .manifesto-btn-group .btn {
         width: 100%;
         justify-content: center;
-        padding: 0.8rem 1.25rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.84rem;
     }
 
     .hero-stats-bar {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 1.5rem 1rem;
+        gap: 0.75rem;
+        padding: 1rem 0.75rem;
     }
 
     .stat-number {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .stat-label {
-        font-size: 0.78rem;
+        font-size: 0.72rem;
     }
 
-    /* --- About Section (De-cluttered & Clean) --- */
+    /* --- About Section (Compact & Smoothly Expandable) --- */
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 2.25rem;
+        gap: 1.75rem;
     }
 
     .about-portrait-frame {
-        max-width: 320px;
+        max-width: 260px;
         margin: 0 auto;
         width: 100%;
     }
 
     .about-portrait-img {
-        height: 320px;
+        height: 260px;
         width: 100%;
         object-fit: cover;
     }
 
     .about-portrait-caption {
-        padding: 1rem 0.85rem;
+        padding: 0.85rem 0.75rem;
     }
 
     .about-portrait-name {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
+    }
+
+    .about-portrait-role {
+        font-size: 0.74rem;
     }
 
     .about-bio-heading {
-        font-size: clamp(1.4rem, 5vw, 1.75rem);
+        font-size: clamp(1.25rem, 4.5vw, 1.45rem);
+        margin-bottom: 0.65rem;
     }
 
-    .about-bio-text {
-        font-size: 0.95rem;
-        line-height: 1.8;
+    .about-bio-text, .about-lead-para {
+        font-size: 0.88rem;
+        line-height: 1.75;
+        margin-bottom: 0.75rem;
     }
 
     .about-pillars {
         grid-template-columns: 1fr;
-        padding: 1.25rem;
-        gap: 1rem;
+        padding: 1rem;
+        gap: 0.75rem;
+        margin-bottom: 1.15rem;
+    }
+
+    .pillar-item {
+        font-size: 0.84rem;
+        gap: 0.6rem;
+    }
+
+    .pillar-icon {
+        font-size: 1rem;
     }
 
     .about-action-row {
         flex-direction: column;
         width: 100%;
-        gap: 0.85rem;
+        gap: 0.6rem;
     }
 
     .about-action-row .btn {
         width: 100%;
         justify-content: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* Clean Expand Toggle Button for About */
+    .about-expand-btn-wrap {
+        margin-top: 1.25rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .btn-expand-about {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        max-width: 360px;
+        padding: 0.7rem 1.15rem;
+        font-size: 0.84rem;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        background: #ffffff;
+        border: 1.5px solid var(--color-gold);
+        color: var(--color-gold-dark);
+        box-shadow: 0 3px 10px rgba(217, 119, 6, 0.12);
+        transition: all 0.3s ease;
+        font-family: var(--font-sans);
+    }
+
+    .btn-expand-about:hover {
+        background: var(--color-gold);
+        color: #ffffff;
+        transform: translateY(-2px);
+    }
+
+    .btn-expand-about .toggle-arrow {
+        transition: transform 0.35s ease;
+        font-size: 0.8rem;
+    }
+
+    .btn-expand-about.expanded .toggle-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* Expandable Foundations Drawer */
+    .about-expandable-wrapper {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin-top 0.3s ease;
+    }
+
+    .about-expandable-wrapper.expanded {
+        max-height: 3500px;
+        opacity: 1;
+        margin-top: 1.5rem;
     }
 
     .timeline::before {
@@ -2099,21 +2197,64 @@ img {
     }
 
     .book-card {
-        max-width: 390px;
+        max-width: 380px;
         margin: 0 auto;
         width: 100%;
+        padding: 1.15rem 1rem;
+    }
+
+    .book-cover-frame {
+        padding: 0.85rem 0.5rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .book-cover-img {
+        width: 110px;
+        height: 160px;
+    }
+
+    .book-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .book-blurb {
+        font-size: 0.84rem;
+        line-height: 1.55;
+        margin-bottom: 0.85rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .book-actions {
+        gap: 0.5rem;
+    }
+
+    .btn-book-details, .btn-book-blogger {
+        padding: 0.5rem 0.45rem;
+        font-size: 0.78rem;
     }
 
     /* --- Blogs Showcase Section --- */
     .blogs-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
 
     .blog-card {
-        max-width: 420px;
+        max-width: 400px;
         margin: 0 auto;
         width: 100%;
+        padding: 1.15rem 1rem;
+    }
+
+    .blog-card-title {
+        font-size: 1.1rem;
+    }
+
+    .blog-excerpt {
+        font-size: 0.84rem;
+        line-height: 1.55;
+        -webkit-line-clamp: 2;
     }
 
     .blogger-profile-banner {

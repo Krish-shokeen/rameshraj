@@ -152,6 +152,138 @@
     box-shadow: 0 5px 12px rgba(230, 81, 0, 0.3);
 }
 
+/* --- Smooth In-Card Expandable Details Drawer --- */
+.book-card .expand-icon {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.75rem;
+}
+
+.book-card.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.book-card.expanded .btn-book-details {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #92400e;
+}
+
+.book-expand-drawer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.book-card.expanded .book-expand-drawer {
+    max-height: 850px;
+    opacity: 1;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(217, 119, 6, 0.3);
+}
+
+.book-drawer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+.book-meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.book-meta-pill {
+    font-size: 0.74rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    padding: 0.22rem 0.55rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 500;
+}
+
+.book-full-synopsis {
+    background: #fffdf9;
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    border-left: 3px solid var(--color-gold);
+    border-radius: 6px;
+    padding: 0.85rem;
+}
+
+.book-full-synopsis .synopsis-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #92400e;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.book-full-synopsis .synopsis-text {
+    font-size: 0.84rem;
+    color: #334155;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.book-drawer-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.btn-modal-trigger {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s;
+}
+
+.btn-modal-trigger:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.btn-close-drawer {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s;
+}
+
+.btn-close-drawer:hover {
+    background: #fee2e2;
+    color: #ef4444;
+    border-color: #fca5a5;
+}
+
 /* --------------------------------------------------------------------------
    BLOG CARD COMPONENT (BLOGGER INTEGRATION)
    -------------------------------------------------------------------------- */

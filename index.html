@@ -238,54 +238,65 @@
                             <span data-hi="ब्लॉगर प्रोफ़ाइल विजिट करें" data-en="Visit Blogger Profile">ब्लॉगर प्रोफ़ाइल विजिट करें</span>
                         </a>
                     </div>
+
+                    <!-- Clean Expand Toggle Button -->
+                    <div class="about-expand-btn-wrap">
+                        <button class="btn-expand-about" id="toggleAboutBtn" onclick="toggleAboutDetails()" aria-expanded="false" aria-controls="aboutExpandableWrapper">
+                            <i class="fas fa-chevron-down toggle-arrow"></i>
+                            <span class="toggle-text" data-hi="विस्तार से सम्पूर्ण परिचय एवं शोध सिद्धांत देखें" data-en="Read Full Biography & Poetic Foundations">विस्तार से सम्पूर्ण परिचय एवं शोध सिद्धांत देखें</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Theoretical Foundations & Metric Innovations (मौलिक स्थापनाएँ एवं सिद्धांत) -->
-            <div class="foundations-section">
-                <div class="foundations-header">
-                    <span class="section-badge" data-hi="काव्यशास्त्र में युगांतरकारी शोध" data-en="Revolutionary Poetic Foundations">काव्यशास्त्र में युगांतरकारी शोध</span>
-                    <h3 data-hi="मौलिक स्थापनाएँ एवं शास्त्र-प्रवर्तन" data-en="Foundational Aesthetic & Metric Innovations">मौलिक स्थापनाएँ एवं शास्त्र-प्रवर्तन</h3>
-                    <p data-hi="रमेशराज जी द्वारा भारतीय काव्यशास्त्र एवं छंद-विधान में प्रदत्त अमर मौलिक सिद्धांत" data-en="Enduring theoretical contributions pioneered by Rameshraj in Indian poetics and metrics">
-                        रमेशराज जी द्वारा भारतीय काव्यशास्त्र एवं छंद-विधान में प्रदत्त अमर मौलिक सिद्धांत
-                    </p>
-                </div>
-
-                <div class="foundations-grid">
-                    <div class="foundation-card">
-                        <div class="foundation-icon-wrap"><i class="fas fa-fire"></i></div>
-                        <span class="foundation-pill" data-hi="काव्यशास्त्र का 10वाँ रस" data-en="10th Aesthetic Rasa">काव्यशास्त्र का 10वाँ रस</span>
-                        <h4 data-hi="विरोध-रस (स्थायी भाव: आक्रोश)" data-en="Virodh-Ras (Aesthetics of Dissent)">विरोध-रस (स्थायी भाव: आक्रोश)</h4>
-                        <p data-hi="भरतमुनि के नवरसों के उपरांत समकालीन जन-प्रतिरोध और आक्रोश को काव्य के 10वें रस के रूप में सांगोपांग शास्त्रीय प्रतिष्ठा प्रदान की।" data-en="Pioneered and formalized 'Virodh-Ras' with 'Aakrosh' (righteous outrage) as its Sthayi Bhav beyond traditional classical Rasas.">
-                            भरतमुनि के नवरसों के उपरांत समकालीन जन-प्रतिरोध और आक्रोश को काव्य के 10वें रस के रूप में सांगोपांग शास्त्रीय प्रतिष्ठा प्रदान की।
+            <!-- Expandable Foundations Drawer (Clean & Smooth) -->
+            <div class="about-expandable-wrapper" id="aboutExpandableWrapper">
+                <!-- Theoretical Foundations & Metric Innovations (मौलिक स्थापनाएँ एवं सिद्धांत) -->
+                <div class="foundations-section">
+                    <div class="foundations-header">
+                        <span class="section-badge" data-hi="काव्यशास्त्र में युगांतरकारी शोध" data-en="Revolutionary Poetic Foundations">काव्यशास्त्र में युगांतरकारी शोध</span>
+                        <h3 data-hi="मौलिक स्थापनाएँ एवं शास्त्र-प्रवर्तन" data-en="Foundational Aesthetic & Metric Innovations">मौलिक स्थापनाएँ एवं शास्त्र-प्रवर्तन</h3>
+                        <p data-hi="रमेशराज जी द्वारा भारतीय काव्यशास्त्र एवं छंद-विधान में प्रदत्त अमर मौलिक सिद्धांत" data-en="Enduring theoretical contributions pioneered by Rameshraj in Indian poetics and metrics">
+                            रमेशराज जी द्वारा भारतीय काव्यशास्त्र एवं छंद-विधान में प्रदत्त अमर मौलिक सिद्धांत
                         </p>
                     </div>
 
-                    <div class="foundation-card">
-                        <div class="foundation-icon-wrap"><i class="fas fa-fist-raised"></i></div>
-                        <span class="foundation-pill" data-hi="विद्रोही रस-सिद्धांत" data-en="Theory of Rebellion">विद्रोही रस-सिद्धांत</span>
-                        <h4 data-hi="विद्रोह-रस (स्थायी भाव: असंतोष)" data-en="Vidroh-Ras (Aesthetics of Rebellion)">विद्रोह-रस (स्थायी भाव: असंतोष)</h4>
-                        <p data-hi="शोषण और व्यवस्थागत विसंगतियों के विरुद्ध जनक्रांति की काव्यात्मक अभिव्यक्ति को स्वतंत्र 'विद्रोह-रस' के रूप में प्रतिपादित किया।" data-en="Formulated 'Vidroh-Ras' with permanent emotion 'Asantosh' (deep discontent) as the engine of revolutionary socio-poetic transformation.">
-                            शोषण और व्यवस्थागत विसंगतियों के विरुद्ध जनक्रांति की काव्यात्मक अभिव्यक्ति को स्वतंत्र 'विद्रोह-रस' के रूप में प्रतिपादित किया।
-                        </p>
-                    </div>
+                    <div class="foundations-grid">
+                        <div class="foundation-card">
+                            <div class="foundation-icon-wrap"><i class="fas fa-fire"></i></div>
+                            <span class="foundation-pill" data-hi="काव्यशास्त्र का 10वाँ रस" data-en="10th Aesthetic Rasa">काव्यशास्त्र का 10वाँ रस</span>
+                            <h4 data-hi="विरोध-रस (स्थायी भाव: आक्रोश)" data-en="Virodh-Ras (Aesthetics of Dissent)">विरोध-रस (स्थायी भाव: आक्रोश)</h4>
+                            <p data-hi="भरतमुनि के नवरसों के उपरांत समकालीन जन-प्रतिरोध और आक्रोश को काव्य के 10वें रस के रूप में सांगोपांग शास्त्रीय प्रतिष्ठा प्रदान की।" data-en="Pioneered and formalized 'Virodh-Ras' with 'Aakrosh' (righteous outrage) as its Sthayi Bhav beyond traditional classical Rasas.">
+                                भरतमुनि के नवरसों के उपरांत समकालीन जन-प्रतिरोध और आक्रोश को काव्य के 10वें रस के रूप में सांगोपांग शास्त्रीय प्रतिष्ठा प्रदान की।
+                            </p>
+                        </div>
 
-                    <div class="foundation-card">
-                        <div class="foundation-icon-wrap"><i class="fas fa-pen-nib"></i></div>
-                        <span class="foundation-pill" data-hi="नवीन छंद आविष्कार" data-en="Metric Inventions">नवीन छंद आविष्कार</span>
-                        <h4 data-hi="जनक छन्द एवं सर्पकुण्डली राज छन्द" data-en="Janak Chhand & Sarpakundali Raj Chhand">जनक छन्द एवं सर्पकुण्डली राज छन्द</h4>
-                        <p data-hi="हिन्दी पद्य में 24 मात्राओं के गेय 'जनक छन्द' तथा कुण्डलिया छंद के नवीन स्वरूप 'सर्पकुण्डली राज छन्द' का सफल शास्त्रीय आविष्कार किया।" data-en="Created new melodic meter 'Janak Chhand' (24 matras) and 'Sarpakundali Raj Chhand' enriching classical Hindi metric traditions.">
-                            हिन्दी पद्य में 24 मात्राओं के गेय 'जनक छन्द' तथा कुण्डलिया छंद के नवीन स्वरूप 'सर्पकुण्डली राज छन्द' का सफल शास्त्रीय आविष्कार किया।
-                        </p>
-                    </div>
+                        <div class="foundation-card">
+                            <div class="foundation-icon-wrap"><i class="fas fa-fist-raised"></i></div>
+                            <span class="foundation-pill" data-hi="विद्रोही रस-सिद्धांत" data-en="Theory of Rebellion">विद्रोही रस-सिद्धांत</span>
+                            <h4 data-hi="विद्रोह-रस (स्थायी भाव: असंतोष)" data-en="Vidroh-Ras (Aesthetics of Rebellion)">विद्रोह-रस (स्थायी भाव: असंतोष)</h4>
+                            <p data-hi="शोषण और व्यवस्थागत विसंगतियों के विरुद्ध जनक्रांति की काव्यात्मक अभिव्यक्ति को स्वतंत्र 'विद्रोह-रस' के रूप में प्रतिपादित किया।" data-en="Formulated 'Vidroh-Ras' with permanent emotion 'Asantosh' (deep discontent) as the engine of revolutionary socio-poetic transformation.">
+                                शोषण और व्यवस्थागत विसंगतियों के विरुद्ध जनक्रांति की काव्यात्मक अभिव्यक्ति को स्वतंत्र 'विद्रोह-रस' के रूप में प्रतिपादित किया।
+                            </p>
+                        </div>
 
-                    <div class="foundation-card">
-                        <div class="foundation-icon-wrap"><i class="fas fa-brain"></i></div>
-                        <span class="foundation-pill" data-hi="रस-मीमांसा में नवीन सूत्र" data-en="New Poetic Axioms">रस-मीमांसा में नवीन सूत्र</span>
-                        <h4 data-hi="प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत" data-en="Reaction Theory in Rasa-Meemansa">प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत</h4>
-                        <p data-hi="रस-निष्पत्ति में 'अनुभाव, अनुभव और अनुभूति' की दार्शनिक त्रयी तथा प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत की वैज्ञानिक विवेचना प्रस्तुत की।" data-en="Developed the analytical trinity of 'Anubhav, Anubhav aur Anubhuti' and the reaction theory bridging emotional cognition with social action.">
-                            रस-निष्पत्ति में 'अनुभाव, अनुभव और अनुभूति' की दार्शनिक त्रयी तथा प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत की वैज्ञानिक विवेचना प्रस्तुत की।
-                        </p>
+                        <div class="foundation-card">
+                            <div class="foundation-icon-wrap"><i class="fas fa-pen-nib"></i></div>
+                            <span class="foundation-pill" data-hi="नवीन छंद आविष्कार" data-en="Metric Inventions">नवीन छंद आविष्कार</span>
+                            <h4 data-hi="जनक छन्द एवं सर्पकुण्डली राज छन्द" data-en="Janak Chhand & Sarpakundali Raj Chhand">जनक छन्द एवं सर्पकुण्डली राज छन्द</h4>
+                            <p data-hi="हिन्दी पद्य में 24 मात्राओं के गेय 'जनक छन्द' तथा कुण्डलिया छंद के नवीन स्वरूप 'सर्पकुण्डली राज छन्द' का सफल शास्त्रीय आविष्कार किया।" data-en="Created new melodic meter 'Janak Chhand' (24 matras) and 'Sarpakundali Raj Chhand' enriching classical Hindi metric traditions.">
+                                हिन्दी पद्य में 24 मात्राओं के गेय 'जनक छन्द' तथा कुण्डलिया छंद के नवीन स्वरूप 'सर्पकुण्डली राज छन्द' का सफल शास्त्रीय आविष्कार किया।
+                            </p>
+                        </div>
+
+                        <div class="foundation-card">
+                            <div class="foundation-icon-wrap"><i class="fas fa-brain"></i></div>
+                            <span class="foundation-pill" data-hi="रस-मीमांसा में नवीन सूत्र" data-en="New Poetic Axioms">रस-मीमांसा में नवीन सूत्र</span>
+                            <h4 data-hi="प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत" data-en="Reaction Theory in Rasa-Meemansa">प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत</h4>
+                            <p data-hi="रस-निष्पत्ति में 'अनुभाव, अनुभव और अनुभूति' की दार्शनिक त्रयी तथा प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत की वैज्ञानिक विवेचना प्रस्तुत की।" data-en="Developed the analytical trinity of 'Anubhav, Anubhav aur Anubhuti' and the reaction theory bridging emotional cognition with social action.">
+                                रस-निष्पत्ति में 'अनुभाव, अनुभव और अनुभूति' की दार्शनिक त्रयी तथा प्रतिवेदनात्मक प्रतिक्रिया सिद्धांत की वैज्ञानिक विवेचना प्रस्तुत की।
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

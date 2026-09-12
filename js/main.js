@@ -51,6 +51,7 @@ function initNavigation() {
 
     if (mobileToggle) {
         mobileToggle.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             if (navMenu?.classList.contains('open')) {
                 closeMenu();
@@ -62,13 +63,20 @@ function initNavigation() {
 
     if (navCloseBtn) {
         navCloseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             closeMenu();
         });
     }
 
     if (navBackdrop) {
-        navBackdrop.addEventListener('click', closeMenu);
+        navBackdrop.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeMenu();
+        });
+        navBackdrop.addEventListener('touchstart', () => {
+            closeMenu();
+        }, { passive: true });
     }
 
     navLinks.forEach(link => {
@@ -83,6 +91,36 @@ function initNavigation() {
             closeMenu();
         }
     });
+
+    // Global toggle for About section foundations & journey
+    window.toggleAboutDetails = function() {
+        const wrapper = document.getElementById('aboutExpandableWrapper');
+        const btn = document.getElementById('toggleAboutBtn');
+        if (!wrapper || !btn) return;
+
+        const isExpanded = wrapper.classList.contains('expanded');
+        const textEl = btn.querySelector('.toggle-text');
+
+        if (isExpanded) {
+            wrapper.classList.remove('expanded');
+            btn.classList.remove('expanded');
+            btn.setAttribute('aria-expanded', 'false');
+            if (textEl) {
+                textEl.textContent = currentLang === 'hi' 
+                    ? 'विस्तार से सम्पूर्ण परिचय एवं शोध सिद्धांत देखें' 
+                    : 'Read Full Biography & Poetic Foundations';
+            }
+        } else {
+            wrapper.classList.add('expanded');
+            btn.classList.add('expanded');
+            btn.setAttribute('aria-expanded', 'true');
+            if (textEl) {
+                textEl.textContent = currentLang === 'hi' 
+                    ? 'संक्षिप्त करें (कम दिखाएं)' 
+                    : 'Collapse Details';
+            }
+        }
+    };
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 40) {
@@ -346,34 +384,76 @@ function renderBooks() {
         const title = currentLang === 'hi' ? book.titleHi : book.titleEn;
         const category = currentLang === 'hi' ? book.categoryNameHi : book.categoryNameEn;
         const blurb = currentLang === 'hi' ? book.blurbHi : book.blurbEn;
-        const detailsBtnText = currentLang === 'hi' ? 'विस्तार से जानें' : 'Book Details';
+        const details = currentLang === 'hi' ? (book.detailsHi || book.blurbHi) : (book.detailsHi || book.blurbEn);
+        const detailsBtnText = currentLang === 'hi' ? 'विस्तार से विवरण' : 'Book Details';
         const bloggerBtnText = currentLang === 'hi' ? '📖 ब्लॉग पर पढ़ें' : '📖 Read on Blogger';
         const yearLabel = currentLang === 'hi' ? `प्रकाशन: ${book.year}` : `Published: ${book.year}`;
+        const publisherLabel = book.publisher || (currentLang === 'hi' ? 'सार्थक सृजन प्रकाशन, अलीगढ़' : 'Sarthak Srijan Publication');
 
         return `
-            <div class="book-card" data-id="${book.id}">
+            <div class="book-card" id="bookCard-${book.id}" data-id="${book.id}">
                 <div class="book-card-top">
-                    <div class="book-cover-frame" onclick="openBookModal('${book.id}')">
+                    <div class="book-cover-frame" onclick="toggleBookDetails('${book.id}')" title="${currentLang === 'hi' ? 'विस्तृत विवरण देखें' : 'Click for details'}">
                         <img src="${book.cover}" alt="${title}" class="book-cover-img" onerror="this.src='${book.fallbackCover}'">
                     </div>
                     <div class="book-info-block">
                         <span class="book-genre-tag">${category} &bull; ${book.year}</span>
-                        <h3 class="book-title" onclick="openBookModal('${book.id}')" title="${title}">${title}</h3>
+                        <h3 class="book-title" onclick="toggleBookDetails('${book.id}')" title="${title}">${title}</h3>
                         <p class="book-blurb">${blurb}</p>
                     </div>
                 </div>
                 <div class="book-actions">
-                    <button class="btn-book-details" onclick="openBookModal('${book.id}')">
-                        <i class="fas fa-info-circle"></i> ${detailsBtnText}
+                    <button class="btn-book-details" onclick="toggleBookDetails('${book.id}')" id="bookToggleBtn-${book.id}">
+                        <span class="expand-label">${detailsBtnText}</span>
+                        <i class="fas fa-chevron-down expand-icon"></i>
                     </button>
                     <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn-book-blogger">
-                        ${bloggerBtnText} <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                        ${bloggerBtnText} <i class="fas fa-external-link-alt" style="font-size: 0.72rem;"></i>
                     </a>
+                </div>
+
+                <!-- Smooth In-Card Expandable Details Drawer -->
+                <div class="book-expand-drawer" id="bookDrawer-${book.id}">
+                    <div class="book-drawer-content">
+                        <div class="book-meta-strip">
+                            <span class="book-meta-pill"><i class="fas fa-calendar-alt"></i> ${yearLabel}</span>
+                            <span class="book-meta-pill"><i class="fas fa-building"></i> ${publisherLabel}</span>
+                            ${book.pages ? `<span class="book-meta-pill"><i class="fas fa-file-alt"></i> ${book.pages} पृष्ठ</span>` : ''}
+                            ${book.isbn ? `<span class="book-meta-pill"><i class="fas fa-barcode"></i> ISBN: ${book.isbn}</span>` : ''}
+                        </div>
+                        <div class="book-full-synopsis">
+                            <h4 class="synopsis-title"><i class="fas fa-feather-alt"></i> ${currentLang === 'hi' ? 'साहित्यिक समीक्षा एवं परिचय' : 'Literary Review & Synopsis'}</h4>
+                            <p class="synopsis-text">${details}</p>
+                        </div>
+                        <div class="book-drawer-footer">
+                            <button class="btn-modal-trigger" onclick="openBookModal('${book.id}')">
+                                <i class="fas fa-expand-arrows-alt"></i> ${currentLang === 'hi' ? 'बड़ी विंडो में पढ़ें' : 'Full Window'}
+                            </button>
+                            <button class="btn-close-drawer" onclick="toggleBookDetails('${book.id}')">
+                                <i class="fas fa-chevron-up"></i> ${currentLang === 'hi' ? 'संक्षिप्त करें' : 'Collapse'}
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
     }).join('');
 }
+
+window.toggleBookDetails = function(bookId) {
+    const card = document.getElementById(`bookCard-${bookId}`);
+    if (!card) return;
+    const isExpanded = card.classList.contains('expanded');
+    const label = card.querySelector('.expand-label');
+
+    if (isExpanded) {
+        card.classList.remove('expanded');
+        if (label) label.textContent = currentLang === 'hi' ? 'विस्तार से विवरण' : 'Book Details';
+    } else {
+        card.classList.add('expanded');
+        if (label) label.textContent = currentLang === 'hi' ? 'संक्षिप्त करें' : 'Collapse';
+    }
+};
 
 window.filterBooks = function(category, element) {
     currentBookFilter = category;
