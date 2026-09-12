@@ -325,7 +325,7 @@ function prevSlide() {
 
 function startSliderAutoplay() {
     stopSliderAutoplay();
-    heroSliderInterval = setInterval(nextSlide, 5000);
+    heroSliderInterval = setInterval(nextSlide, 3000);
 }
 
 function stopSliderAutoplay() {
