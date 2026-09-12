@@ -352,16 +352,15 @@ function renderBooks() {
 
         return `
             <div class="book-card" data-id="${book.id}">
-                <div>
-                    <div class="book-cover-stage" onclick="openBookModal('${book.id}')">
-                        <div class="book-3d">
-                            <img src="${book.cover}" alt="${title}" class="book-cover-img" onerror="this.src='${book.fallbackCover}'">
-                        </div>
+                <div class="book-card-top">
+                    <div class="book-cover-frame" onclick="openBookModal('${book.id}')">
+                        <img src="${book.cover}" alt="${title}" class="book-cover-img" onerror="this.src='${book.fallbackCover}'">
                     </div>
-                    <span class="book-badge-category">${category}</span>
-                    <h3 class="book-title" title="${title}">${title}</h3>
-                    <div class="book-meta-year"><i class="far fa-calendar-alt"></i> ${yearLabel}</div>
-                    <p class="book-blurb">${blurb}</p>
+                    <div class="book-info-block">
+                        <span class="book-genre-tag">${category} &bull; ${book.year}</span>
+                        <h3 class="book-title" onclick="openBookModal('${book.id}')" title="${title}">${title}</h3>
+                        <p class="book-blurb">${blurb}</p>
+                    </div>
                 </div>
                 <div class="book-actions">
                     <button class="btn-book-details" onclick="openBookModal('${book.id}')">
