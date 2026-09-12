@@ -174,6 +174,8 @@ function updatePageLanguage() {
         if (text) {
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.placeholder = text;
+            } else if (text.includes('<') && text.includes('>')) {
+                el.innerHTML = text;
             } else {
                 el.textContent = text;
             }
