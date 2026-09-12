@@ -26,25 +26,62 @@ document.addEventListener('DOMContentLoaded', () => {
 function initNavigation() {
     const mobileToggle = document.getElementById('mobileNavToggle');
     const navMenu = document.getElementById('navMenu');
+    const navBackdrop = document.getElementById('navBackdrop');
+    const navCloseBtn = document.getElementById('navCloseBtn');
     const navLinks = document.querySelectorAll('.nav-link');
     const header = document.querySelector('.site-header');
 
-    if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-            const icon = mobileToggle.querySelector('i');
-            if (icon) {
-                icon.className = navMenu.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
+    function openMenu() {
+        if (!navMenu) return;
+        navMenu.classList.add('open');
+        navBackdrop?.classList.add('active');
+        document.body.classList.add('nav-menu-open');
+        const icon = mobileToggle?.querySelector('i');
+        if (icon) icon.className = 'fas fa-times';
+    }
+
+    function closeMenu() {
+        if (!navMenu) return;
+        navMenu.classList.remove('open');
+        navBackdrop?.classList.remove('active');
+        document.body.classList.remove('nav-menu-open');
+        const icon = mobileToggle?.querySelector('i');
+        if (icon) icon.className = 'fas fa-bars';
+    }
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navMenu?.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
             }
         });
     }
 
+    if (navCloseBtn) {
+        navCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMenu();
+        });
+    }
+
+    if (navBackdrop) {
+        navBackdrop.addEventListener('click', closeMenu);
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu) navMenu.classList.remove('open');
-            const icon = mobileToggle?.querySelector('i');
-            if (icon) icon.className = 'fas fa-bars';
+            closeMenu();
         });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu?.classList.contains('open')) {
+            closeMenu();
+        }
     });
 
     window.addEventListener('scroll', () => {
@@ -148,19 +185,27 @@ function initHeroSlider() {
     carousel.addEventListener('mouseenter', stopSliderAutoplay);
     carousel.addEventListener('mouseleave', startSliderAutoplay);
 
-    // Touch swipe support
+    // Touch swipe support with vertical scroll awareness
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
     carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
+        touchStartX = e.changedTouches[0].clientX;
+        touchStartY = e.changedTouches[0].clientY;
     }, { passive: true });
     carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchStartX - touchEndX > 50) {
-            nextSlide();
-            resetSliderAutoplay();
-        } else if (touchEndX - touchStartX > 50) {
-            prevSlide();
+        touchEndX = e.changedTouches[0].clientX;
+        touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
+        // Only trigger if horizontal movement is dominant and > 40px
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+            if (diffX > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
             resetSliderAutoplay();
         }
     }, { passive: true });

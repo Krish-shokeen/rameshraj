@@ -35,6 +35,15 @@
                 </a>
 
                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-drawer-header">
+                        <div class="drawer-brand">
+                            <span class="drawer-name">रमेशराज तेवरीकार</span>
+                            <span class="drawer-tag">मेनू / Navigation</span>
+                        </div>
+                        <button class="nav-close-btn" id="navCloseBtn" aria-label="Close navigation">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </li>
                     <li><a href="#home" class="nav-link active" data-hi="मुख्यपृष्ठ" data-en="Home">मुख्यपृष्ठ</a></li>
                     <li><a href="#about" class="nav-link" data-hi="परिचय" data-en="About">परिचय</a></li>
                     <li><a href="#books" class="nav-link" data-hi="पुस्तकें" data-en="Books">पुस्तकें</a></li>
@@ -43,13 +52,18 @@
                     <li><a href="#gallery" class="nav-link" data-hi="चित्रशाला" data-en="Gallery">चित्रशाला</a></li>
                     <li><a href="#reviews" class="nav-link" data-hi="समीक्षा" data-en="Reviews">समीक्षा</a></li>
                     <li><a href="#contact" class="nav-link" data-hi="संपर्क" data-en="Contact">संपर्क</a></li>
+                    <li class="nav-drawer-footer">
+                        <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="btn btn-blogger btn-sm" style="width: 100%; justify-content: center;">
+                            <i class="fab fa-blogger-b"></i> <span>ब्लॉगर प्रोफाइल</span>
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="nav-actions">
                     <button class="lang-switch-btn" id="langSwitchBtn" title="Switch Language">
                         <i class="fas fa-globe"></i> <span>English</span>
                     </button>
-                    <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="btn btn-blogger btn-sm" title="Visit Author's Blogger Profile">
+                    <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="btn btn-blogger btn-sm header-blogger-btn" title="Visit Author's Blogger Profile">
                         <i class="fab fa-blogger-b"></i> <span>Blogger</span>
                     </a>
                     <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
@@ -59,6 +73,7 @@
             </nav>
         </div>
     </header>
+    <div class="nav-backdrop" id="navBackdrop"></div>
 
     <!-- ====================================================================
          HERO SECTION: AUTHOR LANDING CAROUSEL (drnamitasingh.com style)
