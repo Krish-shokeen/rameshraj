@@ -37,6 +37,50 @@ const AUTHOR_DATA = {
     }
 };
 
+// Hero Carousel Slider Data (मुख्य पृष्ठ चित्र प्रदर्शनी - drnamitasingh.com style)
+const HERO_SLIDER_DATA = [
+    {
+        id: "slide-1",
+        image: "assets/images/gallery/author-speaking.jpg",
+        tagHi: "वरिष्ठ साहित्यकार",
+        tagEn: "Senior Author & Thinker",
+        titleHi: "रमेशराज तेवरीकार — तेवरी आन्दोलन के जनक",
+        titleEn: "Rameshraj Tewarikar — Pioneer of Tewari Movement",
+        captionHi: "वरिष्ठ साहित्यकार, कवि एवं 'तेवरीपक्ष' पत्रिका के 30+ वर्षों से प्रधान सम्पादक",
+        captionEn: "Eminent Hindi Author, Poet & Chief Editor of Tewaripaksh Literary Journal for 30+ Years"
+    },
+    {
+        id: "slide-2",
+        image: "assets/images/gallery/author-lamp-ceremony.jpg",
+        tagHi: "उद्घाटन समारोह",
+        tagEn: "Inaugural Ceremony",
+        titleHi: "साहित्यिक अनुष्ठान एवं दीप प्रज्ज्वलन",
+        titleEn: "Ceremonial Lamp Lighting at Literary Conclave",
+        captionHi: "अखिल भारतीय साहित्यिक सम्मेलन के गरिमामयी उद्घाटन अवसर पर पारम्परिक दीप प्रज्ज्वलन",
+        captionEn: "Shri Rameshraj lighting the ceremonial lamp at the auspicious inaugural of the national literary festival"
+    },
+    {
+        id: "slide-3",
+        image: "assets/images/gallery/author-vintage-recitation.jpg",
+        tagHi: "दुर्लभ ऐतिहासिक धरोहर",
+        tagEn: "Rare Archival Heritage",
+        titleHi: "दुर्लभ ऐतिहासिक चित्र: युवावस्था में काव्य-पाठ",
+        titleEn: "Archival Heritage: Poetic Recitation in Youth",
+        captionHi: "तेवरी आन्दोलन के आरंभिक वर्षों में अखिल भारतीय कवि सम्मेलन मंच से ओजस्वी काव्य-पाठ की ऐतिहासिक झलक",
+        captionEn: "Rare vintage archival photograph of young Rameshraj reciting revolutionary verses from the stage"
+    },
+    {
+        id: "slide-4",
+        image: "assets/images/gallery/author-podium-address.jpg",
+        tagHi: "मंच उद्बोधन",
+        tagEn: "Conference Dais",
+        titleHi: "राष्ट्रीय साहित्य मंच से ओजस्वी संबोधन",
+        titleEn: "Address from National Conference Dais",
+        captionHi: "साहित्यिक संगोष्ठी के मुख्य मंच से रचनाकारों, समीक्षकों और शोधार्थियों को संबोधित करते हुए",
+        captionEn: "Inspiring keynote speech from the conference dais during a national Hindi literary summit"
+    }
+];
+
 // Books Catalog
 const BOOKS_DATA = [
     {
@@ -422,43 +466,51 @@ const AWARDS_DATA = [
     }
 ];
 
-// Press, Media & Gallery
+// Press, Media & Gallery (चित्रशाला)
 const GALLERY_DATA = [
     {
         id: "gal-1",
-        titleHi: "राष्ट्रीय तेवरी महासम्मेलन में मुख्य वक्ता के रूप में संबोधन",
-        titleEn: "Keynote Address at National Tewari Conclave",
-        category: "events",
-        image: "assets/images/author.jpg",
-        captionHi: "मंच पर तेवरी आन्दोलन की वैचारिकी पर विचार व्यक्त करते हुए रमेशराज जी।",
-        captionEn: "Rameshraj addressing literary scholars on poetics of resistance."
+        titleHi: "साहित्यिक अनुष्ठान एवं दीप प्रज्ज्वलन",
+        titleEn: "Inaugural Lamp Lighting Ceremony",
+        category: "ceremony",
+        categoryHi: "उद्घाटन समारोह",
+        categoryEn: "Ceremony",
+        image: "assets/images/gallery/author-lamp-ceremony.jpg",
+        captionHi: "साहित्यिक संगोष्ठी के शुभारंभ अवसर पर पारम्परिक दीप प्रज्ज्वलित करते हुए रमेशराज जी।",
+        captionEn: "Shri Rameshraj lighting the ceremonial lamp at the inaugural of the literary festival."
     },
     {
         id: "gal-2",
-        titleHi: "दैनिक जागरण समाचार पत्र में प्रकाशित विशेष फीचर",
-        titleEn: "Featured in Leading Daily Newspapers",
-        category: "press",
-        image: "assets/images/books/book_1.jpg",
-        captionHi: "दैनिक जागरण द्वारा 'तेवरी के जनक रमेशराज' शीर्षक से प्रकाशित विस्तृत समीक्षा।",
-        captionEn: "Detailed national media profile on the literary legacy of Rameshraj."
+        titleHi: "दुर्लभ ऐतिहासिक चित्र: युवावस्था में काव्य-पाठ",
+        titleEn: "Archival Heritage: Poetic Recitation in Youth",
+        category: "archival",
+        categoryHi: "ऐतिहासिक धरोहर",
+        categoryEn: "Archival",
+        image: "assets/images/gallery/author-vintage-recitation.jpg",
+        captionHi: "तेवरी आन्दोलन के आरंभिक वर्षों में अखिल भारतीय कवि सम्मेलन मंच से ओजस्वी काव्य-पाठ की दुर्लभ ऐतिहासिक झलक।",
+        captionEn: "Rare vintage archival photograph of young Rameshraj reciting revolutionary verses at an all-India Kavi Sammelan."
     },
     {
         id: "gal-3",
-        titleHi: "साहित्य-श्री राष्ट्रीय सम्मान 2015 अलंकरण समारोह",
-        titleEn: "Conferment of Sahitya-Shri National Honor",
-        category: "awards",
-        image: "assets/images/author.jpg",
-        captionHi: "माननीय न्यायमूर्ति एवं वरिष्ठ साहित्यकारों द्वारा सम्मान पत्र भेंट किए जाने का क्षण।",
-        captionEn: "Honored with memento and citation at prestigious national ceremony."
+        titleHi: "साहित्यिक संगोष्ठी में मुख्य वक्ता के रूप में उद्बोधन",
+        titleEn: "Keynote Address at National Literary Conclave",
+        category: "keynote",
+        categoryHi: "साहित्यिक वक्तव्य",
+        categoryEn: "Keynote Address",
+        image: "assets/images/gallery/author-speaking.jpg",
+        captionHi: "मंच से 'विरोध-रस' और समकालीन जनवादी कविता के सरोकारों पर विचार व्यक्त करते वरिष्ठ साहित्यकार रमेशराज जी।",
+        captionEn: "Senior author Rameshraj addressing literary critics and scholars on aesthetics of resistance and public conscience."
     },
     {
         id: "gal-4",
-        titleHi: "'विरोध-रस' शोध ग्रंथ का भव्य लोकार्पण",
-        titleEn: "Grand Book Launch of 'Virodh-Ras'",
-        category: "launches",
-        image: "assets/images/books/book_2.jpg",
-        captionHi: "विश्वविद्यालय के कुलपति एवं शीर्ष आलोचकों की गरिमामयी उपस्थिति में विमोचन।",
-        captionEn: "Unveiling ceremony attended by University Vice Chancellors & top critics."
+        titleHi: "राष्ट्रीय साहित्य मंच से ओजस्वी संबोधन",
+        titleEn: "Address from National Conference Dais",
+        category: "conference",
+        categoryHi: "मंच उद्बोधन",
+        categoryEn: "Conference Dais",
+        image: "assets/images/gallery/author-podium-address.jpg",
+        captionHi: "साहित्यिक सम्मेलन के मुख्य मंच से रचनाकारों, समीक्षकों और शोधार्थियों को प्रेरित करने का अविस्मरणीय क्षण।",
+        captionEn: "Inspiring speech from the conference dais during a national Hindi literary summit."
     }
 ];
 

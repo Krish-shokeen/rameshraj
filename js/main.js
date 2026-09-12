@@ -8,6 +8,7 @@ let currentSearchTerm = '';
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initLanguageSwitcher();
+    initHeroSlider();
     initHeroCounters();
     renderBooks();
     renderBlogs();
@@ -105,11 +106,155 @@ function updatePageLanguage() {
     });
 
     // Re-render dynamic sections
+    renderHeroSlider();
     renderBooks();
     renderBlogs();
     renderAwards();
     renderGallery();
     renderTestimonials();
+}
+
+/* --------------------------------------------------------------------------
+   HERO AUTHOR SLIDER / CAROUSEL (drnamitasingh.com style)
+   -------------------------------------------------------------------------- */
+let currentSlideIndex = 0;
+let heroSliderInterval = null;
+
+function initHeroSlider() {
+    const carousel = document.getElementById('heroCarousel');
+    const prevBtn = document.getElementById('heroPrevBtn');
+    const nextBtn = document.getElementById('heroNextBtn');
+    if (!carousel) return;
+
+    renderHeroSlider();
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+            resetSliderAutoplay();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+            resetSliderAutoplay();
+        });
+    }
+
+    // Pause on hover
+    carousel.addEventListener('mouseenter', stopSliderAutoplay);
+    carousel.addEventListener('mouseleave', startSliderAutoplay);
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) {
+            nextSlide();
+            resetSliderAutoplay();
+        } else if (touchEndX - touchStartX > 50) {
+            prevSlide();
+            resetSliderAutoplay();
+        }
+    }, { passive: true });
+
+    startSliderAutoplay();
+}
+
+function renderHeroSlider() {
+    const slidesContainer = document.getElementById('carouselSlides');
+    const dotsContainer = document.getElementById('carouselDots');
+    if (!slidesContainer || typeof HERO_SLIDER_DATA === 'undefined') return;
+
+    slidesContainer.innerHTML = HERO_SLIDER_DATA.map((item, idx) => {
+        const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
+        const tag = currentLang === 'hi' ? item.tagHi : item.tagEn;
+        const caption = currentLang === 'hi' ? item.captionHi : item.captionEn;
+        const activeClass = idx === currentSlideIndex ? 'active' : '';
+
+        return `
+            <div class="carousel-slide ${activeClass}" data-slide="${idx}">
+                <div class="slide-ambient-bg" style="background-image: url('${item.image}')"></div>
+                <div class="slide-img-container" onclick="openLightbox('${item.image}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'विस्तृत चित्र देखें' : 'View Fullscreen'}">
+                    <img src="${item.image}" alt="${title}" class="slide-img" onerror="this.src='assets/images/author.jpg'">
+                    <div class="slide-zoom-btn">
+                        <i class="fas fa-expand-alt"></i>
+                        <span>${currentLang === 'hi' ? 'विस्तृत चित्र' : 'Fullscreen'}</span>
+                    </div>
+                </div>
+                <div class="carousel-caption-bar">
+                    <div class="caption-content">
+                        <span class="caption-tag"><i class="fas fa-feather-alt"></i> ${tag}</span>
+                        <h3 class="caption-title">${title}</h3>
+                        <p class="caption-desc">${caption}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    if (dotsContainer) {
+        dotsContainer.innerHTML = HERO_SLIDER_DATA.map((_, idx) => `
+            <button class="carousel-dot ${idx === currentSlideIndex ? 'active' : ''}" onclick="goToSlide(${idx})" aria-label="Slide ${idx + 1}"></button>
+        `).join('');
+    }
+}
+
+window.goToSlide = function(index) {
+    if (typeof HERO_SLIDER_DATA === 'undefined') return;
+    const total = HERO_SLIDER_DATA.length;
+    currentSlideIndex = (index + total) % total;
+
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    slides.forEach((s, idx) => {
+        if (idx === currentSlideIndex) {
+            s.classList.add('active');
+        } else {
+            s.classList.remove('active');
+        }
+    });
+
+    dots.forEach((d, idx) => {
+        if (idx === currentSlideIndex) {
+            d.classList.add('active');
+        } else {
+            d.classList.remove('active');
+        }
+    });
+};
+
+function nextSlide() {
+    goToSlide(currentSlideIndex + 1);
+}
+
+function prevSlide() {
+    goToSlide(currentSlideIndex - 1);
+}
+
+function startSliderAutoplay() {
+    stopSliderAutoplay();
+    heroSliderInterval = setInterval(nextSlide, 5000);
+}
+
+function stopSliderAutoplay() {
+    if (heroSliderInterval) {
+        clearInterval(heroSliderInterval);
+        heroSliderInterval = null;
+    }
+}
+
+function resetSliderAutoplay() {
+    stopSliderAutoplay();
+    startSliderAutoplay();
 }
 
 /* --------------------------------------------------------------------------
@@ -269,15 +414,30 @@ function renderGallery() {
     const galleryGrid = document.getElementById('galleryGrid');
     if (!galleryGrid) return;
 
+    const iconMap = {
+        ceremony: 'fa-fire-alt',
+        archival: 'fa-history',
+        keynote: 'fa-microphone-alt',
+        conference: 'fa-users'
+    };
+
     galleryGrid.innerHTML = GALLERY_DATA.map(item => {
         const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
         const caption = currentLang === 'hi' ? item.captionHi : item.captionEn;
+        const category = currentLang === 'hi' ? (item.categoryHi || 'चित्रशाला') : (item.categoryEn || 'Gallery');
+        const icon = iconMap[item.category] || 'fa-camera';
 
         return `
             <div class="gallery-card" onclick="openLightbox('${item.image}', '${title.replace(/'/g, "\\'")}')">
-                <img src="${item.image}" alt="${title}" class="gallery-thumb" onerror="this.src='assets/images/author.jpg'">
+                <div class="gallery-thumb-wrap">
+                    <img src="${item.image}" alt="${title}" class="gallery-thumb" onerror="this.src='assets/images/author.jpg'">
+                    <div class="gallery-hover-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>${currentLang === 'hi' ? 'विस्तृत देखें' : 'View Full Image'}</span>
+                    </div>
+                </div>
                 <div class="gallery-caption">
-                    <span class="gallery-tag"><i class="fas fa-camera"></i> ${currentLang === 'hi' ? 'चित्रशाला' : 'Gallery'}</span>
+                    <span class="gallery-tag"><i class="fas ${icon}"></i> ${category}</span>
                     <h4>${title}</h4>
                     <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 0;">${caption}</p>
                 </div>

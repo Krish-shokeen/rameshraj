@@ -392,169 +392,368 @@ img {
     pointer-events: none;
 }
 
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3.5rem;
-    align-items: center;
+/* ==========================================================================
+   HERO AUTHOR CAROUSEL & LANDING (drnamitasingh.com style)
+   ========================================================================== */
+.hero-landing-section {
     position: relative;
+    background: #0b0f19;
+    padding-top: 75px; /* header offset */
+    overflow: hidden;
+}
+
+.hero-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    background: #070a12;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(217, 119, 6, 0.35);
+}
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    max-height: 72vh;
+    overflow: hidden;
+    background: #070a12;
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
     z-index: 2;
 }
 
-.hero-content .hero-badge {
+/* Ambient blurred background to fill ultra-wide screens smoothly */
+.slide-ambient-bg {
+    position: absolute;
+    inset: -25px;
+    background-size: cover;
+    background-position: center;
+    filter: blur(40px) brightness(0.3);
+    transform: scale(1.15);
+    pointer-events: none;
+}
+
+.slide-img-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slide-img {
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-img-container:hover .slide-img {
+    transform: scale(1.02);
+}
+
+.slide-zoom-btn {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 0.5rem 1.1rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.slide-img-container:hover .slide-zoom-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-zoom-btn i {
+    color: var(--color-gold);
+}
+
+/* Translucent Caption Bar across bottom (drnamitasingh.com style) */
+.carousel-caption-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(11, 15, 25, 0.98) 0%, rgba(11, 15, 25, 0.85) 60%, transparent 100%);
+    padding: 3.5rem 2rem 1.6rem;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.caption-content {
+    max-width: 950px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.caption-tag {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: #ffffff;
-    border: 1px solid rgba(194, 136, 42, 0.3);
+    background: rgba(217, 119, 6, 0.25);
+    border: 1px solid rgba(217, 119, 6, 0.6);
+    color: var(--color-gold-light);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 0.4rem;
+}
+
+.caption-title {
+    color: #ffffff;
+    font-size: 1.65rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+    font-family: var(--font-heading);
+}
+
+.caption-desc {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Circular Arrow Controls (like drnamitasingh.com) */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 5;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control.prev {
+    left: 25px;
+}
+
+.carousel-control.next {
+    right: 25px;
+}
+
+.carousel-control:hover {
+    background: var(--color-gold);
+    color: #0f172a;
+    border-color: var(--color-gold);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 22px rgba(217, 119, 6, 0.5);
+}
+
+/* Indicator Dots */
+.carousel-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    z-index: 5;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    width: 32px;
+    border-radius: 8px;
+    background: var(--color-gold);
+    box-shadow: 0 0 10px rgba(217, 119, 6, 0.6);
+}
+
+/* Author Manifesto Strip (immediately below carousel) */
+.hero-manifesto-strip {
+    background: linear-gradient(180deg, #0b0f19 0%, #0f172a 100%);
+    padding: 3.5rem 0 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.manifesto-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 3.5rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.manifesto-lead .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(217, 119, 6, 0.4);
     padding: 0.4rem 1.1rem;
     border-radius: 999px;
     font-family: var(--font-sans);
     font-size: 0.85rem;
-    color: var(--color-gold-dark);
+    color: var(--color-gold-light);
     font-weight: 600;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.hero-title {
-    font-size: 3.25rem;
-    color: var(--color-bg-dark);
-    line-height: 1.2;
     margin-bottom: 1rem;
 }
 
-.hero-title span {
-    color: var(--color-amber);
-    display: inline-block;
+.manifesto-lead .hero-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    line-height: 1.25;
+    margin-bottom: 0.85rem;
 }
 
-.hero-tagline {
-    font-size: 1.35rem;
-    color: var(--color-gold-dark);
+.manifesto-lead .hero-title span {
+    color: var(--color-gold-light);
+}
+
+.manifesto-lead .hero-tagline {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
     font-family: var(--font-serif);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-.hero-quote {
-    position: relative;
-    padding-left: 1.5rem;
-    border-left: 3px solid var(--color-gold);
-    font-style: italic;
-    color: var(--color-text-muted);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-}
-
-/* Author Portrait Card in Hero */
-.hero-portrait-wrapper {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-portrait-card {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    border-radius: var(--radius-lg);
-    background: #ffffff;
-    padding: 1.25rem;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-color);
-}
-
-.hero-portrait-card::before {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    border-radius: calc(var(--radius-lg) + 8px);
-    border: 1px dashed var(--color-gold);
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-.portrait-img {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: var(--radius-md);
-    filter: contrast(1.03);
-}
-
-.portrait-caption {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.portrait-caption h4 {
-    font-size: 1.25rem;
-    margin-bottom: 0.2rem;
-}
-
-.portrait-caption p {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--color-gold-dark);
-    margin-bottom: 0;
     font-weight: 500;
 }
 
-/* Floating Badges */
-.floating-badge {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--border-color);
-    padding: 0.75rem 1.2rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+.manifesto-lead .hero-quote {
+    color: #cbd5e1;
+    border-left: 3px solid var(--color-gold);
+    padding-left: 1.25rem;
+    font-style: italic;
+    font-size: 1.05rem;
+    margin-bottom: 0;
+}
+
+.manifesto-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-honors-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.honor-pill {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    z-index: 3;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-md);
+    padding: 0.65rem 1rem;
+    color: #ffffff;
+    flex: 1;
+    min-width: 140px;
+    transition: var(--transition);
 }
 
-.floating-badge-1 {
-    top: 25px;
-    left: -20px;
+.honor-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-gold-light);
 }
 
-.floating-badge-2 {
-    bottom: 35px;
-    right: -20px;
+.honor-pill i {
+    font-size: 1.3rem;
+    color: var(--color-gold);
 }
 
-.floating-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--color-gold-soft);
-    color: var(--color-gold-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-}
-
-.floating-text strong {
+.honor-pill strong {
     display: block;
-    font-size: 0.95rem;
-    color: var(--color-bg-dark);
+    font-size: 0.9rem;
+    line-height: 1.2;
 }
 
-.floating-text span {
+.honor-pill span {
     font-size: 0.75rem;
-    color: var(--color-text-muted);
+    color: #94a3b8;
+}
+
+/* Stats Bar inside manifesto strip */
+.hero-manifesto-strip .hero-stats-bar {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    border-top: none;
+}
+
+.hero-manifesto-strip .stat-number {
+    color: var(--color-gold-light);
+}
+
+.hero-manifesto-strip .stat-label {
+    color: #94a3b8;
 }
 
 /* Stats Counter Grid */
@@ -597,6 +796,160 @@ img {
 
 .about-visual {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+/* About Photo Montage Showcase */
+.about-showcase-frame {
+    position: relative;
+    width: 100%;
+}
+
+.about-main-photo-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 3px solid #ffffff;
+    cursor: pointer;
+    background: #0f172a;
+    transition: var(--transition);
+}
+
+.about-main-photo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.about-photo-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.about-main-photo-card:hover .about-photo-img {
+    transform: scale(1.04);
+}
+
+.about-photo-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.25rem 1.25rem 1rem;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 50%, transparent 100%);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    letter-spacing: 0.3px;
+}
+
+.about-photo-tag i {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+}
+
+.zoom-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    opacity: 0.85;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.about-main-photo-card:hover .zoom-indicator {
+    background: var(--color-gold);
+    color: #0f172a;
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Floating Archival Vintage Inset Card */
+.about-vintage-card {
+    position: absolute;
+    bottom: -22px;
+    right: -18px;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    background: #ffffff;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+    border: 2px solid var(--color-gold);
+    cursor: pointer;
+    max-width: 295px;
+    transition: var(--transition);
+    z-index: 3;
+}
+
+.about-vintage-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 22px 38px rgba(0, 0, 0, 0.26);
+    background: #fffbeb;
+}
+
+.about-vintage-img {
+    width: 65px;
+    height: 82px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    filter: contrast(1.1);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.about-vintage-card:hover .about-vintage-img {
+    transform: scale(1.05);
+}
+
+.about-vintage-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.vintage-pill {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #b45309;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.about-vintage-details h5 {
+    font-size: 0.88rem;
+    margin: 0;
+    color: #0f172a;
+    line-height: 1.25;
+}
+
+.about-vintage-details p {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin: 2px 0 0 0;
+    line-height: 1.2;
 }
 
 .about-feature-card {
@@ -893,15 +1246,62 @@ img {
     box-shadow: var(--shadow-lg);
 }
 
+.gallery-thumb-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 230px;
+    background: #0f172a;
+}
+
 .gallery-thumb {
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-card:hover .gallery-thumb {
-    transform: scale(1.05);
+    transform: scale(1.08);
+}
+
+.gallery-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.gallery-hover-overlay i {
+    font-size: 1.5rem;
+    color: var(--color-gold);
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.gallery-hover-overlay span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover .gallery-hover-overlay {
+    opacity: 1;
+}
+
+.gallery-card:hover .gallery-hover-overlay i,
+.gallery-card:hover .gallery-hover-overlay span {
+    transform: translateY(0);
 }
 
 .gallery-caption {
@@ -1006,6 +1406,60 @@ img {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: 4rem;
+}
+
+/* Author Contact Card */
+.contact-author-badge {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: #ffffff;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.contact-author-badge:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold-light);
+}
+
+.contact-author-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    border: 2px solid var(--color-gold);
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.contact-author-avatar:hover {
+    transform: scale(1.08);
+}
+
+.contact-author-meta h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+    color: var(--color-bg-dark);
+}
+
+.contact-author-meta p {
+    font-size: 0.88rem;
+    color: var(--color-gold-dark);
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+}
+
+.contact-author-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+    display: block;
 }
 
 .contact-info-list {
@@ -1169,6 +1623,15 @@ img {
    RESPONSIVE DESIGN (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 1024px) {
+    .manifesto-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .hero-carousel {
+        height: 460px;
+    }
+
     .hero-grid, .about-grid, .contact-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1184,6 +1647,44 @@ img {
 }
 
 @media (max-width: 768px) {
+    .hero-carousel {
+        height: 360px;
+    }
+
+    .carousel-control {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .carousel-control.prev {
+        left: 10px;
+    }
+
+    .carousel-control.next {
+        right: 10px;
+    }
+
+    .caption-title {
+        font-size: 1.2rem;
+    }
+
+    .caption-desc {
+        font-size: 0.8rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .carousel-caption-bar {
+        padding: 2rem 1rem 1.2rem;
+    }
+
+    .manifesto-lead .hero-title {
+        font-size: 1.85rem;
+    }
+
     .navbar {
         height: 70px;
     }
@@ -1240,5 +1741,23 @@ img {
 
     .footer-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-vintage-card {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: -15px auto 0 auto;
+        max-width: 95%;
+    }
+
+    .about-photo-img {
+        height: 280px;
+    }
+
+    .contact-author-badge {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
     }
 }
