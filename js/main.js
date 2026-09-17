@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroSlider();
     initHeroCounters();
     renderBooks();
+    renderMasterBibliography();
     renderBlogs();
+    initBookMarquees();
+    initVisitorCounter();
     renderAwards();
     renderGallery();
     renderTestimonials();
@@ -185,6 +188,7 @@ function updatePageLanguage() {
     // Re-render dynamic sections
     renderHeroSlider();
     renderBooks();
+    renderMasterBibliography();
     renderBlogs();
     renderAwards();
     renderGallery();
@@ -470,41 +474,177 @@ window.handleBookSearch = function(input) {
 };
 
 /* --------------------------------------------------------------------------
-   BLOGGER BLOGS SECTION
+   MASTER CATEGORIZED BIBLIOGRAPHY (साहित्य-संसार: विधावार समग्र ग्रन्थ-सूची)
    -------------------------------------------------------------------------- */
-function renderBlogs() {
-    const blogsGrid = document.getElementById('blogsGrid');
-    if (!blogsGrid) return;
+let currentBiblioCategory = 'all';
 
-    blogsGrid.innerHTML = BLOGS_DATA.map(blog => {
-        const title = currentLang === 'hi' ? blog.titleHi : blog.titleEn;
-        const category = currentLang === 'hi' ? blog.categoryNameHi : blog.categoryNameEn;
-        const desc = currentLang === 'hi' ? blog.descriptionHi : blog.descriptionEn;
-        const btnText = currentLang === 'hi' ? 'ब्लॉग विजिट करें' : 'Visit on Blogger';
+function renderMasterBibliography() {
+    const container = document.getElementById('masterBibliographyContainer');
+    const pillsContainer = document.getElementById('categoriesNavPills');
+    if (!container || typeof LITERARY_CATEGORIES === 'undefined' || typeof ALL_WORKS_LIST === 'undefined') return;
+
+    // Render Category Filter Pills
+    if (pillsContainer) {
+        const allLabel = currentLang === 'hi' ? 'समग्र कृतियाँ (समस्त 9 विधाएँ)' : 'All 9 Categories (Complete)';
+        pillsContainer.innerHTML = `
+            <button class="cat-pill-btn ${currentBiblioCategory === 'all' ? 'active' : ''}" onclick="filterMasterBibliography('all', this)">
+                <i class="fas fa-layer-group"></i> <span>${allLabel}</span>
+                <span class="pill-count">${ALL_WORKS_LIST.length}</span>
+            </button>
+        ` + LITERARY_CATEGORIES.map(cat => {
+            const title = currentLang === 'hi' ? cat.titleHi : cat.titleEn;
+            const count = ALL_WORKS_LIST.filter(w => w.categoryId === cat.id).length;
+            const isActive = currentBiblioCategory === cat.id ? 'active' : '';
+            return `
+                <button class="cat-pill-btn ${isActive}" onclick="filterMasterBibliography('${cat.id}', this)">
+                    <i class="${cat.icon}"></i> <span>${title}</span>
+                    <span class="pill-count">${count}</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    // Render Category Blocks
+    const categoriesToShow = currentBiblioCategory === 'all' 
+        ? LITERARY_CATEGORIES 
+        : LITERARY_CATEGORIES.filter(c => c.id === currentBiblioCategory);
+
+    const readOnBlogger = currentLang === 'hi' ? 'ब्लॉग पर पढ़ें' : 'Read on Blogger';
+
+    container.innerHTML = categoriesToShow.map(cat => {
+        const catTitle = currentLang === 'hi' ? cat.titleHi : cat.titleEn;
+        const catDesc = currentLang === 'hi' ? cat.descriptionHi : cat.descriptionEn;
+        const works = ALL_WORKS_LIST.filter(w => w.categoryId === cat.id);
 
         return `
-            <div class="blog-card">
-                <div class="blog-card-header">
-                    <div class="blog-service-tag">
-                        <i class="fab fa-blogger-b"></i> <span>${blog.badge}</span>
-                    </div>
-                    <h3 class="blog-card-title">${title}</h3>
-                    <div class="blog-stats-pill">
-                        <i class="fas fa-layer-group"></i> ${blog.postsCount} &bull; ${category}
-                    </div>
+            <div class="biblio-category-block" id="catBlock-${cat.id}">
+                <div class="biblio-cat-title-row">
+                    <h4 class="biblio-cat-heading">
+                        <i class="${cat.icon}"></i> <span>${catTitle}</span>
+                    </h4>
+                    <span class="biblio-cat-badge">${works.length} ${currentLang === 'hi' ? 'कृतियाँ' : 'Works'}</span>
                 </div>
-                <div class="blog-card-body">
-                    <p class="blog-excerpt">${desc}</p>
-                </div>
-                <div class="blog-card-footer">
-                    <a href="${blog.url}" target="_blank" rel="noopener noreferrer" class="btn-visit-blog">
-                        <i class="fab fa-blogger"></i> ${btnText} <i class="fas fa-arrow-right"></i>
-                    </a>
+                <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 1.25rem;">${catDesc}</p>
+                <div class="biblio-works-list">
+                    ${works.map(work => {
+                        const title = currentLang === 'hi' ? work.titleHi : work.titleEn;
+                        const desc = currentLang === 'hi' ? work.descHi : work.descEn;
+                        return `
+                            <div class="biblio-work-item">
+                                <div class="work-item-num">${work.num}</div>
+                                <div class="work-item-content">
+                                    <div class="work-item-title">${title}</div>
+                                    <div class="work-item-type">${work.type}</div>
+                                    <p style="font-size: 0.85rem; color: #475569; line-height: 1.5; margin-bottom: 0.5rem;">${desc}</p>
+                                    <a href="${work.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="work-item-link">
+                                        <i class="fab fa-blogger"></i> ${readOnBlogger} <i class="fas fa-arrow-right" style="font-size: 0.65rem;"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
                 </div>
             </div>
         `;
     }).join('');
 }
+
+window.filterMasterBibliography = function(catId, btnEl) {
+    currentBiblioCategory = catId;
+    document.querySelectorAll('.cat-pill-btn').forEach(b => b.classList.remove('active'));
+    btnEl?.classList.add('active');
+    renderMasterBibliography();
+};
+
+
+/* --------------------------------------------------------------------------
+   BLOGGER BLOGS SECTION (32+ Platforms with Authentic Media & Rich Cards)
+   -------------------------------------------------------------------------- */
+let currentBlogSearch = '';
+
+function renderBlogs() {
+    const blogsGrid = document.getElementById('blogsGrid');
+    if (!blogsGrid) return;
+
+    // On main landing page, ONLY show blogs that have authentic dedicated photos!
+    let filtered = Array.isArray(BLOGS_DATA) ? BLOGS_DATA.filter(b => b.hasPhoto) : [];
+    if (currentBlogFilter !== 'all') {
+        filtered = filtered.filter(b => b.category === currentBlogFilter);
+    }
+    if (currentBlogSearch && currentBlogSearch.trim() !== '') {
+        const q = currentBlogSearch.trim().toLowerCase();
+        filtered = filtered.filter(b => 
+            (b.titleHi && b.titleHi.toLowerCase().includes(q)) ||
+            (b.titleEn && b.titleEn.toLowerCase().includes(q)) ||
+            (b.featuredArticle && b.featuredArticle.toLowerCase().includes(q)) ||
+            (b.descHi && b.descHi.toLowerCase().includes(q)) ||
+            (b.categoryHi && b.categoryHi.toLowerCase().includes(q))
+        );
+    }
+
+    const countBadge = document.getElementById('blogsCountBadge');
+    if (countBadge) {
+        countBadge.textContent = currentLang === 'hi' 
+            ? `${filtered.length} सचित्र ब्लॉग्स प्रदर्शित` 
+            : `${filtered.length} Photo Blogs Shown`;
+    }
+
+    if (filtered.length === 0) {
+        blogsGrid.innerHTML = `
+            <div class="no-blogs-found" style="grid-column: 1 / -1; text-align: center; padding: 4rem 1.5rem; color: #64748b; background: #ffffff; border-radius: 12px; border: 1px dashed #cbd5e1;">
+                <i class="fas fa-search" style="font-size: 2.5rem; margin-bottom: 1rem; color: #cbd5e1;"></i>
+                <h4 style="font-size: 1.25rem; color: #334155; margin-bottom: 0.5rem;">${currentLang === 'hi' ? 'कोई ब्लॉग नहीं मिला' : 'No Blogs Found'}</h4>
+                <p>${currentLang === 'hi' ? 'कृपया कोई अन्य शब्द या श्रेणी चुनकर खोजें।' : 'Please try searching with another keyword or category.'}</p>
+            </div>
+        `;
+        return;
+    }
+
+    blogsGrid.innerHTML = filtered.map(blog => {
+        const title = currentLang === 'hi' ? blog.titleHi : blog.titleEn;
+        const category = currentLang === 'hi' ? blog.categoryHi : blog.categoryEn;
+        const desc = currentLang === 'hi' ? blog.descHi : blog.descEn;
+        const btnText = currentLang === 'hi' ? 'ब्लॉग पढ़ें' : 'Open Blog';
+        const titleEscaped = (blog.titleHi || '').replace(/'/g, "\\'");
+
+        return `
+            <article class="blog-card" data-category="${blog.category}">
+                <div class="blog-card-media">
+                    <img src="${blog.image}" alt="${title}" loading="lazy" class="blog-card-img" onclick="openLightbox('${blog.image}', '${titleEscaped}')" style="cursor: pointer;" title="${currentLang === 'hi' ? 'बड़ा छायाचित्र देखें' : 'View full image'}">
+                    <span class="blog-category-badge"><i class="fab fa-blogger"></i> ${category}</span>
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-card-byline">
+                        <i class="far fa-calendar-alt"></i> <span>${blog.dateAuthor}</span>
+                    </div>
+                    <h3 class="blog-card-title">${title}</h3>
+                    <div class="blog-featured-article">
+                        <i class="fas fa-bookmark" style="color: #ea580c; font-size: 0.8rem; margin-top: 3px; flex-shrink: 0;"></i>
+                        <span>${blog.featuredArticle}</span>
+                    </div>
+                    <p class="blog-excerpt">${desc}</p>
+                    <div class="blog-card-footer">
+                        <a href="${blog.url}" target="_blank" rel="noopener noreferrer" class="btn-visit-blog">
+                            <i class="fab fa-blogger-b"></i> <span>${btnText}</span> <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+window.filterBlogs = function(catId, btnEl) {
+    currentBlogFilter = catId;
+    document.querySelectorAll('.blog-filter-pill').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    renderBlogs();
+};
+
+window.handleBlogSearch = function(val) {
+    currentBlogSearch = val || '';
+    renderBlogs();
+};
 
 /* --------------------------------------------------------------------------
    AWARDS & MILESTONES
@@ -739,6 +879,294 @@ window.closeLightbox = function() {
 function closeAllModals() {
     closeBookModal();
     closeLightbox();
+    closeAllBooksModal();
+    closeAllBlogsModal();
+}
+
+/* --------------------------------------------------------------------------
+   ALL BOOKS & COMPLETE WORKS MODAL (58+ Works)
+   -------------------------------------------------------------------------- */
+let allBooksModalCat = 'all';
+let allBooksModalSearch = '';
+
+window.openAllBooksModal = function(catId) {
+    const modal = document.getElementById('allBooksModal');
+    if (!modal) return;
+
+    allBooksModalCat = catId || 'all';
+    allBooksModalSearch = '';
+    const searchInput = document.getElementById('allBooksSearchInput');
+    if (searchInput) searchInput.value = '';
+
+    renderAllBooksModal();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeAllBooksModal = function() {
+    const modal = document.getElementById('allBooksModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+window.handleAllBooksSearch = function(val) {
+    allBooksModalSearch = (val || '').trim().toLowerCase();
+    renderAllBooksModal();
+};
+
+window.filterAllBooksModalCat = function(catId) {
+    allBooksModalCat = catId;
+    renderAllBooksModal();
+};
+
+function renderAllBooksModal() {
+    const body = document.getElementById('allBooksModalBody');
+    const pillsContainer = document.getElementById('allBooksCategoryPills');
+    const countBadge = document.getElementById('allBooksCountBadge');
+    if (!body || typeof ALL_WORKS_LIST === 'undefined') return;
+
+    // Render Pills
+    if (pillsContainer && typeof LITERARY_CATEGORIES !== 'undefined') {
+        const allLabel = currentLang === 'hi' ? 'समस्त 58+ कृतियाँ' : 'All 58+ Works';
+        pillsContainer.innerHTML = `
+            <button class="modal-pill-btn ${allBooksModalCat === 'all' ? 'active' : ''}" onclick="filterAllBooksModalCat('all')">
+                <i class="fas fa-layer-group"></i> <span>${allLabel}</span>
+                <span class="pill-count">${ALL_WORKS_LIST.length}</span>
+            </button>
+        ` + LITERARY_CATEGORIES.map(cat => {
+            const count = ALL_WORKS_LIST.filter(w => w.categoryId === cat.id).length;
+            const title = currentLang === 'hi' ? cat.titleHi : cat.titleEn;
+            const isActive = allBooksModalCat === cat.id ? 'active' : '';
+            return `
+                <button class="modal-pill-btn ${isActive}" onclick="filterAllBooksModalCat('${cat.id}')">
+                    <i class="${cat.icon}"></i> <span>${title}</span>
+                    <span class="pill-count">${count}</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    // Filter works
+    let filtered = ALL_WORKS_LIST;
+    if (allBooksModalCat !== 'all') {
+        filtered = filtered.filter(w => w.categoryId === allBooksModalCat);
+    }
+    if (allBooksModalSearch) {
+        filtered = filtered.filter(w => 
+            (w.titleHi && w.titleHi.toLowerCase().includes(allBooksModalSearch)) ||
+            (w.titleEn && w.titleEn.toLowerCase().includes(allBooksModalSearch)) ||
+            (w.descHi && w.descHi.toLowerCase().includes(allBooksModalSearch)) ||
+            (w.type && w.type.toLowerCase().includes(allBooksModalSearch))
+        );
+    }
+
+    if (countBadge) {
+        countBadge.textContent = currentLang === 'hi' 
+            ? `${filtered.length} कृतियाँ प्रदर्शित` 
+            : `${filtered.length} Works Displayed`;
+    }
+
+    if (filtered.length === 0) {
+        body.innerHTML = `
+            <div style="text-align: center; padding: 3rem 1.5rem; color: #64748b;">
+                <i class="fas fa-search" style="font-size: 2.5rem; color: #cbd5e1; margin-bottom: 1rem;"></i>
+                <h4 style="font-size: 1.15rem; color: #334155; margin-bottom: 0.5rem;">${currentLang === 'hi' ? 'कोई कृति नहीं मिली' : 'No Works Found'}</h4>
+                <p>${currentLang === 'hi' ? 'कृपया अन्य शब्द या श्रेणी का चयन करें।' : 'Please try searching with another keyword.'}</p>
+            </div>
+        `;
+        return;
+    }
+
+    const readText = currentLang === 'hi' ? 'ब्लॉग पर पढ़ें' : 'Read on Blogger';
+
+    body.innerHTML = `
+        <div class="modal-works-grid">
+            ${filtered.map(w => {
+                const title = currentLang === 'hi' ? w.titleHi : w.titleEn;
+                const desc = currentLang === 'hi' ? w.descHi : w.descEn;
+                const photoBadge = w.hasPhoto 
+                    ? `<span class="work-photo-tag has-photo"><i class="fas fa-check-circle"></i> ${currentLang === 'hi' ? 'कवर उपलब्ध' : 'Cover Art'}</span>`
+                    : `<span class="work-photo-tag no-photo"><i class="fas fa-scroll"></i> ${currentLang === 'hi' ? 'हस्तलिखित / अप्रकाशित पांडुलिपि' : 'Manuscript / Uncollected'}</span>`;
+                
+                const visualHtml = w.hasPhoto 
+                    ? `<div class="modal-work-thumb" onclick="openLightbox('${w.cover}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'बड़ा कवर देखें' : 'View full cover'}">
+                           <img src="${w.cover}" alt="${title}">
+                       </div>`
+                    : `<div class="modal-work-icon-thumb">
+                           <i class="fas fa-book-open"></i>
+                       </div>`;
+
+                return `
+                    <div class="modal-work-item ${w.hasPhoto ? 'has-cover-art' : 'is-manuscript'}">
+                        ${visualHtml}
+                        <div class="modal-work-info">
+                            <div class="modal-work-head">
+                                <span class="work-cat-tag">${w.type}</span>
+                                ${photoBadge}
+                            </div>
+                            <h4 class="modal-work-title">${w.num}. ${title}</h4>
+                            <p class="modal-work-desc">${desc}</p>
+                            <div class="modal-work-actions">
+                                <a href="${w.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn-modal-blogger">
+                                    <i class="fab fa-blogger-b"></i> <span>${readText}</span> <i class="fas fa-external-link-alt" style="font-size: 0.72rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
+}
+
+/* --------------------------------------------------------------------------
+   ALL BLOGS MODAL (32+ Platforms)
+   -------------------------------------------------------------------------- */
+let allBlogsModalCat = 'all';
+let allBlogsModalSearch = '';
+
+window.openAllBlogsModal = function(catId) {
+    const modal = document.getElementById('allBlogsModal');
+    if (!modal) return;
+
+    allBlogsModalCat = catId || 'all';
+    allBlogsModalSearch = '';
+    const searchInput = document.getElementById('allBlogsModalSearchInput');
+    if (searchInput) searchInput.value = '';
+
+    renderAllBlogsModal();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeAllBlogsModal = function() {
+    const modal = document.getElementById('allBlogsModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+window.handleAllBlogsModalSearch = function(val) {
+    allBlogsModalSearch = (val || '').trim().toLowerCase();
+    renderAllBlogsModal();
+};
+
+window.filterAllBlogsModalCat = function(catId) {
+    allBlogsModalCat = catId;
+    renderAllBlogsModal();
+};
+
+function renderAllBlogsModal() {
+    const body = document.getElementById('allBlogsModalBody');
+    const pillsContainer = document.getElementById('allBlogsModalCategoryPills');
+    const countBadge = document.getElementById('allBlogsModalCountBadge');
+    if (!body || typeof BLOGS_DATA === 'undefined') return;
+
+    const categories = [
+        { id: 'all', icon: 'fas fa-layer-group', titleHi: 'समस्त 32+ ब्लॉग मंच', titleEn: 'All 32+ Platforms' },
+        { id: 'tewari', icon: 'fas fa-feather-alt', titleHi: 'तेवरी आंदोलन', titleEn: 'Tewari Movement' },
+        { id: 'shodh', icon: 'fas fa-book-reader', titleHi: 'शोध एवं रस-सिद्धांत', titleEn: 'Poetics & Research' },
+        { id: 'chhand', icon: 'fas fa-pen-fancy', titleHi: 'छंद नवाचार एवं विधाएँ', titleEn: 'Metric Innovations' },
+        { id: 'geet', icon: 'fas fa-music', titleHi: 'बालगीत, नवगीत व ग़ज़ल', titleEn: 'Songs & Ghazals' },
+        { id: 'sahitya', icon: 'fas fa-landmark', titleHi: 'साहित्यिक धरोहर', titleEn: 'Literary Heritage' }
+    ];
+
+    if (pillsContainer) {
+        pillsContainer.innerHTML = categories.map(cat => {
+            const count = cat.id === 'all' 
+                ? BLOGS_DATA.length 
+                : BLOGS_DATA.filter(b => b.category === cat.id).length;
+            const title = currentLang === 'hi' ? cat.titleHi : cat.titleEn;
+            const isActive = allBlogsModalCat === cat.id ? 'active' : '';
+            return `
+                <button class="modal-pill-btn ${isActive}" onclick="filterAllBlogsModalCat('${cat.id}')">
+                    <i class="${cat.icon}"></i> <span>${title}</span>
+                    <span class="pill-count">${count}</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    let filtered = BLOGS_DATA;
+    if (allBlogsModalCat !== 'all') {
+        filtered = filtered.filter(b => b.category === allBlogsModalCat);
+    }
+    if (allBlogsModalSearch) {
+        filtered = filtered.filter(b => 
+            (b.titleHi && b.titleHi.toLowerCase().includes(allBlogsModalSearch)) ||
+            (b.titleEn && b.titleEn.toLowerCase().includes(allBlogsModalSearch)) ||
+            (b.featuredArticle && b.featuredArticle.toLowerCase().includes(allBlogsModalSearch)) ||
+            (b.descHi && b.descHi.toLowerCase().includes(allBlogsModalSearch)) ||
+            (b.categoryHi && b.categoryHi.toLowerCase().includes(allBlogsModalSearch))
+        );
+    }
+
+    if (countBadge) {
+        countBadge.textContent = currentLang === 'hi' 
+            ? `${filtered.length} ब्लॉग्स प्रदर्शित` 
+            : `${filtered.length} Blogs Shown`;
+    }
+
+    if (filtered.length === 0) {
+        body.innerHTML = `
+            <div style="text-align: center; padding: 3rem 1.5rem; color: #64748b;">
+                <i class="fas fa-search" style="font-size: 2.5rem; color: #cbd5e1; margin-bottom: 1rem;"></i>
+                <h4 style="font-size: 1.15rem; color: #334155; margin-bottom: 0.5rem;">${currentLang === 'hi' ? 'कोई ब्लॉग नहीं मिला' : 'No Blogs Found'}</h4>
+                <p>${currentLang === 'hi' ? 'कृपया अन्य शब्द या श्रेणी का चयन करें।' : 'Please try searching with another keyword.'}</p>
+            </div>
+        `;
+        return;
+    }
+
+    const btnText = currentLang === 'hi' ? 'ब्लॉग पढ़ें' : 'Visit Blog';
+
+    body.innerHTML = `
+        <div class="modal-blogs-grid">
+            ${filtered.map(blog => {
+                const title = currentLang === 'hi' ? blog.titleHi : blog.titleEn;
+                const category = currentLang === 'hi' ? blog.categoryHi : blog.categoryEn;
+                const desc = currentLang === 'hi' ? blog.descHi : blog.descEn;
+                const titleEscaped = (blog.titleHi || '').replace(/'/g, "\\'");
+
+                const mediaHtml = blog.hasPhoto 
+                    ? `<div class="modal-blog-card-media">
+                           <img src="${blog.image}" alt="${title}" loading="lazy" onclick="openLightbox('${blog.image}', '${titleEscaped}')" style="cursor:pointer;" title="${currentLang === 'hi' ? 'छायाचित्र बड़ा करें' : 'Zoom'}">
+                           <span class="blog-category-badge"><i class="fab fa-blogger"></i> ${category}</span>
+                       </div>`
+                    : `<div class="modal-blog-card-header-pattern">
+                           <div class="modal-blog-pattern-content">
+                               <i class="fab fa-blogger-b" style="font-size: 2.5rem; color: rgba(255,255,255,0.7);"></i>
+                               <span class="blog-category-badge" style="position:static;"><i class="fab fa-blogger"></i> ${category}</span>
+                           </div>
+                       </div>`;
+
+                return `
+                    <article class="modal-blog-card ${blog.hasPhoto ? 'has-blog-photo' : 'text-blog-card'}">
+                        ${mediaHtml}
+                        <div class="modal-blog-card-body">
+                            <div class="modal-blog-byline">
+                                <i class="far fa-calendar-alt"></i> <span>${blog.dateAuthor}</span>
+                            </div>
+                            <h3 class="modal-blog-title">${title}</h3>
+                            <div class="modal-blog-featured">
+                                <i class="fas fa-bookmark" style="color: #ea580c; flex-shrink: 0;"></i>
+                                <span>${blog.featuredArticle}</span>
+                            </div>
+                            <p class="modal-blog-excerpt">${desc}</p>
+                            <div class="modal-blog-footer">
+                                <a href="${blog.url}" target="_blank" rel="noopener noreferrer" class="btn-modal-blogger">
+                                    <i class="fab fa-blogger-b"></i> <span>${btnText}</span> <i class="fas fa-external-link-alt" style="font-size: 0.72rem;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('')}
+        </div>
+    `;
 }
 
 window.copyShareLink = function(url) {
@@ -808,4 +1236,209 @@ function initScrollEffects() {
             }
         });
     });
+}
+
+/* --------------------------------------------------------------------------
+   HORIZONTAL MOVING BOOK & BLOG MARQUEES ("किताबों की श्रेणियां" - drnamitasingh.com STYLE)
+   -------------------------------------------------------------------------- */
+function initBookMarquees() {
+    // 1. Populate Tewari Marquee (ONLY items with authentic cover photos)
+    const tewariTrack = document.getElementById('marqueeTewari');
+    if (tewariTrack && typeof ALL_WORKS_LIST !== 'undefined') {
+        const tewariWorks = ALL_WORKS_LIST.filter(w => 
+            w.hasPhoto && (
+                w.categoryId === 'edited' || 
+                w.categoryId === 'tewari-sangrah' || 
+                w.categoryId === 'tewar-shatak'
+            )
+        );
+        tewariTrack.innerHTML = renderMarqueeCards(tewariWorks);
+    }
+
+    // 2. Populate Research & Poetics Marquee (ONLY items with authentic cover photos)
+    const researchTrack = document.getElementById('marqueeResearch');
+    if (researchTrack && typeof ALL_WORKS_LIST !== 'undefined') {
+        const researchWorks = ALL_WORKS_LIST.filter(w => 
+            w.hasPhoto && (
+                w.categoryId === 'ras' || 
+                w.categoryId === 'shodh'
+            )
+        );
+        researchTrack.innerHTML = renderMarqueeCards(researchWorks);
+    }
+
+    // 3. Populate Chhand, Shatak & Children's Poetry Marquee (ONLY items with authentic cover photos)
+    const chhandTrack = document.getElementById('marqueeChhand');
+    if (chhandTrack && typeof ALL_WORKS_LIST !== 'undefined') {
+        const chhandWorks = ALL_WORKS_LIST.filter(w => 
+            w.hasPhoto && (
+                w.categoryId === 'shatak' || 
+                w.categoryId === 'balgeet' || 
+                w.categoryId === 'muktachhand' ||
+                w.categoryId === 'other'
+            )
+        );
+        chhandTrack.innerHTML = renderMarqueeCards(chhandWorks);
+    }
+
+    // 4. Populate Featured Blogs Marquee (ONLY items with authentic photos)
+    const blogsTrack = document.getElementById('marqueeBlogs');
+    if (blogsTrack && typeof BLOGS_DATA !== 'undefined') {
+        const photoBlogs = BLOGS_DATA.filter(blog => blog.hasPhoto);
+        blogsTrack.innerHTML = photoBlogs.map(blog => {
+            const title = currentLang === 'hi' ? blog.titleHi : blog.titleEn;
+            const category = currentLang === 'hi' ? blog.categoryHi : blog.categoryEn;
+            return `
+                <article class="home-book-card">
+                    <div class="home-book-card-cover" onclick="window.open('${blog.url}', '_blank')" title="${title}">
+                        <img src="${blog.image}" alt="${title}" loading="lazy">
+                        <span class="blog-category-badge" style="top: 8px; left: 8px; font-size: 0.7rem; padding: 0.2rem 0.5rem;"><i class="fab fa-blogger"></i> ${category}</span>
+                    </div>
+                    <div class="home-book-card-caption">
+                        <span class="home-book-card-title" title="${title}">${title}</span>
+                        <a href="${blog.url}" target="_blank" rel="noopener noreferrer" class="home-book-card-btn">
+                            <i class="fab fa-blogger-b"></i> <span>» ब्लॉग खोलें</span>
+                        </a>
+                    </div>
+                </article>
+            `;
+        }).join('');
+    }
+
+    // Attach smooth auto-scroll animation loop to all marquees
+    setupMarqueeAutoScroll();
+}
+
+function renderMarqueeCards(works) {
+    return works.map(w => {
+        const title = currentLang === 'hi' ? w.titleHi : w.titleEn;
+        const readBtn = currentLang === 'hi' ? '» विवरण व ब्लॉग' : '» Details & Blog';
+        const cover = w.cover || 'assets/images/books/abhi-zuban-kati-nahin.jpg';
+        return `
+            <article class="home-book-card">
+                <div class="home-book-card-cover" onclick="openLightbox('${cover}', '${title.replace(/'/g, "\\'")}')" title="${title}">
+                    <img src="${cover}" alt="${title}" loading="lazy">
+                </div>
+                <div class="home-book-card-caption">
+                    <span class="home-book-card-title" title="${title}">${title}</span>
+                    <a href="${w.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="home-book-card-btn">
+                        <i class="fab fa-blogger"></i> <span>${readBtn}</span>
+                    </a>
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+function setupMarqueeAutoScroll() {
+    const marquees = document.querySelectorAll('.js-book-marquee');
+    marquees.forEach(marquee => {
+        const track = marquee.querySelector('.js-book-marquee-track');
+        if (!track || track.children.length === 0) return;
+
+        // Clone children once to enable seamless infinite wrapping
+        const originalCards = Array.from(track.children);
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+        });
+
+        let isPaused = false;
+        let isDragging = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+        const speed = parseFloat(marquee.getAttribute('data-speed')) || 1.0;
+
+        // Mouse hover and Touch pause
+        marquee.addEventListener('mouseenter', () => { isPaused = true; });
+        marquee.addEventListener('mouseleave', () => { 
+            if (!isDragging) isPaused = false; 
+        });
+
+        // Touch & Drag Support
+        marquee.addEventListener('touchstart', (e) => {
+            isPaused = true;
+            isDragging = true;
+            startX = e.touches[0].pageX - marquee.offsetLeft;
+            startScrollLeft = marquee.scrollLeft;
+        }, { passive: true });
+
+        marquee.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX - marquee.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            marquee.scrollLeft = startScrollLeft - walk;
+        }, { passive: true });
+
+        marquee.addEventListener('touchend', () => {
+            isDragging = false;
+            setTimeout(() => { isPaused = false; }, 1500);
+        });
+
+        // Mouse Drag Support
+        marquee.addEventListener('mousedown', (e) => {
+            isPaused = true;
+            isDragging = true;
+            startX = e.pageX - marquee.offsetLeft;
+            startScrollLeft = marquee.scrollLeft;
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                setTimeout(() => { isPaused = false; }, 1500);
+            }
+        });
+
+        marquee.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - marquee.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            marquee.scrollLeft = startScrollLeft - walk;
+        });
+
+        // Continuous smooth 60fps loop using requestAnimationFrame
+        function step() {
+            if (!isPaused && !isDragging) {
+                marquee.scrollLeft += speed;
+                const halfWidth = track.scrollWidth / 2;
+                if (marquee.scrollLeft >= halfWidth) {
+                    marquee.scrollLeft -= halfWidth;
+                }
+            }
+            requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    });
+}
+
+/* --------------------------------------------------------------------------
+   VISITOR COUNTER (drnamitasingh.com STYLE)
+   -------------------------------------------------------------------------- */
+function initVisitorCounter() {
+    const el = document.getElementById('visitorCountVal');
+    if (!el) return;
+
+    let base = 28542;
+    try {
+        let stored = localStorage.getItem('rameshraj_visitor_count');
+        if (!stored) {
+            stored = base + Math.floor(Math.random() * 5) + 1;
+            localStorage.setItem('rameshraj_visitor_count', stored);
+        } else {
+            stored = parseInt(stored, 10);
+            const lastVisit = localStorage.getItem('rameshraj_last_visit');
+            const now = Date.now();
+            if (!lastVisit || (now - parseInt(lastVisit, 10)) > 3600000) {
+                stored += 1;
+                localStorage.setItem('rameshraj_visitor_count', stored);
+                localStorage.setItem('rameshraj_last_visit', now);
+            }
+        }
+        el.textContent = String(stored).padStart(6, '0');
+    } catch (e) {
+        el.textContent = '028543';
+    }
 }
