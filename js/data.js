@@ -570,7 +570,7 @@ const ALL_WORKS_LIST = [
     },
     {
         id: "bagule-pakad-rahi-hai-meen",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "2",
         titleHi: "बगुले पकड़ रही है मीन",
         titleEn: "Bagule Pakad Rahi Hai Meen",
@@ -1669,15 +1669,92 @@ const AWARDS_DATA = [
 // Authentic Gallery Data with Client's Photos
 const GALLERY_DATA = [
     {
-        id: "gal-author-formal",
-        titleHi: "श्री रमेशराज तेवरीकार — आधिकारिक छायाचित्र",
-        titleEn: "Shri Rameshraj Tewarikar — Official Portrait",
-        category: "portrait",
-        categoryHi: "कवि व्यक्तित्व",
-        categoryEn: "Portrait",
-        image: "assets/images/author-portrait-formal.jpg",
-        captionHi: "तेवरी आन्दोलन के जनक, 'विरोध-रस' के प्रतिष्ठापक एवं 50+ कृतियों के सर्जक श्री रमेशराज तेवरीकार।",
-        captionEn: "Official formal portrait of Pioneer of Tewari Movement and Founder of Virodh-Ras, Shri Rameshraj."
+        id: "gal-author-lamp",
+        titleHi: "सारस्वत समारोह — दीप प्रज्ज्वलन एवं मंच उद्घाटन",
+        titleEn: "Literary Inauguration — Ceremonial Lamp Lighting",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/author-lamp-ceremony.jpg",
+        captionHi: "सारस्वत समारोह के पावन अवसर पर दीप प्रज्ज्वलन कर कार्यक्रम का शुभारंभ करते श्री रमेशराज तेवरीकार व गणमान्य अतिथि।",
+        captionEn: "Shri Rameshraj Tewarikar lighting the ceremonial lamp alongside distinguished guests to inaugurate the literary convention."
+    },
+    {
+        id: "gal-podium-speech",
+        titleHi: "साहित्यिक संगोष्ठी — मंच से सारस्वत उद्बोधन",
+        titleEn: "Literary Symposium — Keynote Podium Address",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/author-podium-address.jpg",
+        captionHi: "मंच से उपस्थित विदुषी व विद्वत समाज को संबोधित करते रमेशराज जी — तेवरी चेतना और जन-सरोकारों पर ओजस्वी विचार।",
+        captionEn: "Keynote address by Rameshraj on contemporary poetic consciousness and sociopolitical resistance from the dais."
+    },
+    {
+        id: "gal-author-speaking",
+        titleHi: "राष्ट्रीय विचार-मंच — सारस्वत संभाषण",
+        titleEn: "National Forum — Dais Discourse",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/author-speaking.jpg",
+        captionHi: "साहित्यिक सम्मेलन के मंच से गंभीर काव्य-विमर्श प्रस्तुत करते श्री रमेशराज।",
+        captionEn: "Rameshraj delivering critical observations on poetics and public dissent from the dias."
+    },
+    {
+        id: "gal-rameshraj-podium",
+        titleHi: "अध्यक्षीय उद्बोधन — सारस्वत समागम",
+        titleEn: "Presidential Address — Conclave Dais",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/rameshraj-podium-address.jpg",
+        captionHi: "राष्ट्रीय साहित्य सम्मेलन में पोडियम से सारस्वत उद्बोधन देते रमेशराज तेवरीकार।",
+        captionEn: "Delivering the presidential address at the National Hindi Conclave."
+    },
+    {
+        id: "gal-rameshraj-mic",
+        titleHi: "तेवरी काव्य-पाठ — मंच पर माइक संभाले रमेशराज",
+        titleEn: "Tewari Poetry Recitation — On Stage",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/rameshraj-speaking-mic.jpg",
+        captionHi: "विशाल जनसमूह के समक्ष तेवरी विधा की ओजस्वी पंक्तियों का सस्वर पाठ करते रमेशराज जी।",
+        captionEn: "Reciting stirring Tewari couplets before an engaged literary audience."
+    },
+    {
+        id: "gal-rameshraj-vintage",
+        titleHi: "ऐतिहासिक मंच पाठ — तेवरी आन्दोलन का सारस्वत दौर",
+        titleEn: "Historic Dais Recitation — Tewari Epoch",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/rameshraj-vintage-recitation.jpg",
+        captionHi: "तेवरी आंदोलन के शुरुआती दशकों में मंच से जनता के प्रश्नों को मुखर करती तेवरी का ऐतिहासिक पाठ।",
+        captionEn: "Historic dais recitation in the formative decades of the revolutionary Tewari movement."
+    },
+    {
+        id: "gal-author-dialogue",
+        titleHi: "साहित्यकारों संग सारस्वत संवाद — मंच विमर्श",
+        titleEn: "Scholarly Dialogue on the Dais",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/rameshraj-author-dialogue.jpg",
+        captionHi: "मंच पर वरिष्ठ साहित्यकारों एवं समालोचकों के साथ वैचारिक विमर्श करते रमेशराज जी।",
+        captionEn: "Intellectual deliberations with fellow critics and poets on the stage."
+    },
+    {
+        id: "gal-discourse-gesture",
+        titleHi: "काव्यशास्त्र एवं 'विरोध-रस' पर वैचारिक प्रस्तुति",
+        titleEn: "Discourse on Poetics & Virodh-Ras",
+        category: "stage",
+        categoryHi: "मंच छायाचित्र",
+        categoryEn: "Stage / Dais",
+        image: "assets/images/gallery/rameshraj-discourse-gesture.jpg",
+        captionHi: "भारतीय काव्यशास्त्र में नवरसों के अतिरिक्त 'विरोध-रस' के शास्त्रीय आधारों की व्याख्या करते हुए।",
+        captionEn: "Explaining the theoretical foundations of Virodh-Ras as modern India's 10th poetic aesthetic."
     },
     {
         id: "gal-father-ramcharan",
@@ -1691,21 +1768,21 @@ const GALLERY_DATA = [
         captionEn: "Eminent Brajbhasha poet, celebrated freedom fighter, and revered father of Rameshraj, Lokkavi Ramcharan Gupta."
     },
     {
-        id: "gal-author-banner",
-        titleHi: "रमेशराज के चर्चित तेवरी-संग्रह — लेखक छवि",
-        titleEn: "Rameshraj Acclaimed Tewari Series Portrait",
+        id: "gal-author-formal",
+        titleHi: "श्री रमेशराज तेवरीकार — आधिकारिक छायाचित्र",
+        titleEn: "Shri Rameshraj Tewarikar — Official Portrait",
         category: "portrait",
         categoryHi: "कवि व्यक्तित्व",
         categoryEn: "Portrait",
-        image: "assets/images/author-tewari-banner.jpg",
-        captionHi: "देशव्यापी तेवरी-आन्दोलन की प्रेरणादायी छवि, जिसने हिन्दी कविता को जन-संघर्षों से जोड़ा।",
-        captionEn: "Inspirational portrait heading the nationwide collection of celebrated Tewari anthologies."
+        image: "assets/images/author-portrait-formal.jpg",
+        captionHi: "तेवरी आन्दोलन के जनक, 'विरोध-रस' के प्रतिष्ठापक एवं 50+ कृतियों के सर्जक श्री रमेशराज तेवरीकार।",
+        captionEn: "Official formal portrait of Pioneer of Tewari Movement and Founder of Virodh-Ras, Shri Rameshraj."
     },
     {
         id: "gal-bulandprabha",
         titleHi: "बुलन्दप्रभा — 'तेवरीकार रमेश राज विशेषांक' (2015)",
         titleEn: "Bulandprabha — Ramesh Raj Special Consecration",
-        category: "conference",
+        category: "archival",
         categoryHi: "विशेषांक पत्रिका",
         categoryEn: "Special Issue",
         image: "assets/images/gallery/bulandprabha-visheshank.jpg",
@@ -1760,7 +1837,7 @@ const GALLERY_DATA = [
         id: "gal-tewaripaksh-23",
         titleHi: "तेवरीपक्ष - 23: तेवरी-विधा को समर्पित प्रस्तुति (2015)",
         titleEn: "Tewaripaksh - 23: Dedicated Edition (2015)",
-        category: "conference",
+        category: "stage",
         categoryHi: "साहित्यिक अंक",
         categoryEn: "Literary Edition",
         image: "assets/images/magazines/tewaripaksh-23.jpg",
@@ -1771,23 +1848,12 @@ const GALLERY_DATA = [
         id: "gal-tewaripaksh-08",
         titleHi: "तेवरी-पक्ष - 8: कौमी एकता शिविर कविता पोस्टर प्रदर्शनी",
         titleEn: "Tewaripaksh - 8: Communal Harmony Exhibition Edition",
-        category: "conference",
+        category: "stage",
         categoryHi: "कौमी एकता अंक",
         categoryEn: "Harmony Edition",
         image: "assets/images/magazines/tewaripaksh-08.jpg",
         captionHi: "साम्प्रदायिक सौहार्द एवं राष्ट्रीय एकता हेतु आयोजित राष्ट्रीय कविता पोस्टर प्रदर्शनी पर केंद्रित ऐतिहासिक अंक।",
         captionEn: "Historical edition capturing the National Communal Harmony poetry poster exhibition organized by author."
-    },
-    {
-        id: "gal-virodh-ras",
-        titleHi: "विरोध-रस — 10वें रस की युगांतरकारी स्थापना",
-        titleEn: "Virodh-Ras — Epochal Poetic Treatise",
-        category: "archival",
-        categoryHi: "शास्त्रीय शोध ग्रंथ",
-        categoryEn: "Classical Treatise",
-        image: "assets/images/books/virodh-ras.jpg",
-        captionHi: "भारतीय काव्यशास्त्र में नवरसों के उपरांत समकालीन जन-प्रतिरोध और आक्रोश को 10वें रस के रूप में सांगोपांग शास्त्रीय प्रतिष्ठा।",
-        captionEn: "Formulating Virodh-Ras as the 10th Rasa in classical Indian poetics with righteous public dissent."
     },
     {
         id: "gal-cert",
@@ -1853,3 +1919,136 @@ const TESTIMONIALS_DATA = [
         quoteEn: "Conferring the prestigious Sahitya-Shri Honor upon Shri Ramesh Raj for four decades of selfless devotion to the Tewari movement and Hindi poetics is a proud celebration for the entire literary fraternity."
     }
 ];
+
+// 6 Core Book Reel Categories for the Homepage (चलते हुए चित्रों की 6 स्थान पर सज्जा - drnamitasingh.com style)
+const HOMEPAGE_BOOK_REELS = [
+    {
+        id: "tewari-sangrah",
+        titleHi: "तेवरी संग्रह",
+        titleEn: "Tewari Anthologies",
+        icon: "fas fa-book-open",
+        filterKey: "tewari-sangrah",
+        bookIds: [
+            "bagule-pakad-rahi-hai-meen",
+            "kabir-zinda-hai",
+            "itihas-ghayal-hai",
+            "abhi-zuban-kati-nahi",
+            "system-mein-badlaav-la",
+            "ghada-paap-ka",
+            "de-lanka-mein-aag",
+            "dhan-ka-mad",
+            "ravan-kul-ke-log",
+            "roz-chhuri-ki-dhar-niharen",
+            "charchit-tewari-sangrah",
+            "jeevan-kati-patang-re",
+            "hoga-waqt-dabang",
+            "aag-kaisi-lagi",
+            "aag-zaroori",
+            "jan-mat-aur-prapanch"
+        ]
+    },
+    {
+        id: "ras",
+        titleHi: "रस-सिद्धांत एवं काव्यशास्त्र",
+        titleEn: "Aesthetics & Poetic Theory",
+        icon: "fas fa-feather-alt",
+        filterKey: "ras",
+        bookIds: [
+            "virodh-ras-shodh",
+            "kavya-ki-aatma",
+            "vichar-aur-ras",
+            "kavita-kya-hai",
+            "tewari-mein-ras-samasya",
+            "tewari-isliye-tewari-hai"
+        ]
+    },
+    {
+        id: "edited",
+        titleHi: "सम्पादित कृतियाँ एवं पत्रिका",
+        titleEn: "Edited Works & 'Tewaripaksh' Journal",
+        icon: "fas fa-newspaper",
+        filterKey: "edited",
+        bookIds: [
+            "tewaripaksh-patrika",
+            "abhi-zuban-kati-nahi",
+            "kabir-zinda-hai",
+            "itihas-ghayal-hai",
+            "tewari-isliye-tewari-hai"
+        ]
+    },
+    {
+        id: "tewar-shatak",
+        titleHi: "तेवर-शतक एवं शतक विधाएँ",
+        titleEn: "Shatak Metrics & Century Suites",
+        icon: "fas fa-fire",
+        filterKey: "tewar-shatak",
+        bookIds: [
+            "de-lanka-mein-aag",
+            "jai-kanhaiyalal-ki",
+            "ghada-paap-ka",
+            "man-ke-ghaav",
+            "dhan-ka-mad",
+            "kakdi-ke-choron-ko-fansi",
+            "mera-haal-sodium-sa",
+            "ravan-kul-ke-log",
+            "antar-aah-anant-ati",
+            "poochh-na-kabira",
+            "tewar-saptak-shatak",
+            "roz-chhuri-ki-dhar-niharen",
+            "madhu-sa-la",
+            "jo-gopi-madhu-ban-gayin",
+            "there-is-an-allpin",
+            "nadiya-paar-hindolna-shatak",
+            "pujta-ab-chhal"
+        ]
+    },
+    {
+        id: "balgeet",
+        titleHi: "बाल-गीत एवं पर्यावरण साहित्य",
+        titleEn: "Children's & Environmental Literature",
+        icon: "fas fa-child",
+        filterKey: "balgeet",
+        bookIds: [
+            "rashtriya-bal-kavitaen",
+            "nahi-tiranga-jhukne-denge",
+            "taak-dhina-dhin-bachche-naachein",
+            "katha-sunaate-balgeet",
+            "mat-kaato-van",
+            "mummy-yadi-main-badal-hota",
+            "rang-birange-balgeet"
+        ]
+    },
+    {
+        id: "shodh-other",
+        titleHi: "मुक्तछंद कविता, शोध एवं अन्य कृतियाँ",
+        titleEn: "Free Verse, Research & Criticism",
+        icon: "fas fa-wind",
+        filterKey: "muktachhand",
+        bookIds: [
+            "hindi-ghazal-mein-kitni-ghazal",
+            "hindi-ghazal-aur-tewari",
+            "tewari-ka-saundaryabodh",
+            "parde-ke-peeche-hai-khel",
+            "chheejte-sukhon-ke-beech",
+            "peepal-ke-ped-par-baithe-giddh",
+            "kavita-abhi-zinda-hai",
+            "wah-yani-mohan-swaroop",
+            "waqt-ek-chaabuk-hai",
+            "rameshraj-satsai",
+            "udho-kahiyo-jaay",
+            "tabhi-bikhere-baati-noor"
+        ]
+    }
+];
+
+// Ensure global accessibility on window object
+if (typeof window !== 'undefined') {
+    window.HERO_SLIDER_DATA = typeof HERO_SLIDER_DATA !== 'undefined' ? HERO_SLIDER_DATA : [];
+    window.BOOKS_DATA = typeof BOOKS_DATA !== 'undefined' ? BOOKS_DATA : [];
+    window.BLOGS_DATA = typeof BLOGS_DATA !== 'undefined' ? BLOGS_DATA : [];
+    window.ALL_WORKS_LIST = typeof ALL_WORKS_LIST !== 'undefined' ? ALL_WORKS_LIST : [];
+    window.GALLERY_DATA = typeof GALLERY_DATA !== 'undefined' ? GALLERY_DATA : [];
+    window.TESTIMONIALS_DATA = typeof TESTIMONIALS_DATA !== 'undefined' ? TESTIMONIALS_DATA : [];
+    window.AWARDS_DATA = typeof AWARDS_DATA !== 'undefined' ? AWARDS_DATA : [];
+    window.HOMEPAGE_BOOK_REELS = HOMEPAGE_BOOK_REELS;
+}

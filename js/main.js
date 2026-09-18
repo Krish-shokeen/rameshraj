@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initHeroSlider();
     initHeroCounters();
+    renderHomepageBookMarquees();
+    renderGalleryMarquee();
+    initHomepageMarquees();
     renderBooks();
     renderMasterBibliography();
     renderBlogs();
-    initBookMarquees();
     initVisitorCounter();
     renderAwards();
     renderGallery();
@@ -187,6 +189,9 @@ function updatePageLanguage() {
 
     // Re-render dynamic sections
     renderHeroSlider();
+    renderHomepageBookMarquees();
+    renderGalleryMarquee();
+    initHomepageMarquees();
     renderBooks();
     renderMasterBibliography();
     renderBlogs();
@@ -781,7 +786,31 @@ function initModals() {
 }
 
 window.openBookModal = function(bookId) {
-    const book = BOOKS_DATA.find(b => b.id === bookId);
+    let book = (typeof BOOKS_DATA !== 'undefined' ? BOOKS_DATA.find(b => b.id === bookId) : null);
+    if (!book && typeof ALL_WORKS_LIST !== 'undefined') {
+        const item = ALL_WORKS_LIST.find(b => b.id === bookId);
+        if (item) {
+            book = {
+                id: item.id,
+                titleHi: item.titleHi,
+                titleEn: item.titleEn,
+                category: item.categoryId || 'tewari',
+                categoryNameHi: item.categoryHi || 'साहित्य',
+                categoryNameEn: item.categoryEn || 'Literature',
+                blurbHi: item.descHi || item.descriptionHi || item.detailsHi || item.titleHi,
+                blurbEn: item.descEn || item.descriptionEn || item.detailsEn || item.titleEn,
+                detailsHi: item.descHi || item.descriptionHi || item.detailsHi || item.titleHi,
+                detailsEn: item.descEn || item.descriptionEn || item.detailsEn || item.titleEn,
+                cover: item.cover || 'assets/images/books/abhi-zuban-kati-nahin.jpg',
+                fallbackCover: 'assets/images/author-portrait-formal.jpg',
+                year: item.year || 'उपलब्ध',
+                publisher: item.publisher || 'सार्थक सृजन प्रकाशन, अलीगढ़',
+                pages: item.pages || 'विविध',
+                isbn: item.isbn || 'उपलब्ध',
+                bloggerUrl: item.bloggerUrl || 'https://www.blogger.com/profile/10299195093677463730'
+            };
+        }
+    }
     if (!book) return;
 
     const modal = document.getElementById('bookModal');
@@ -790,7 +819,7 @@ window.openBookModal = function(bookId) {
 
     const title = currentLang === 'hi' ? book.titleHi : book.titleEn;
     const category = currentLang === 'hi' ? book.categoryNameHi : book.categoryNameEn;
-    const details = currentLang === 'hi' ? book.detailsHi : book.blurbEn;
+    const details = currentLang === 'hi' ? (book.detailsHi || book.blurbHi) : (book.detailsEn || book.blurbEn);
     const publisherLabel = currentLang === 'hi' ? 'प्रकाशक' : 'Publisher';
     const yearLabel = currentLang === 'hi' ? 'प्रकाशन वर्ष' : 'Published Year';
     const pagesLabel = currentLang === 'hi' ? 'पृष्ठ संख्या' : 'Pages';
@@ -799,7 +828,7 @@ window.openBookModal = function(bookId) {
 
     container.innerHTML = `
         <div class="modal-book-visual">
-            <img src="${book.cover}" alt="${title}" class="modal-book-cover" onerror="this.src='${book.fallbackCover}'">
+            <img src="${book.cover}" alt="${title}" class="modal-book-cover" onerror="this.src='${book.fallbackCover || 'assets/images/author-portrait-formal.jpg'}'">
             <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-blogger" style="width: 100%;">
                 ${readBloggerText} <i class="fas fa-external-link-alt"></i>
             </a>
@@ -813,19 +842,19 @@ window.openBookModal = function(bookId) {
             <div class="modal-meta-grid">
                 <div class="meta-field">
                     <strong>${publisherLabel}</strong>
-                    <span>${book.publisher}</span>
+                    <span>${book.publisher || 'सार्थक सृजन प्रकाशन'}</span>
                 </div>
                 <div class="meta-field">
                     <strong>${yearLabel}</strong>
-                    <span>${book.year}</span>
+                    <span>${book.year || 'उपलब्ध'}</span>
                 </div>
                 <div class="meta-field">
                     <strong>${pagesLabel}</strong>
-                    <span>${book.pages}</span>
+                    <span>${book.pages || 'विविध'}</span>
                 </div>
                 <div class="meta-field">
                     <strong>${isbnLabel}</strong>
-                    <span>${book.isbn}</span>
+                    <span>${book.isbn || 'उपलब्ध'}</span>
                 </div>
             </div>
             <h4 style="font-size: 1.15rem; margin-bottom: 0.6rem; color: #0f172a;">
@@ -833,7 +862,7 @@ window.openBookModal = function(bookId) {
             </h4>
             <p class="modal-synopsis-text">${details}</p>
             <div class="modal-action-bar">
-                <a href="${book.bloggerUrl}" target="_blank" rel="noopener" class="btn btn-primary">
+                <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     <i class="fab fa-blogger-b"></i> ${currentLang === 'hi' ? 'सम्पूर्ण समीक्षा व पाठ देखें' : 'View Full Text & Reviews'}
                 </a>
                 <button class="btn btn-outline" onclick="copyShareLink('${book.bloggerUrl}')">
@@ -876,11 +905,174 @@ window.closeLightbox = function() {
     }
 };
 
+/* --- Author Full Biography Modal (drnamitasingh.com style) --- */
+window.openAuthorFullBio = function(e) {
+    if (e) e.preventDefault();
+    const modal = document.getElementById('authorBioModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.closeAuthorFullBio = function() {
+    const modal = document.getElementById('authorBioModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+/* --- Share Modal (Client's explicit WhatsApp & Social Share request) --- */
+window.openShareModal = function() {
+    const modal = document.getElementById('shareModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        const urlInput = document.getElementById('shareUrlInput');
+        if (urlInput) {
+            urlInput.value = window.location.href;
+        }
+    }
+};
+
+window.closeShareModal = function() {
+    const modal = document.getElementById('shareModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+window.shareToPlatform = function(platform) {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(currentLang === 'hi' 
+        ? 'रमेशराज तेवरीकार का साहित्य-संसार — तेवरी आन्दोलन, विरोध-रस व 58+ कृतियाँ' 
+        : 'Literature World of Rameshraj Tewarikar — Official Digital Archive');
+    let shareUrl = '';
+
+    switch (platform) {
+        case 'whatsapp':
+            shareUrl = `https://api.whatsapp.com/send?text=${title}%0A${url}`;
+            break;
+        case 'facebook':
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            break;
+        case 'twitter':
+            shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+            break;
+        case 'telegram':
+            shareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
+            break;
+    }
+    if (shareUrl) {
+        window.open(shareUrl, '_blank', 'noopener,noreferrer,width=650,height=520');
+    }
+};
+
+window.copySiteLink = function() {
+    const urlInput = document.getElementById('shareUrlInput');
+    const alertEl = document.getElementById('shareCopyAlert');
+    const textToCopy = urlInput ? urlInput.value : window.location.href;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            if (alertEl) {
+                alertEl.style.display = 'block';
+                setTimeout(() => { alertEl.style.display = 'none'; }, 3000);
+            }
+        }).catch(() => {
+            fallbackCopyText(urlInput, alertEl);
+        });
+    } else {
+        fallbackCopyText(urlInput, alertEl);
+    }
+};
+
+function fallbackCopyText(input, alertEl) {
+    if (input) {
+        input.select();
+        document.execCommand('copy');
+        if (alertEl) {
+            alertEl.style.display = 'block';
+            setTimeout(() => { alertEl.style.display = 'none'; }, 3000);
+        }
+    }
+}
+
+/* --- Full Gallery Modal (समग्र चित्र देखें ») --- */
+let activeGalleryFilter = 'all';
+
+window.openFullGalleryModal = function() {
+    const modal = document.getElementById('fullGalleryModal');
+    if (!modal) return;
+    activeGalleryFilter = 'all';
+    renderFullGalleryModal();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeFullGalleryModal = function() {
+    const modal = document.getElementById('fullGalleryModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+window.filterFullGallery = function(filter) {
+    activeGalleryFilter = filter;
+    document.querySelectorAll('#galleryFilterPills .catalog-pill').forEach(btn => {
+        if (btn.getAttribute('data-filter') === filter) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    renderFullGalleryModal();
+};
+
+function renderFullGalleryModal() {
+    const body = document.getElementById('fullGalleryModalBody');
+    if (!body || typeof GALLERY_DATA === 'undefined') return;
+
+    const filtered = GALLERY_DATA.filter(item => {
+        if (activeGalleryFilter === 'all') return true;
+        return item.category === activeGalleryFilter;
+    });
+
+    body.innerHTML = `
+        <div class="full-gallery-grid">
+            ${filtered.map(item => {
+                const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
+                const caption = currentLang === 'hi' ? item.captionHi : item.captionEn;
+                const category = currentLang === 'hi' ? item.categoryHi : item.categoryEn;
+                const escapedTitle = title.replace(/'/g, "\\'");
+                return `
+                    <div class="full-gallery-card" onclick="openLightbox('${item.image}', '${escapedTitle}')">
+                        <div class="full-gallery-img-wrap">
+                            <img src="${item.image}" alt="${title}" loading="lazy" onerror="this.src='assets/images/author-portrait-formal.jpg'">
+                            <span class="full-gallery-cat-pill">${category}</span>
+                        </div>
+                        <div class="full-gallery-info">
+                            <h4>${title}</h4>
+                            <p>${caption}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('')}
+        </div>
+    `;
+}
+
 function closeAllModals() {
     closeBookModal();
     closeLightbox();
     closeAllBooksModal();
     closeAllBlogsModal();
+    closeAuthorFullBio();
+    closeShareModal();
+    closeFullGalleryModal();
 }
 
 /* --------------------------------------------------------------------------
@@ -1239,107 +1431,104 @@ function initScrollEffects() {
 }
 
 /* --------------------------------------------------------------------------
-   HORIZONTAL MOVING BOOK & BLOG MARQUEES ("किताबों की श्रेणियां" - drnamitasingh.com STYLE)
+   6 HOMEPAGE CONTINUOUS BOOK REELS & GALLERY REEL (drnamitasingh.com STYLE)
    -------------------------------------------------------------------------- */
-function initBookMarquees() {
-    // 1. Populate Tewari Marquee (ONLY items with authentic cover photos)
-    const tewariTrack = document.getElementById('marqueeTewari');
-    if (tewariTrack && typeof ALL_WORKS_LIST !== 'undefined') {
-        const tewariWorks = ALL_WORKS_LIST.filter(w => 
-            w.hasPhoto && (
-                w.categoryId === 'edited' || 
-                w.categoryId === 'tewari-sangrah' || 
-                w.categoryId === 'tewar-shatak'
-            )
-        );
-        tewariTrack.innerHTML = renderMarqueeCards(tewariWorks);
-    }
+function renderHomepageBookMarquees() {
+    const wrap = document.getElementById('homeBookCategoriesWrap');
+    const reels = (typeof HOMEPAGE_BOOK_REELS !== 'undefined' ? HOMEPAGE_BOOK_REELS : (typeof window !== 'undefined' ? window.HOMEPAGE_BOOK_REELS : null));
+    if (!wrap || !reels) return;
 
-    // 2. Populate Research & Poetics Marquee (ONLY items with authentic cover photos)
-    const researchTrack = document.getElementById('marqueeResearch');
-    if (researchTrack && typeof ALL_WORKS_LIST !== 'undefined') {
-        const researchWorks = ALL_WORKS_LIST.filter(w => 
-            w.hasPhoto && (
-                w.categoryId === 'ras' || 
-                w.categoryId === 'shodh'
-            )
-        );
-        researchTrack.innerHTML = renderMarqueeCards(researchWorks);
-    }
+    const countSuffix = currentLang === 'hi' ? 'कृतियाँ' : 'Works';
+    const viewAllText = currentLang === 'hi' ? 'सभी देखें »' : 'View All »';
+    const readMoreBtnText = currentLang === 'hi' ? '» और पढ़ें' : '» Read More';
 
-    // 3. Populate Chhand, Shatak & Children's Poetry Marquee (ONLY items with authentic cover photos)
-    const chhandTrack = document.getElementById('marqueeChhand');
-    if (chhandTrack && typeof ALL_WORKS_LIST !== 'undefined') {
-        const chhandWorks = ALL_WORKS_LIST.filter(w => 
-            w.hasPhoto && (
-                w.categoryId === 'shatak' || 
-                w.categoryId === 'balgeet' || 
-                w.categoryId === 'muktachhand' ||
-                w.categoryId === 'other'
-            )
-        );
-        chhandTrack.innerHTML = renderMarqueeCards(chhandWorks);
-    }
+    wrap.innerHTML = reels.map(reel => {
+        const title = currentLang === 'hi' ? reel.titleHi : reel.titleEn;
+        
+        // Find matching books
+        const bookCardsHtml = reel.bookIds.map(id => {
+            let item = (typeof ALL_WORKS_LIST !== 'undefined' ? ALL_WORKS_LIST.find(w => w.id === id) : null) ||
+                       (typeof BOOKS_DATA !== 'undefined' ? BOOKS_DATA.find(w => w.id === id) : null);
+            if (!item) return '';
 
-    // 4. Populate Featured Blogs Marquee (ONLY items with authentic photos)
-    const blogsTrack = document.getElementById('marqueeBlogs');
-    if (blogsTrack && typeof BLOGS_DATA !== 'undefined') {
-        const photoBlogs = BLOGS_DATA.filter(blog => blog.hasPhoto);
-        blogsTrack.innerHTML = photoBlogs.map(blog => {
-            const title = currentLang === 'hi' ? blog.titleHi : blog.titleEn;
-            const category = currentLang === 'hi' ? blog.categoryHi : blog.categoryEn;
+            const bookTitle = currentLang === 'hi' ? (item.titleHi || item.title) : (item.titleEn || item.title);
+            const coverImg = item.cover || 'assets/images/books/abhi-zuban-kati-nahin.jpg';
+
             return `
                 <article class="home-book-card">
-                    <div class="home-book-card-cover" onclick="window.open('${blog.url}', '_blank')" title="${title}">
-                        <img src="${blog.image}" alt="${title}" loading="lazy">
-                        <span class="blog-category-badge" style="top: 8px; left: 8px; font-size: 0.7rem; padding: 0.2rem 0.5rem;"><i class="fab fa-blogger"></i> ${category}</span>
+                    <div class="home-book-card-cover" onclick="openBookModal('${item.id}')" title="${bookTitle}">
+                        <img src="${coverImg}" alt="${bookTitle}" loading="lazy" onerror="this.src='assets/images/books/abhi-zuban-kati-nahin.jpg'">
                     </div>
                     <div class="home-book-card-caption">
-                        <span class="home-book-card-title" title="${title}">${title}</span>
-                        <a href="${blog.url}" target="_blank" rel="noopener noreferrer" class="home-book-card-btn">
-                            <i class="fab fa-blogger-b"></i> <span>» ब्लॉग खोलें</span>
-                        </a>
+                        <span class="home-book-card-title" title="${bookTitle}">${bookTitle}</span>
+                        <button type="button" class="home-book-card-btn" onclick="openBookModal('${item.id}')">
+                            <span>${readMoreBtnText}</span>
+                        </button>
                     </div>
                 </article>
             `;
-        }).join('');
-    }
+        }).filter(Boolean).join('');
 
-    // Attach smooth auto-scroll animation loop to all marquees
-    setupMarqueeAutoScroll();
+        return `
+            <div class="home-book-category">
+                <div class="row home-book-category-head">
+                    <div class="span12">
+                        <h4><i class="${reel.icon}"></i> <span>${title}</span></h4>
+                        <span class="home-book-category-count">${reel.bookIds.length} ${countSuffix}</span>
+                        <a href="javascript:void(0)" onclick="openAllBooksModal('${reel.filterKey}')" class="home-book-category-link">${viewAllText}</a>
+                    </div>
+                </div>
+                <div class="home-book-marquee js-book-marquee" data-speed="0.55">
+                    <div class="home-book-marquee-track js-book-marquee-track">
+                        ${bookCardsHtml}
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 
-function renderMarqueeCards(works) {
-    return works.map(w => {
-        const title = currentLang === 'hi' ? w.titleHi : w.titleEn;
-        const readBtn = currentLang === 'hi' ? '» विवरण व ब्लॉग' : '» Details & Blog';
-        const cover = w.cover || 'assets/images/books/abhi-zuban-kati-nahin.jpg';
+function renderGalleryMarquee() {
+    const track = document.getElementById('galleryMarqueeTrack');
+    const galleryItems = (typeof GALLERY_DATA !== 'undefined' ? GALLERY_DATA : (typeof window !== 'undefined' ? window.GALLERY_DATA : null));
+    if (!track || !galleryItems) return;
+
+    const zoomText = currentLang === 'hi' ? '» बड़ा देखें' : '» Zoom';
+
+    track.innerHTML = galleryItems.map(item => {
+        const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
+        const escapedTitle = title.replace(/'/g, "\\'");
+
         return `
-            <article class="home-book-card">
-                <div class="home-book-card-cover" onclick="openLightbox('${cover}', '${title.replace(/'/g, "\\'")}')" title="${title}">
-                    <img src="${cover}" alt="${title}" loading="lazy">
+            <article class="home-book-card home-gallery-card">
+                <div class="home-book-card-cover" onclick="openLightbox('${item.image}', '${escapedTitle}')" title="${title}">
+                    <img src="${item.image}" alt="${title}" loading="lazy" onerror="this.src='assets/images/author-portrait-formal.jpg'">
                 </div>
                 <div class="home-book-card-caption">
                     <span class="home-book-card-title" title="${title}">${title}</span>
-                    <a href="${w.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="home-book-card-btn">
-                        <i class="fab fa-blogger"></i> <span>${readBtn}</span>
-                    </a>
+                    <button type="button" class="home-book-card-btn" onclick="openLightbox('${item.image}', '${escapedTitle}')">
+                        <i class="fas fa-search-plus"></i> <span>${zoomText}</span>
+                    </button>
                 </div>
             </article>
         `;
     }).join('');
 }
 
-function setupMarqueeAutoScroll() {
-    const marquees = document.querySelectorAll('.js-book-marquee');
+function initHomepageMarquees() {
+    const marquees = document.querySelectorAll('.js-book-marquee, .js-gallery-marquee');
     marquees.forEach(marquee => {
-        const track = marquee.querySelector('.js-book-marquee-track');
+        const track = marquee.querySelector('.js-book-marquee-track, .js-gallery-marquee-track');
         if (!track || track.children.length === 0) return;
+
+        // Clean up previously cloned cards if any
+        track.querySelectorAll('[data-clone="true"]').forEach(el => el.remove());
 
         // Clone children once to enable seamless infinite wrapping
         const originalCards = Array.from(track.children);
         originalCards.forEach(card => {
             const clone = card.cloneNode(true);
+            clone.setAttribute('data-clone', 'true');
             clone.setAttribute('aria-hidden', 'true');
             track.appendChild(clone);
         });
@@ -1348,7 +1537,7 @@ function setupMarqueeAutoScroll() {
         let isDragging = false;
         let startX = 0;
         let startScrollLeft = 0;
-        const speed = parseFloat(marquee.getAttribute('data-speed')) || 1.0;
+        const speed = parseFloat(marquee.getAttribute('data-speed')) || 0.55;
 
         // Mouse hover and Touch pause
         marquee.addEventListener('mouseenter', () => { isPaused = true; });
@@ -1373,7 +1562,7 @@ function setupMarqueeAutoScroll() {
 
         marquee.addEventListener('touchend', () => {
             isDragging = false;
-            setTimeout(() => { isPaused = false; }, 1500);
+            setTimeout(() => { isPaused = false; }, 1200);
         });
 
         // Mouse Drag Support
@@ -1387,7 +1576,7 @@ function setupMarqueeAutoScroll() {
         window.addEventListener('mouseup', () => {
             if (isDragging) {
                 isDragging = false;
-                setTimeout(() => { isPaused = false; }, 1500);
+                setTimeout(() => { isPaused = false; }, 1200);
             }
         });
 
