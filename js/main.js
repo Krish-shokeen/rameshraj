@@ -807,9 +807,14 @@ window.openBookModal = function(bookId) {
                 publisher: item.publisher || 'सार्थक सृजन प्रकाशन, अलीगढ़',
                 pages: item.pages || 'विविध',
                 isbn: item.isbn || 'उपलब्ध',
-                bloggerUrl: item.bloggerUrl || 'https://www.blogger.com/profile/10299195093677463730'
+                bloggerUrl: item.bloggerUrl || 'https://www.blogger.com/profile/10299195093677463730',
+                buyUrl: item.buyUrl || null
             };
         }
+    }
+    if (book && !book.buyUrl && typeof ALL_WORKS_LIST !== 'undefined') {
+        const match = ALL_WORKS_LIST.find(w => w.id === bookId);
+        if (match && match.buyUrl) book.buyUrl = match.buyUrl;
     }
     if (!book) return;
 
@@ -824,11 +829,16 @@ window.openBookModal = function(bookId) {
     const yearLabel = currentLang === 'hi' ? 'प्रकाशन वर्ष' : 'Published Year';
     const pagesLabel = currentLang === 'hi' ? 'पृष्ठ संख्या' : 'Pages';
     const isbnLabel = 'ISBN';
-    const readBloggerText = currentLang === 'hi' ? '📖 इस पुस्तक को ब्लॉगर पर पढ़ें' : '📖 Read on Author Blogger';
+    const readBloggerText = currentLang === 'hi' ? '📖 ब्लॉगर पर पढ़ें / समीक्षा' : '📖 Read on Author Blogger';
 
     container.innerHTML = `
         <div class="modal-book-visual">
             <img src="${book.cover}" alt="${title}" class="modal-book-cover" onerror="this.src='${book.fallbackCover || 'assets/images/author-portrait-formal.jpg'}'">
+            ${book.buyUrl ? `
+            <a href="${book.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-buy-online" style="width: 100%; margin-bottom: 0.65rem; background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);">
+                <i class="fas fa-shopping-cart"></i> <span>${currentLang === 'hi' ? 'Rachnaye पर पुस्तक खरीदें' : 'Buy Book on Rachnaye'}</span> <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+            </a>
+            ` : ''}
             <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-blogger" style="width: 100%;">
                 ${readBloggerText} <i class="fas fa-external-link-alt"></i>
             </a>
@@ -862,10 +872,15 @@ window.openBookModal = function(bookId) {
             </h4>
             <p class="modal-synopsis-text">${details}</p>
             <div class="modal-action-bar">
+                ${book.buyUrl ? `
+                <a href="${book.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-success" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #fff; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                    <i class="fas fa-shopping-cart"></i> <span>${currentLang === 'hi' ? 'पुस्तक खरीदें (Rachnaye)' : 'Buy Book'}</span>
+                </a>
+                ` : ''}
                 <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     <i class="fab fa-blogger-b"></i> ${currentLang === 'hi' ? 'सम्पूर्ण समीक्षा व पाठ देखें' : 'View Full Text & Reviews'}
                 </a>
-                <button class="btn btn-outline" onclick="copyShareLink('${book.bloggerUrl}')">
+                <button class="btn btn-outline" onclick="copyShareLink('${book.buyUrl || book.bloggerUrl}')">
                     <i class="fas fa-share-alt"></i> ${currentLang === 'hi' ? 'लिंक साझा करें' : 'Share Link'}
                 </button>
             </div>
@@ -923,7 +938,15 @@ window.closeAuthorFullBio = function() {
     }
 };
 
+window.openAuthorBioModal = function(e) {
+    if (window.openAuthorFullBio) {
+        window.openAuthorFullBio(e);
+    }
+};
+
 /* --- Share Modal (Client's explicit WhatsApp & Social Share request) --- */
+const LIVE_SITE_URL = 'https://rameshraj-tewarikar.onrender.com/';
+
 window.openShareModal = function() {
     const modal = document.getElementById('shareModal');
     if (modal) {
@@ -931,7 +954,8 @@ window.openShareModal = function() {
         document.body.style.overflow = 'hidden';
         const urlInput = document.getElementById('shareUrlInput');
         if (urlInput) {
-            urlInput.value = window.location.href;
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
+            urlInput.value = isLocal ? LIVE_SITE_URL : window.location.href;
         }
     }
 };
@@ -945,10 +969,14 @@ window.closeShareModal = function() {
 };
 
 window.shareToPlatform = function(platform) {
-    const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(currentLang === 'hi' 
-        ? 'रमेशराज तेवरीकार का साहित्य-संसार — तेवरी आन्दोलन, विरोध-रस व 58+ कृतियाँ' 
-        : 'Literature World of Rameshraj Tewarikar — Official Digital Archive');
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
+    const currentUrl = isLocal ? LIVE_SITE_URL : window.location.href;
+    const url = encodeURIComponent(currentUrl);
+    // Client strictly requested: "केवल *रमेशराज तेवरीकार का साहित्य-संसार* आना चाहिए"
+    const shareTitle = currentLang === 'hi' 
+        ? 'रमेशराज तेवरीकार का साहित्य-संसार' 
+        : "Rameshraj Tewarikar's Literary World";
+    const title = encodeURIComponent(shareTitle);
     let shareUrl = '';
 
     switch (platform) {
@@ -1142,7 +1170,9 @@ function renderAllBooksModal() {
 
     // Filter works
     let filtered = ALL_WORKS_LIST;
-    if (allBooksModalCat !== 'all') {
+    if (allBooksModalCat === 'rachnaye') {
+        filtered = filtered.filter(w => ['there-is-an-allpin', 'tewar-saptak-shatak', 'mat-kaato-van', 'wah-yani-mohan-swaroop', 'poochh-na-kabira'].includes(w.id));
+    } else if (allBooksModalCat !== 'all') {
         filtered = filtered.filter(w => w.categoryId === allBooksModalCat);
     }
     if (allBooksModalSearch) {
@@ -1453,6 +1483,11 @@ function renderHomepageBookMarquees() {
 
             const bookTitle = currentLang === 'hi' ? (item.titleHi || item.title) : (item.titleEn || item.title);
             const coverImg = item.cover || 'assets/images/books/abhi-zuban-kati-nahin.jpg';
+            const buyBtnHtml = item.buyUrl ? `
+                <a href="${item.buyUrl}" target="_blank" rel="noopener noreferrer" class="home-book-card-buy-btn" title="${currentLang === 'hi' ? 'पुस्तक खरीदें / ऑनलाइन पढ़ें' : 'Buy / Read Online'}" onclick="event.stopPropagation();">
+                    <i class="fas fa-shopping-cart"></i> <span>${currentLang === 'hi' ? 'खरीदें' : 'Buy'}</span>
+                </a>
+            ` : '';
 
             return `
                 <article class="home-book-card">
@@ -1461,9 +1496,12 @@ function renderHomepageBookMarquees() {
                     </div>
                     <div class="home-book-card-caption">
                         <span class="home-book-card-title" title="${bookTitle}">${bookTitle}</span>
-                        <button type="button" class="home-book-card-btn" onclick="openBookModal('${item.id}')">
-                            <span>${readMoreBtnText}</span>
-                        </button>
+                        <div style="display: flex; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                            <button type="button" class="home-book-card-btn" onclick="openBookModal('${item.id}')">
+                                <span>${readMoreBtnText}</span>
+                            </button>
+                            ${buyBtnHtml}
+                        </div>
                     </div>
                 </article>
             `;
@@ -1483,6 +1521,35 @@ function renderHomepageBookMarquees() {
                         ${bookCardsHtml}
                     </div>
                 </div>
+                ${reel.id === 'rachnaye' ? `
+                <div class="rachnaye-author-card" style="margin: 1.25rem 0 0.5rem; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%); border: 1.5px solid #fed7aa; border-radius: 12px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.08); display: flex; align-items: center; gap: 1.35rem; flex-wrap: wrap;">
+                    <div style="flex-shrink: 0; width: 92px; height: 92px; border-radius: 50%; overflow: hidden; border: 3px solid #ea580c; box-shadow: 0 3px 12px rgba(234,88,12,0.3);">
+                        <img src="assets/images/rameshraj-rachnaye.jpg" alt="Rameshraaj | Rachnaye" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/rameshraj.jpg'">
+                    </div>
+                    <div style="flex: 1; min-width: 260px;">
+                        <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; flex-wrap: wrap;">
+                            <span style="font-size: 1.18rem; font-weight: 700; color: #1e293b;">Rameshraaj | Rachnaye</span>
+                            <span style="background: #ea580c; color: #fff; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; font-weight: 600;">आधिकारिक प्रकाशक प्रोफ़ाइल</span>
+                            <span style="background: #16a34a; color: #fff; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; font-weight: 600;"><i class="fas fa-shopping-bag"></i> पुस्तकें उपलब्ध</span>
+                        </div>
+                        <p style="margin: 0 0 0.75rem; font-size: 0.92rem; line-height: 1.55; color: #475569;">
+                            रमेशराज तेवरीकार जी का जन्म १५ मार्च सन १९५४ में गाँव-एसी, जनपद-अलीगढ़, (उत्तर प्रदेश) में हुआ। आपका पूरा नाम रमेशचन्द्र गुप्त है। आपने एम. ए. (हिंदी व भूगोल) तक शिक्षा प्राप्त की। आपने अनेक विधाओं में साहित्य का सृजन किया है।
+                        </p>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                            <a href="https://rachnaye.chottu.link/dqMV" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #ffffff; padding: 0.48rem 1.15rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(22,163,74,0.3); transition: all 0.2s;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>'देअर इज एन आलपिन' पुस्तक खरीदें</span>
+                                <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                            </a>
+                            <a href="https://rachnaye.com/books/author/rameshraaj" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #ea580c; color: #ffffff; padding: 0.48rem 1.15rem; border-radius: 6px; font-size: 0.88rem; font-weight: 600; text-decoration: none; box-shadow: 0 2px 6px rgba(234,88,12,0.3); transition: all 0.2s;" onmouseover="this.style.background='#c2410c'" onmouseout="this.style.background='#ea580c'">
+                                <i class="fas fa-book-open"></i>
+                                <span>Rachnaye पर सभी पुस्तकें व प्रोफ़ाइल देखें</span>
+                                <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                ` : ''}
             </div>
         `;
     }).join('');

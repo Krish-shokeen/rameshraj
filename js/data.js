@@ -23,7 +23,7 @@ const AUTHOR_DATA = {
         en: "Lokkavi Ramcharan Gupta (Brajbhasha Litterateur & Freedom Fighter)"
     },
     title: {
-        hi: "तेवरी आन्दोलन के जनक, विरोध-रस के प्रतिष्ठापक एवं वरिष्ठ साहित्यकार",
+        hi: "तेवरी आन्दोलन के प्रवर्तक, विरोध-रस के प्रतिष्ठापक एवं वरिष्ठ साहित्यकार",
         en: "Pioneer of the Tewari Movement, Founder of Virodh-Ras & Eminent Hindi Litterateur"
     },
     siteTitle: {
@@ -70,10 +70,10 @@ const HERO_SLIDER_DATA = [
     {
         id: "slide-1",
         image: "assets/images/author-portrait-formal.jpg",
-        tagHi: "तेवरी आन्दोलन के जनक",
+        tagHi: "तेवरी आन्दोलन के प्रवर्तक",
         tagEn: "Pioneer of Tewari Movement",
-        titleHi: "श्री रमेशराज तेवरीकार",
-        titleEn: "Shri Rameshraj Tewarikar",
+        titleHi: "रमेशराज तेवरीकार",
+        titleEn: "Rameshraj Tewarikar",
         captionHi: "वरिष्ठ साहित्यकार, कवि एवं 'तेवरीपक्ष' पत्रिका के 30+ वर्षों से प्रधान सम्पादक | अलीगढ़",
         captionEn: "Eminent Hindi Author, Poet & Chief Editor of Tewaripaksh Literary Journal for 30+ Years | Aligarh"
     },
@@ -119,6 +119,16 @@ const HERO_SLIDER_DATA = [
     },
     {
         id: "slide-6",
+        image: "assets/images/gallery/rameshraj-podium-address.jpg",
+        tagHi: "राष्ट्रीय विचार-मंच",
+        tagEn: "National Forum",
+        titleHi: "पोडियम से ओजस्वी सारस्वत उद्बोधन",
+        titleEn: "Inspiring Address from National Dais",
+        captionHi: "साहित्यिक संगोष्ठी में रचनाकारों, समीक्षकों और शोधार्थियों को संबोधित करते रमेशराज जी",
+        captionEn: "Keynote address on sociopolitical conscience and public resistance before scholars and critics"
+    },
+    {
+        id: "slide-7",
         image: "assets/images/author-tewari-banner.jpg",
         tagHi: "तेवरीपक्ष आन्दोलन",
         tagEn: "Tewari Movement Legacy",
@@ -145,7 +155,7 @@ const LITERARY_CATEGORIES = [
         titleHi: "स्वरचित कृतियां (रस से संबंधित)",
         titleEn: "Original Treatises on Poetic Rasa",
         icon: "fas fa-feather-alt",
-        count: 6,
+        count: 5,
         descriptionHi: "विरोध-रस, काव्य की आत्मा और रस-मीमांसा पर युगांतरकारी शोध-प्रबंध",
         descriptionEn: "Epochal treatises on Virodh-Ras and Indian aesthetic theory"
     },
@@ -163,7 +173,7 @@ const LITERARY_CATEGORIES = [
         titleHi: "तेवरी संग्रह",
         titleEn: "Tewari Anthologies",
         icon: "fas fa-book-open",
-        count: 8,
+        count: 9,
         descriptionHi: "रमेशराज जी के सर्वप्रमुख एवं चर्चित स्वतंत्र तेवरी संकलन",
         descriptionEn: "Author's most acclaimed primary Tewari poetry books"
     },
@@ -216,11 +226,237 @@ const LITERARY_CATEGORIES = [
 
 // Complete Catalog of Works (Categorized according to Author's authentic manuscript)
 const ALL_WORKS_LIST = [
-    // 1. सम्पादित कृतियाँ
+    // 1. तेवरीपक्ष पत्रिका के प्रामाणिक अंक (चलायमान चित्रों हेतु)
+    {
+        id: "tewaripaksh-01",
+        hasPhoto: true,
+        num: "1",
+        titleHi: "तेवरीपक्ष - प्रवेशांक (जुलाई-सितंबर 1982)",
+        titleEn: "Tewaripaksh - Inaugural Issue (1982)",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "ऐतिहासिक प्रवेशांक",
+        descHi: "तेवरी आन्दोलन की मुखर वैचारिक पत्रिका 'तेवरीपक्ष' का ऐतिहासिक प्रथम प्रवेशांक (जुलाई-सितंबर 1982)।",
+        descEn: "Historic inaugural issue of flagship quarterly journal Tewaripaksh (July-Sept 1982).",
+        cover: "assets/images/magazines/tewaripaksh-01.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-02",
+        hasPhoto: true,
+        num: "2",
+        titleHi: "तेवरीपक्ष - अंक 2 (अक्टूबर-दिसंबर 1982)",
+        titleEn: "Tewaripaksh - Issue 2",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "तेवरीपक्ष का द्वितीय अंक जिसमें देश भर के रचनाकारों की तेवरियों और विरोध-रस सिद्धांतों का संकलन है।",
+        descEn: "Second issue of Tewaripaksh showcasing revolutionary verses across India.",
+        cover: "assets/images/magazines/tewaripaksh-02.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-03",
+        hasPhoto: true,
+        num: "3",
+        titleHi: "तेवरीपक्ष - अंक 3",
+        titleEn: "Tewaripaksh - Issue 3",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "समकालीन जनसरोकारों एवं सामाजिक प्रतिरोध की प्रखर वाणी तेवरीपक्ष पत्रिका का तृतीय अंक।",
+        descEn: "Issue 3 of Tewaripaksh championing people's conscience and democratic poetics.",
+        cover: "assets/images/magazines/tewaripaksh-03.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-06",
+        hasPhoto: true,
+        num: "4",
+        titleHi: "तेवरीपक्ष - अंक 6",
+        titleEn: "Tewaripaksh - Issue 6",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "तेवरी विधा की शास्त्रीय विवेचना और नवरसों के पार 'विरोध-रस' के सिद्धांतों पर केंद्रित अंक।",
+        descEn: "Issue 6 analyzing the formal aesthetic mechanics of the Tewari movement.",
+        cover: "assets/images/magazines/tewaripaksh-06.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-07",
+        hasPhoto: true,
+        num: "5",
+        titleHi: "तेवरीपक्ष - अंक 7",
+        titleEn: "Tewaripaksh - Issue 7",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "तेवरीपक्ष का सातवां अंक — जनक छन्द और व्यवस्था-विरोधी समकालीन काव्यात्मक तेवर।",
+        descEn: "Issue 7 focusing on Janak Chhand and contemporary resistance poetry.",
+        cover: "assets/images/magazines/tewaripaksh-07.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-08",
+        hasPhoto: true,
+        num: "6",
+        titleHi: "तेवरीपक्ष - अंक 8",
+        titleEn: "Tewaripaksh - Issue 8",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "हिन्दी साहित्य में तेवरी आन्दोलन की राष्ट्रव्यापी गूँज को प्रतिध्वनित करता अंक 8।",
+        descEn: "Issue 8 reflecting the nationwide resonance of the Tewari movement.",
+        cover: "assets/images/magazines/tewaripaksh-08.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-10",
+        hasPhoto: true,
+        num: "7",
+        titleHi: "तेवरीपक्ष - अंक 10 (दशाब्दी अंक)",
+        titleEn: "Tewaripaksh - Issue 10 (Decade Edition)",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "ऐतिहासिक अंक",
+        descHi: "तेवरी आन्दोलन के ऐतिहासिक पड़ाव पर प्रकाशित विशिष्ट संकलन।",
+        descEn: "Milestone edition of Tewaripaksh tracking poetic milestones.",
+        cover: "assets/images/magazines/tewaripaksh-10.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-12",
+        hasPhoto: true,
+        num: "8",
+        titleHi: "तेवरीपक्ष - अंक 12",
+        titleEn: "Tewaripaksh - Issue 12",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "अखिल भारतीय तेवरीकारों की प्रतिनिधि रचनाओं से सुसज्जित अंक।",
+        descEn: "Representative poems from all-India Tewari contributors.",
+        cover: "assets/images/magazines/tewaripaksh-12.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-15",
+        hasPhoto: true,
+        num: "9",
+        titleHi: "तेवरीपक्ष - अंक 15",
+        titleEn: "Tewaripaksh - Issue 15",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "सामाजिक कुरीतियों और भ्रष्टाचार पर प्रहार करती तेवरियों का ओजस्वी संकलन।",
+        descEn: "Potent poetic critiques of administrative corruption and social injustice.",
+        cover: "assets/images/magazines/tewaripaksh-15.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-16",
+        hasPhoto: true,
+        num: "10",
+        titleHi: "तेवरीपक्ष - अंक 16",
+        titleEn: "Tewaripaksh - Issue 16",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "तेवरी विधा की शास्त्रीयता एवं नव-कुण्डलिया छंद पर विशेष सारस्वत विमर्श।",
+        descEn: "Critical research symposium on the metric poetics of Tewari.",
+        cover: "assets/images/magazines/tewaripaksh-16.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-17",
+        hasPhoto: true,
+        num: "11",
+        titleHi: "तेवरीपक्ष - अंक 17",
+        titleEn: "Tewaripaksh - Issue 17",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "जनचेतना, किसान-मजदूर संघर्ष और जनवादी काव्य-चेतना को समर्पित अंक।",
+        descEn: "Dedicated to the working class struggles and agrarian consciousness.",
+        cover: "assets/images/magazines/tewaripaksh-17.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-20",
+        hasPhoto: true,
+        num: "12",
+        titleHi: "तेवरीपक्ष - अंक 20",
+        titleEn: "Tewaripaksh - Issue 20",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "तेवरी आंदोलन के दो दशकों की उपलब्धियों और राष्ट्रीय प्रसार की समीक्षा।",
+        descEn: "Two decades of national expansion and literary achievements.",
+        cover: "assets/images/magazines/tewaripaksh-20.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-22",
+        hasPhoto: true,
+        num: "13",
+        titleHi: "तेवरीपक्ष - अंक 22",
+        titleEn: "Tewaripaksh - Issue 22",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "तेवरीपक्ष पत्रिका का 22वां गौरवशाली अंक — जनक छन्द एवं समकालीन जन-तेवर।",
+        descEn: "22nd landmark issue of Tewaripaksh journal.",
+        cover: "assets/images/magazines/tewaripaksh-22.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-23",
+        hasPhoto: true,
+        num: "14",
+        titleHi: "तेवरीपक्ष - अंक 23",
+        titleEn: "Tewaripaksh - Issue 23",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "त्रैमासिक अंक",
+        descHi: "तेवरीपक्ष का निरंतर प्रकाशित 23वां अंक, रमेशराज जी के यशस्वी संपादन में।",
+        descEn: "23rd edition of Tewaripaksh under Rameshraj's continuous editorship.",
+        cover: "assets/images/magazines/tewaripaksh-23.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "tewaripaksh-special",
+        hasPhoto: true,
+        num: "15",
+        titleHi: "तेवरीपक्ष - विशेषांक",
+        titleEn: "Tewaripaksh - Special Memorial Edition",
+        categoryId: "tewaripaksh",
+        categoryHi: "तेवरीपक्ष पत्रिका",
+        categoryEn: "Tewaripaksh Magazine",
+        type: "राष्ट्रीय विशेषांक",
+        descHi: "तेवरी विधा एवं 'विरोध-रस' के सिद्धांतों पर देश के शीर्ष विद्वानों के शोध-आलेखों से समृद्ध विशेषांक।",
+        descEn: "Special national monograph featuring critical scholarly research papers.",
+        cover: "assets/images/magazines/tewaripaksh-special.jpg",
+        bloggerUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    // 2. सम्पादित कृतियाँ (पुस्तकें)
     {
         id: "tewaripaksh-patrika",
         hasPhoto: true,
-        num: "1",
+        num: "16",
         titleHi: "तेवरीपक्ष (त्रैमासिक)",
         titleEn: "Tewaripaksh (Quarterly Journal)",
         categoryId: "edited",
@@ -345,10 +581,10 @@ const ALL_WORKS_LIST = [
         num: "5",
         titleHi: "तेवरी इसलिए तेवरी है",
         titleEn: "Tewari Isliye Tewari Hai",
-        categoryId: "ras",
-        categoryHi: "स्वरचित कृतियां (रस से संबंधित)",
-        categoryEn: "Treatises on Poetic Rasa",
-        type: "काव्यशास्त्रीय विमर्श",
+        categoryId: "tewari-sangrah",
+        categoryHi: "तेवरी संग्रह",
+        categoryEn: "Tewari Anthologies",
+        type: "काव्यशास्त्रीय विमर्श / संकलन",
         descHi: "तेवरी विधा की विशुद्ध मौलिकता, शास्त्रीय स्वायत्तता और ग़ज़ल से भिन्न स्वतंत्र पहचान का सैद्धांतिक निरूपण।",
         descEn: "Theoretical treatise establishing the distinct poetic autonomy and native ethos of the Tewari genre.",
         cover: "assets/images/books/tewari-isliye-tewari-hai.jpg",
@@ -356,7 +592,7 @@ const ALL_WORKS_LIST = [
     },
     {
         id: "kavita-kya-hai",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "6",
         titleHi: "कविता क्या है?",
         titleEn: "Kavita Kya Hai? (What is Poetry)",
@@ -366,7 +602,7 @@ const ALL_WORKS_LIST = [
         type: "विवेचनात्मक निबंध (पुनर्मूल्यांकन)",
         descHi: "कविता के आधुनिक अर्थ, सरोकार, सामाजिक दायित्व और संवेदनाओं का गहन विवेचनात्मक व दार्शनिक पुनर्मूल्यांकन।",
         descEn: "Critical and philosophical essays re-evaluating the true essence and social obligation of contemporary poetry.",
-        cover: "assets/images/books/kavya-ki-aatma.jpg",
+        cover: "assets/images/books/kavita-kya-hai.jpg",
         bloggerUrl: "https://hinditewari-4.blogspot.com/"
     },
 
@@ -510,31 +746,33 @@ const ALL_WORKS_LIST = [
         id: "poochh-na-kabira",
         hasPhoto: true,
         num: "10",
-        titleHi: "पूछ न कबिरा जग का हाल",
-        titleEn: "Poochh Na Kabira Jag Ka Haal",
+        titleHi: "पूछ न कबीरा जंग का हाल (तेवर-शतक)",
+        titleEn: "Poochh Na Kabira Jang Ka Haal",
         categoryId: "tewar-shatak",
         categoryHi: "तेवर-शतक (लम्बी तेवरियां)",
         categoryEn: "Tewar-Shatak (Long Tewaris)",
-        type: "लम्बी तेवरियों का शतक",
+        type: "तेवर-शतक (दीर्घ तेवरियां / Rachnaye)",
         descHi: "संत कबीर की दृष्टि से समकालीन समाज की नैतिक गिरावट, पाखंड और पतन की पड़ताल।",
         descEn: "Examining contemporary moral decay through the sharp prism of Saint Kabir.",
         cover: "assets/images/books/poochh-na-kabira-jang-ka-haal.jpg",
-        bloggerUrl: "https://hinditewari-27.blogspot.com/"
+        bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
+        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
     },
     {
         id: "tewar-saptak-shatak",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "11",
-        titleHi: "तेवर सप्तक (7 तेवर शतक)",
-        titleEn: "Tewar Saptak (7 Tewar Shataks)",
+        titleHi: "तेवर सप्तक",
+        titleEn: "Tewar Saptak",
         categoryId: "tewar-shatak",
         categoryHi: "तेवर-शतक (लम्बी तेवरियां)",
         categoryEn: "Tewar-Shatak (Long Tewaris)",
-        type: "बृहत महाग्रंथ (7 शतक संग्रह)",
+        type: "बृहत महाग्रंथ (7 शतक संग्रह / Rachnaye)",
         descHi: "सात संपूर्ण तेवर शतकों का एक ही विराट महाग्रंथ में अद्वितीय समावेश।",
         descEn: "Grand monumental anthology compiling seven complete Tewar Shatak centuries.",
-        cover: "assets/images/books/charchit_tewari.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        cover: "assets/images/books/tewar-saptak.jpg",
+        bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
+        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
     },
     {
         id: "roz-chhuri-ki-dhar-niharen",
@@ -722,18 +960,19 @@ const ALL_WORKS_LIST = [
     },
     {
         id: "there-is-an-allpin",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "4",
-        titleHi: "देअर इज एन ऑलपिन (दोहा-शतक)",
-        titleEn: "There is an Allpin (Doha Shatak)",
+        titleHi: "देअर इज एन आलपिन (दोहा-शतक)",
+        titleEn: "There is an Alpin (Doha Shatak)",
         categoryId: "shatak",
-        categoryHi: "शतक (काव्य-विधाएँ)",
-        categoryEn: "Shatak Series",
-        type: "दोहा शतक",
-        descHi: "छोटी-छोटी बातों में छिपी बड़ी विसंगतियों को ऑलपिन की तीक्ष्ण चुभन की भांति उकेरता अनूठा दोहा-शतक।",
-        descEn: "Unique Doha century stinging societal pretenses with the precision of a pin.",
-        cover: "assets/images/books/roz-chhuri-ki-dhar-niharen.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        categoryHi: "शतक (काव्य-विधाएँ) / Rachnaye",
+        categoryEn: "Shatak Series / Rachnaye",
+        type: "दोहा शतक (Rachnaye से प्रकाशित / ऑनलाइन उपलब्ध)",
+        descHi: "छोटी-छोटी बातों में छिपी बड़ी विसंगतियों को आलपिन की तीक्ष्ण चुभन की भांति उकेरता अनूठा दोहा-शतक।",
+        descEn: "Unique Doha century stinging societal pretenses with the precision of an alpin.",
+        cover: "assets/images/books/there-is-an-allpin.jpg",
+        bloggerUrl: "https://rachnaye.chottu.link/dqMV",
+        buyUrl: "https://rachnaye.chottu.link/dqMV"
     },
     {
         id: "nadiya-paar-hindolna-shatak",
@@ -829,18 +1068,19 @@ const ALL_WORKS_LIST = [
     },
     {
         id: "mat-kaato-van",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "5",
         titleHi: "मत काटो वन",
         titleEn: "Mat Kaato Van",
         categoryId: "balgeet",
         categoryHi: "बाल-गीत संग्रह",
         categoryEn: "Children's Literature",
-        type: "पर्यावरण बालगीत",
+        type: "पर्यावरण बालगीत-संग्रह (Rachnaye)",
         descHi: "पेड़ों की रक्षा, वन्य जीवन, जल संरक्षण और धरती को हरा-भरा रखने का संदेश देती पर्यावरण कविताएं।",
         descEn: "Ecological awareness verses teaching children the vital importance of trees and wildlife.",
-        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
-        bloggerUrl: "https://hinditewari-3.blogspot.com/"
+        cover: "assets/images/books/mat-kaato-van.jpg",
+        bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
+        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
     },
     {
         id: "mummy-yadi-main-badal-hota",
@@ -936,18 +1176,19 @@ const ALL_WORKS_LIST = [
     },
     {
         id: "wah-yani-mohan-swaroop",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "5",
         titleHi: "वह यानी मोहन स्वरूप",
         titleEn: "Wah Yaani Mohan Swaroop",
         categoryId: "muktachhand",
         categoryHi: "मुक्तछंद कविता संग्रह",
         categoryEn: "Free Verse Collections",
-        type: "व्यक्ति-चित्र व काव्य-चरित",
+        type: "रमेशराज की मुक्तछंद कविताएँ (Rachnaye)",
         descHi: "विशिष्ट व्यक्तित्व, संघर्ष और जीवन-दर्शन को रेखांकित करने वाली प्रभावपूर्ण चरित्र-प्रधान कविताएं।",
         descEn: "Character portraits and biographical verse tracing philosophical struggle and individuality.",
-        cover: "assets/images/books/system-mein-badlaav-la.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        cover: "assets/images/books/wah-yani-mohan-swaroop.jpg",
+        bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
+        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
     },
 
     // 8. शोध पुस्तकें
@@ -1118,6 +1359,7 @@ const BOOKS_DATA = ALL_WORKS_LIST.filter(item => item.hasPhoto).map(item => ({
     cover: item.cover,
     fallbackCover: "assets/images/books/charchit_tewari.jpg",
     bloggerUrl: item.bloggerUrl,
+    buyUrl: item.buyUrl || null,
     blurbHi: item.descHi,
     blurbEn: item.descEn,
     detailsHi: item.descHi
@@ -1181,7 +1423,7 @@ const BLOGS_DATA = [
         titleEn: "Kavita Kya Hai? (Re-evaluating Poetics)",
         featuredArticle: "डॉ. नामवर सिंह की रसदृष्टि या दृष्टिदोष — रमेशराज",
         dateAuthor: "रमेशराज तेवरीकार",
-        image: "assets/images/books/kavya-ki-aatma.jpg",
+        image: "assets/images/books/kavita-kya-hai.jpg",
         descriptionHi: "हिन्दी आलोचना के शीर्ष स्तम्भ डॉ. नामवर सिंह की मान्यताओं पर बेबाक तार्किक विमर्श तथा कविता के नए समाजशास्त्रीय प्रतिमानों की विवेचना।",
         descriptionEn: "Critical examination and bold debate addressing canonical Hindi literary theories and defining new sociopoetic paradigms.",
     },
@@ -1287,7 +1529,7 @@ const BLOGS_DATA = [
         featuredArticle: "परिचय : रमेशराज तेवरीकार — चार दशक की साहित्य साधना",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/author-portrait-formal.jpg",
-        descriptionHi: "तेवरी आन्दोलन के जनक, विरोध-रस के प्रतिष्ठापक रमेशराज जी का जन्म, शिक्षा, साधना, सम्मान एवं 50+ कृतियों का अधिकृत प्रामाणिक वृत्त।",
+        descriptionHi: "तेवरी आन्दोलन के प्रवर्तक, विरोध-रस के प्रतिष्ठापक रमेशराज जी का जन्म, शिक्षा, साधना, सम्मान एवं 50+ कृतियों का अधिकृत प्रामाणिक वृत्त।",
         descriptionEn: "Official biography, literary journey, published bibliography, and historical milestones of pioneer Rameshraj Tewarikar.",
     },
     {
@@ -1616,8 +1858,8 @@ const AWARDS_DATA = [
         awardedByHi: "ग्रन्थायन (श्रीमती श्यामवती गुप्त स्मृति, 25 दिसम्बर 2015)",
         awardedByEn: "Granthayan, Aligarh (25 Dec 2015)",
         certificateImage: "assets/images/awards/sahitya_shri_certificate_2015.jpg",
-        descHi: "श्री रमेश राज के विशिष्ट एवं विपुल साहित्यिक अवदान तथा विशेषज्ञ समिति की सर्वसम्मत संस्तुति पर ग्रन्थायन द्वारा साहित्यश्री सम्मान से समलंकृत किया गया।",
-        descEn: "Conferred upon Shri Ramesh Raj by Granthayan for his monumental and prolific contributions to Hindi literature and the Tewari movement."
+        descHi: "रमेशराज के विशिष्ट एवं विपुल साहित्यिक अवदान तथा विशेषज्ञ समिति की सर्वसम्मत संस्तुति पर ग्रन्थायन द्वारा साहित्यश्री सम्मान से समलंकृत किया गया।",
+        descEn: "Conferred upon Rameshraj by Granthayan for his monumental and prolific contributions to Hindi literature and the Tewari movement."
     },
     {
         year: "2011",
@@ -1676,8 +1918,8 @@ const GALLERY_DATA = [
         categoryHi: "मंच छायाचित्र",
         categoryEn: "Stage / Dais",
         image: "assets/images/gallery/author-lamp-ceremony.jpg",
-        captionHi: "सारस्वत समारोह के पावन अवसर पर दीप प्रज्ज्वलन कर कार्यक्रम का शुभारंभ करते श्री रमेशराज तेवरीकार व गणमान्य अतिथि।",
-        captionEn: "Shri Rameshraj Tewarikar lighting the ceremonial lamp alongside distinguished guests to inaugurate the literary convention."
+        captionHi: "सारस्वत समारोह के पावन अवसर पर दीप प्रज्ज्वलन कर कार्यक्रम का शुभारंभ करते रमेशराज तेवरीकार व गणमान्य अतिथि।",
+        captionEn: "Rameshraj Tewarikar lighting the ceremonial lamp alongside distinguished guests to inaugurate the literary convention."
     },
     {
         id: "gal-podium-speech",
@@ -1698,7 +1940,7 @@ const GALLERY_DATA = [
         categoryHi: "मंच छायाचित्र",
         categoryEn: "Stage / Dais",
         image: "assets/images/gallery/author-speaking.jpg",
-        captionHi: "साहित्यिक सम्मेलन के मंच से गंभीर काव्य-विमर्श प्रस्तुत करते श्री रमेशराज।",
+        captionHi: "साहित्यिक सम्मेलन के मंच से गंभीर काव्य-विमर्श प्रस्तुत करते रमेशराज।",
         captionEn: "Rameshraj delivering critical observations on poetics and public dissent from the dias."
     },
     {
@@ -1769,14 +2011,14 @@ const GALLERY_DATA = [
     },
     {
         id: "gal-author-formal",
-        titleHi: "श्री रमेशराज तेवरीकार — आधिकारिक छायाचित्र",
-        titleEn: "Shri Rameshraj Tewarikar — Official Portrait",
+        titleHi: "रमेशराज तेवरीकार — आधिकारिक छायाचित्र",
+        titleEn: "Rameshraj Tewarikar — Official Portrait",
         category: "portrait",
         categoryHi: "कवि व्यक्तित्व",
         categoryEn: "Portrait",
         image: "assets/images/author-portrait-formal.jpg",
-        captionHi: "तेवरी आन्दोलन के जनक, 'विरोध-रस' के प्रतिष्ठापक एवं 50+ कृतियों के सर्जक श्री रमेशराज तेवरीकार।",
-        captionEn: "Official formal portrait of Pioneer of Tewari Movement and Founder of Virodh-Ras, Shri Rameshraj."
+        captionHi: "तेवरी आन्दोलन के प्रवर्तक, 'विरोध-रस' के प्रतिष्ठापक एवं 50+ कृतियों के सर्जक रमेशराज तेवरीकार।",
+        captionEn: "Official formal portrait of Pioneer of Tewari Movement and Founder of Virodh-Ras, Rameshraj."
     },
     {
         id: "gal-bulandprabha",
@@ -1864,7 +2106,7 @@ const GALLERY_DATA = [
         categoryEn: "Award Certificate",
         image: "assets/images/awards/sahitya_shri_certificate_2015.jpg",
         captionHi: "25 दिसम्बर 2015 को ग्रन्थायन द्वारा रमेशराज जी को विशिष्ट एवं विपुल साहित्यिक अवदान हेतु प्रदत्त मूल मानपत्र।",
-        captionEn: "Original citation certificate of Sahitya-Shri Honor conferred upon Shri Ramesh Raj on 25 December 2015."
+        captionEn: "Original citation certificate of Sahitya-Shri Honor conferred upon Rameshraj on 25 December 2015."
     }
 ];
 
@@ -1915,8 +2157,8 @@ const TESTIMONIALS_DATA = [
         nameEn: "Dr. Bhagat Singh",
         titleHi: "संयोजक, विशेषज्ञ समिति, ग्रन्थायन",
         titleEn: "Convenor, Expert Committee, Granthayan",
-        quoteHi: "श्री रमेश राज के विशिष्ट एवं विपुल साहित्यिक अवदान तथा तेवरी आंदोलन की चार दशकों की ऐतिहासिक साधना के समादर स्वरूप ग्रन्थायन द्वारा उन्हें 'साहित्यश्री सम्मान' से अलंकृत करना सम्पूर्ण साहित्य समाज के लिए गौरव का क्षण है।",
-        quoteEn: "Conferring the prestigious Sahitya-Shri Honor upon Shri Ramesh Raj for four decades of selfless devotion to the Tewari movement and Hindi poetics is a proud celebration for the entire literary fraternity."
+        quoteHi: "रमेशराज के विशिष्ट एवं विपुल साहित्यिक अवदान तथा तेवरी आंदोलन की चार दशकों की ऐतिहासिक साधना के समादर स्वरूप ग्रन्थायन द्वारा उन्हें 'साहित्यश्री सम्मान' से अलंकृत करना सम्पूर्ण साहित्य समाज के लिए गौरव का क्षण है।",
+        quoteEn: "Conferring the prestigious Sahitya-Shri Honor upon Rameshraj for four decades of selfless devotion to the Tewari movement and Hindi poetics is a proud celebration for the entire literary fraternity."
     }
 ];
 
@@ -1933,6 +2175,7 @@ const HOMEPAGE_BOOK_REELS = [
             "kabir-zinda-hai",
             "itihas-ghayal-hai",
             "abhi-zuban-kati-nahi",
+            "tewari-isliye-tewari-hai",
             "system-mein-badlaav-la",
             "ghada-paap-ka",
             "de-lanka-mein-aag",
@@ -1948,6 +2191,30 @@ const HOMEPAGE_BOOK_REELS = [
         ]
     },
     {
+        id: "tewaripaksh-reel",
+        titleHi: "तेवरीपक्ष (त्रैमासिक पत्रिका)",
+        titleEn: "Tewaripaksh (Quarterly Journal)",
+        icon: "fas fa-newspaper",
+        filterKey: "tewaripaksh",
+        bookIds: [
+            "tewaripaksh-01",
+            "tewaripaksh-02",
+            "tewaripaksh-03",
+            "tewaripaksh-06",
+            "tewaripaksh-07",
+            "tewaripaksh-08",
+            "tewaripaksh-10",
+            "tewaripaksh-12",
+            "tewaripaksh-15",
+            "tewaripaksh-16",
+            "tewaripaksh-17",
+            "tewaripaksh-20",
+            "tewaripaksh-22",
+            "tewaripaksh-23",
+            "tewaripaksh-special"
+        ]
+    },
+    {
         id: "ras",
         titleHi: "रस-सिद्धांत एवं काव्यशास्त्र",
         titleEn: "Aesthetics & Poetic Theory",
@@ -1955,25 +2222,37 @@ const HOMEPAGE_BOOK_REELS = [
         filterKey: "ras",
         bookIds: [
             "virodh-ras-shodh",
-            "kavya-ki-aatma",
             "vichar-aur-ras",
+            "kavya-ki-aatma",
             "kavita-kya-hai",
-            "tewari-mein-ras-samasya",
-            "tewari-isliye-tewari-hai"
+            "tewari-mein-ras-samasya"
         ]
     },
     {
         id: "edited",
-        titleHi: "सम्पादित कृतियाँ एवं पत्रिका",
-        titleEn: "Edited Works & 'Tewaripaksh' Journal",
+        titleHi: "सम्पादित कृतियाँ",
+        titleEn: "Edited Anthologies",
         icon: "fas fa-newspaper",
         filterKey: "edited",
         bookIds: [
-            "tewaripaksh-patrika",
             "abhi-zuban-kati-nahi",
             "kabir-zinda-hai",
             "itihas-ghayal-hai",
-            "tewari-isliye-tewari-hai"
+            "tewaripaksh-01"
+        ]
+    },
+    {
+        id: "rachnaye",
+        titleHi: "Rachnaye से प्रकाशित संग्रह (ऑनलाइन क्रय व अध्ययन)",
+        titleEn: "Published Collections on Rachnaye (Buy & Read Online)",
+        icon: "fas fa-shopping-bag",
+        filterKey: "rachnaye",
+        bookIds: [
+            "there-is-an-allpin",
+            "tewar-saptak-shatak",
+            "mat-kaato-van",
+            "wah-yani-mohan-swaroop",
+            "poochh-na-kabira"
         ]
     },
     {

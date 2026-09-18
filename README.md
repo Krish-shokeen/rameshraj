@@ -1,5 +1,5 @@
 # 🖋️ रमेशराज तेवरीकार | Rameshraj Tewarikar
-### *प्रख्यात साहित्यकार, तेवरी आन्दोलन के जनक एवं विरोध-रस के प्रतिष्ठापक*
+### *प्रख्यात साहित्यकार, तेवरी आन्दोलन के प्रवर्तक एवं विरोध-रस के प्रतिष्ठापक*
 #### Official Author Website & Literary Archive
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -13,7 +13,7 @@
 
 ## 📖 About The Project
 
-This repository hosts the official personal website and comprehensive digital literary archive of **Shri Rameshraj Tewarikar**, the pioneer and founder of Hindi literature's historic **Tewari Movement (तेवरी आन्दोलन)** and the theoretician behind **Virodh-Ras (विरोध-रस)**.
+This repository hosts the official personal website and comprehensive digital literary archive of **Rameshraj Tewarikar**, the pioneer and proponent of Hindi literature's historic **Tewari Movement (तेवरी आन्दोलन)** and the theoretician behind **Virodh-Ras (विरोध-रस)**.
 
 The website provides an elegant, immersive experience showcasing his lifetime literary contributions across five decades: published books, critical theories, metric inventions (*Nav Kundaliya*, *Janak Chhand*), literary journals (*Tewari Paksh*), national awards, and his network of 39 active literary Blogger portals.
 
@@ -133,6 +133,6 @@ Every push to the `main` branch automatically builds and deploys the latest vers
 
 ## 📜 Copyright & Literary Rights
 
-- **Author**: श्री रमेशराज तेवरीकार (Shri Rameshraj Tewarikar)
+- **Author**: रमेशराज तेवरीकार (Rameshraj Tewarikar)
 - **Literary Institution**: सार्थक सृजन संस्थान / तेवरीपक्ष कार्यालय, अलीगढ़ - 202001 (उ.प्र.), भारत
 - **All literary content, poems, book reviews, and photographs belong to the author.**

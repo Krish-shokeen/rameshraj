@@ -1544,6 +1544,30 @@
     border-color: #ea580c;
 }
 
+.home-book-card-buy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #86efac;
+    padding: 0.38rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-top: 4px;
+}
+
+.home-book-card-buy-btn:hover {
+    background: #16a34a;
+    color: #ffffff;
+    border-color: #16a34a;
+    box-shadow: 0 2px 8px rgba(22, 163, 74, 0.35);
+}
+
 .filter-catalog-header {
     margin: 2.5rem 0 1.25rem 0;
     padding-top: 2rem;
@@ -2440,12 +2464,16 @@
 }
 
 /* ==========================================================================
-   FEATURES SECTION / ABOUT AUTHOR (drnamitasingh.com STYLE)
+   FEATURES SECTION / ABOUT AUTHOR (सम्पूर्ण परिचय एक साथ)
    ========================================================================== */
 .features-section {
     background: #f8fafc;
-    padding: 38px 0 32px 0;
+    padding: 44px 0 40px 0;
     border-bottom: 1.5px solid #e2e8f0;
+}
+
+.features-header-wrap {
+    margin-bottom: 1.5rem;
 }
 
 .features-heading {
@@ -2461,50 +2489,278 @@
 
 .features-section .title {
     display: block;
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: #0f172a;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+/* Double Portraits Grid: Author & Father */
+.about-portraits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.75rem 0;
+}
+
+.about-portrait-item {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-portrait-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.about-portrait-card-img {
+    width: 150px;
+    height: 175px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 12px;
+    border: 3px solid #f8fafc;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     margin-bottom: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.about-portrait-card-img:hover {
+    transform: scale(1.03);
+}
+
+.about-portrait-item h4 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.35rem;
+}
+
+.about-card-role {
+    font-size: 0.9rem;
+    color: #ea580c;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Official Credentials Meta Table */
+.about-credentials-table {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 0.5rem 1.5rem;
+    margin: 1.75rem 0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.cred-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 0.98rem;
+}
+
+.cred-row:last-child {
+    border-bottom: none;
+}
+
+.cred-key {
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.cred-key i {
+    color: #ea580c;
+    width: 18px;
+}
+
+.cred-val {
+    color: #0f172a;
+    font-weight: 700;
+    text-align: right;
+}
+
+.phone-link {
+    color: #ea580c;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.phone-link:hover {
+    text-decoration: underline;
+}
+
+/* Narrative Paragraphs */
+.about-narrative-block {
+    margin: 1.75rem 0;
 }
 
 .features-section p {
     font-size: 1.05rem;
     line-height: 1.85;
     color: #334155;
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
     text-align: justify;
 }
 
 .features-lead-p {
-    font-size: 1.1rem;
+    font-size: 1.12rem;
     font-weight: 500;
     color: #1e293b;
 }
 
-.features-action-row {
-    margin-top: 1rem;
+.about-readmore-row {
+    margin-top: 1.25rem;
     display: flex;
     justify-content: flex-end;
 }
 
 .about-readmore-link {
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 800;
     color: #ea580c;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
+    padding: 6px 14px;
+    background: #fff7ed;
+    border: 1.5px solid #fed7aa;
+    border-radius: 8px;
     transition: all 0.2s ease;
 }
 
 .about-readmore-link:hover {
-    color: #9a3412;
+    background: #ea580c;
+    color: #ffffff;
+    border-color: #ea580c;
+    transform: translateX(3px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+}
+
+/* 4 Foundation Chapters */
+.about-foundations-block {
+    margin: 2rem 0;
+}
+
+.about-foundation-chapter {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #ea580c;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+.chapter-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.65rem;
+}
+
+.about-foundation-chapter p {
+    margin-bottom: 0;
+}
+
+/* 4 Highlight Cards */
+.about-cards-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.about-highlight-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.35rem 1.15rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-highlight-card:hover {
+    transform: translateY(-4px);
+    border-color: #ea580c;
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.14);
+}
+
+.card-icon {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 0.75rem auto;
+    border-radius: 50%;
     background: #fff7ed;
-    text-decoration: underline;
-    transform: translateX(4px);
+    color: #ea580c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    border: 1.5px solid #fed7aa;
+}
+
+.card-badge {
+    display: inline-block;
+    padding: 0.15rem 0.65rem;
+    border-radius: 20px;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.about-highlight-card h5 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.about-highlight-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+@media (max-width: 991px) {
+    .about-cards-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-portraits-grid {
+        grid-template-columns: 1fr;
+    }
+    .cred-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .cred-val {
+        text-align: left;
+    }
+    .about-cards-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==========================================================================
@@ -3094,6 +3350,376 @@
         text-align: left;
     }
 }
+
+/* ==========================================================================
+   OFFICIAL AUTHOR PARICHAY (लेखक द्वारा दिया गया सम्पूर्ण प्रामाणिक परिचय)
+   ========================================================================== */
+.author-parichay-official {
+    background: #fdfbf7;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    padding: 3.5rem 0;
+}
+
+.parichay-profile-box {
+    background: #ffffff;
+    border: 1.5px solid #fed7aa;
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(234, 88, 12, 0.07);
+    margin-bottom: 2.5rem;
+}
+
+.parichay-profile-flex {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.parichay-photos-col {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.parichay-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.parichay-avatar-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ea580c;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.parichay-avatar-caption {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #475569;
+    text-align: center;
+    max-width: 130px;
+    line-height: 1.3;
+}
+
+.parichay-info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.parichay-meta-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #1e293b;
+    border-bottom: 1px dashed #f1f5f9;
+    padding-bottom: 0.5rem;
+}
+
+.parichay-meta-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.parichay-meta-label {
+    font-weight: 800;
+    color: #ea580c;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 95px;
+    flex-shrink: 0;
+}
+
+.parichay-meta-val {
+    color: #334155;
+}
+
+/* Published Works Header & Grid */
+.parichay-works-container {
+    margin-bottom: 2.5rem;
+}
+
+.parichay-works-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.parichay-works-header h4 {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.parichay-works-header h4 i {
+    color: #ea580c;
+}
+
+.parichay-works-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.parichay-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.parichay-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.parichay-card:hover {
+    transform: translateY(-3px);
+    border-color: #fdba74;
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.1);
+}
+
+.parichay-card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    border-bottom: 1.5px solid #fff7ed;
+}
+
+.parichay-card-title i {
+    font-size: 1.2rem;
+    color: #ea580c;
+}
+
+.parichay-card-title h5 {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+
+.parichay-list {
+    padding-left: 1.4rem;
+    margin: 0;
+    color: #334155;
+    font-size: 0.98rem;
+    line-height: 1.85;
+}
+
+.parichay-list li {
+    margin-bottom: 0.35rem;
+    font-weight: 500;
+}
+
+/* Awards and Contact Section */
+.parichay-extra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.parichay-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.parichay-bullet-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.parichay-bullet-list li i {
+    color: #ea580c;
+    font-size: 0.95rem;
+}
+
+.parichay-contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-name {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0;
+}
+
+.contact-address, .contact-phone {
+    margin: 0;
+    font-size: 1.02rem;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-address i, .contact-phone i {
+    color: #ea580c;
+}
+
+.contact-phone a {
+    color: #ea580c;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.btn-call {
+    background: #ea580c;
+    color: #ffffff !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    transition: background 0.2s ease;
+}
+
+.btn-call:hover {
+    background: #c2410c;
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: #ffffff !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    transition: background 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    background: #1eb954;
+}
+
+/* Responsive adjustments for Parichay */
+@media (max-width: 860px) {
+    .parichay-profile-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        width: 100%;
+    }
+    .parichay-photos-col {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .parichay-extra-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .author-parichay-official {
+        padding: 2.25rem 0;
+        overflow: hidden;
+    }
+    .parichay-profile-box {
+        padding: 1rem 0.85rem;
+        border-radius: 10px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .parichay-photos-col {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+        width: 100%;
+    }
+    .parichay-avatar-wrap {
+        flex: 0 1 120px;
+        max-width: 120px;
+    }
+    .parichay-avatar-img {
+        width: 80px;
+        height: 80px;
+        border-width: 2.5px;
+    }
+    .parichay-avatar-caption {
+        font-size: 0.72rem;
+        max-width: 100px;
+        line-height: 1.25;
+    }
+    .parichay-info-col {
+        width: 100%;
+        gap: 0.75rem;
+    }
+    .parichay-meta-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.15rem;
+        font-size: 0.92rem;
+        padding-bottom: 0.4rem;
+    }
+    .parichay-meta-label {
+        font-size: 0.9rem;
+    }
+    .parichay-works-header h4 {
+        font-size: 1.25rem;
+    }
+    .parichay-card {
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    .parichay-card-title h5 {
+        font-size: 1.05rem;
+    }
+    .parichay-list {
+        font-size: 0.92rem;
+        line-height: 1.75;
+    }
+    .parichay-categories-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
 
 
 
