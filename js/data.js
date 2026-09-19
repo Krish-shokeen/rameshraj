@@ -191,7 +191,7 @@ const LITERARY_CATEGORIES = [
         titleHi: "बाल-गीत संग्रह",
         titleEn: "Children's Literature",
         icon: "fas fa-child",
-        count: 7,
+        count: 8,
         descriptionHi: "राष्ट्रीय चेतना, तिरंगा, पर्यावरण व नौनिहालों के प्रेरक बालगीत",
         descriptionEn: "Patriotic, moral and environmental verses for children"
     },
@@ -1018,42 +1018,42 @@ const ALL_WORKS_LIST = [
         type: "राष्ट्रीय बाल काव्य-संग्रह",
         descHi: "तिरंगा, अमर शहीद, सुभाष, पर्यावरण और नौनिहालों में चारित्रिक चेतना जगाने वाली देशभक्ति बाल कविताएं।",
         descEn: "Inspiring patriotic poems instilling national pride, character, and love for nature in children.",
-        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
+        cover: "assets/images/books/rashtriya-bal-kavitaen.jpg",
         bloggerUrl: "https://hinditewari-3.blogspot.com/"
     },
     {
         id: "nahi-tiranga-jhukne-denge",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "2",
         titleHi: "नहीं तिरंगा झुकने देंगे",
         titleEn: "Nahi Tiranga Jhukne Denge",
         categoryId: "balgeet",
         categoryHi: "बाल-गीत संग्रह",
         categoryEn: "Children's Literature",
-        type: "देशभक्ति बालगीत",
+        type: "देशभक्ति बालगीत (Shopizen)",
         descHi: "राष्ट्रीय ध्वज तिरंगे की आन-बान-शान और सीमा पर सैनिकों के बलिदान को समर्पित बालगीत।",
         descEn: "Patriotic rhymes dedicated to the honor of the Tricolor and the bravery of national sentinels.",
-        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
+        cover: "assets/images/books/nahi-tiranga-jhukne-denge.jpg",
         bloggerUrl: "https://hinditewari-3.blogspot.com/"
     },
     {
         id: "taak-dhina-dhin-bachche-naachein",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "3",
         titleHi: "ताक धिना धिन बच्चे नाचें",
         titleEn: "Taak Dhina Dhin Bachche Naachein",
         categoryId: "balgeet",
         categoryHi: "बाल-गीत संग्रह",
         categoryEn: "Children's Literature",
-        type: "लयबद्ध बालगीत",
+        type: "लयबद्ध बालगीत (हर मौसम के बालगीत)",
         descHi: "बच्चों के सहज उल्लास, खेल-कूद और आनंदमय बचपन को सुरमयी छंदों में पिरोने वाला बालगीत संग्रह।",
         descEn: "Joyful, rhythmic verses capturing the playful innocence and laughter of early childhood.",
-        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
+        cover: "assets/images/books/taak-dhina-dhin-bachche-naachein.jpg",
         bloggerUrl: "https://hinditewari-3.blogspot.com/"
     },
     {
         id: "katha-sunaate-balgeet",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "4",
         titleHi: "कथा सुनाते बालगीत",
         titleEn: "Katha Sunaate Balgeet",
@@ -1063,7 +1063,7 @@ const ALL_WORKS_LIST = [
         type: "कथात्मक बाल कविताएं",
         descHi: "रोचक कहानियों, पशु-पक्षियों के संवाद और नैतिक मूल्यों की सीख देते प्रेरक आख्यान-बालगीत।",
         descEn: "Storytelling verses blending animal fables, moral values, and engaging story rhymes.",
-        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
+        cover: "assets/images/books/katha-sunaate-balgeet.jpg",
         bloggerUrl: "https://hinditewari-3.blogspot.com/"
     },
     {
@@ -1084,22 +1084,22 @@ const ALL_WORKS_LIST = [
     },
     {
         id: "mummy-yadi-main-badal-hota",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "6",
         titleHi: "मम्मी यदि मैं बादल होता",
         titleEn: "Mummy Yadi Main Badal Hota",
         categoryId: "balgeet",
         categoryHi: "बाल-गीत संग्रह",
         categoryEn: "Children's Literature",
-        type: "कल्पनाशील बालगीत",
+        type: "कल्पनाशील बालगीत संग्रह",
         descHi: "बालमन की भोली कल्पनाओं, बादलों की सैर और माँ के दुलार पर रचित अत्यंत लोकप्रिय कविताएं।",
         descEn: "Whimsical, tender verses portraying childlike wonder, drifting clouds, and maternal love.",
-        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
+        cover: "assets/images/books/mummy-yadi-main-badal-hota.jpg",
         bloggerUrl: "https://hinditewari-3.blogspot.com/"
     },
     {
         id: "rang-birange-balgeet",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "7",
         titleHi: "रंग बिरंगे बालगीत",
         titleEn: "Rang Birange Balgeet",
@@ -1109,7 +1109,22 @@ const ALL_WORKS_LIST = [
         type: "विविध बालगीत",
         descHi: "प्रकृति, त्योहारों, खिलौनों और तितलियों के इंद्रधनुषी रंगों से सजे मनोरम बालगीतों का गुलदस्ता।",
         descEn: "A colorful bouquet of children's songs celebrating festivals, nature, and wonder.",
-        cover: "assets/images/books/rashtriya_baal_kavitaen.jpg",
+        cover: "assets/images/books/rang-birange-balgeet.jpg",
+        bloggerUrl: "https://hinditewari-3.blogspot.com/"
+    },
+    {
+        id: "lambi-moonchhon-wali-billi",
+        hasPhoto: true,
+        num: "8",
+        titleHi: "लम्बी मूंछों वाली बिल्ली",
+        titleEn: "Lambi Moonchhon Wali Billi",
+        categoryId: "balgeet",
+        categoryHi: "बाल-गीत संग्रह",
+        categoryEn: "Children's Literature",
+        type: "मनोरंजक बालगीत संग्रह",
+        descHi: "बच्चों की प्रिय बिल्ली, तितलियों, फूलों और चंचल बाल-सुलभ क्रीड़ाओं पर रचित अत्यंत मनभावन बालगीत।",
+        descEn: "Delightful verses celebrating a whimsical long-whiskered cat, colorful flowers, and childlike joy.",
+        cover: "assets/images/books/lambi-moonchhon-wali-billi.jpg",
         bloggerUrl: "https://hinditewari-3.blogspot.com/"
     },
 
@@ -2295,7 +2310,8 @@ const HOMEPAGE_BOOK_REELS = [
             "katha-sunaate-balgeet",
             "mat-kaato-van",
             "mummy-yadi-main-badal-hota",
-            "rang-birange-balgeet"
+            "rang-birange-balgeet",
+            "lambi-moonchhon-wali-billi"
         ]
     },
     {
