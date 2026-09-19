@@ -1161,18 +1161,19 @@ const ALL_WORKS_LIST = [
     },
     {
         id: "kavita-abhi-zinda-hai",
-        hasPhoto: false,
+        hasPhoto: true,
         num: "4",
         titleHi: "कविता अभी ज़िंदा है",
         titleEn: "Kavita Abhi Zinda Hai",
         categoryId: "muktachhand",
         categoryHi: "मुक्तछंद कविता संग्रह",
         categoryEn: "Free Verse Collections",
-        type: "मुक्तछंद काव्य-संग्रह",
+        type: "मुक्तछंद काव्य-संग्रह (Rachnaye)",
         descHi: "कठिन से कठिन समय में भी कविता और प्रतिरोध की शक्ति के अक्षुण्ण रहने का ओजस्वी उद्घोष।",
         descEn: "Resonant proclamation of the immortal resilience of poetry and artistic defiance in dark times.",
-        cover: "assets/images/books/kabir-zinda-hai.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        cover: "assets/images/books/kavita-abhi-zinda-hai.jpg",
+        bloggerUrl: "https://rachnaye.chottu.link/qA1P",
+        buyUrl: "https://rachnaye.chottu.link/qA1P"
     },
     {
         id: "wah-yani-mohan-swaroop",

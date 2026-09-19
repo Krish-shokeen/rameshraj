@@ -880,8 +880,11 @@ window.openBookModal = function(bookId) {
                 <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     <i class="fab fa-blogger-b"></i> ${currentLang === 'hi' ? 'सम्पूर्ण समीक्षा व पाठ देखें' : 'View Full Text & Reviews'}
                 </a>
-                <button class="btn btn-outline" onclick="copyShareLink('${book.buyUrl || book.bloggerUrl}')">
-                    <i class="fas fa-share-alt"></i> ${currentLang === 'hi' ? 'लिंक साझा करें' : 'Share Link'}
+                <button class="btn btn-outline" onclick="shareBookWhatsApp('${(book.titleHi || book.titleEn).replace(/'/g, "\\'")}', '${book.buyUrl || book.bloggerUrl}')" title="${currentLang === 'hi' ? 'व्हाट्सएप पर साझा करें' : 'Share on WhatsApp'}">
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i> <span>${currentLang === 'hi' ? 'व्हाट्सएप' : 'WhatsApp'}</span>
+                </button>
+                <button class="btn btn-outline" onclick="copyShareLink('${book.buyUrl || book.bloggerUrl}')" title="${currentLang === 'hi' ? 'लिंक कॉपी करें' : 'Copy Link'}">
+                    <i class="fas fa-copy"></i> <span>${currentLang === 'hi' ? 'कॉपी लिंक' : 'Copy Link'}</span>
                 </button>
             </div>
         </div>
@@ -981,7 +984,8 @@ window.shareToPlatform = function(platform) {
 
     switch (platform) {
         case 'whatsapp':
-            shareUrl = `https://api.whatsapp.com/send?text=${title}%0A${url}`;
+            // Placing the URL first ensures WhatsApp's crawler immediately fetches and displays the rich preview card with image
+            shareUrl = `https://api.whatsapp.com/send?text=${url}%0A%0A${title}`;
             break;
         case 'facebook':
             shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
@@ -996,6 +1000,12 @@ window.shareToPlatform = function(platform) {
     if (shareUrl) {
         window.open(shareUrl, '_blank', 'noopener,noreferrer,width=650,height=520');
     }
+};
+
+window.shareBookWhatsApp = function(title, url) {
+    const targetUrl = url || LIVE_SITE_URL;
+    const shareText = encodeURIComponent(`${targetUrl}\n\n${title}`);
+    window.open(`https://api.whatsapp.com/send?text=${shareText}`, '_blank', 'noopener,noreferrer');
 };
 
 window.copySiteLink = function() {
