@@ -1681,30 +1681,46 @@ function initHomepageMarquees() {
 }
 
 /* --------------------------------------------------------------------------
-   VISITOR COUNTER (drnamitasingh.com STYLE)
+   REAL-TIME LIVE VISITOR COUNTER (100% Authentic Real-Time Tracking)
    -------------------------------------------------------------------------- */
-function initVisitorCounter() {
+async function initVisitorCounter() {
     const el = document.getElementById('visitorCountVal');
     if (!el) return;
 
-    let base = 28542;
+    function renderCount(num) {
+        if (typeof num === 'number' && !isNaN(num) && num > 0) {
+            el.textContent = String(num).padStart(6, '0');
+        }
+    }
+
+    // Immediately display cached count if previously stored
+    const cached = localStorage.getItem('rameshraj_real_visitors');
+    if (cached) {
+        renderCount(parseInt(cached, 10));
+    }
+
+    const sessionKey = 'rameshraj_session_counted';
+    const hasCountedSession = sessionStorage.getItem(sessionKey);
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
+
+    // Use 'hit' to increment on unique real-world visits; use 'get' for refreshes & local development
+    const endpoint = (!hasCountedSession && !isLocal)
+        ? 'https://countapi.mileshilliard.com/api/v1/hit/rameshraj_tewarikar'
+        : 'https://countapi.mileshilliard.com/api/v1/get/rameshraj_tewarikar';
+
     try {
-        let stored = localStorage.getItem('rameshraj_visitor_count');
-        if (!stored) {
-            stored = base + Math.floor(Math.random() * 5) + 1;
-            localStorage.setItem('rameshraj_visitor_count', stored);
-        } else {
-            stored = parseInt(stored, 10);
-            const lastVisit = localStorage.getItem('rameshraj_last_visit');
-            const now = Date.now();
-            if (!lastVisit || (now - parseInt(lastVisit, 10)) > 3600000) {
-                stored += 1;
-                localStorage.setItem('rameshraj_visitor_count', stored);
-                localStorage.setItem('rameshraj_last_visit', now);
+        const response = await fetch(endpoint, { cache: 'no-store' });
+        if (response.ok) {
+            const data = await response.json();
+            if (data && typeof data.value === 'number') {
+                renderCount(data.value);
+                localStorage.setItem('rameshraj_real_visitors', data.value);
+                if (!hasCountedSession && !isLocal) {
+                    sessionStorage.setItem(sessionKey, '1');
+                }
             }
         }
-        el.textContent = String(stored).padStart(6, '0');
-    } catch (e) {
-        el.textContent = '028543';
+    } catch (err) {
+        console.warn('Live visitor counter API unavailable:', err);
     }
 }
