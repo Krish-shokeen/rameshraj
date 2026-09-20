@@ -2060,21 +2060,35 @@ img {
     }
 
     .sketch-blogger-badge {
-        padding: 2px 4px;
+        display: inline-flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 2px 5px !important;
         border-radius: 6px;
-        background: transparent;
-        border: none;
+        background: #fff7ed;
+        border: 1.2px solid #fed7aa;
+        text-decoration: none;
+        flex-shrink: 0;
     }
 
     .sketch-blogger-title {
-        display: none !important;
+        display: block !important;
+        font-size: 0.58rem !important;
+        font-weight: 800 !important;
+        color: #ea580c !important;
+        letter-spacing: 0.1px;
+        margin-bottom: 2px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        text-align: center;
     }
 
     .sketch-blogger-icon-wrap {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-        border-radius: 6px;
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 0.78rem !important;
+        border-radius: 4px !important;
     }
 
     .sketch-share-btn {
