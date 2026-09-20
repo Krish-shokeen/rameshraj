@@ -94,7 +94,7 @@ const HERO_SLIDER_DATA = [
         tagEn: "Inaugural Conclave",
         titleHi: "दीप प्रज्वलन एवं राष्ट्रीय साहित्य सम्मेलन",
         titleEn: "Ceremonial Lamp Lighting & National Literary Conclave",
-        captionHi: "साहित्यिक अनुष्ठानों एवं तेवरी आन्दोलन के राष्ट्रीय सम्मेलनों का गरिमामय शुभारम्भ करते रमेशराज जी",
+        captionHi: "साहित्यिक अनुष्ठानों एवं तेवरी आन्दोलन के राष्ट्रीय सम्मेलनों का गरिमामय शुभारम्भ करते रमेशराज",
         captionEn: "Presiding over national symposiums and literary conclaves championing progressive Hindi poetics"
     },
     {
@@ -124,7 +124,7 @@ const HERO_SLIDER_DATA = [
         tagEn: "National Forum",
         titleHi: "पोडियम से ओजस्वी सारस्वत उद्बोधन",
         titleEn: "Inspiring Address from National Dais",
-        captionHi: "साहित्यिक संगोष्ठी में रचनाकारों, समीक्षकों और शोधार्थियों को संबोधित करते रमेशराज जी",
+        captionHi: "साहित्यिक संगोष्ठी में रचनाकारों, समीक्षकों और शोधार्थियों को संबोधित करते रमेशराज",
         captionEn: "Keynote address on sociopolitical conscience and public resistance before scholars and critics"
     },
     {
@@ -193,7 +193,7 @@ const LITERARY_CATEGORIES = [
         titleEn: "Tewari Anthologies",
         icon: "fas fa-book-open",
         count: 9,
-        descriptionHi: "रमेशराज जी के सर्वप्रमुख एवं चर्चित स्वतंत्र तेवरी संकलन",
+        descriptionHi: "रमेशराज के सर्वप्रमुख एवं चर्चित स्वतंत्र तेवरी संकलन",
         descriptionEn: "Author's most acclaimed primary Tewari poetry books"
     },
     {
@@ -243,7 +243,7 @@ const LITERARY_CATEGORIES = [
     }
 ];
 
-// Complete Catalog of Works (Categorized according to Author's authentic manuscript)
+// Complete Catalog of Works (Categorized according to Author's authentic catalog)
 const ALL_WORKS_LIST = [
     // 1. तेवरीपक्ष पत्रिका के प्रामाणिक अंक (चलायमान चित्रों हेतु)
     {
@@ -451,7 +451,7 @@ const ALL_WORKS_LIST = [
         categoryHi: "तेवरीपक्ष पत्रिका",
         categoryEn: "Tewaripaksh Magazine",
         type: "त्रैमासिक अंक",
-        descHi: "तेवरीपक्ष का निरंतर प्रकाशित 23वां अंक, रमेशराज जी के यशस्वी संपादन में।",
+        descHi: "तेवरीपक्ष का निरंतर प्रकाशित 23वां अंक, रमेशराज के यशस्वी संपादन में।",
         descEn: "23rd edition of Tewaripaksh under Rameshraj's continuous editorship.",
         cover: "assets/images/magazines/tewaripaksh-23.jpg",
         bloggerUrl: "https://hinditewari-22.blogspot.com/"
@@ -1354,7 +1354,7 @@ const ALL_WORKS_LIST = [
         categoryHi: "अन्य पुस्तकें",
         categoryEn: "Other Works",
         type: "ग़ज़ल संग्रह",
-        descHi: "भारतीय संवेदना, मानवीय निष्ठा और नफ़ासत से ओतप्रोत रमेशराज जी का स्वतंत्र ग़ज़ल-संग्रह।",
+        descHi: "भारतीय संवेदना, मानवीय निष्ठा और नफ़ासत से ओतप्रोत रमेशराज का स्वतंत्र ग़ज़ल-संग्रह।",
         descEn: "Selected Ghazal anthology blending traditional lyrical finesse with deep social sensibility.",
         cover: "assets/images/books/hindi-ghazal-mein-kitni-ghazal.jpg",
         bloggerUrl: "https://hinditewari-25.blogspot.com/",
@@ -1488,7 +1488,7 @@ const ALL_WORKS_LIST = [
         categoryHi: "गीत व ग़ज़ल संग्रह",
         categoryEn: "Songs & Ghazals",
         type: "गीत-ग़ज़ल संग्रह (शॉपीज़ान • Amazon/Flipkart)",
-        descHi: "मानवीय संवेदनाओं, प्रेम और लोक-सरोकारों से ओत-प्रोत रमेशराज जी के सरस गीतों व ग़ज़लों का संग्रह। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descHi: "मानवीय संवेदनाओं, प्रेम और लोक-सरोकारों से ओत-प्रोत रमेशराज के सरस गीतों व ग़ज़लों का संग्रह। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
         descEn: "Poetic collection of lyrical songs and verses capturing human emotions and aesthetics. Available on Amazon, Flipkart & Shopizen.",
         cover: "assets/images/books/nain-pyare-ye-tumhare.jpg",
         bloggerUrl: "https://hinditewari-14.blogspot.com/",
@@ -1592,7 +1592,7 @@ const ALL_WORKS_LIST = [
         categoryHi: "गीत, नवगीत एवं ग़ज़ल",
         categoryEn: "Lyrical Songs & Ghazals",
         type: "सरस गीत-नवगीत संग्रह (Rachnaye)",
-        descHi: "सौंदर्य, प्रेम, लोक-राग और मानवीय अनुभूतियों के सूक्ष्म स्पंदनों को रूपायित करते रमेशराज जी के चर्चित गीत-नवगीत। रचनाये पर उपलब्ध।",
+        descHi: "सौंदर्य, प्रेम, लोक-राग और मानवीय अनुभूतियों के सूक्ष्म स्पंदनों को रूपायित करते रमेशराज के चर्चित गीत-नवगीत। रचनाये पर उपलब्ध।",
         descEn: "Celebrated lyric poetry capturing romantic resonance, human warmth, and aesthetic beauty. Available on Rachnaye.",
         cover: "assets/images/books/nain-pyare-ye-tumhare.jpg",
         bloggerUrl: "https://hinditewari-14.blogspot.com/",
@@ -1622,6 +1622,21 @@ const BOOKS_DATA = ALL_WORKS_LIST.filter(item => item.hasPhoto).map(item => ({
 
 // Blogger Blogs Data (32+ Authentic Platforms sent by Client with Matched Covers)
 const BLOGS_DATA = [
+    {
+        id: "blog-5",
+        hasPhoto: true,
+        url: "https://hinditewari-5.blogspot.com/?m=1",
+        category: "sahitya",
+        categoryHi: "साहित्यिक धरोहर",
+        categoryEn: "Heritage & Tribute",
+        titleHi: "ब्रजभाषा के चर्चित हस्ताक्षर : लोककवि रामचरन गुप्त",
+        titleEn: "Brajbhasha Icon : Lokkavi Ramcharan Gupta",
+        featuredArticle: "लोककवि रामचरन गुप्त का लोक-काव्य — डॉ. वेदप्रकाश ‘अमिताभ’",
+        dateAuthor: "रमेशराज तेवरीकार",
+        image: "assets/images/lokkavi-ramcharan-gupt.jpg",
+        descriptionHi: "स्वाधीनता संग्राम सेनानी एवं ब्रजभाषा के अमर लोककवि रामचरन गुप्त जी के व्यक्तित्व, कृतित्व, क्रांति-गीतों और अप्रतिम लोक-काव्य का आधिकारिक मंच।",
+        descriptionEn: "Dedicated archive celebrating the life, freedom movement legacy, and rich Brajbhasha folk literature of Lokkavi Ramcharan Gupta.",
+    },
     {
         id: "blog-1",
         hasPhoto: true,
@@ -1682,21 +1697,7 @@ const BLOGS_DATA = [
         descriptionHi: "हिन्दी आलोचना के शीर्ष स्तम्भ डॉ. नामवर सिंह की मान्यताओं पर बेबाक तार्किक विमर्श तथा कविता के नए समाजशास्त्रीय प्रतिमानों की विवेचना।",
         descriptionEn: "Critical examination and bold debate addressing canonical Hindi literary theories and defining new sociopoetic paradigms.",
     },
-    {
-        id: "blog-5",
-        hasPhoto: true,
-        url: "https://hinditewari-5.blogspot.com/?m=1",
-        category: "sahitya",
-        categoryHi: "साहित्यिक धरोहर",
-        categoryEn: "Heritage & Tribute",
-        titleHi: "ब्रजभाषा के चर्चित हस्ताक्षर : लोककवि रामचरन गुप्त",
-        titleEn: "Brajbhasha Icon : Lokkavi Ramcharan Gupta",
-        featuredArticle: "लोककवि रामचरन गुप्त का लोक-काव्य — डॉ. वेदप्रकाश ‘अमिताभ’",
-        dateAuthor: "रमेशराज तेवरीकार",
-        image: "assets/images/lokkavi-ramcharan-gupt.jpg",
-        descriptionHi: "स्वाधीनता संग्राम सेनानी एवं ब्रजभाषा के अमर लोककवि रामचरन गुप्त जी के व्यक्तित्व, कृतित्व, क्रांति-गीतों और अप्रतिम लोक-काव्य का आधिकारिक मंच।",
-        descriptionEn: "Dedicated archive celebrating the life, freedom movement legacy, and rich Brajbhasha folk literature of Lokkavi Ramcharan Gupta.",
-    },
+    
     {
         id: "blog-6",
         hasPhoto: true,
@@ -1724,7 +1725,7 @@ const BLOGS_DATA = [
         featuredArticle: "डॉ. राकेश गुप्त की साधारणीकरण सम्बन्धी मान्यताओं के आलोक में आत्मीयकरण",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/books/kavya-ki-aatma.jpg",
-        descriptionHi: "रस-निष्पत्ति में 'साधारणीकरण' के पारंपरिक सिद्धांत के समानांतर रमेशराज जी द्वारा आविष्कृत 'आत्मीयकरण सिद्धांत' का मौलिक दार्शनिक विवेचन।",
+        descriptionHi: "रस-निष्पत्ति में 'साधारणीकरण' के पारंपरिक सिद्धांत के समानांतर रमेशराज द्वारा आविष्कृत 'आत्मीयकरण सिद्धांत' का मौलिक दार्शनिक विवेचन।",
         descriptionEn: "Groundbreaking aesthetic thesis proposing 'Aatmeeyakaran' (Emotional Self-Identification) as an advance over classical Sadharanikaran.",
     },
     {
@@ -1784,7 +1785,7 @@ const BLOGS_DATA = [
         featuredArticle: "परिचय : रमेशराज तेवरीकार — चार दशक की साहित्य साधना",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/author-portrait-formal.jpg",
-        descriptionHi: "तेवरी आन्दोलन के प्रवर्तक, विरोध-रस के प्रतिष्ठापक रमेशराज जी का जन्म, शिक्षा, साधना, सम्मान एवं 50+ कृतियों का अधिकृत प्रामाणिक वृत्त।",
+        descriptionHi: "तेवरी आन्दोलन के प्रवर्तक, विरोध-रस के प्रतिष्ठापक रमेशराज का जन्म, शिक्षा, साधना, सम्मान एवं 50+ कृतियों का अधिकृत प्रामाणिक वृत्त।",
         descriptionEn: "Official biography, literary journey, published bibliography, and historical milestones of pioneer Rameshraj Tewarikar.",
     },
     {
@@ -1829,7 +1830,7 @@ const BLOGS_DATA = [
         featuredArticle: "रमेशराज के साम्प्रदायिक सद्भाव एवं मानवीय संवेदना के गीत",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/books/antar-aah-anant-ati.jpg",
-        descriptionHi: "मानवीय करुणा, साम्प्रदायिक सौहार्द, श्रमजीवियों के पसीने और लोक-संस्कृति की मधुर लय में गुंथे रमेशराज जी के कालजयी गीतों का संकलन।",
+        descriptionHi: "मानवीय करुणा, साम्प्रदायिक सौहार्द, श्रमजीवियों के पसीने और लोक-संस्कृति की मधुर लय में गुंथे रमेशराज के कालजयी गीतों का संकलन।",
         descriptionEn: "Soul-stirring lyrical melodies reflecting communal harmony, agrarian resilience, human compassion, and grassroots folk warmth.",
     },
     {
@@ -1859,7 +1860,7 @@ const BLOGS_DATA = [
         featuredArticle: "[व्यंग्य] चचा बैठे ट्रेन में — रमेशराज",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/books/jan-mat-aur-prapanch.jpg",
-        descriptionHi: "सामाजिक विसंगतियों, लालफीताशाही और ढकोसलों पर तीखा प्रहार करते रमेशराज जी के हास्य-व्यंग्य लेख, कहानियाँ और रिपोर्ताज।",
+        descriptionHi: "सामाजिक विसंगतियों, लालफीताशाही और ढकोसलों पर तीखा प्रहार करते रमेशराज के हास्य-व्यंग्य लेख, कहानियाँ और रिपोर्ताज।",
         descriptionEn: "Sharp sociopolitical satires, witty prose, and engaging short narratives dissecting bureaucratic and societal pretenses.",
     },
     {
@@ -1904,7 +1905,7 @@ const BLOGS_DATA = [
         featuredArticle: "रमेशराज का हाइकु-शतक [भाग-1] — 100 चुनिंदा हाइकु",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/books/aag-zaroori.jpg",
-        descriptionHi: "जापानी काव्य विधा हाइकु को हिन्दी जन-संवेदना और तेवरी चेतना से परिपूर्ण करने वाला रमेशराज जी का सुप्रसिद्ध 100 हाइकुओं का शतक।",
+        descriptionHi: "जापानी काव्य विधा हाइकु को हिन्दी जन-संवेदना और तेवरी चेतना से परिपूर्ण करने वाला रमेशराज का सुप्रसिद्ध 100 हाइकुओं का शतक।",
         descriptionEn: "Anthology of 100 poignant Haikus capturing transient nature, societal ironies, and resilient human spirit.",
     },
     {
@@ -1964,7 +1965,7 @@ const BLOGS_DATA = [
         featuredArticle: "रमेशराज की ‘सर्पकुण्डली राज छंद’ में 14 अमर तेवरियाँ",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/books/ghada-paap-ka-bhar-raha.jpg",
-        descriptionHi: "रमेशराज जी द्वारा आविष्कृत नवीन छंद 'सर्पकुण्डली राज छंद' के शास्त्रीय नियमों के अनुसार रचित 14 उच्चस्तरीय तेवरियों का संग्रह।",
+        descriptionHi: "रमेशराज द्वारा आविष्कृत नवीन छंद 'सर्पकुण्डली राज छंद' के शास्त्रीय नियमों के अनुसार रचित 14 उच्चस्तरीय तेवरियों का संग्रह।",
         descriptionEn: "Showcase of 14 pathbreaking Tewaris composed in Rameshraj's metric invention 'Sarpakundali Raj Chhand'.",
     },
     {
@@ -2024,7 +2025,7 @@ const BLOGS_DATA = [
         featuredArticle: "रमेशराज की कह्मुकरी संरचना में ग़ज़लें एवं तेवरियाँ",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/books/kabir-zinda-hai.jpg",
-        descriptionHi: "कह्मकरी और हाइकु की नवीन संरचनात्मक प्रयोगधर्मिता पर आधारित रमेशराज जी की बहुचर्चित रचनाओं का विशेष अध्ययन मंच।",
+        descriptionHi: "कह्मकरी और हाइकु की नवीन संरचनात्मक प्रयोगधर्मिता पर आधारित रमेशराज की बहुचर्चित रचनाओं का विशेष अध्ययन मंच।",
         descriptionEn: "Dedicated analytical platform featuring metric experiments in Kahmukari structures and Haiku-styled socio-poetic verses.",
     },
     {
@@ -2054,7 +2055,7 @@ const BLOGS_DATA = [
         featuredArticle: "ग़ज़ल की नज़ाकत में हाइकु का तीखापन — नवीन रचनाएँ",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/books/de-lanka-mein-aag.jpg",
-        descriptionHi: "ग़ज़ल के शेर में जापानी हाइकु के त्रिपदीय प्रभाव और भारतीय लोक-मुहावरों का सम्मिश्रण करती रमेशराज जी की विलक्षण ग़ज़लें।",
+        descriptionHi: "ग़ज़ल के शेर में जापानी हाइकु के त्रिपदीय प्रभाव और भारतीय लोक-मुहावरों का सम्मिश्रण करती रमेशराज की विलक्षण ग़ज़लें।",
         descriptionEn: "Distinctive Ghazals infused with the concise brevity of Haiku and grounded in Indian idiom and reality.",
     },
     {
@@ -2069,7 +2070,7 @@ const BLOGS_DATA = [
         featuredArticle: "आलोचक रमेशराज द्वारा 'साधारणीकरण' का विरोध — आधुनिक AI विश्लेषण",
         dateAuthor: "रमेशराज तेवरीकार",
         image: "assets/images/author-tewari-banner.jpg",
-        descriptionHi: "आधुनिक कृत्रिम बुद्धिमत्ता (AI) द्वारा रमेशराज जी के 'विरोध-रस', 'आत्मीयकरण सिद्धांत' और तेवरी आंदोलन के युगांतरकारी अवदान का निष्पक्ष मूल्यांकन।",
+        descriptionHi: "आधुनिक कृत्रिम बुद्धिमत्ता (AI) द्वारा रमेशराज के 'विरोध-रस', 'आत्मीयकरण सिद्धांत' और तेवरी आंदोलन के युगांतरकारी अवदान का निष्पक्ष मूल्यांकन।",
         descriptionEn: "Modern Artificial Intelligence evaluations analyzing Rameshraj's theoretical contributions to Rasa theory and poetics.",
     },
     {
@@ -2184,7 +2185,7 @@ const GALLERY_DATA = [
         categoryHi: "मंच छायाचित्र",
         categoryEn: "Stage / Dais",
         image: "assets/images/gallery/author-podium-address.jpg",
-        captionHi: "मंच से उपस्थित विदुषी व विद्वत समाज को संबोधित करते रमेशराज जी — तेवरी चेतना और जन-सरोकारों पर ओजस्वी विचार।",
+        captionHi: "मंच से उपस्थित विदुषी व विद्वत समाज को संबोधित करते रमेशराज — तेवरी चेतना और जन-सरोकारों पर ओजस्वी विचार।",
         captionEn: "Keynote address by Rameshraj on contemporary poetic consciousness and sociopolitical resistance from the dais."
     },
     {
@@ -2217,7 +2218,7 @@ const GALLERY_DATA = [
         categoryHi: "मंच छायाचित्र",
         categoryEn: "Stage / Dais",
         image: "assets/images/gallery/rameshraj-speaking-mic.jpg",
-        captionHi: "विशाल जनसमूह के समक्ष तेवरी विधा की ओजस्वी पंक्तियों का सस्वर पाठ करते रमेशराज जी।",
+        captionHi: "विशाल जनसमूह के समक्ष तेवरी विधा की ओजस्वी पंक्तियों का सस्वर पाठ करते रमेशराज।",
         captionEn: "Reciting stirring Tewari couplets before an engaged literary audience."
     },
     {
@@ -2239,7 +2240,7 @@ const GALLERY_DATA = [
         categoryHi: "मंच छायाचित्र",
         categoryEn: "Stage / Dais",
         image: "assets/images/gallery/rameshraj-author-dialogue.jpg",
-        captionHi: "मंच पर वरिष्ठ साहित्यकारों एवं समालोचकों के साथ वैचारिक विमर्श करते रमेशराज जी।",
+        captionHi: "मंच पर वरिष्ठ साहित्यकारों एवं समालोचकों के साथ वैचारिक विमर्श करते रमेशराज।",
         captionEn: "Intellectual deliberations with fellow critics and poets on the stage."
     },
     {
@@ -2261,7 +2262,7 @@ const GALLERY_DATA = [
         categoryHi: "ऐतिहासिक धरोहर",
         categoryEn: "Archival",
         image: "assets/images/lokkavi-ramcharan-gupt.jpg",
-        captionHi: "ब्रजभाषा के मूर्धन्य साहित्यकार, स्वाधीनता संग्राम सेनानी एवं रमेशराज जी के पूज्य पिता लोककवि रामचरन गुप्त।",
+        captionHi: "ब्रजभाषा के मूर्धन्य साहित्यकार, स्वाधीनता संग्राम सेनानी एवं रमेशराज के पूज्य पिता लोककवि रामचरन गुप्त।",
         captionEn: "Eminent Brajbhasha poet, celebrated freedom fighter, and revered father of Rameshraj, Lokkavi Ramcharan Gupta."
     },
     {
@@ -2283,7 +2284,7 @@ const GALLERY_DATA = [
         categoryHi: "विशेषांक पत्रिका",
         categoryEn: "Special Issue",
         image: "assets/images/gallery/bulandprabha-visheshank.jpg",
-        captionHi: "राष्ट्रीय विचार-प्रधान त्रैमासिक 'बुलन्दप्रभा' (वर्ष-4, अंक-3) द्वारा रमेशराज जी के साहित्यिक अवदान पर प्रकाशित विशेषांक।",
+        captionHi: "राष्ट्रीय विचार-प्रधान त्रैमासिक 'बुलन्दप्रभा' (वर्ष-4, अंक-3) द्वारा रमेशराज के साहित्यिक अवदान पर प्रकाशित विशेषांक।",
         captionEn: "Landmark quarterly issue celebrating Rameshraj's monumental impact on modern Indian poetics."
     },
     {
@@ -2360,7 +2361,7 @@ const GALLERY_DATA = [
         categoryHi: "सम्मान प्रमाणपत्र",
         categoryEn: "Award Certificate",
         image: "assets/images/awards/sahitya_shri_samman_2015_complete.jpg",
-        captionHi: "25 दिसम्बर 2015 को ग्रन्थायन द्वारा रमेशराज जी को विशिष्ट एवं विपुल साहित्यिक अवदान हेतु प्रदत्त मूल मानपत्र एवं राष्ट्रीय समाचार पत्रों में प्रकाशित सम्मान-समाचार।",
+        captionHi: "25 दिसम्बर 2015 को ग्रन्थायन द्वारा रमेशराज को विशिष्ट एवं विपुल साहित्यिक अवदान हेतु प्रदत्त मूल मानपत्र एवं राष्ट्रीय समाचार पत्रों में प्रकाशित सम्मान-समाचार।",
         captionEn: "Original citation certificate and national press feature of Sahitya-Shri Honor conferred upon Rameshraj on 25 December 2015."
     },
     {
@@ -2371,7 +2372,7 @@ const GALLERY_DATA = [
         categoryHi: "मंच एवं मीडिया",
         categoryEn: "Stage / Media",
         image: "assets/images/gallery/deendayal-chaupal-poster.jpg",
-        captionHi: "टाबर टोली के सौजन्य से आयोजित राष्ट्रीय 'दीनदयाल चौपाल' (16-06-2024) में रमेशराज गुप्त जी द्वारा प्रतिनिधि बाल कविताओं का फेसबुक लाइव पाठ।",
+        captionHi: "टाबर टोली के सौजन्य से आयोजित राष्ट्रीय 'दीनदयाल चौपाल' (16-06-2024) में रमेशराज गुप्त द्वारा प्रतिनिधि बाल कविताओं का फेसबुक लाइव पाठ।",
         captionEn: "National live poetry broadcast featuring Rameshraj reciting select children's poetry organized by Tabar Toli."
     },
     {
@@ -2382,7 +2383,7 @@ const GALLERY_DATA = [
         categoryHi: "सारस्वत संवाद",
         categoryEn: "Educational Discourse",
         image: "assets/images/gallery/rameshraj-classroom-dialogue.jpg",
-        captionHi: "शिक्षण संस्थान में छात्राओं के साथ काव्य-सृजन, भाषा-संस्कार एवं साहित्य-चेतना पर प्रेरक संवाद व अध्यापन सत्र में रमेशराज जी।",
+        captionHi: "शिक्षण संस्थान में छात्राओं के साथ काव्य-सृजन, भाषा-संस्कार एवं साहित्य-चेतना पर प्रेरक संवाद व अध्यापन सत्र में रमेशराज।",
         captionEn: "Inspiring interactive pedagogical and literary dialogue with girl students on poetic creativity and values."
     },
     {
@@ -2393,7 +2394,7 @@ const GALLERY_DATA = [
         categoryHi: "विशेषांक ई-पत्रिका",
         categoryEn: "Special Issue",
         image: "assets/images/gallery/hindi-sahitya-manthan-magazine.jpg",
-        captionHi: "इंडियन ओवरसीज़ बैंक अहमदाबाद द्वारा मार्च माह में जन्मे मूर्धन्य साहित्यकारों (रेणु, अज्ञेय, महादेवी वर्मा, कुबेरनाथ राय, भवानी प्रसाद मिश्र) के साथ रमेशराज जी का विशेष स्मरण।",
+        captionHi: "इंडियन ओवरसीज़ बैंक अहमदाबाद द्वारा मार्च माह में जन्मे मूर्धन्य साहित्यकारों (रेणु, अज्ञेय, महादेवी वर्मा, कुबेरनाथ राय, भवानी प्रसाद मिश्र) के साथ रमेशराज का विशेष स्मरण।",
         captionEn: "Special national homage celebrating Rameshraj alongside Hindi literary titans (Renu, Agyeya, Mahadevi Varma, Kuber Nath Rai, Bhavani Prasad Mishra)."
     }
 ];
@@ -2413,7 +2414,7 @@ const TESTIMONIALS_DATA = [
         nameEn: "Dr. Lalit Singh",
         titleHi: "वरिष्ठ समालोचक एवं शोध अध्येता, अलीगढ़",
         titleEn: "Eminent Literary Critic & Research Scholar, Aligarh",
-        quoteHi: "रमेशराज जी का 'विचार और रस' हिन्दी आलोचना और रस-मीमांसा का क्रांतिकारी ग्रंथ है। उन्होंने 'विरोध-रस' (स्थायी भाव: आक्रोश) और 'विद्रोह-रस' (स्थायी भाव: असंतोष) की शास्त्रीय स्थापना कर तथा 'अनुभाव, अनुभव और अनुभूति' की त्रयी का प्रतिपादन कर काव्यशास्त्र को नया वैज्ञानिक धरातल दिया है।",
+        quoteHi: "रमेशराज का 'विचार और रस' हिन्दी आलोचना और रस-मीमांसा का क्रांतिकारी ग्रंथ है। उन्होंने 'विरोध-रस' (स्थायी भाव: आक्रोश) और 'विद्रोह-रस' (स्थायी भाव: असंतोष) की शास्त्रीय स्थापना कर तथा 'अनुभाव, अनुभव और अनुभूति' की त्रयी का प्रतिपादन कर काव्यशास्त्र को नया वैज्ञानिक धरातल दिया है।",
         quoteEn: "Rameshraj's 'Vichar aur Ras' is a revolutionary milestone in Hindi poetics. By formalizing 'Virodh-Ras' (Aesthetic of Dissent) and the trinity of emotion, experience, and perception, he gifted poetics a modern scientific dimension."
     },
     {
@@ -2421,7 +2422,7 @@ const TESTIMONIALS_DATA = [
         nameEn: "Ashok Anjum",
         titleHi: "संपादक: 'अभिनव प्रयास', वरिष्ठ साहित्यकार",
         titleEn: "Editor: 'Abhinav Prayas', Senior Litterateur",
-        quoteHi: "'रमेशराज के चर्चित तेवरी संग्रह' तेवरी आंदोलन का महाग्रंथ है। जनक छन्द और जन-विद्रोह के स्वरों से सजी यह पुस्तक शोषितों की आवाज़ और व्यवस्था के पाखंड पर करारा प्रहार है। रमेशराज जी ने सिद्ध कर दिया कि कविता केवल मनोरंजन नहीं, सामाजिक क्रांति का अस्त्र है।",
+        quoteHi: "'रमेशराज के चर्चित तेवरी संग्रह' तेवरी आंदोलन का महाग्रंथ है। जनक छन्द और जन-विद्रोह के स्वरों से सजी यह पुस्तक शोषितों की आवाज़ और व्यवस्था के पाखंड पर करारा प्रहार है। रमेशराज ने सिद्ध कर दिया कि कविता केवल मनोरंजन नहीं, सामाजिक क्रांति का अस्त्र है।",
         quoteEn: "'Rameshraj Ke Charchit Tewari Sangrah' is the magnum opus of the Tewari movement. Set in Janak Chhand and armed with righteous public rage, it proves poetry is an engine of profound social change."
     },
     {
@@ -2429,7 +2430,7 @@ const TESTIMONIALS_DATA = [
         nameEn: "Dr. Gopal Babu Sharma",
         titleHi: "वरिष्ठ साहित्यकार एवं बाल साहित्य मर्मज्ञ, आगरा",
         titleEn: "Renowned Hindi Author & Children's Literature Scholar, Agra",
-        quoteHi: "रमेशराज जी की 'राष्ट्रीय बाल कविताएँ' बालमन में राष्ट्रप्रेम, स्वाभिमान, पर्यावरण और चारित्रिक चेतना का पावन संचार करती हैं। तिरंगा, सुभाष, भगत सिंह और शास्त्री जी पर लिखी उनकी कविताएँ प्रत्येक बालक के कंठ का हार बनने योग्य हैं।",
+        quoteHi: "रमेशराज की 'राष्ट्रीय बाल कविताएँ' बालमन में राष्ट्रप्रेम, स्वाभिमान, पर्यावरण और चारित्रिक चेतना का पावन संचार करती हैं। तिरंगा, सुभाष, भगत सिंह और शास्त्री जी पर लिखी उनकी कविताएँ प्रत्येक बालक के कंठ का हार बनने योग्य हैं।",
         quoteEn: "Rameshraj's patriotic children's poetry awakens deep patriotism, self-respect, and ecological awareness in young minds. Verses on the Tricolor, Subhash, and Bhagat Singh resonate in every schoolroom."
     },
     {

@@ -1239,7 +1239,7 @@ function renderAllBooksModal() {
                 const desc = currentLang === 'hi' ? w.descHi : w.descEn;
                 const photoBadge = w.hasPhoto 
                     ? `<span class="work-photo-tag has-photo"><i class="fas fa-check-circle"></i> ${currentLang === 'hi' ? 'कवर उपलब्ध' : 'Cover Art'}</span>`
-                    : `<span class="work-photo-tag no-photo"><i class="fas fa-scroll"></i> ${currentLang === 'hi' ? 'हस्तलिखित / अप्रकाशित पांडुलिपि' : 'Manuscript / Uncollected'}</span>`;
+                    : `<span class="work-photo-tag no-photo"><i class="fas fa-book"></i> ${currentLang === 'hi' ? 'अप्रकाशित / डिजिटल संकलन' : 'Unpublished / Digital Edition'}</span>`;
                 
                 const visualHtml = w.hasPhoto 
                     ? `<div class="modal-work-thumb" onclick="openLightbox('${w.cover}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'बड़ा कवर देखें' : 'View full cover'}">
@@ -1570,7 +1570,7 @@ function renderHomepageBookMarquees() {
                             <span style="background: #16a34a; color: #fff; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; font-weight: 600;"><i class="fas fa-check-circle"></i> 8 संग्रह उपलब्ध</span>
                         </div>
                         <p style="margin: 0 0 0.75rem; font-size: 0.92rem; line-height: 1.55; color: #475569;">
-                            शॉपीज़ान (Shopizen) पर रमेशराज तेवरीकार जी के 8 प्रमुख संग्रह (विरोध रस शोध प्रबंध, जय हो विभीषणों की, हिंदी ग़ज़ल में कितनी ग़ज़ल?, ब्रज के भजन और रसिया, आदि) डिजिटल व मुद्रित संस्करणों में उपलब्ध हैं। ये पुस्तकें अमेज़न और फ्लिपकार्ट पर भी विज्ञापित एवं सुलभ हैं।
+                            शॉपीज़ान (Shopizen) पर रमेशराज तेवरीकार के 8 प्रमुख संग्रह (विरोध रस शोध प्रबंध, जय हो विभीषणों की, हिंदी ग़ज़ल में कितनी ग़ज़ल?, ब्रज के भजन और रसिया, आदि) डिजिटल व मुद्रित संस्करणों में उपलब्ध हैं। ये पुस्तकें अमेज़न और फ्लिपकार्ट पर भी विज्ञापित एवं सुलभ हैं।
                         </p>
                         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
                             <a href="https://shopizen.app.link/xa1sbw2gv6b" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; padding: 0.48rem 1.15rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(37,99,235,0.3); transition: all 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
@@ -1598,7 +1598,7 @@ function renderHomepageBookMarquees() {
                             <span style="background: #16a34a; color: #fff; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; font-weight: 600;"><i class="fas fa-shopping-bag"></i> पुस्तकें उपलब्ध</span>
                         </div>
                         <p style="margin: 0 0 0.75rem; font-size: 0.92rem; line-height: 1.55; color: #475569;">
-                            रमेशराज तेवरीकार जी का जन्म १५ मार्च सन १९५४ में गाँव-एसी, जनपद-अलीगढ़, (उत्तर प्रदेश) में हुआ। आपका पूरा नाम रमेशचन्द्र गुप्त है। आपने एम. ए. (हिंदी व भूगोल) तक शिक्षा प्राप्त की। आपने अनेक विधाओं में साहित्य का सृजन किया है।
+                            रमेशराज तेवरीकार का जन्म १५ मार्च सन १९५४ में गाँव-एसी, जनपद-अलीगढ़, (उत्तर प्रदेश) में हुआ। आपका पूरा नाम रमेशचन्द्र गुप्त है। आपने एम. ए. (हिंदी व भूगोल) तक शिक्षा प्राप्त की। आपने अनेक विधाओं में साहित्य का सृजन किया है।
                         </p>
                         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
                             <a href="https://rachnaye.chottu.link/dqMV" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #ffffff; padding: 0.48rem 1.15rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(22,163,74,0.3); transition: all 0.2s;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'">
