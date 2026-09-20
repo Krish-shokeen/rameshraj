@@ -1988,7 +1988,19 @@ img {
     }
 
     .sub-navbar {
-        display: none; /* Collapses into mobile drawer */
+        background: transparent !important;
+        border: none !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .sub-navbar .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: none !important;
+        width: 100% !important;
     }
 
     .hero-landing-section {
