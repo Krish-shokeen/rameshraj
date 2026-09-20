@@ -831,12 +831,24 @@ window.openBookModal = function(bookId) {
     const isbnLabel = 'ISBN';
     const readBloggerText = currentLang === 'hi' ? '📖 ब्लॉगर पर पढ़ें / समीक्षा' : '📖 Read on Author Blogger';
 
+    const isShopizen = book.buyUrl && book.buyUrl.includes('shopizen');
+    const isRachnaye = book.buyUrl && book.buyUrl.includes('rachnaye');
+    const buyBtnText = isShopizen 
+        ? (currentLang === 'hi' ? 'शॉपीज़ान (Amazon/Flipkart) पर खरीदें' : 'Buy on Shopizen (Amazon/Flipkart)')
+        : (currentLang === 'hi' ? 'रचनाये (Rachnaye) पर खरीदें' : 'Buy Book on Rachnaye');
+    const buyBtnBg = isShopizen 
+        ? 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)' 
+        : 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)';
+    const buyBtnShadow = isShopizen 
+        ? '0 4px 12px rgba(234, 88, 12, 0.35)' 
+        : '0 4px 12px rgba(22, 163, 74, 0.35)';
+
     container.innerHTML = `
         <div class="modal-book-visual">
             <img src="${book.cover}" alt="${title}" class="modal-book-cover" onerror="this.src='${book.fallbackCover || 'assets/images/author-portrait-formal.jpg'}'">
             ${book.buyUrl ? `
-            <a href="${book.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-buy-online" style="width: 100%; margin-bottom: 0.65rem; background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);">
-                <i class="fas fa-shopping-cart"></i> <span>${currentLang === 'hi' ? 'Rachnaye पर पुस्तक खरीदें' : 'Buy Book on Rachnaye'}</span> <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+            <a href="${book.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-buy-online" style="width: 100%; margin-bottom: 0.65rem; background: ${buyBtnBg}; color: #ffffff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: ${buyBtnShadow};">
+                <i class="fas fa-shopping-cart"></i> <span>${buyBtnText}</span> <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
             </a>
             ` : ''}
             <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-blogger" style="width: 100%;">
@@ -873,8 +885,8 @@ window.openBookModal = function(bookId) {
             <p class="modal-synopsis-text">${details}</p>
             <div class="modal-action-bar">
                 ${book.buyUrl ? `
-                <a href="${book.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-success" style="background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); color: #fff; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
-                    <i class="fas fa-shopping-cart"></i> <span>${currentLang === 'hi' ? 'पुस्तक खरीदें (Rachnaye)' : 'Buy Book'}</span>
+                <a href="${book.buyUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-success" style="background: ${buyBtnBg}; color: #fff; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; box-shadow: ${buyBtnShadow};">
+                    <i class="fas fa-shopping-cart"></i> <span>${buyBtnText}</span>
                 </a>
                 ` : ''}
                 <a href="${book.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -1166,7 +1178,12 @@ function renderAllBooksModal() {
                 <span class="pill-count">${ALL_WORKS_LIST.length}</span>
             </button>
         ` + LITERARY_CATEGORIES.map(cat => {
-            const count = ALL_WORKS_LIST.filter(w => w.categoryId === cat.id).length;
+            let count = ALL_WORKS_LIST.filter(w => w.categoryId === cat.id).length;
+            if (cat.id === 'shopizen') {
+                count = ALL_WORKS_LIST.filter(w => w.publisher === 'shopizen' || (w.buyUrl && w.buyUrl.includes('shopizen'))).length;
+            } else if (cat.id === 'rachnaye') {
+                count = ALL_WORKS_LIST.filter(w => w.publisher === 'rachnaye' || (w.buyUrl && w.buyUrl.includes('rachnaye'))).length;
+            }
             const title = currentLang === 'hi' ? cat.titleHi : cat.titleEn;
             const isActive = allBooksModalCat === cat.id ? 'active' : '';
             return `
@@ -1180,8 +1197,10 @@ function renderAllBooksModal() {
 
     // Filter works
     let filtered = ALL_WORKS_LIST;
-    if (allBooksModalCat === 'rachnaye') {
-        filtered = filtered.filter(w => ['there-is-an-allpin', 'tewar-saptak-shatak', 'mat-kaato-van', 'wah-yani-mohan-swaroop', 'poochh-na-kabira'].includes(w.id));
+    if (allBooksModalCat === 'shopizen') {
+        filtered = filtered.filter(w => w.publisher === 'shopizen' || (w.buyUrl && w.buyUrl.includes('shopizen')) || w.categoryId === 'shopizen');
+    } else if (allBooksModalCat === 'rachnaye') {
+        filtered = filtered.filter(w => w.publisher === 'rachnaye' || (w.buyUrl && w.buyUrl.includes('rachnaye')) || w.categoryId === 'rachnaye');
     } else if (allBooksModalCat !== 'all') {
         filtered = filtered.filter(w => w.categoryId === allBooksModalCat);
     }
@@ -1240,7 +1259,14 @@ function renderAllBooksModal() {
                             </div>
                             <h4 class="modal-work-title">${w.num}. ${title}</h4>
                             <p class="modal-work-desc">${desc}</p>
-                            <div class="modal-work-actions">
+                            <div class="modal-work-actions" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                                ${w.buyUrl ? `
+                                    <a href="${w.buyUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.42rem 0.85rem; border-radius: 6px; font-size: 0.82rem; font-weight: 700; text-decoration: none; color: #fff; background: ${w.buyUrl.includes('shopizen') ? 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)' : 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)'}; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>${w.buyUrl.includes('shopizen') ? (currentLang === 'hi' ? 'शॉपीज़ान (Amazon/Flipkart)' : 'Buy Shopizen') : (currentLang === 'hi' ? 'रचनाये पर खरीदें' : 'Buy Rachnaye')}</span>
+                                        <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+                                    </a>
+                                ` : ''}
                                 <a href="${w.bloggerUrl}" target="_blank" rel="noopener noreferrer" class="btn-modal-blogger">
                                     <i class="fab fa-blogger-b"></i> <span>${readText}</span> <i class="fas fa-external-link-alt" style="font-size: 0.72rem;"></i>
                                 </a>
@@ -1531,6 +1557,35 @@ function renderHomepageBookMarquees() {
                         ${bookCardsHtml}
                     </div>
                 </div>
+                ${reel.id === 'shopizen' ? `
+                <div class="shopizen-author-card" style="margin: 1.25rem 0 0.5rem; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 50%, #ffffff 100%); border: 1.5px solid #86efac; border-radius: 12px; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.08); display: flex; align-items: center; gap: 1.35rem; flex-wrap: wrap;">
+                    <div style="flex-shrink: 0; width: 92px; height: 92px; border-radius: 50%; overflow: hidden; border: 3px solid #16a34a; box-shadow: 0 3px 12px rgba(22,163,74,0.3);">
+                        <img src="assets/images/rameshraj.jpg" alt="Rameshraaj | Shopizen" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1; min-width: 260px;">
+                        <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; flex-wrap: wrap;">
+                            <span style="font-size: 1.18rem; font-weight: 700; color: #1e293b;">रमेशराज तेवरीकार | शॉपीज़ान (Shopizen) प्रकाशन</span>
+                            <span style="background: #2563eb; color: #fff; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; font-weight: 600;">आधिकारिक ई-प्रकाशन</span>
+                            <span style="background: #ea580c; color: #fff; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; font-weight: 600;"><i class="fab fa-amazon"></i> अमेज़न व फ्लिपकार्ट पर विज्ञापित</span>
+                            <span style="background: #16a34a; color: #fff; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; font-weight: 600;"><i class="fas fa-check-circle"></i> 8 संग्रह उपलब्ध</span>
+                        </div>
+                        <p style="margin: 0 0 0.75rem; font-size: 0.92rem; line-height: 1.55; color: #475569;">
+                            शॉपीज़ान (Shopizen) पर रमेशराज तेवरीकार जी के 8 प्रमुख संग्रह (विरोध रस शोध प्रबंध, जय हो विभीषणों की, हिंदी ग़ज़ल में कितनी ग़ज़ल?, ब्रज के भजन और रसिया, आदि) डिजिटल व मुद्रित संस्करणों में उपलब्ध हैं। ये पुस्तकें अमेज़न और फ्लिपकार्ट पर भी विज्ञापित एवं सुलभ हैं।
+                        </p>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                            <a href="https://shopizen.app.link/xa1sbw2gv6b" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; padding: 0.48rem 1.15rem; border-radius: 6px; font-size: 0.88rem; font-weight: 700; text-decoration: none; box-shadow: 0 2px 8px rgba(37,99,235,0.3); transition: all 0.2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>'विरोध रस' (शॉपीज़ान) ऑर्डर करें</span>
+                                <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                            </a>
+                            <a href="javascript:void(0)" onclick="openAllBooksModal('shopizen')" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #ea580c; color: #ffffff; padding: 0.48rem 1.15rem; border-radius: 6px; font-size: 0.88rem; font-weight: 600; text-decoration: none; box-shadow: 0 2px 6px rgba(234,88,12,0.3); transition: all 0.2s;" onmouseover="this.style.background='#c2410c'" onmouseout="this.style.background='#ea580c'">
+                                <i class="fas fa-book-open"></i>
+                                <span>शॉपीज़ान के सभी 8 संग्रह देखें</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                ` : ''}
                 ${reel.id === 'rachnaye' ? `
                 <div class="rachnaye-author-card" style="margin: 1.25rem 0 0.5rem; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%); border: 1.5px solid #fed7aa; border-radius: 12px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.08); display: flex; align-items: center; gap: 1.35rem; flex-wrap: wrap;">
                     <div style="flex-shrink: 0; width: 92px; height: 92px; border-radius: 50%; overflow: hidden; border: 3px solid #ea580c; box-shadow: 0 3px 12px rgba(234,88,12,0.3);">

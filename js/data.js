@@ -142,6 +142,25 @@ const HERO_SLIDER_DATA = [
 // All 9 Categories of Authentic Works provided by Author Rameshraj
 const LITERARY_CATEGORIES = [
     {
+        id: "shopizen",
+        titleHi: "शॉपीज़ान प्रकाशन (Amazon/Flipkart)",
+        titleEn: "Shopizen Publications",
+        icon: "fas fa-store",
+        count: 8,
+        descriptionHi: "अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर पेपरबैक व डिजिटल रूप में उपलब्ध कालजयी कृतियाँ",
+        descriptionEn: "Available in paperback and digital editions on Amazon, Flipkart & Shopizen"
+    },
+    {
+        id: "rachnaye",
+        titleHi: "रचनाये प्रकाशन (Rachnaye)",
+        titleEn: "Rachnaye Collections",
+        icon: "fas fa-shopping-bag",
+        count: 28,
+        descriptionHi: "रचनाये स्टोर पर ऑनलाइन क्रय व पठन हेतु सुलभ 28+ संग्रह",
+        descriptionEn: "28+ published literary collections available online via Rachnaye"
+    },
+
+    {
         id: "edited",
         titleHi: "सम्पादित कृतियाँ",
         titleEn: "Edited Works",
@@ -573,7 +592,9 @@ const ALL_WORKS_LIST = [
         descHi: "काव्य-चेतना, रस-निष्पत्ति में 'अनुभाव, अनुभव और अनुभूति' की दार्शनिक त्रयी और आत्मीयकरण का गंभीर अध्ययन।",
         descEn: "Philosophical research treatise on the soul of poetry, emotional cognition, and empathetic aestheticization.",
         cover: "assets/images/books/kavya-ki-aatma.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/FrHZ",
+        publisher: "rachnaye"
     },
     {
         id: "tewari-isliye-tewari-hai",
@@ -603,7 +624,9 @@ const ALL_WORKS_LIST = [
         descHi: "कविता के आधुनिक अर्थ, सरोकार, सामाजिक दायित्व और संवेदनाओं का गहन विवेचनात्मक व दार्शनिक पुनर्मूल्यांकन।",
         descEn: "Critical and philosophical essays re-evaluating the true essence and social obligation of contemporary poetry.",
         cover: "assets/images/books/kavita-kya-hai.jpg",
-        bloggerUrl: "https://hinditewari-4.blogspot.com/"
+        bloggerUrl: "https://hinditewari-4.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/VnQq",
+        publisher: "rachnaye"
     },
 
     // 3. तेवर-शतक-(लम्बी तेवरियां)
@@ -756,7 +779,8 @@ const ALL_WORKS_LIST = [
         descEn: "Examining contemporary moral decay through the sharp prism of Saint Kabir.",
         cover: "assets/images/books/poochh-na-kabira-jang-ka-haal.jpg",
         bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
-        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
+        buyUrl: "https://rachnaye.chottu.link/59im",
+        publisher: "rachnaye"
     },
     {
         id: "tewar-saptak-shatak",
@@ -772,7 +796,8 @@ const ALL_WORKS_LIST = [
         descEn: "Grand monumental anthology compiling seven complete Tewar Shatak centuries.",
         cover: "assets/images/books/tewar-saptak.jpg",
         bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
-        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
+        buyUrl: "https://rachnaye.chottu.link/57ha",
+        publisher: "rachnaye"
     },
     {
         id: "roz-chhuri-ki-dhar-niharen",
@@ -819,7 +844,9 @@ const ALL_WORKS_LIST = [
         descHi: "पाखंडी बगुलाभक्तों के विरुद्ध सीधी, तीखी और विद्रोही तेवरियों का अत्यंत लोकप्रिय संकलन।",
         descEn: "Celebrated Tewari collection confronting hypocritical posturing and social pretenses.",
         cover: "assets/images/books/dhan-ka-mad-gadgad-kare.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/1TPq",
+        publisher: "rachnaye"
     },
     {
         id: "jeevan-kati-patang-re",
@@ -834,7 +861,9 @@ const ALL_WORKS_LIST = [
         descHi: "जीवन-संघर्ष, नियति की चुनौतियों और मानवीय अस्मिता को समर्पित तेवरी काव्य-संग्रह।",
         descEn: "A soulful Tewari collection on human resilience and existential life battles.",
         cover: "assets/images/books/antar-aah-anant-ati.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/dCbz",
+        publisher: "rachnaye"
     },
     {
         id: "system-mein-badlaav-la",
@@ -926,7 +955,9 @@ const ALL_WORKS_LIST = [
         descHi: "सूरदास के भ्रमरगीत के मिथकीय संदर्भ को आधुनिक युग की विसंगतियों और राजनीतिक पाखंड से जोड़ता शतक।",
         descEn: "Groundbreaking शतक connecting classical myth of Uddhav with modern sociopolitical realities.",
         cover: "assets/images/books/udho-kahiyo-jaay.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post.html"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post.html",
+        buyUrl: "https://rachnaye.chottu.link/NIC98",
+        publisher: "rachnaye"
     },
     {
         id: "madhu-sa-la",
@@ -941,7 +972,9 @@ const ALL_WORKS_LIST = [
         descHi: "रूबाई और चतुष्पदी विधा में जीवन-दर्शन और सामाजिक सरोकारों का मनोहारी 100 चतुष्पदियों का शतक।",
         descEn: "A magnificent century of quatrains fusing life philosophy with progressive social critique.",
         cover: "assets/images/books/jai-kanhaiyalal-ki.jpg",
-        bloggerUrl: "https://hinditewari-9.blogspot.com/"
+        bloggerUrl: "https://hinditewari-9.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/UEtt",
+        publisher: "rachnaye"
     },
     {
         id: "jo-gopi-madhu-ban-gayin",
@@ -956,7 +989,9 @@ const ALL_WORKS_LIST = [
         descHi: "परंपरागत दोहा छन्द को नवीन जनवादी चेतना और आत्मीय भावबोध से समृद्ध करने वाला दोहा-शतक।",
         descEn: "A century of Dohas infusing the ancient couplet form with fresh emotional and social resonance.",
         cover: "assets/images/books/udho-kahiyo-jaay.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/UDmY",
+        publisher: "rachnaye"
     },
     {
         id: "there-is-an-allpin",
@@ -972,7 +1007,8 @@ const ALL_WORKS_LIST = [
         descEn: "Unique Doha century stinging societal pretenses with the precision of an alpin.",
         cover: "assets/images/books/there-is-an-allpin.jpg",
         bloggerUrl: "https://rachnaye.chottu.link/dqMV",
-        buyUrl: "https://rachnaye.chottu.link/dqMV"
+        buyUrl: "https://rachnaye.chottu.link/dqMV",
+        publisher: "rachnaye"
     },
     {
         id: "nadiya-paar-hindolna-shatak",
@@ -1049,7 +1085,9 @@ const ALL_WORKS_LIST = [
         descHi: "बच्चों के सहज उल्लास, खेल-कूद और आनंदमय बचपन को सुरमयी छंदों में पिरोने वाला बालगीत संग्रह।",
         descEn: "Joyful, rhythmic verses capturing the playful innocence and laughter of early childhood.",
         cover: "assets/images/books/taak-dhina-dhin-bachche-naachein.jpg",
-        bloggerUrl: "https://hinditewari-3.blogspot.com/"
+        bloggerUrl: "https://hinditewari-3.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/AyU6",
+        publisher: "rachnaye"
     },
     {
         id: "katha-sunaate-balgeet",
@@ -1064,7 +1102,9 @@ const ALL_WORKS_LIST = [
         descHi: "रोचक कहानियों, पशु-पक्षियों के संवाद और नैतिक मूल्यों की सीख देते प्रेरक आख्यान-बालगीत।",
         descEn: "Storytelling verses blending animal fables, moral values, and engaging story rhymes.",
         cover: "assets/images/books/katha-sunaate-balgeet.jpg",
-        bloggerUrl: "https://hinditewari-3.blogspot.com/"
+        bloggerUrl: "https://hinditewari-3.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/5RC6",
+        publisher: "rachnaye"
     },
     {
         id: "mat-kaato-van",
@@ -1080,7 +1120,8 @@ const ALL_WORKS_LIST = [
         descEn: "Ecological awareness verses teaching children the vital importance of trees and wildlife.",
         cover: "assets/images/books/mat-kaato-van.jpg",
         bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
-        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
+        buyUrl: "https://rachnaye.chottu.link/h5V7",
+        publisher: "rachnaye"
     },
     {
         id: "mummy-yadi-main-badal-hota",
@@ -1095,7 +1136,9 @@ const ALL_WORKS_LIST = [
         descHi: "बालमन की भोली कल्पनाओं, बादलों की सैर और माँ के दुलार पर रचित अत्यंत लोकप्रिय कविताएं।",
         descEn: "Whimsical, tender verses portraying childlike wonder, drifting clouds, and maternal love.",
         cover: "assets/images/books/mummy-yadi-main-badal-hota.jpg",
-        bloggerUrl: "https://hinditewari-3.blogspot.com/"
+        bloggerUrl: "https://hinditewari-3.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/7a7Y",
+        publisher: "rachnaye"
     },
     {
         id: "rang-birange-balgeet",
@@ -1110,7 +1153,9 @@ const ALL_WORKS_LIST = [
         descHi: "प्रकृति, त्योहारों, खिलौनों और तितलियों के इंद्रधनुषी रंगों से सजे मनोरम बालगीतों का गुलदस्ता।",
         descEn: "A colorful bouquet of children's songs celebrating festivals, nature, and wonder.",
         cover: "assets/images/books/rang-birange-balgeet.jpg",
-        bloggerUrl: "https://hinditewari-3.blogspot.com/"
+        bloggerUrl: "https://hinditewari-3.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/B3T2",
+        publisher: "rachnaye"
     },
     {
         id: "lambi-moonchhon-wali-billi",
@@ -1125,7 +1170,9 @@ const ALL_WORKS_LIST = [
         descHi: "बच्चों की प्रिय बिल्ली, तितलियों, फूलों और चंचल बाल-सुलभ क्रीड़ाओं पर रचित अत्यंत मनभावन बालगीत।",
         descEn: "Delightful verses celebrating a whimsical long-whiskered cat, colorful flowers, and childlike joy.",
         cover: "assets/images/books/lambi-moonchhon-wali-billi.jpg",
-        bloggerUrl: "https://hinditewari-3.blogspot.com/"
+        bloggerUrl: "https://hinditewari-3.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/WVpQ",
+        publisher: "rachnaye"
     },
 
     // 7. मुक्तछंद कविता संग्रह
@@ -1142,7 +1189,9 @@ const ALL_WORKS_LIST = [
         descHi: "राजनीतिक षड्यंत्रों, पर्दे के पीछे चलने वाली जनविरोधी चालों और विसंगतियों पर यथार्थवादी कविताएं।",
         descEn: "Realistic free verse unveiling political behind-the-scenes machinations against citizens.",
         cover: "assets/images/books/ravan-kul-ke-log.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/P8oS",
+        publisher: "rachnaye"
     },
     {
         id: "chheejte-sukhon-ke-beech",
@@ -1157,7 +1206,9 @@ const ALL_WORKS_LIST = [
         descHi: "आधुनिकता की अंधी दौड़ में क्षीण होते पारिवारिक सुख, मानवीय रिश्तों और संवेदनशीलता की पड़ताल।",
         descEn: "Sensitive poems probing disappearing domestic joys and fraying human relationships in modern times.",
         cover: "assets/images/books/de-lanka-mein-aag.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/c2G1",
+        publisher: "rachnaye"
     },
     {
         id: "peepal-ke-ped-par-baithe-giddh",
@@ -1172,7 +1223,9 @@ const ALL_WORKS_LIST = [
         descHi: "संस्कृति और परम्परा के पवित्र प्रतीकों पर मंडराते भ्रष्ट तत्वों और शोषकों का रूपक-काव्य।",
         descEn: "Powerful metaphorical verses depicting predatory forces menacing sacred cultural heritage.",
         cover: "assets/images/books/jan-mat-aur-prapanch.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/xKBJ",
+        publisher: "rachnaye"
     },
     {
         id: "kavita-abhi-zinda-hai",
@@ -1188,7 +1241,8 @@ const ALL_WORKS_LIST = [
         descEn: "Resonant proclamation of the immortal resilience of poetry and artistic defiance in dark times.",
         cover: "assets/images/books/kavita-abhi-zinda-hai.jpg",
         bloggerUrl: "https://rachnaye.chottu.link/qA1P",
-        buyUrl: "https://rachnaye.chottu.link/qA1P"
+        buyUrl: "https://rachnaye.chottu.link/qA1P",
+        publisher: "rachnaye"
     },
     {
         id: "wah-yani-mohan-swaroop",
@@ -1204,7 +1258,8 @@ const ALL_WORKS_LIST = [
         descEn: "Character portraits and biographical verse tracing philosophical struggle and individuality.",
         cover: "assets/images/books/wah-yani-mohan-swaroop.jpg",
         bloggerUrl: "https://rachnaye.com/books/author/rameshraaj",
-        buyUrl: "https://rachnaye.com/books/author/rameshraaj"
+        buyUrl: "https://rachnaye.chottu.link/DrFT",
+        publisher: "rachnaye"
     },
 
     // 8. शोध पुस्तकें
@@ -1251,7 +1306,9 @@ const ALL_WORKS_LIST = [
         descHi: "तेवरी विधा का स्वतंत्र सौंदर्यशास्त्र — जन-संघर्ष, आक्रोश, शिल्प विधान और विरोध-रस का शास्त्रीय प्रतिपादन।",
         descEn: "Aesthetic treatise defining the independent aesthetic philosophy of the Tewari genre.",
         cover: "assets/images/books/hindi-ghazal-aur-tewari.jpg",
-        bloggerUrl: "https://hinditewari-2.blogspot.com/"
+        bloggerUrl: "https://hinditewari-2.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/UsMT",
+        publisher: "rachnaye"
     },
 
     // 9. अन्य पुस्तकें
@@ -1268,7 +1325,9 @@ const ALL_WORKS_LIST = [
         descHi: "जीवन के अंधकारों में उम्मीद की लौ जलाने वाली 100 से अधिक प्रेरक चतुष्पदियों का संग्रह।",
         descEn: "Collection of uplifting philosophical quatrains casting light on inner struggles.",
         cover: "assets/images/books/aag-kaisi-lagi.jpg",
-        bloggerUrl: "https://hinditewari-9.blogspot.com/"
+        bloggerUrl: "https://hinditewari-9.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/JBzY",
+        publisher: "rachnaye"
     },
     {
         id: "sabse-achhi-makkhanbaaji",
@@ -1298,7 +1357,9 @@ const ALL_WORKS_LIST = [
         descHi: "भारतीय संवेदना, मानवीय निष्ठा और नफ़ासत से ओतप्रोत रमेशराज जी का स्वतंत्र ग़ज़ल-संग्रह।",
         descEn: "Selected Ghazal anthology blending traditional lyrical finesse with deep social sensibility.",
         cover: "assets/images/books/hindi-ghazal-mein-kitni-ghazal.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/1vqp",
+        publisher: "rachnaye"
     },
     {
         id: "jag-mein-noor-badhakar-dekh",
@@ -1313,7 +1374,9 @@ const ALL_WORKS_LIST = [
         descHi: "मानवता, परोपकार और विश्वबंधुत्व की भावना को समर्पित प्रेरक चालीसा शैली की काव्यात्मक रचना।",
         descEn: "Inspiring Chalisa celebrating universal brotherhood, service, and benevolence.",
         cover: "assets/images/books/aag-zaroori.jpg",
-        bloggerUrl: "https://hinditewari-25.blogspot.com/"
+        bloggerUrl: "https://hinditewari-25.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/vCLG",
+        publisher: "rachnaye"
     },
     {
         id: "waqt-ek-chaabuk-hai",
@@ -1328,7 +1391,9 @@ const ALL_WORKS_LIST = [
         descHi: "समय के थपेड़ों, सामाजिक पाखंडों और प्रशासनिक ढकोसलों पर रमेशराज की कलम का चाबुक।",
         descEn: "Pungent satire holding a mirror to the ironies of governance and societal hypocrisy.",
         cover: "assets/images/books/tewari-isliye-tewari-hai.jpg",
-        bloggerUrl: "https://hinditewari-16.blogspot.com/"
+        bloggerUrl: "https://hinditewari-16.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/mdwU",
+        publisher: "rachnaye"
     },
     {
         id: "tewar-saptak-other",
@@ -1359,6 +1424,180 @@ const ALL_WORKS_LIST = [
         descEn: "Magnum opus carrying the classical Satsai legacy into modern consciousness with 700+ couplets.",
         cover: "assets/images/books/vichar-aur-ras-alt.jpg",
         bloggerUrl: "https://hinditewari-25.blogspot.com/"
+    },
+
+    // --- SHOPIZEN PUBLICATIONS (अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध) ---
+    {
+        id: "virodh-ras-shopizen",
+        hasPhoto: true,
+        num: "SZ-1",
+        titleHi: "विरोध रस (शोध प्रबंध)",
+        titleEn: "Virodh Ras (Research Thesis)",
+        categoryId: "shopizen",
+        categoryHi: "रस-सिद्धांत एवं काव्यशास्त्र",
+        categoryEn: "Aesthetics & Poetics",
+        type: "शोध प्रबंध (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "हिन्दी काव्यशास्त्र में नवरसों के उपरांत 10वें रस 'विरोध-रस' (स्थायी भाव: आक्रोश) की युगांतरकारी शास्त्रीय स्थापना। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descEn: "Monumental poetics thesis establishing 'Virodh-Ras' as the 10th Ras in Hindi poetics. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/virodh-ras-shopizen.jpg",
+        bloggerUrl: "https://hinditewari-2.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/xa1sbw2gv6b",
+        publisher: "shopizen"
+    },
+    {
+        id: "jai-ho-vibheeshanon-ki",
+        hasPhoto: true,
+        num: "SZ-2",
+        titleHi: "जय हो विभीषणों की",
+        titleEn: "Jai Ho Vibheeshanon Ki",
+        categoryId: "shopizen",
+        categoryHi: "तेवरी एवं समकालीन व्यंग्य",
+        categoryEn: "Tewari & Contemporary Satire",
+        type: "व्यंग्य व तेवरी संग्रह (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "समकालीन व्यवस्था, अवसरवादिता और राजनीतिक पाखंड पर करारी चोट करती व्यंग्यात्मक रचनाएँ व तेवरियाँ। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descEn: "Sharp satirical poetry and verses exposing opportunism and social hypocrisy. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/jai-ho-vibheeshanon-ki.jpg",
+        bloggerUrl: "https://hinditewari-11.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/GP9qzP4gv6b",
+        publisher: "shopizen"
+    },
+    {
+        id: "hindi-ghazal-mein-kitni-ghazal-shopizen",
+        hasPhoto: true,
+        num: "SZ-3",
+        titleHi: "हिंदी ग़ज़ल में कितनी ग़ज़ल?",
+        titleEn: "Hindi Ghazal Mein Kitni Ghazal?",
+        categoryId: "shopizen",
+        categoryHi: "आलोचना एवं काव्य-विमर्श",
+        categoryEn: "Criticism & Poetic Discourse",
+        type: "आलोचनात्मक विमर्श (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "हिन्दी ग़ज़ल के बह्र-विधान, उर्दू की नकल बनाम भारतीय जनचेतना पर युगांतरकारी शोध-विमर्श। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descEn: "Seminal critical evaluation of the metrics and essence of contemporary Hindi Ghazal. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/hindi-ghazal-mein-kitni-ghazal-shopizen.jpg",
+        bloggerUrl: "https://hinditewari-15.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/SwDBcM7gv6b",
+        publisher: "shopizen"
+    },
+    {
+        id: "nain-pyare-ye-tumhare",
+        hasPhoto: true,
+        num: "SZ-4",
+        titleHi: "नैन प्यारे ये तुम्हारे",
+        titleEn: "Nain Pyare Ye Tumhare",
+        categoryId: "shopizen",
+        categoryHi: "गीत व ग़ज़ल संग्रह",
+        categoryEn: "Songs & Ghazals",
+        type: "गीत-ग़ज़ल संग्रह (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "मानवीय संवेदनाओं, प्रेम और लोक-सरोकारों से ओत-प्रोत रमेशराज जी के सरस गीतों व ग़ज़लों का संग्रह। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descEn: "Poetic collection of lyrical songs and verses capturing human emotions and aesthetics. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/nain-pyare-ye-tumhare.jpg",
+        bloggerUrl: "https://hinditewari-14.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/kGHA5xahv6b",
+        publisher: "shopizen"
+    },
+    {
+        id: "sabse-achhi-makkhanbaaji-shopizen",
+        hasPhoto: true,
+        num: "SZ-5",
+        titleHi: "सबसे अच्छी मक्खनबाजी (चतुष्पदी संग्रह)",
+        titleEn: "Sabse Achhi Makkhanbaaji",
+        categoryId: "shopizen",
+        categoryHi: "चतुष्पदी एवं व्यंग्य",
+        categoryEn: "Quatrains & Satire",
+        type: "व्यंग्य चतुष्पदी संग्रह (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "समकालीन समाज और सत्ता में चाटुकारिता पर तीखा प्रहार करती चतुष्पदियाँ। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descEn: "Pungent satirical quatrains targeting sycophancy in society and governance. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/sabse-achhi-makkhanbaaji.jpg",
+        bloggerUrl: "https://hinditewari-21.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/8BFOj9bhv6b",
+        publisher: "shopizen"
+    },
+    {
+        id: "braj-ke-bhajan-aur-rasiya",
+        hasPhoto: true,
+        num: "SZ-6",
+        titleHi: "ब्रज के भजन और रसिया",
+        titleEn: "Braj Ke Bhajan Aur Rasiya",
+        categoryId: "shopizen",
+        categoryHi: "ब्रज लोक-साहित्य एवं भक्ति",
+        categoryEn: "Braj Folk Literature & Devotion",
+        type: "भजन व रसिया संग्रह (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "ब्रज-संस्कृति की पावन भक्ति, लोक-धुनों और रसिया परंपरा को संजोता अद्भुत संग्रह। पूज्य पिता लोककवि रामचरन गुप्त की ब्रज-विरासत का प्रवाह। अमेज़न, फ्लिपकार्ट पर उपलब्ध।",
+        descEn: "Soul-stirring devotional bhajans and traditional Braj Rasiya songs. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/braj-ke-bhajan-aur-rasiya.jpg",
+        bloggerUrl: "https://lokkaviramcharangupt.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/4b3E5dfhv6b",
+        publisher: "shopizen"
+    },
+    {
+        id: "nahi-tiranga-jhukne-denge-shopizen",
+        hasPhoto: true,
+        num: "SZ-7",
+        titleHi: "नहीं तिरंगा झुकने देंगे",
+        titleEn: "Nahi Tiranga Jhukne Denge",
+        categoryId: "shopizen",
+        categoryHi: "राष्ट्रभक्ति एवं बालगीत",
+        categoryEn: "Patriotic & Children's Poetry",
+        type: "राष्ट्रीय बाल-कविता संग्रह (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "बच्चों में अदम्य देशभक्ति, तिरंगे की आन-बान-शान और राष्ट्रीय गौरव जगाने वाले बालगीतों का संग्रह। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descEn: "Inspiring patriotic songs instilling love for the tricolor and national pride in children. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/nahi-tiranga-jhukne-denge-shopizen.jpg",
+        bloggerUrl: "https://hinditewari-3.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/4ptqxlghv6b",
+        publisher: "shopizen"
+    },
+    {
+        id: "ras-ka-sambandh-vichar-se",
+        hasPhoto: true,
+        num: "SZ-8",
+        titleHi: "रस का संबंध विचार से (शोध प्रबंध)",
+        titleEn: "Ras Ka Sambandh Vichar Se",
+        categoryId: "shopizen",
+        categoryHi: "रस-सिद्धांत एवं काव्यशास्त्र",
+        categoryEn: "Aesthetics & Poetic Theory",
+        type: "युगांतरकारी शोध-प्रबंध (शॉपीज़ान • Amazon/Flipkart)",
+        descHi: "रस और विचार के अंतर्संबंधों, अनुभाव-अनुभव-अनुभूति की त्रयी एवं 'विद्रोह-रस' पर गंभीर शास्त्रीय शोध-प्रबंध। अमेज़न, फ्लिपकार्ट एवं शॉपीज़ान पर उपलब्ध।",
+        descEn: "Deep theoretical research linking poetic aesthetics with rational thought and rebellion. Available on Amazon, Flipkart & Shopizen.",
+        cover: "assets/images/books/ras-ka-sambandh-vichar-se.jpg",
+        bloggerUrl: "https://hinditewari-6.blogspot.com/",
+        buyUrl: "https://shopizen.app.link/EKNACDhhv6b",
+        publisher: "shopizen"
+    },
+
+    // --- RACHNAYE ADDITIONAL PUBLICATIONS ---
+    {
+        id: "rameshraj-ke-kundaliya-chand",
+        hasPhoto: true,
+        num: "R-27",
+        titleHi: "रमेशराज के कुण्डलिया छंद",
+        titleEn: "Rameshraj Ke Kundaliya Chand",
+        categoryId: "rachnaye",
+        categoryHi: "छंद-शास्त्र एवं नवाचार",
+        categoryEn: "Metrics & Poetic Innovation",
+        type: "नव कुण्डलिया राज छंद संग्रह (Rachnaye)",
+        descHi: "प्राचीन कुण्डलिया छंद में युगीन तेवर और जनवादी आक्रोश का अभूतपूर्व समन्वय करते 'नव कुण्डलिया राज छंद' के शतक। रचनाये पर ऑनलाइन उपलब्ध।",
+        descEn: "Innovative Kundaliya suites combining traditional prosody with fierce contemporary consciousness. Available on Rachnaye.",
+        cover: "assets/images/books/there-is-an-allpin.jpg",
+        bloggerUrl: "https://hinditewari-8.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/m29f",
+        publisher: "rachnaye"
+    },
+    {
+        id: "madhukosh-tumhare-adhar",
+        hasPhoto: true,
+        num: "R-28",
+        titleHi: "मधुकोश तुम्हारे अधर",
+        titleEn: "Madhukosh Tumhare Adhar",
+        categoryId: "rachnaye",
+        categoryHi: "गीत, नवगीत एवं ग़ज़ल",
+        categoryEn: "Lyrical Songs & Ghazals",
+        type: "सरस गीत-नवगीत संग्रह (Rachnaye)",
+        descHi: "सौंदर्य, प्रेम, लोक-राग और मानवीय अनुभूतियों के सूक्ष्म स्पंदनों को रूपायित करते रमेशराज जी के चर्चित गीत-नवगीत। रचनाये पर उपलब्ध।",
+        descEn: "Celebrated lyric poetry capturing romantic resonance, human warmth, and aesthetic beauty. Available on Rachnaye.",
+        cover: "assets/images/books/noor-ka-dastoor-ho-tum.jpg",
+        bloggerUrl: "https://hinditewari-14.blogspot.com/",
+        buyUrl: "https://rachnaye.chottu.link/5EKL",
+        publisher: "rachnaye"
     }
 ];
 
@@ -1371,7 +1610,7 @@ const BOOKS_DATA = ALL_WORKS_LIST.filter(item => item.hasPhoto).map(item => ({
     categoryNameHi: item.categoryHi,
     categoryNameEn: item.categoryEn,
     year: item.type,
-    publisher: "सार्थक सृजन प्रकाशन, अलीगढ़",
+    publisher: item.publisher === 'shopizen' ? "शॉपीज़ान प्रकाशन (Amazon/Flipkart)" : (item.publisher === 'rachnaye' ? "रचनाये प्रकाशन (Rachnaye)" : "सार्थक सृजन प्रकाशन, अलीगढ़"),
     cover: item.cover,
     fallbackCover: "assets/images/books/charchit_tewari.jpg",
     bloggerUrl: item.bloggerUrl,
@@ -2258,17 +2497,57 @@ const HOMEPAGE_BOOK_REELS = [
         ]
     },
     {
+        id: "shopizen",
+        titleHi: "शॉपीज़ान (Shopizen) से प्रकाशित संग्रह (अमेज़न व फ्लिपकार्ट पर उपलब्ध)",
+        titleEn: "Published Collections on Shopizen (Available on Amazon & Flipkart)",
+        icon: "fas fa-store",
+        filterKey: "shopizen",
+        bookIds: [
+            "virodh-ras-shopizen",
+            "jai-ho-vibheeshanon-ki",
+            "hindi-ghazal-mein-kitni-ghazal-shopizen",
+            "nain-pyare-ye-tumhare",
+            "sabse-achhi-makkhanbaaji-shopizen",
+            "braj-ke-bhajan-aur-rasiya",
+            "nahi-tiranga-jhukne-denge-shopizen",
+            "ras-ka-sambandh-vichar-se"
+        ]
+    },
+    {
         id: "rachnaye",
         titleHi: "Rachnaye से प्रकाशित संग्रह (ऑनलाइन क्रय व अध्ययन)",
         titleEn: "Published Collections on Rachnaye (Buy & Read Online)",
         icon: "fas fa-shopping-bag",
         filterKey: "rachnaye",
-        bookIds: [
+                bookIds: [
             "there-is-an-allpin",
             "tewar-saptak-shatak",
             "mat-kaato-van",
             "wah-yani-mohan-swaroop",
-            "poochh-na-kabira"
+            "poochh-na-kabira",
+            "kavita-abhi-zinda-hai",
+            "kavita-kya-hai",
+            "madhu-sa-la",
+            "udho-kahiyo-jaay",
+            "parde-ke-peeche-hai-khel",
+            "chheejte-sukhon-ke-beech",
+            "peepal-ke-ped-par-baithe-giddh",
+            "noor-ka-dastoor-ho-tum",
+            "mummy-yadi-main-badal-hota",
+            "jag-mein-noor-badhakar-dekh",
+            "lambi-moonchhon-wali-billi",
+            "bagule-pakad-rahi-hai-meen",
+            "jeevan-kati-patang-re",
+            "waqt-ek-chaabuk-hai",
+            "katha-sunaate-balgeet",
+            "rang-birange-balgeet",
+            "tabhi-bikhere-baati-noor",
+            "taak-dhina-dhin-bachche-naachein",
+            "rameshraj-ke-kundaliya-chand",
+            "madhukosh-tumhare-adhar",
+            "tewari-ka-saundaryabodh",
+            "kavya-ki-aatma",
+            "jo-gopi-madhu-ban-gayin"
         ]
     },
     {
