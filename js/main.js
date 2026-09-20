@@ -1560,7 +1560,7 @@ function renderHomepageBookMarquees() {
                 ${reel.id === 'shopizen' ? `
                 <div class="shopizen-author-card" style="margin: 1.25rem 0 0.5rem; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #f0fdf4 0%, #f8fafc 50%, #ffffff 100%); border: 1.5px solid #86efac; border-radius: 12px; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.08); display: flex; align-items: center; gap: 1.35rem; flex-wrap: wrap;">
                     <div style="flex-shrink: 0; width: 92px; height: 92px; border-radius: 50%; overflow: hidden; border: 3px solid #16a34a; box-shadow: 0 3px 12px rgba(22,163,74,0.3);">
-                        <img src="assets/images/rameshraj.jpg" alt="Rameshraaj | Shopizen" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="assets/images/rameshraj-profile.jpg" alt="Rameshraaj | Shopizen" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/author-portrait-formal.jpg'">
                     </div>
                     <div style="flex: 1; min-width: 260px;">
                         <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; flex-wrap: wrap;">
@@ -1589,7 +1589,7 @@ function renderHomepageBookMarquees() {
                 ${reel.id === 'rachnaye' ? `
                 <div class="rachnaye-author-card" style="margin: 1.25rem 0 0.5rem; padding: 1.35rem 1.5rem; background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%); border: 1.5px solid #fed7aa; border-radius: 12px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.08); display: flex; align-items: center; gap: 1.35rem; flex-wrap: wrap;">
                     <div style="flex-shrink: 0; width: 92px; height: 92px; border-radius: 50%; overflow: hidden; border: 3px solid #ea580c; box-shadow: 0 3px 12px rgba(234,88,12,0.3);">
-                        <img src="assets/images/rameshraj-rachnaye.jpg" alt="Rameshraaj | Rachnaye" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/rameshraj.jpg'">
+                        <img src="assets/images/rameshraj-rachnaye.jpg" alt="Rameshraaj | Rachnaye" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/images/rameshraj-profile.jpg'">
                     </div>
                     <div style="flex: 1; min-width: 260px;">
                         <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.35rem; flex-wrap: wrap;">

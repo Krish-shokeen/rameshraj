@@ -1594,7 +1594,7 @@ const ALL_WORKS_LIST = [
         type: "सरस गीत-नवगीत संग्रह (Rachnaye)",
         descHi: "सौंदर्य, प्रेम, लोक-राग और मानवीय अनुभूतियों के सूक्ष्म स्पंदनों को रूपायित करते रमेशराज जी के चर्चित गीत-नवगीत। रचनाये पर उपलब्ध।",
         descEn: "Celebrated lyric poetry capturing romantic resonance, human warmth, and aesthetic beauty. Available on Rachnaye.",
-        cover: "assets/images/books/noor-ka-dastoor-ho-tum.jpg",
+        cover: "assets/images/books/nain-pyare-ye-tumhare.jpg",
         bloggerUrl: "https://hinditewari-14.blogspot.com/",
         buyUrl: "https://rachnaye.chottu.link/5EKL",
         publisher: "rachnaye"
