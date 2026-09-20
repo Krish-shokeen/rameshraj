@@ -1736,29 +1736,29 @@ function initHomepageMarquees() {
 }
 
 /* --------------------------------------------------------------------------
-   REAL-TIME LIVE VISITOR COUNTER (100% Authentic Real-Time Tracking)
+   REAL-TIME VISITOR COUNTERS (Total Cumulative Visitors & Live Active Readers)
    -------------------------------------------------------------------------- */
 async function initVisitorCounter() {
-    const el = document.getElementById('visitorCountVal');
-    if (!el) return;
+    const totalEl = document.getElementById('visitorCountVal');
+    const liveEl = document.getElementById('liveOnlineCountVal');
+    if (!totalEl && !liveEl) return;
 
-    function renderCount(num) {
+    function renderTotalCount(num) {
         if (typeof num === 'number' && !isNaN(num) && num > 0) {
-            el.textContent = String(num).padStart(6, '0');
+            if (totalEl) totalEl.textContent = String(num).padStart(6, '0');
         }
     }
 
-    // Immediately display cached count if previously stored
+    // 1. Total All-time Visitors tracking
     const cached = localStorage.getItem('rameshraj_real_visitors');
     if (cached) {
-        renderCount(parseInt(cached, 10));
+        renderTotalCount(parseInt(cached, 10));
     }
 
     const sessionKey = 'rameshraj_session_counted';
     const hasCountedSession = sessionStorage.getItem(sessionKey);
     const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
 
-    // Use 'hit' to increment on unique real-world visits; use 'get' for refreshes & local development
     const endpoint = (!hasCountedSession && !isLocal)
         ? 'https://countapi.mileshilliard.com/api/v1/hit/rameshraj_tewarikar'
         : 'https://countapi.mileshilliard.com/api/v1/get/rameshraj_tewarikar';
@@ -1768,7 +1768,7 @@ async function initVisitorCounter() {
         if (response.ok) {
             const data = await response.json();
             if (data && typeof data.value === 'number') {
-                renderCount(data.value);
+                renderTotalCount(data.value);
                 localStorage.setItem('rameshraj_real_visitors', data.value);
                 if (!hasCountedSession && !isLocal) {
                     sessionStorage.setItem(sessionKey, '1');
@@ -1776,6 +1776,44 @@ async function initVisitorCounter() {
             }
         }
     } catch (err) {
-        console.warn('Live visitor counter API unavailable:', err);
+        console.warn('Total visitor counter API unavailable:', err);
+    }
+
+    // 2. Real-Time Live Readers Presence (Active sessions currently browsing)
+    if (liveEl) {
+        const tabId = 'tab_' + Math.random().toString(36).substring(2, 9);
+        sessionStorage.setItem('rameshraj_tab_id', tabId);
+
+        function updateLivePresence() {
+            try {
+                const now = Date.now();
+                let activeTabs = JSON.parse(localStorage.getItem('rameshraj_active_presence') || '{}');
+                activeTabs[tabId] = now;
+
+                // Remove inactive tabs older than 12 seconds
+                const validTabs = {};
+                for (const [id, timestamp] of Object.entries(activeTabs)) {
+                    if (now - timestamp < 12000) {
+                        validTabs[id] = timestamp;
+                    }
+                }
+                localStorage.setItem('rameshraj_active_presence', JSON.stringify(validTabs));
+                const activeCount = Math.max(1, Object.keys(validTabs).length);
+                liveEl.textContent = String(activeCount);
+            } catch (e) {
+                liveEl.textContent = '1';
+            }
+        }
+
+        updateLivePresence();
+        setInterval(updateLivePresence, 6000);
+
+        window.addEventListener('beforeunload', () => {
+            try {
+                let activeTabs = JSON.parse(localStorage.getItem('rameshraj_active_presence') || '{}');
+                delete activeTabs[tabId];
+                localStorage.setItem('rameshraj_active_presence', JSON.stringify(activeTabs));
+            } catch (e) {}
+        });
     }
 }
