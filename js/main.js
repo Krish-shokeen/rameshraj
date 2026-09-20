@@ -665,12 +665,12 @@ function renderAwards() {
         const desc = currentLang === 'hi' ? award.descHi : award.descEn;
 
         const certPreviewHtml = award.certificateImage ? `
-            <div class="award-cert-badge" onclick="openLightbox('${award.certificateImage}', '${title.replace(/'/g, "\\'")} — ${authority.replace(/'/g, "\\'")}')" style="margin-top: 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.85rem; background: #fffbeb; border: 1.5px dashed #f59e0b; border-radius: 8px; padding: 0.6rem 0.85rem; transition: transform 0.2s, box-shadow 0.2s;" title="${currentLang === 'hi' ? 'मूल मानपत्र छायाचित्र देखें' : 'View original certificate'}">
-                <img src="${award.certificateImage}" alt="${title}" style="width: 58px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #d97706; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+            <div class="award-cert-badge" onclick="openLightbox('${award.certificateImage}', '${title.replace(/'/g, "\\'")} — ${authority.replace(/'/g, "\\'")}')" style="margin-top: 1rem; cursor: pointer; display: flex; align-items: center; gap: 0.85rem; background: #fffbeb; border: 1.5px dashed #f59e0b; border-radius: 8px; padding: 0.6rem 0.85rem; transition: transform 0.2s, box-shadow 0.2s;" title="${currentLang === 'hi' ? 'मूल मानपत्र एवं समाचार देखें' : 'View original certificate and press clipping'}">
+                <img src="${award.certificateImage}" alt="${title}" style="width: 72px; height: 52px; object-fit: contain; background: #0f172a; border-radius: 4px; border: 1px solid #d97706; box-shadow: 0 2px 6px rgba(0,0,0,0.15); padding: 2px;">
                 <div style="flex: 1; min-width: 0; text-align: left;">
                     <div style="font-size: 0.85rem; font-weight: 700; color: #92400e; display: flex; align-items: center; gap: 6px;">
                         <i class="fas fa-certificate" style="color: #d97706;"></i>
-                        <span>${currentLang === 'hi' ? 'मूल मानपत्र छायाचित्र' : 'Original Citation Certificate'}</span>
+                        <span>${currentLang === 'hi' ? 'मूल मानपत्र एवं समाचार कतरन' : 'Original Citation & Press Report'}</span>
                     </div>
                     <div style="font-size: 0.75rem; color: #b45309; font-weight: 500;">
                         ${currentLang === 'hi' ? 'विस्तृत दर्शन हेतु क्लिक करें ↗' : 'Click to inspect in high-res ↗'}

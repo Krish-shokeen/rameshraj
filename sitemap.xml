@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://rameshraj-tewarikar.onrender.com/</loc>
+        <lastmod>2025-09-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://rameshraj-tewarikar.onrender.com/assets/images/og-share-preview.jpg</image:loc>
+            <image:title>रमेशराज तेवरीकार का साहित्य-संसार</image:title>
+            <image:caption>तेवरी आन्दोलन के प्रवर्तक एवं वरिष्ठ साहित्यकार रमेशराज तेवरीकार</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://rameshraj-tewarikar.onrender.com/assets/images/author/author-profile.jpg</image:loc>
+            <image:title>रमेशराज (रमेशचन्द्र गुप्त)</image:title>
+            <image:caption>रमेशराज तेवरीकार - संस्थापक तेवरीपक्ष एवं जनक छन्द</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://rameshraj-tewarikar.onrender.com/assets/images/awards/sahitya_shri_samman_2015_complete.jpg</image:loc>
+            <image:title>साहित्यश्री सम्मान 2015 मानपत्र</image:title>
+            <image:caption>ग्रन्थायन द्वारा रमेशराज जी को प्रदत्त साहित्यश्री सम्मान 2015</image:caption>
+        </image:image>
+    </url>
+</urlset>

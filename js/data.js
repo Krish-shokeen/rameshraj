@@ -2112,7 +2112,7 @@ const AWARDS_DATA = [
         titleEn: "‘Sahitya-Shri’ Honor, Aligarh",
         awardedByHi: "ग्रन्थायन (श्रीमती श्यामवती गुप्त स्मृति, 25 दिसम्बर 2015)",
         awardedByEn: "Granthayan, Aligarh (25 Dec 2015)",
-        certificateImage: "assets/images/awards/sahitya_shri_certificate_2015.jpg",
+        certificateImage: "assets/images/awards/sahitya_shri_samman_2015_complete.jpg",
         descHi: "रमेशराज के विशिष्ट एवं विपुल साहित्यिक अवदान तथा विशेषज्ञ समिति की सर्वसम्मत संस्तुति पर ग्रन्थायन द्वारा साहित्यश्री सम्मान से समलंकृत किया गया।",
         descEn: "Conferred upon Rameshraj by Granthayan for his monumental and prolific contributions to Hindi literature and the Tewari movement."
     },
@@ -2354,14 +2354,47 @@ const GALLERY_DATA = [
     },
     {
         id: "gal-cert",
-        titleHi: "साहित्यश्री सम्मान 2015 — मूल मानपत्र",
-        titleEn: "Sahitya-Shri Award 2015 — Original Citation",
+        titleHi: "साहित्यश्री सम्मान 2015 — मूल मानपत्र एवं समाचार",
+        titleEn: "Sahitya-Shri Award 2015 — Original Citation & Press Report",
         category: "award",
         categoryHi: "सम्मान प्रमाणपत्र",
         categoryEn: "Award Certificate",
-        image: "assets/images/awards/sahitya_shri_certificate_2015.jpg",
-        captionHi: "25 दिसम्बर 2015 को ग्रन्थायन द्वारा रमेशराज जी को विशिष्ट एवं विपुल साहित्यिक अवदान हेतु प्रदत्त मूल मानपत्र।",
-        captionEn: "Original citation certificate of Sahitya-Shri Honor conferred upon Rameshraj on 25 December 2015."
+        image: "assets/images/awards/sahitya_shri_samman_2015_complete.jpg",
+        captionHi: "25 दिसम्बर 2015 को ग्रन्थायन द्वारा रमेशराज जी को विशिष्ट एवं विपुल साहित्यिक अवदान हेतु प्रदत्त मूल मानपत्र एवं राष्ट्रीय समाचार पत्रों में प्रकाशित सम्मान-समाचार।",
+        captionEn: "Original citation certificate and national press feature of Sahitya-Shri Honor conferred upon Rameshraj on 25 December 2015."
+    },
+    {
+        id: "gal-deendayal-chaupal",
+        titleHi: "दीनदयाल चौपाल — राष्ट्रीय लाइव काव्य-पाठ (टाबर टोली)",
+        titleEn: "Deendayal Chaupal — National Live Poetry Recitation",
+        category: "stage",
+        categoryHi: "मंच एवं मीडिया",
+        categoryEn: "Stage / Media",
+        image: "assets/images/gallery/deendayal-chaupal-poster.jpg",
+        captionHi: "टाबर टोली के सौजन्य से आयोजित राष्ट्रीय 'दीनदयाल चौपाल' (16-06-2024) में रमेशराज गुप्त जी द्वारा प्रतिनिधि बाल कविताओं का फेसबुक लाइव पाठ।",
+        captionEn: "National live poetry broadcast featuring Rameshraj reciting select children's poetry organized by Tabar Toli."
+    },
+    {
+        id: "gal-classroom-dialogue",
+        titleHi: "शैक्षणिक विमर्श — छात्राओं संग सारस्वत संवाद ('सत्यम् शिवम् सुन्दरम्')",
+        titleEn: "Educational Discourse with Students ('Satyam Shivam Sundaram')",
+        category: "stage",
+        categoryHi: "सारस्वत संवाद",
+        categoryEn: "Educational Discourse",
+        image: "assets/images/gallery/rameshraj-classroom-dialogue.jpg",
+        captionHi: "शिक्षण संस्थान में छात्राओं के साथ काव्य-सृजन, भाषा-संस्कार एवं साहित्य-चेतना पर प्रेरक संवाद व अध्यापन सत्र में रमेशराज जी।",
+        captionEn: "Inspiring interactive pedagogical and literary dialogue with girl students on poetic creativity and values."
+    },
+    {
+        id: "gal-sahitya-manthan",
+        titleHi: "हिन्दी साहित्य मंथन — राष्ट्रीय ई-पत्रिका विशेषांक में रमेशराज का स्मरण",
+        titleEn: "Hindi Sahitya Manthan — E-Magazine National Consecration",
+        category: "archival",
+        categoryHi: "विशेषांक ई-पत्रिका",
+        categoryEn: "Special Issue",
+        image: "assets/images/gallery/hindi-sahitya-manthan-magazine.jpg",
+        captionHi: "इंडियन ओवरसीज़ बैंक अहमदाबाद द्वारा मार्च माह में जन्मे मूर्धन्य साहित्यकारों (रेणु, अज्ञेय, महादेवी वर्मा, कुबेरनाथ राय, भवानी प्रसाद मिश्र) के साथ रमेशराज जी का विशेष स्मरण।",
+        captionEn: "Special national homage celebrating Rameshraj alongside Hindi literary titans (Renu, Agyeya, Mahadevi Varma, Kuber Nath Rai, Bhavani Prasad Mishra)."
     }
 ];
 
