@@ -1543,16 +1543,24 @@ function renderHomepageBookMarquees() {
             `;
         }).filter(Boolean).join('');
 
+        const isShopizen = reel.id === 'shopizen';
+        const motionBadge = isShopizen ? `
+            <span class="home-book-category-badge" style="background: linear-gradient(135deg, #ea580c, #c2410c); color: #ffffff; padding: 3px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-left: 0.6rem; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 2px 6px rgba(234, 88, 12, 0.35); vertical-align: middle;">
+                <i class="fas fa-film" style="font-size: 0.72rem;"></i> 
+                <span>${currentLang === 'hi' ? 'चलचित्रमय रील' : 'Cinematic Reel'}</span>
+            </span>
+        ` : '';
+
         return `
-            <div class="home-book-category">
+            <div class="home-book-category ${isShopizen ? 'home-book-category-shopizen' : ''}">
                 <div class="row home-book-category-head">
                     <div class="span12">
-                        <h4><i class="${reel.icon}"></i> <span>${title}</span></h4>
+                        <h4><i class="${reel.icon}"></i> <span>${title}</span>${motionBadge}</h4>
                         <span class="home-book-category-count">${reel.bookIds.length} ${countSuffix}</span>
                         <a href="javascript:void(0)" onclick="openAllBooksModal('${reel.filterKey}')" class="home-book-category-link">${viewAllText}</a>
                     </div>
                 </div>
-                <div class="home-book-marquee js-book-marquee" data-speed="0.55">
+                <div class="home-book-marquee js-book-marquee" data-speed="${isShopizen ? '0.62' : '0.55'}">
                     <div class="home-book-marquee-track js-book-marquee-track">
                         ${bookCardsHtml}
                     </div>
@@ -1656,14 +1664,24 @@ function initHomepageMarquees() {
         // Clean up previously cloned cards if any
         track.querySelectorAll('[data-clone="true"]').forEach(el => el.remove());
 
-        // Clone children once to enable seamless infinite wrapping
+        // Clone children dynamically in even pairs to guarantee halfWidth >= 3000px
+        // This ensures the infinite marquee loop never freezes or hits maxScroll limit on any monitor
         const originalCards = Array.from(track.children);
-        originalCards.forEach(card => {
-            const clone = card.cloneNode(true);
-            clone.setAttribute('data-clone', 'true');
-            clone.setAttribute('aria-hidden', 'true');
-            track.appendChild(clone);
-        });
+        if (originalCards.length === 0) return;
+
+        const estimatedSingleWidth = originalCards.length * 220;
+        const setsPerHalf = estimatedSingleWidth >= 3000 ? 1 : Math.max(2, Math.ceil(3000 / estimatedSingleWidth));
+        const totalSets = setsPerHalf * 2; // Always an even number of identical sets
+        const extraSetsToAppend = totalSets - 1; // 1 set already exists in DOM
+
+        for (let s = 0; s < extraSetsToAppend; s++) {
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute('data-clone', 'true');
+                clone.setAttribute('aria-hidden', 'true');
+                track.appendChild(clone);
+            });
+        }
 
         let isPaused = false;
         let isDragging = false;

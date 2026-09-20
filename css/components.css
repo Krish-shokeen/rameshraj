@@ -3971,3 +3971,32 @@
 
 
 
+
+/* Shopizen Cinematic Reel Special Highlights */
+.home-book-category-shopizen {
+    background: linear-gradient(180deg, #fff7ed 0%, #ffffff 100%);
+    border: 1.5px solid #fed7aa;
+    border-radius: 16px;
+    padding: 1.25rem 1rem 1rem;
+    margin-bottom: 2.25rem;
+    box-shadow: 0 4px 20px rgba(234, 88, 12, 0.06);
+    position: relative;
+}
+
+.home-book-category-shopizen .home-book-category-head {
+    border-bottom: 1.5px solid #ffedd5;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.home-book-category-shopizen .home-book-card {
+    border-color: #fdba74;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.08);
+    background: #ffffff;
+}
+
+.home-book-category-shopizen .home-book-card:hover {
+    border-color: #ea580c;
+    box-shadow: 0 12px 28px rgba(234, 88, 12, 0.22);
+    transform: translateY(-8px) scale(1.02);
+}

@@ -2454,12 +2454,12 @@ const TESTIMONIALS_DATA = [
 // 6 Core Book Reel Categories for the Homepage (चलते हुए चित्रों की 6 स्थान पर सज्जा - drnamitasingh.com style)
 const HOMEPAGE_BOOK_REELS = [
     {
-        id: "tewari-sangrah",
-        titleHi: "तेवरी संग्रह",
-        titleEn: "Tewari Anthologies",
-        icon: "fas fa-book-open",
-        filterKey: "tewari-sangrah",
-        bookIds: [
+        "id": "tewari-sangrah",
+        "titleHi": "तेवरी संग्रह",
+        "titleEn": "Tewari Anthologies",
+        "icon": "fas fa-book-open",
+        "filterKey": "tewari-sangrah",
+        "bookIds": [
             "bagule-pakad-rahi-hai-meen",
             "kabir-zinda-hai",
             "itihas-ghayal-hai",
@@ -2480,63 +2480,12 @@ const HOMEPAGE_BOOK_REELS = [
         ]
     },
     {
-        id: "tewaripaksh-reel",
-        titleHi: "तेवरीपक्ष (त्रैमासिक पत्रिका)",
-        titleEn: "Tewaripaksh (Quarterly Journal)",
-        icon: "fas fa-newspaper",
-        filterKey: "tewaripaksh",
-        bookIds: [
-            "tewaripaksh-01",
-            "tewaripaksh-02",
-            "tewaripaksh-03",
-            "tewaripaksh-06",
-            "tewaripaksh-07",
-            "tewaripaksh-08",
-            "tewaripaksh-10",
-            "tewaripaksh-12",
-            "tewaripaksh-15",
-            "tewaripaksh-16",
-            "tewaripaksh-17",
-            "tewaripaksh-20",
-            "tewaripaksh-22",
-            "tewaripaksh-23",
-            "tewaripaksh-special"
-        ]
-    },
-    {
-        id: "ras",
-        titleHi: "रस-सिद्धांत एवं काव्यशास्त्र",
-        titleEn: "Aesthetics & Poetic Theory",
-        icon: "fas fa-feather-alt",
-        filterKey: "ras",
-        bookIds: [
-            "virodh-ras-shodh",
-            "vichar-aur-ras",
-            "kavya-ki-aatma",
-            "kavita-kya-hai",
-            "tewari-mein-ras-samasya"
-        ]
-    },
-    {
-        id: "edited",
-        titleHi: "सम्पादित कृतियाँ",
-        titleEn: "Edited Anthologies",
-        icon: "fas fa-newspaper",
-        filterKey: "edited",
-        bookIds: [
-            "abhi-zuban-kati-nahi",
-            "kabir-zinda-hai",
-            "itihas-ghayal-hai",
-            "tewaripaksh-01"
-        ]
-    },
-    {
-        id: "shopizen",
-        titleHi: "शॉपीज़ान (Shopizen) से प्रकाशित संग्रह (अमेज़न व फ्लिपकार्ट पर उपलब्ध)",
-        titleEn: "Published Collections on Shopizen (Available on Amazon & Flipkart)",
-        icon: "fas fa-store",
-        filterKey: "shopizen",
-        bookIds: [
+        "id": "shopizen",
+        "titleHi": "शॉपीज़ान (Shopizen) से प्रकाशित संग्रह (अमेज़न व फ्लिपकार्ट पर उपलब्ध)",
+        "titleEn": "Published Collections on Shopizen (Available on Amazon & Flipkart)",
+        "icon": "fas fa-store",
+        "filterKey": "shopizen",
+        "bookIds": [
             "virodh-ras-shopizen",
             "jai-ho-vibheeshanon-ki",
             "hindi-ghazal-mein-kitni-ghazal-shopizen",
@@ -2548,12 +2497,12 @@ const HOMEPAGE_BOOK_REELS = [
         ]
     },
     {
-        id: "rachnaye",
-        titleHi: "Rachnaye से प्रकाशित संग्रह (ऑनलाइन क्रय व अध्ययन)",
-        titleEn: "Published Collections on Rachnaye (Buy & Read Online)",
-        icon: "fas fa-shopping-bag",
-        filterKey: "rachnaye",
-                bookIds: [
+        "id": "rachnaye",
+        "titleHi": "Rachnaye से प्रकाशित संग्रह (ऑनलाइन क्रय व अध्ययन)",
+        "titleEn": "Published Collections on Rachnaye (Buy & Read Online)",
+        "icon": "fas fa-shopping-bag",
+        "filterKey": "rachnaye",
+        "bookIds": [
             "there-is-an-allpin",
             "tewar-saptak-shatak",
             "mat-kaato-van",
@@ -2585,12 +2534,63 @@ const HOMEPAGE_BOOK_REELS = [
         ]
     },
     {
-        id: "tewar-shatak",
-        titleHi: "तेवर-शतक एवं शतक विधाएँ",
-        titleEn: "Shatak Metrics & Century Suites",
-        icon: "fas fa-fire",
-        filterKey: "tewar-shatak",
-        bookIds: [
+        "id": "tewaripaksh-reel",
+        "titleHi": "तेवरीपक्ष (त्रैमासिक पत्रिका)",
+        "titleEn": "Tewaripaksh (Quarterly Journal)",
+        "icon": "fas fa-newspaper",
+        "filterKey": "tewaripaksh",
+        "bookIds": [
+            "tewaripaksh-01",
+            "tewaripaksh-02",
+            "tewaripaksh-03",
+            "tewaripaksh-06",
+            "tewaripaksh-07",
+            "tewaripaksh-08",
+            "tewaripaksh-10",
+            "tewaripaksh-12",
+            "tewaripaksh-15",
+            "tewaripaksh-16",
+            "tewaripaksh-17",
+            "tewaripaksh-20",
+            "tewaripaksh-22",
+            "tewaripaksh-23",
+            "tewaripaksh-special"
+        ]
+    },
+    {
+        "id": "ras",
+        "titleHi": "रस-सिद्धांत एवं काव्यशास्त्र",
+        "titleEn": "Aesthetics & Poetic Theory",
+        "icon": "fas fa-feather-alt",
+        "filterKey": "ras",
+        "bookIds": [
+            "virodh-ras-shodh",
+            "vichar-aur-ras",
+            "kavya-ki-aatma",
+            "kavita-kya-hai",
+            "tewari-mein-ras-samasya"
+        ]
+    },
+    {
+        "id": "edited",
+        "titleHi": "सम्पादित कृतियाँ",
+        "titleEn": "Edited Anthologies",
+        "icon": "fas fa-newspaper",
+        "filterKey": "edited",
+        "bookIds": [
+            "abhi-zuban-kati-nahi",
+            "kabir-zinda-hai",
+            "itihas-ghayal-hai",
+            "tewaripaksh-01"
+        ]
+    },
+    {
+        "id": "tewar-shatak",
+        "titleHi": "तेवर-शतक एवं शतक विधाएँ",
+        "titleEn": "Shatak Metrics & Century Suites",
+        "icon": "fas fa-fire",
+        "filterKey": "tewar-shatak",
+        "bookIds": [
             "de-lanka-mein-aag",
             "jai-kanhaiyalal-ki",
             "ghada-paap-ka",
@@ -2611,12 +2611,12 @@ const HOMEPAGE_BOOK_REELS = [
         ]
     },
     {
-        id: "balgeet",
-        titleHi: "बाल-गीत एवं पर्यावरण साहित्य",
-        titleEn: "Children's & Environmental Literature",
-        icon: "fas fa-child",
-        filterKey: "balgeet",
-        bookIds: [
+        "id": "balgeet",
+        "titleHi": "बाल-गीत एवं पर्यावरण साहित्य",
+        "titleEn": "Children's & Environmental Literature",
+        "icon": "fas fa-child",
+        "filterKey": "balgeet",
+        "bookIds": [
             "rashtriya-bal-kavitaen",
             "nahi-tiranga-jhukne-denge",
             "taak-dhina-dhin-bachche-naachein",
@@ -2628,12 +2628,12 @@ const HOMEPAGE_BOOK_REELS = [
         ]
     },
     {
-        id: "shodh-other",
-        titleHi: "मुक्तछंद कविता, शोध एवं अन्य कृतियाँ",
-        titleEn: "Free Verse, Research & Criticism",
-        icon: "fas fa-wind",
-        filterKey: "muktachhand",
-        bookIds: [
+        "id": "shodh-other",
+        "titleHi": "मुक्तछंद कविता, शोध एवं अन्य कृतियाँ",
+        "titleEn": "Free Verse, Research & Criticism",
+        "icon": "fas fa-wind",
+        "filterKey": "muktachhand",
+        "bookIds": [
             "hindi-ghazal-mein-kitni-ghazal",
             "hindi-ghazal-aur-tewari",
             "tewari-ka-saundaryabodh",
