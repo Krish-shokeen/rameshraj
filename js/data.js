@@ -40,7 +40,7 @@ const AUTHOR_DATA = {
     },
     profileUrl: "https://www.blogger.com/profile/10299195093677463730",
     location: "15/109, निकट-थाना सासनीगेट, अलीगढ़-202001 (उत्तर प्रदेश)",
-    email: "rameshrajtewarikar@gmail.com",
+    email: "rameshraj5452@gmail.com",
     phone: "+91 81714 55889",
     phoneRaw: "8171455889",
     stats: [

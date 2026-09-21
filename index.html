@@ -68,6 +68,7 @@
             "addressCountry": "IN"
           },
           "telephone": "+91-8171455889",
+          "email": "rameshraj5452@gmail.com",
           "award": [
             "Sahitya-Shri Award 2015 (साहित्यश्री सम्मान २०१५)",
             "Tewari Shiromani Samman",
@@ -771,7 +772,7 @@
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div class="contact-detail">
                                 <h5 data-hi="ई-मेल आईडी" data-en="Email Address">ई-मेल आईडी</h5>
-                                <p><a href="mailto:rameshrajtewarikar@gmail.com">rameshrajtewarikar@gmail.com</a></p>
+                                <p><a href="mailto:rameshraj5452@gmail.com">rameshraj5452@gmail.com</a></p>
                             </div>
                         </li>
                         <li class="contact-item">
@@ -858,7 +859,7 @@
                         15/109, निकट-थाना सासनीगेट<br>
                         अलीगढ़ - 202001 (उ.प्र.), भारत<br>
                         <i class="fas fa-phone-alt" style="color: #d97706; margin-right: 6px;"></i> <a href="tel:+918171455889" style="color: #cbd5e1;">+91 81714 55889</a><br>
-                        <i class="fas fa-envelope" style="color: #d97706; margin-right: 6px;"></i> <a href="mailto:rameshrajtewarikar@gmail.com" style="color: #cbd5e1;">rameshrajtewarikar@gmail.com</a>
+                        <i class="fas fa-envelope" style="color: #d97706; margin-right: 6px;"></i> <a href="mailto:rameshraj5452@gmail.com" style="color: #cbd5e1;">rameshraj5452@gmail.com</a>
                     </p>
                 </div>
             </div>
@@ -901,15 +902,33 @@
     </div>
 
     <!-- ====================================================================
-         MEDIA LIGHTBOX MODAL
+         MEDIA LIGHTBOX MODAL (चित्र दर्शक एवं सुरक्षित वापसी)
          ==================================================================== -->
-    <div class="lightbox-overlay" id="mediaLightbox">
-        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="lightbox-image-wrap">
+    <div class="lightbox-overlay" id="mediaLightbox" role="dialog" aria-modal="true" aria-label="चित्र दर्शक">
+        <div class="lightbox-top-bar">
+            <button type="button" class="lightbox-nav-btn lightbox-back-home-btn" onclick="closeLightbox()" title="मुख्यपृष्ठ पर वापस जाएँ / Return to Home Page">
+                <i class="fas fa-arrow-left"></i>
+                <span data-hi="मुख्यपृष्ठ पर वापस जाएँ" data-en="Return to Home">मुख्यपृष्ठ पर वापस जाएँ</span>
+            </button>
+            <button type="button" class="lightbox-nav-btn lightbox-close-action-btn" onclick="closeLightbox()" title="चित्र बंद करें / Close Image" aria-label="Close lightbox">
+                <i class="fas fa-times"></i>
+                <span data-hi="बंद करें" data-en="Close">बंद करें</span>
+            </button>
+        </div>
+
+        <div class="lightbox-image-wrap" onclick="event.stopPropagation()">
             <img src="" alt="Media" id="lightboxImg" class="lightbox-img">
             <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+
+        <div class="lightbox-bottom-bar">
+            <button type="button" class="lightbox-bottom-return-btn" onclick="closeLightbox()">
+                <i class="fas fa-home"></i>
+                <span data-hi="होम पेज पर लौटें (Close)" data-en="Return to Homepage (Close)">होम पेज पर लौटें (Close)</span>
+            </button>
+            <p class="lightbox-helper-text" data-hi="सुझाव: खाली जगह पर क्लिक करके या मोबाइल का बैक (Back) बटन दबाकर भी तुरंत वापस आ सकते हैं।" data-en="Tip: Tap anywhere outside or use your phone's Back button to return anytime.">
+                सुझाव: खाली जगह पर क्लिक करके या मोबाइल का बैक (Back) बटन दबाकर भी तुरंत वापस आ सकते हैं।
+            </p>
         </div>
     </div>
 
@@ -1024,6 +1043,10 @@
                     <div class="bio-meta-row">
                         <span class="bio-meta-key"><i class="fas fa-phone-alt"></i> <strong data-hi="सम्पर्क / WhatsApp:" data-en="Contact / WhatsApp:">सम्पर्क / WhatsApp:</strong></span>
                         <span class="bio-meta-val"><a href="tel:+918171455889" style="color: #ea580c; font-weight: 700;">+91 81714 55889</a></span>
+                    </div>
+                    <div class="bio-meta-row">
+                        <span class="bio-meta-key"><i class="fas fa-envelope"></i> <strong data-hi="ई-मेल (Email):" data-en="Email Address:">ई-मेल (Email):</strong></span>
+                        <span class="bio-meta-val"><a href="mailto:rameshraj5452@gmail.com" style="color: #ea580c; font-weight: 700;">rameshraj5452@gmail.com</a></span>
                     </div>
                 </div>
 

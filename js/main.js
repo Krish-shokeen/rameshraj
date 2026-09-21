@@ -765,10 +765,26 @@ function renderTestimonials() {
 }
 
 /* --------------------------------------------------------------------------
-   MODALS (BOOK DETAILS & LIGHTBOX)
+   MODALS & LIGHTBOX UNIVERSAL CONTROLS
    -------------------------------------------------------------------------- */
+window.closeAllModals = function(fromPopstate) {
+    if (window.closeLightbox) window.closeLightbox(fromPopstate);
+    if (window.closeBookModal) window.closeBookModal();
+    if (window.closeAuthorFullBio) window.closeAuthorFullBio();
+    if (window.closeShareModal) window.closeShareModal();
+    if (window.closeAllBooksModal) window.closeAllBooksModal();
+    if (window.closeAllBlogsModal) window.closeAllBlogsModal();
+    if (window.closeFullGalleryModal) window.closeFullGalleryModal();
+
+    // Universal cleanup
+    document.querySelectorAll('.modal-overlay, .lightbox-overlay').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.body.style.overflow = '';
+};
+
 function initModals() {
-    // Close on overlay click
+    // Close on overlay backdrop click
     document.querySelectorAll('.modal-overlay, .lightbox-overlay').forEach(overlay => {
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
@@ -781,6 +797,14 @@ function initModals() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeAllModals();
+        }
+    });
+
+    // Mobile / Browser Hardware Back Button Handler (Prevents leaving the website)
+    window.addEventListener('popstate', (e) => {
+        const activeModal = document.querySelector('.modal-overlay.active, .lightbox-overlay.active');
+        if (activeModal) {
+            closeAllModals(true);
         }
     });
 }
@@ -925,13 +949,29 @@ window.openLightbox = function(imgSrc, captionText) {
 
     lb.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Push state to browser history so mobile Back button closes the lightbox instead of leaving the site
+    try {
+        if (!history.state || history.state.modal !== 'lightbox') {
+            history.pushState({ modal: 'lightbox' }, '');
+        }
+    } catch (err) {
+        // Silently ignore if blocked
+    }
 };
 
-window.closeLightbox = function() {
+window.closeLightbox = function(fromPopstate) {
     const lb = document.getElementById('mediaLightbox');
     if (lb) {
         lb.classList.remove('active');
         document.body.style.overflow = '';
+    }
+
+    // Step back in history if this wasn't triggered by popstate
+    if (!fromPopstate && history.state && history.state.modal === 'lightbox') {
+        try {
+            history.back();
+        } catch (err) {}
     }
 };
 
@@ -1448,6 +1488,7 @@ function initContactForm() {
         e.preventDefault();
         const name = document.getElementById('contactName')?.value.trim();
         const email = document.getElementById('contactEmail')?.value.trim();
+        const subject = document.getElementById('contactSubject')?.value.trim() || 'साहित्यिक संवाद / संदेश';
         const message = document.getElementById('contactMessage')?.value.trim();
 
         if (!name || !email || !message) {
@@ -1455,7 +1496,14 @@ function initContactForm() {
             return;
         }
 
-        showToast(currentLang === 'hi' ? 'धन्यवाद! आपका संदेश सफलतापूर्वक भेज दिया गया।' : 'Thank you! Your message has been sent successfully.');
+        // Direct mailto connection to rameshraj5452@gmail.com
+        const mailtoUrl = `mailto:rameshraj5452@gmail.com?subject=${encodeURIComponent(subject + ' - प्रेषक: ' + name)}&body=${encodeURIComponent('नाम: ' + name + '\nई-मेल: ' + email + '\n\nसंदेश:\n' + message)}`;
+        
+        showToast(currentLang === 'hi' ? 'धन्यवाद! rameshraj5452@gmail.com पर संदेश प्रेषित हो रहा है...' : 'Thank you! Redirecting to send email to rameshraj5452@gmail.com...');
+        
+        setTimeout(() => {
+            window.location.href = mailtoUrl;
+        }, 600);
         form.reset();
     });
 }
