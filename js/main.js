@@ -1085,6 +1085,11 @@ window.openBookModal = function(bookId) {
                     <i class="fas fa-copy"></i> <span>${currentLang === 'hi' ? 'कॉपी लिंक' : 'Copy Link'}</span>
                 </button>
             </div>
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-outline" onclick="closeBookModal()" style="font-weight: 700; color: #475569; border: 1.5px solid #cbd5e1; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1.25rem; border-radius: 8px; background: #f8fafc; cursor: pointer;">
+                    <i class="fas fa-times" style="color: #ea580c;"></i> <span>${currentLang === 'hi' ? 'विवरण बंद करें (Close)' : 'Close Window'}</span>
+                </button>
+            </div>
         </div>
     `;
 
