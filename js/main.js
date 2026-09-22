@@ -1486,20 +1486,18 @@ function initContactForm() {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('contactName')?.value.trim();
-        const email = document.getElementById('contactEmail')?.value.trim();
-        const subject = document.getElementById('contactSubject')?.value.trim() || 'साहित्यिक संवाद / संदेश';
         const message = document.getElementById('contactMessage')?.value.trim();
+        const name = document.getElementById('contactName')?.value.trim() || (currentLang === 'hi' ? 'एक सुधी पाठक' : 'A Reader');
 
-        if (!name || !email || !message) {
-            showToast(currentLang === 'hi' ? 'कृपया सभी आवश्यक फ़ील्ड भरें।' : 'Please fill all required fields.');
+        if (!message) {
+            showToast(currentLang === 'hi' ? 'कृपया अपनी टिप्पणी दर्ज करें।' : 'Please enter your comment.');
             return;
         }
 
         // Direct mailto connection to rameshraj5452@gmail.com
-        const mailtoUrl = `mailto:rameshraj5452@gmail.com?subject=${encodeURIComponent(subject + ' - प्रेषक: ' + name)}&body=${encodeURIComponent('नाम: ' + name + '\nई-मेल: ' + email + '\n\nसंदेश:\n' + message)}`;
+        const mailtoUrl = `mailto:rameshraj5452@gmail.com?subject=${encodeURIComponent('पाठकीय टिप्पणी - ' + name)}&body=${encodeURIComponent('टिप्पणी / प्रतिक्रिया:\n' + message + '\n\nप्रेषक: ' + name)}`;
         
-        showToast(currentLang === 'hi' ? 'धन्यवाद! rameshraj5452@gmail.com पर संदेश प्रेषित हो रहा है...' : 'Thank you! Redirecting to send email to rameshraj5452@gmail.com...');
+        showToast(currentLang === 'hi' ? 'धन्यवाद! आपकी टिप्पणी प्रेषित हो रही है...' : 'Thank you! Redirecting to submit your comment...');
         
         setTimeout(() => {
             window.location.href = mailtoUrl;
