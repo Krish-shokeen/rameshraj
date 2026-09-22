@@ -890,33 +890,60 @@
                     </ul>
                 </div>
 
-                <div class="contact-form-card">
+                <div class="contact-form-card contact-direct-connect-card">
                     <div style="margin-bottom: 1.25rem;">
-                        <h4 style="font-size: 1.3rem; color: #0f172a; margin: 0 0 0.4rem 0; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-                            <i class="fas fa-comment-dots" style="color: #ea580c;"></i>
-                            <span data-hi="अपनी टिप्पणी दें" data-en="Leave Your Comment">अपनी टिप्पणी दें</span>
+                        <span class="section-badge" style="background: #fff7ed; color: #ea580c; border: 1px solid #ffedd5;" data-hi="सीधा संपर्क सूत्र" data-en="Direct Contact Hub"><i class="fas fa-envelope-open-text"></i> सीधा संपर्क सूत्र</span>
+                        <h4 style="font-size: 1.35rem; color: #0f172a; margin: 0.5rem 0 0.35rem 0; font-weight: 800; font-family: var(--font-heading);">
+                            <span data-hi="लेखक से सीधे संवाद के माध्यम" data-en="Direct Ways to Connect with Author">लेखक से सीधे संवाद के माध्यम</span>
                         </h4>
-                        <p style="color: #64748b; font-size: 0.9rem; margin: 0;" data-hi="रचनाओं, विचारों एवं साहित्य पर बिना किसी शर्त के अपनी सहज टिप्पणी दर्ज करें।" data-en="Freely share your thoughts, comments, and feedback on literary works.">
-                            रचनाओं, विचारों एवं साहित्य पर बिना किसी शर्त के अपनी सहज टिप्पणी दर्ज करें।
+                        <p style="color: #64748b; font-size: 0.9rem; margin: 0; line-height: 1.6;" data-hi="पुस्तकों की प्राप्ति, शोध-मार्गदर्शन, साहित्यिक आयोजनों में आमंत्रण एवं पत्राचार हेतु सीधे संपर्क करें:" data-en="Connect directly for book inquiries, research consultation, literary invitations, and correspondence:">
+                            पुस्तकों की प्राप्ति, शोध-मार्गदर्शन, साहित्यिक आयोजनों में आमंत्रण एवं पत्राचार हेतु सीधे संपर्क करें:
                         </p>
                     </div>
 
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label class="form-label" for="contactMessage" data-hi="अपनी टिप्पणी *" data-en="Your Comment *">अपनी टिप्पणी *</label>
-                            <textarea id="contactMessage" class="form-textarea" required rows="5" placeholder="यहाँ अपनी टिप्पणी, विचार अथवा प्रतिक्रिया लिखें..." data-hi="यहाँ अपनी टिप्पणी, विचार अथवा प्रतिक्रिया लिखें..." data-en="Write your comment, thoughts, or feedback here..."></textarea>
-                        </div>
+                    <div class="direct-contact-action-list">
+                        <!-- WhatsApp Action -->
+                        <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" class="direct-action-tile whatsapp-tile">
+                            <div class="direct-action-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="direct-action-meta">
+                                <span class="direct-action-label" data-hi="व्हाट्सएप पर सीधा संदेश" data-en="Direct WhatsApp Chat">व्हाट्सएप पर सीधा संदेश</span>
+                                <span class="direct-action-val">+91 81714 55889 (संदेश भेजें ↗)</span>
+                            </div>
+                            <i class="fas fa-arrow-right direct-action-arrow"></i>
+                        </a>
 
-                        <div class="form-group" style="margin-bottom: 1.25rem;">
-                            <label class="form-label" for="contactName" data-hi="आपका नाम (वैकल्पिक)" data-en="Your Name (Optional)">आपका नाम (वैकल्पिक)</label>
-                            <input type="text" id="contactName" class="form-input" placeholder="अपना नाम दर्ज करें (ऐच्छिक)" data-hi="अपना नाम दर्ज करें (ऐच्छिक)" data-en="Enter your name (optional)">
-                        </div>
+                        <!-- Gmail Action -->
+                        <a href="mailto:rameshraj5452@gmail.com?subject=साहित्यिक%20संवाद%20-%20रमेशराज%20तेवरीकार" class="direct-action-tile email-tile">
+                            <div class="direct-action-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="direct-action-meta">
+                                <span class="direct-action-label" data-hi="ई-मेल द्वारा सीधा संपर्क" data-en="Email Correspondence">ई-मेल द्वारा सीधा संपर्क</span>
+                                <span class="direct-action-val">rameshraj5452@gmail.com</span>
+                            </div>
+                            <i class="fas fa-arrow-right direct-action-arrow"></i>
+                        </a>
 
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-hi="अपनी टिप्पणी भेजें" data-en="Submit Comment">अपनी टिप्पणी भेजें</span>
-                        </button>
-                    </form>
+                        <!-- Phone Call Action -->
+                        <a href="tel:+918171455889" class="direct-action-tile phone-tile">
+                            <div class="direct-action-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="direct-action-meta">
+                                <span class="direct-action-label" data-hi="सीधा मोबाइल दूरभाष" data-en="Direct Phone Call">सीधा मोबाइल दूरभाष</span>
+                                <span class="direct-action-val">+91 81714 55889 (कॉल करें)</span>
+                            </div>
+                            <i class="fas fa-arrow-right direct-action-arrow"></i>
+                        </a>
+                    </div>
+
+                    <!-- Single Comment Hub Redirect -->
+                    <div class="contact-comment-redirect-box">
+                        <div class="redirect-box-text">
+                            <h5 style="margin: 0 0 0.25rem 0; font-size: 0.95rem; font-weight: 700; color: #0f172a;" data-hi="वेबसाइट पर सार्वजनिक टिप्पणी दर्ज करनी है?" data-en="Want to post a public review on the website?">वेबसाइट पर सार्वजनिक टिप्पणी दर्ज करनी है?</h5>
+                            <p style="margin: 0; font-size: 0.84rem; color: #64748b;" data-hi="पाठकीय समीक्षा एवं विचार सीधे 'समीक्षा व टिप्पणियाँ' अनुभाग में प्रकाशित होते हैं।" data-en="Reader reviews and comments are published directly on the site under Reviews & Comments.">पाठकीय समीक्षा एवं विचार सीधे 'समीक्षा व टिप्पणियाँ' अनुभाग में प्रकाशित होते हैं।</p>
+                        </div>
+                        <a href="#readerCommentsArea" class="btn btn-primary btn-sm" style="white-space: nowrap; margin-top: 0.65rem; display: inline-flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-comments"></i>
+                            <span data-hi="यहाँ अपनी टिप्पणी दर्ज करें »" data-en="Post Comment Here »">यहाँ अपनी टिप्पणी दर्ज करें »</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
