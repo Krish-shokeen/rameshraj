@@ -1542,27 +1542,7 @@
     cursor: grabbing;
 }
 
-/* Gradient Fade Edges */
-.home-book-marquee::before,
-.home-book-marquee::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 32px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.home-book-marquee::before {
-    left: 0;
-    background: linear-gradient(90deg, #ffffff, transparent);
-}
-
-.home-book-marquee::after {
-    right: 0;
-    background: linear-gradient(-90deg, #ffffff, transparent);
-}
+/* Gradient Fade Edges removed: prevents white vertical line / streak overlay on moving book cards and covers */
 
 .home-book-marquee-track {
     display: flex;
