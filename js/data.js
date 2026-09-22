@@ -2108,6 +2108,16 @@ const BLOGS_DATA = [
 // Literary Awards & Honors (पुरस्कार और सम्मान - Provided by Client)
 const AWARDS_DATA = [
     {
+        year: "2024",
+        titleHi: "सारस्वत समादर — पासबान-ए-अदब (Pasbaan-e-Adab)",
+        titleEn: "Literary Tribute — Pasbaan-e-Adab",
+        awardedByHi: "पासबान-ए-अदब (साहित्यिक-सांस्कृतिक संस्था)",
+        awardedByEn: "Pasbaan-e-Adab (Literary and Cultural Society)",
+        certificateImage: "assets/images/gallery/pasbaan-e-adab-tribute.jpg",
+        descHi: "तेवरी और विरोध-रस के ऐतिहासिक प्रवर्तन, व्यंग्य एवं जन-सरोकारी काव्य-परंपरा के विकास हेतु राष्ट्रीय स्तर पर प्रतिष्ठित सारस्वत समादर एवं विशेष परिचयात्मक पोस्टर प्रशस्ति।",
+        descEn: "National literary profile and citation released by the prestigious cultural organisation 'Pasbaan-e-Adab', celebrating his historic contributions to Tewari, Virodh-Ras, and Hindi poetics."
+    },
+    {
         year: "2015",
         titleHi: "‘साहित्यश्री’ सम्मान, अलीगढ़",
         titleEn: "‘Sahitya-Shri’ Honor, Aligarh",
@@ -2166,6 +2176,17 @@ const AWARDS_DATA = [
 
 // Authentic Gallery Data with Client's Photos
 const GALLERY_DATA = [
+    {
+        id: "gal-pasbaan-e-adab-tribute",
+        titleHi: "पासबान-ए-अदब — राष्ट्रीय साहित्यिक समादर पोस्टर",
+        titleEn: "Pasbaan-e-Adab — National Literary Tribute Poster",
+        category: "award",
+        categoryHi: "राष्ट्रीय समादर",
+        categoryEn: "National Tribute",
+        image: "assets/images/gallery/pasbaan-e-adab-tribute.jpg",
+        captionHi: "प्रख्यात साहित्यिक-सांस्कृतिक संस्था 'पासबान-ए-अदब' द्वारा रमेशराज तेवरीकार के काव्य-अवदान, विरोध-रस व तेवरी पर जारी विशेष समादर पोस्टर।",
+        captionEn: "Official tribute poster and citation released by renowned cultural organization 'Pasbaan-e-Adab' honoring Rameshraj Tewarikar."
+    },
     {
         id: "gal-author-lamp",
         titleHi: "सारस्वत समारोह — दीप प्रज्ज्वलन एवं मंच उद्घाटन",
