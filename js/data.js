@@ -2671,6 +2671,106 @@ const HOMEPAGE_BOOK_REELS = [
     }
 ];
 
+// Official YouTube Channel Videos (काव्य-पाठ एवं प्रस्तुति)
+const YOUTUBE_VIDEOS_DATA = [
+    {
+        id: "ohORvIjKGeA",
+        titleHi: "रमेशराज की एक चर्चित ग़ज़ल (परिचयात्मक वीडियो)",
+        titleEn: "Famous Ghazal of Rameshraj (Introductory Recitation)",
+        categoryHi: "काव्य-पाठ / ग़ज़ल",
+        categoryEn: "Poetry Recitation",
+        youtubeUrl: "https://www.youtube.com/watch?v=ohORvIjKGeA",
+        embedUrl: "https://www.youtube-nocookie.com/embed/ohORvIjKGeA?rel=0",
+        thumbnail: "https://i.ytimg.com/vi/ohORvIjKGeA/hqdefault.jpg",
+        descriptionHi: "तेवरी आन्दोलन के प्रवर्तक रमेशराज तेवरीकार का परिचयात्मक काव्य-पाठ एवं बहुचर्चित ग़ज़ल प्रस्तुति।",
+        descriptionEn: "Introductory poetry recitation and renowned Ghazal presentation by founder of the Tewari movement Rameshraj Tewarikar."
+    },
+    {
+        id: "C2DYy-iqthU",
+        titleHi: "एक बेहद खूबसूरत प्रेम-गीत (स्वर एवं सृजन-रमेशराज तेवरीकार)",
+        titleEn: "A Beautiful Love Song (Voice & Composition: Rameshraj)",
+        categoryHi: "गीत / मधुर गायन",
+        categoryEn: "Melodious Song",
+        youtubeUrl: "https://www.youtube.com/watch?v=C2DYy-iqthU",
+        embedUrl: "https://www.youtube-nocookie.com/embed/C2DYy-iqthU?rel=0",
+        thumbnail: "https://i.ytimg.com/vi/C2DYy-iqthU/hqdefault.jpg",
+        descriptionHi: "रमेशराज जी के स्वयं के कंठ से गाया गया एक अत्यंत मधुर, भावपूर्ण व कर्णप्रिय प्रेम-गीत।",
+        descriptionEn: "Soulful and melodious lyrical love song composed and sung by Rameshraj Tewarikar himself."
+    },
+    {
+        id: "KHX9fRn3Pr8",
+        titleHi: "एक प्यारा लोक गीत (स्वर एवं सृजन - रमेशराज तेवरीकार)",
+        titleEn: "A Beloved Folk Song (Voice & Lyrics: Rameshraj)",
+        categoryHi: "लोकगीत / संगीत",
+        categoryEn: "Folk Song",
+        youtubeUrl: "https://www.youtube.com/watch?v=KHX9fRn3Pr8",
+        embedUrl: "https://www.youtube-nocookie.com/embed/KHX9fRn3Pr8?rel=0",
+        thumbnail: "https://i.ytimg.com/vi/KHX9fRn3Pr8/hqdefault.jpg",
+        descriptionHi: "भारतीय लोक-संस्कृति, माटी की सुगंध और ग्रामीण जनजीवन के उल्लास को समेटे एक अनूठा लोकगीत।",
+        descriptionEn: "Authentic folk song capturing rural Indian sensibilities, earthy fragrance, and folk melodies."
+    },
+    {
+        id: "uZHkErHpLhk",
+        titleHi: "तेवर-चालीसा (कवि रमेशराज तेवरीकार)",
+        titleEn: "Tewar-Chalisa (Kavi Rameshraj Tewarikar)",
+        categoryHi: "तेवर-चालीसा / जनप्रतिरोध",
+        categoryEn: "Tewar-Chalisa",
+        youtubeUrl: "https://www.youtube.com/watch?v=uZHkErHpLhk",
+        embedUrl: "https://www.youtube-nocookie.com/embed/uZHkErHpLhk?rel=0",
+        thumbnail: "https://i.ytimg.com/vi/uZHkErHpLhk/hqdefault.jpg",
+        descriptionHi: "तेवरी विधा और विरोध-रस के स्थायी भाव 'आक्रोश' को शास्त्रीय चालीसा छंद में निबद्ध करती ओजस्वी रचना।",
+        descriptionEn: "Iconic Chalisa-meter poetic composition highlighting resistance, aesthetic dissent, and social awakening."
+    }
+];
+
+// Tewaripaksh E-Magazine & PDF Collection
+const TEWARIPAKSH_PDF_DATA = [
+    {
+        id: "mag-01",
+        titleHi: "तेवरीपक्ष त्रैमासिक (मूल ऐतिहासिक अंक 1 - 1982)",
+        titleEn: "Tewaripaksh Quarterly (Historic Issue 1 - 1982)",
+        coverImage: "assets/images/magazines/tewaripaksh-01.jpg",
+        year: "1982",
+        typeHi: "मूल ऐतिहासिक अंक",
+        typeEn: "Foundational Issue",
+        readUrl: "https://hinditewari-22.blogspot.com/",
+        downloadUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "mag-12",
+        titleHi: "तेवरीपक्ष (अंक 12 - राष्ट्रीय विशेषांक)",
+        titleEn: "Tewaripaksh (Issue 12 - Special Edition)",
+        coverImage: "assets/images/magazines/tewaripaksh-12.jpg",
+        year: "विशेषांक",
+        typeHi: "राष्ट्रीय विशेषांक",
+        typeEn: "Special National Issue",
+        readUrl: "https://hinditewari-22.blogspot.com/",
+        downloadUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "mag-2020",
+        titleHi: "तेवरीपक्ष (समकालीन अंक 2020)",
+        titleEn: "Tewaripaksh (Contemporary Issue 2020)",
+        coverImage: "assets/images/magazines/tewaripaksh-2020.jpg",
+        year: "2020",
+        typeHi: "ई-अंक एवं PDF",
+        typeEn: "E-Magazine PDF",
+        readUrl: "https://hinditewari-22.blogspot.com/",
+        downloadUrl: "https://hinditewari-22.blogspot.com/"
+    },
+    {
+        id: "mag-special",
+        titleHi: "तेवरी आन्दोलन के चर्चित संग्रह (PDF आर्काइव)",
+        titleEn: "Famous Tewari Collections (PDF Archive)",
+        coverImage: "assets/images/magazines/tewaripaksh-special.jpg",
+        year: "ऐतिहासिक संग्रह",
+        typeHi: "संग्रह एवं विशेषांक",
+        typeEn: "Rare Jubilee Volume",
+        readUrl: "https://hinditewari-25.blogspot.com/",
+        downloadUrl: "https://hinditewari-25.blogspot.com/"
+    }
+];
+
 // Ensure global accessibility on window object
 if (typeof window !== 'undefined') {
     window.HERO_SLIDER_DATA = typeof HERO_SLIDER_DATA !== 'undefined' ? HERO_SLIDER_DATA : [];
@@ -2680,5 +2780,7 @@ if (typeof window !== 'undefined') {
     window.GALLERY_DATA = typeof GALLERY_DATA !== 'undefined' ? GALLERY_DATA : [];
     window.TESTIMONIALS_DATA = typeof TESTIMONIALS_DATA !== 'undefined' ? TESTIMONIALS_DATA : [];
     window.AWARDS_DATA = typeof AWARDS_DATA !== 'undefined' ? AWARDS_DATA : [];
+    window.YOUTUBE_VIDEOS_DATA = typeof YOUTUBE_VIDEOS_DATA !== 'undefined' ? YOUTUBE_VIDEOS_DATA : [];
+    window.TEWARIPAKSH_PDF_DATA = typeof TEWARIPAKSH_PDF_DATA !== 'undefined' ? TEWARIPAKSH_PDF_DATA : [];
     window.HOMEPAGE_BOOK_REELS = HOMEPAGE_BOOK_REELS;
 }

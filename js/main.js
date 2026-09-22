@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initVisitorCounter();
     renderAwards();
     renderGallery();
+    renderVideos();
+    renderTewaripakshPdfs();
     renderTestimonials();
+    initReaderCommentForm();
     initModals();
     initContactForm();
     initScrollEffects();
@@ -197,6 +200,8 @@ function updatePageLanguage() {
     renderBlogs();
     renderAwards();
     renderGallery();
+    renderVideos();
+    renderTewaripakshPdfs();
     renderTestimonials();
 }
 
@@ -736,33 +741,190 @@ function renderGallery() {
 }
 
 /* --------------------------------------------------------------------------
-   TESTIMONIALS
+   YOUTUBE VIDEOS & RECITATIONS
    -------------------------------------------------------------------------- */
-function renderTestimonials() {
-    const container = document.getElementById('testimonialsGrid');
-    if (!container) return;
+function renderVideos() {
+    const container = document.getElementById('videosGrid');
+    if (!container || typeof YOUTUBE_VIDEOS_DATA === 'undefined') return;
 
-    container.innerHTML = TESTIMONIALS_DATA.map(item => {
-        const name = currentLang === 'hi' ? item.nameHi : item.nameEn;
-        const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
-        const quote = currentLang === 'hi' ? item.quoteHi : item.quoteEn;
+    container.innerHTML = YOUTUBE_VIDEOS_DATA.map(video => {
+        const title = currentLang === 'hi' ? video.titleHi : video.titleEn;
+        const category = currentLang === 'hi' ? video.categoryHi : video.categoryEn;
+        const desc = currentLang === 'hi' ? video.descriptionHi : video.descriptionEn;
 
         return `
-            <div class="testimonial-card">
-                <p class="testimonial-quote">${quote}</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar-placeholder">
-                        <i class="fas fa-feather-alt"></i>
-                    </div>
-                    <div class="author-meta">
-                        <h5>${name}</h5>
-                        <span>${title}</span>
+            <div class="video-card">
+                <div class="video-player-wrap">
+                    <iframe 
+                        src="${video.embedUrl}" 
+                        title="${title}" 
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-card-body">
+                    <span class="video-card-badge"><i class="fab fa-youtube"></i> ${category}</span>
+                    <h4 class="video-card-title">${title}</h4>
+                    <p class="video-card-desc">${desc}</p>
+                    <div class="video-card-footer">
+                        <a href="${video.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn-video-watch">
+                            <i class="fab fa-youtube"></i>
+                            <span>${currentLang === 'hi' ? 'YouTube पर देखें ↗' : 'Watch on YouTube ↗'}</span>
+                        </a>
                     </div>
                 </div>
             </div>
         `;
     }).join('');
 }
+
+/* --------------------------------------------------------------------------
+   TEWARIPAKSH MAGAZINE PDF COLLECTION
+   -------------------------------------------------------------------------- */
+function renderTewaripakshPdfs() {
+    const container = document.getElementById('tewaripakshPdfGrid');
+    if (!container || typeof TEWARIPAKSH_PDF_DATA === 'undefined') return;
+
+    container.innerHTML = TEWARIPAKSH_PDF_DATA.map(item => {
+        const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
+        const type = currentLang === 'hi' ? item.typeHi : item.typeEn;
+
+        return `
+            <div class="magazine-pdf-card">
+                <div class="magazine-pdf-cover-wrap" onclick="openLightbox('${item.coverImage}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'कवर बड़ा देखें' : 'View Full Cover'}">
+                    <img src="${item.coverImage}" alt="${title}" loading="lazy" class="magazine-pdf-cover">
+                    <span class="magazine-pdf-badge"><i class="fas fa-file-pdf"></i> ${type}</span>
+                </div>
+                <div class="magazine-pdf-info">
+                    <h4 class="magazine-pdf-title">${title}</h4>
+                    <div class="magazine-pdf-actions">
+                        <a href="${item.readUrl}" target="_blank" rel="noopener noreferrer" class="btn-pdf-read">
+                            <i class="fas fa-book-reader"></i>
+                            <span>${currentLang === 'hi' ? 'ब्लॉग पर ई-अंक पढ़ें ↗' : 'Read Edition ↗'}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+/* --------------------------------------------------------------------------
+   TESTIMONIALS & READER COMMENTS (WITH ON-SITE PUBLISH & DELETION)
+   -------------------------------------------------------------------------- */
+function getStoredReaderComments() {
+    try {
+        const stored = localStorage.getItem('rameshraj_reader_comments');
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveStoredReaderComments(comments) {
+    try {
+        localStorage.setItem('rameshraj_reader_comments', JSON.stringify(comments));
+    } catch (e) {}
+}
+
+function renderTestimonials() {
+    const container = document.getElementById('testimonialsGrid');
+    if (!container) return;
+
+    const userComments = getStoredReaderComments();
+    const allItems = [...userComments, ...TESTIMONIALS_DATA];
+
+    container.innerHTML = allItems.map(item => {
+        const name = currentLang === 'hi' ? (item.nameHi || item.name) : (item.nameEn || item.name);
+        const title = currentLang === 'hi' ? (item.titleHi || item.role) : (item.titleEn || item.role);
+        const quote = currentLang === 'hi' ? (item.quoteHi || item.comment) : (item.quoteEn || item.comment);
+        const isUser = !!item.isUserSubmitted;
+
+        return `
+            <div class="testimonial-card ${isUser ? 'user-submitted-comment' : ''}" id="${item.id || ''}">
+                <p class="testimonial-quote">${quote}</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar-placeholder" style="${isUser ? 'background: linear-gradient(135deg, #10b981, #059669);' : ''}">
+                        <i class="${isUser ? 'fas fa-user-check' : 'fas fa-feather-alt'}"></i>
+                    </div>
+                    <div class="author-meta" style="flex: 1;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+                            <h5 style="margin: 0;">${name}</h5>
+                            ${isUser ? `<span class="reader-badge"><i class="fas fa-check-circle"></i> ${currentLang === 'hi' ? 'पाठक टिप्पणी' : 'Reader Comment'}</span>` : ''}
+                        </div>
+                        <span>${title}</span>
+                    </div>
+                </div>
+                ${isUser ? `
+                    <div class="comment-card-actions">
+                        <span style="font-size: 0.75rem; color: #94a3b8;"><i class="far fa-clock"></i> ${item.date || ''}</span>
+                        <button type="button" class="btn-delete-comment" onclick="deleteReaderComment('${item.id}')" title="${currentLang === 'hi' ? 'यह अवांछनीय टिप्पणी हटाएं' : 'Delete unwanted comment'}">
+                            <i class="fas fa-trash-alt"></i> <span>${currentLang === 'hi' ? 'टिप्पणी हटाएं' : 'Delete'}</span>
+                        </button>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }).join('');
+}
+
+function initReaderCommentForm() {
+    const form = document.getElementById('readerCommentForm');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('readerName')?.value.trim();
+        const role = document.getElementById('readerRole')?.value.trim() || (currentLang === 'hi' ? 'साहित्य-प्रेमी पाठक' : 'Literary Reader');
+        const text = document.getElementById('readerCommentText')?.value.trim();
+
+        if (!name || !text) {
+            showToast(currentLang === 'hi' ? 'कृपया अपना नाम और टिप्पणी दोनों दर्ज करें।' : 'Please enter both your name and comment.');
+            return;
+        }
+
+        const newComment = {
+            id: 'comment-' + Date.now(),
+            nameHi: name,
+            nameEn: name,
+            titleHi: role,
+            titleEn: role,
+            quoteHi: text,
+            quoteEn: text,
+            date: new Date().toLocaleDateString(currentLang === 'hi' ? 'hi-IN' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' }),
+            isUserSubmitted: true
+        };
+
+        const existing = getStoredReaderComments();
+        existing.unshift(newComment);
+        saveStoredReaderComments(existing);
+
+        renderTestimonials();
+        showToast(currentLang === 'hi' ? 'धन्यवाद! आपकी टिप्पणी वेबसाइट पर प्रकाशित हो चुकी है।' : 'Thank you! Your comment has been published on the website.');
+        form.reset();
+
+        // Scroll smoothly to comments
+        const target = document.getElementById(newComment.id);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+}
+
+window.deleteReaderComment = function(commentId) {
+    if (!commentId) return;
+    const confirmMsg = currentLang === 'hi' 
+        ? 'क्या आप इस अवांछनीय टिप्पणी को वेबसाइट से हटाना चाहते हैं?' 
+        : 'Are you sure you want to remove this unwanted comment from the website?';
+
+    if (confirm(confirmMsg)) {
+        const comments = getStoredReaderComments().filter(c => c.id !== commentId);
+        saveStoredReaderComments(comments);
+        renderTestimonials();
+        showToast(currentLang === 'hi' ? 'टिप्पणी वेबसाइट से सफलतापूर्वक हटा दी गई।' : 'Comment removed successfully from the website.');
+    }
+};
 
 /* --------------------------------------------------------------------------
    MODALS & LIGHTBOX UNIVERSAL CONTROLS

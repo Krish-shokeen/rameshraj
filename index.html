@@ -167,9 +167,10 @@
                     <li><a href="#about" class="nav-link" data-hi="परिचय" data-en="About">परिचय</a></li>
                     <li><a href="#books" class="nav-link" data-hi="किताबों की श्रेणियां" data-en="Book Categories">किताबों की श्रेणियां</a></li>
                     <li><a href="#gallery" class="nav-link" data-hi="मंच के छाया चित्र" data-en="Stage Photos">मंच के छाया चित्र</a></li>
+                    <li><a href="#videos" class="nav-link" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
                     <li><a href="#blogs" class="nav-link" data-hi="ब्लॉग ग्रंथालय" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय</a></li>
                     <li><a href="#awards" class="nav-link" data-hi="उपलब्धियाँ" data-en="Honors">उपलब्धियाँ</a></li>
-                    <li><a href="#reviews" class="nav-link" data-hi="समीक्षा" data-en="Reviews">समीक्षा</a></li>
+                    <li><a href="#reviews" class="nav-link" data-hi="समीक्षा व टिप्पणियाँ" data-en="Reviews & Comments">समीक्षा व टिप्पणियाँ</a></li>
                     <li><a href="#contact" class="nav-link" data-hi="संपर्क" data-en="Contact">संपर्क</a></li>
                     <li class="nav-drawer-footer">
                         <div class="drawer-action-btns">
@@ -653,6 +654,31 @@
                     <button class="btn btn-cta-gold btn-cta-orange" onclick="openAllBlogsModal()">
                         <i class="fab fa-blogger-b"></i> <span data-hi="समस्त 32+ ब्लॉग मंच देखें (Popup)" data-en="View All 32+ Blogs (Popup)">समस्त 32+ ब्लॉग मंच देखें (Popup)</span>
                     </button>
+            <!-- ================================================================
+                 TEWARIPAKSH QUARTERLY MAGAZINE — E-EDITIONS & PDF COLLECTION
+                 (क्लाइंट अनुरोध: "Pdf के लिए मेरे ब्लॉग से तेवरीपक्ष पत्रिका का कोई अंक डाउनलोड कर सकते हो")
+                 ================================================================ -->
+            <div class="tewaripaksh-pdf-section">
+                <div class="tewaripaksh-pdf-header">
+                    <div class="tewaripaksh-pdf-title-area">
+                        <div class="tewaripaksh-pdf-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div>
+                            <span class="section-badge" style="background: #ea580c; color: #ffffff;" data-hi="पत्रिका ई-अंक व PDF डाउनलोड" data-en="E-Magazine & PDF Archive">पत्रिका ई-अंक व PDF डाउनलोड</span>
+                            <h3 style="font-size: 1.35rem; font-family: var(--font-heading); color: #0f172a; margin: 0.25rem 0;" data-hi="'तेवरीपक्ष' पत्रिका — ई-अंक एवं PDF ग्रंथालय" data-en="'Tewaripaksh' Quarterly Magazine — E-Editions & PDF Archive">'तेवरीपक्ष' पत्रिका — ई-अंक एवं PDF ग्रंथालय</h3>
+                            <p style="font-size: 0.88rem; color: #64748b; margin: 0;" data-hi="सन 1982 से निरंतर प्रकाशित हो रही तेवरी आन्दोलन की प्रमुख राष्ट्रीय त्रैमासिक पत्रिका के ऐतिहासिक अंक एवं सीधे पठन/डाउनलोड लिंक" data-en="Historic editions of the flagship quarterly magazine published since 1982 with direct reading and download links">
+                                सन 1982 से निरंतर प्रकाशित हो रही तेवरी आन्दोलन की प्रमुख राष्ट्रीय त्रैमासिक पत्रिका के ऐतिहासिक अंक एवं सीधे पठन/डाउनलोड लिंक
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="https://hinditewari-22.blogspot.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                            <i class="fab fa-blogger-b"></i> <span data-hi="तेवरीपक्ष ब्लॉग पर समस्त अंक देखें ↗" data-en="Visit Tewaripaksh Blog ↗">तेवरीपक्ष ब्लॉग पर समस्त अंक देखें ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tewaripaksh-pdf-grid" id="tewaripakshPdfGrid">
+                    <!-- Injected dynamically via JavaScript from TEWARIPAKSH_PDF_DATA -->
                 </div>
             </div>
         </div>
@@ -697,6 +723,42 @@
     </section>
 
     <!-- ====================================================================
+         YOUTUBE VIDEOS & RECITATIONS (काव्य-पाठ एवं वीडियो)
+         ==================================================================== -->
+    <section class="section section-alt" id="videos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-hi="यूट्यूब काव्य-पाठ एवं प्रस्तुतियाँ" data-en="YouTube Videos & Recitations"><i class="fab fa-youtube" style="color: #dc2626;"></i> यूट्यूब काव्य-पाठ एवं प्रस्तुतियाँ</span>
+                <h2 class="section-title" data-hi="रमेशराज तेवरीकार के काव्य-पाठ एवं वीडियो" data-en="Poetry Recitations & Videos">रमेशराज तेवरीकार के काव्य-पाठ एवं वीडियो</h2>
+                <p class="section-subtitle" data-hi="कवि के अधिकृत यूट्यूब चैनल से चयनित ग़ज़ल, तेवर-चालीसा, प्रेम-गीत एवं परिचयात्मक प्रस्तुतियाँ" data-en="Featured Ghazals, Tewar-Chalisa, songs, and introductory recitations from the official YouTube channel">
+                    कवि के अधिकृत यूट्यूब चैनल से चयनित ग़ज़ल, तेवर-चालीसा, प्रेम-गीत एवं परिचयात्मक प्रस्तुतियाँ
+                </p>
+            </div>
+
+            <div class="videos-grid" id="videosGrid">
+                <!-- Injected via JavaScript from YOUTUBE_VIDEOS_DATA -->
+            </div>
+
+            <!-- YouTube Channel Official Banner -->
+            <div class="youtube-channel-banner">
+                <div class="youtube-banner-info">
+                    <div class="youtube-banner-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="youtube-banner-text">
+                        <h3 data-hi="कवि रमेशराज तेवरीकार का अधिकृत यूट्यूब चैनल" data-en="Official YouTube Channel of Kavi Rameshraj">कवि रमेशराज तेवरीकार का अधिकृत यूट्यूब चैनल</h3>
+                        <p data-hi="नियमित काव्य-पाठ, तेवरी गायन, साक्षात्कारों एवं साहित्यिक उद्बोधनों के लिए चैनल से जुड़ें।" data-en="Subscribe for regular poetry recitations, musical renditions, and literary discourses.">नियमित काव्य-पाठ, तेवरी गायन, साक्षात्कारों एवं साहित्यिक उद्बोधनों के लिए चैनल से जुड़ें।</p>
+                    </div>
+                </div>
+                <a href="https://www.youtube.com/@%E0%A4%B0%E0%A4%AE%E0%A5%87%E0%A4%B6%E0%A4%B0%E0%A4%BE%E0%A4%9C%E0%A4%A4%E0%A5%87%E0%A4%B5%E0%A4%B0%E0%A5%80%E0%A4%95%E0%A4%BE%E0%A4%B0" target="_blank" rel="noopener noreferrer" class="btn btn-youtube">
+                    <i class="fab fa-youtube"></i>
+                    <span data-hi="चैनल देखें / सब्सक्राइब करें ↗" data-en="Visit Channel ↗">चैनल देखें / सब्सक्राइब करें ↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
          CRITICAL ACCLAIM & REVIEWS (प्रशंसापत्र एवं समीक्षा)
          ==================================================================== -->
     <section class="section section-alt" id="reviews">
@@ -711,6 +773,48 @@
 
             <div class="testimonials-grid" id="testimonialsGrid">
                 <!-- Injected via JavaScript from TESTIMONIALS_DATA -->
+            </div>
+
+            <!-- ================================================================
+                 READER COMMENTS & REVIEW SUBMISSION SYSTEM (पाठकीय टिप्पणी)
+                 (क्लाइंट अनुरोध: "पाठक की टिप्पणी जीमेल पर नहीं बेवसाइट पर प्रकाशित होने की व्यवस्था होनी चाहिए। अवाञ्छनीय टिप्पणी को हटाने का विकल्प भी")
+                 ================================================================ -->
+            <div class="reader-comment-box" id="readerCommentsArea">
+                <div class="reader-comment-header">
+                    <div>
+                        <span class="section-badge" style="background:#fff7ed; color:#ea580c; border:1px solid #ffedd5;" data-hi="सीधा पाठकीय संवाद" data-en="Direct Reader Dialogue"><i class="fas fa-comment-dots"></i> सीधा पाठकीय संवाद</span>
+                        <h3 style="font-size: 1.35rem; font-family: var(--font-heading); color: #0f172a; margin-top: 0.35rem;" data-hi="अपनी टिप्पणी / साहित्यिक समीक्षा दर्ज करें" data-en="Submit Your Literary Review or Comment">अपनी टिप्पणी / साहित्यिक समीक्षा दर्ज करें</h3>
+                        <p style="font-size: 0.88rem; color: #64748b; margin: 0;" data-hi="आपकी टिप्पणी वेबसाइट पर सीधे प्रकाशित होगी जिसे सभी पाठक पढ़ सकेंगे।" data-en="Your comment will be directly published on the website for fellow readers.">आपकी टिप्पणी वेबसाइट पर सीधे प्रकाशित होगी जिसे सभी पाठक पढ़ सकेंगे।</p>
+                    </div>
+                </div>
+
+                <form id="readerCommentForm">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" for="readerName" data-hi="आपका नाम *" data-en="Your Name *">आपका नाम *</label>
+                            <input type="text" id="readerName" class="form-input" required placeholder="अपना पूरा नाम दर्ज करें" data-hi="अपना पूरा नाम दर्ज करें" data-en="Enter your name">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label class="form-label" for="readerRole" data-hi="परिचय / नगर (जैसे: पाठक, अलीगढ़)" data-en="Role / Location (e.g. Reader, Delhi)">परिचय / नगर (जैसे: पाठक, अलीगढ़)</label>
+                            <input type="text" id="readerRole" class="form-input" placeholder="साहित्य-प्रेमी पाठक / शोधार्थी / नगर" data-hi="साहित्य-प्रेमी पाठक / शोधार्थी / नगर" data-en="Reader / Scholar / City">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="readerCommentText" data-hi="आपकी समीक्षा / टिप्पणी *" data-en="Your Comment / Review *">आपकी समीक्षा / टिप्पणी *</label>
+                        <textarea id="readerCommentText" class="form-textarea" required rows="3" placeholder="यहाँ रमेशराज जी के साहित्य, तेवरी विधा अथवा इस वेबसाइट के संबंध में अपने विचार लिखें..." data-hi="यहाँ रमेशराज जी के साहित्य, तेवरी विधा अथवा इस वेबसाइट के संबंध में अपने विचार लिखें..." data-en="Write your thoughts or appreciation here..."></textarea>
+                    </div>
+
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                        <div style="font-size: 0.82rem; color: #94a3b8;">
+                            <i class="fas fa-shield-alt" style="color: #10b981;"></i> <span data-hi="टिप्पणी तुरंत वेबसाइट पर प्रकाशित हो जाएगी।" data-en="Comment will be published instantly on site.">टिप्पणी तुरंत वेबसाइट पर प्रकाशित हो जाएगी।</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-hi="टिप्पणी वेबसाइट पर प्रकाशित करें" data-en="Publish Comment on Website">टिप्पणी वेबसाइट पर प्रकाशित करें</span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>

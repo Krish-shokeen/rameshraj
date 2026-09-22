@@ -4093,3 +4093,377 @@
     box-shadow: 0 12px 28px rgba(234, 88, 12, 0.22);
     transform: translateY(-8px) scale(1.02);
 }
+
+/* --------------------------------------------------------------------------
+   YOUTUBE VIDEOS SHOWCASE SECTION
+   -------------------------------------------------------------------------- */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+    margin-top: 2rem;
+}
+
+.video-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(220, 38, 38, 0.16);
+    border-color: #fca5a5;
+}
+
+.video-player-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #0f172a;
+}
+
+.video-player-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-card-body {
+    padding: 1.25rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.video-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    align-self: flex-start;
+    padding: 0.3rem 0.75rem;
+    background: #fef2f2;
+    color: #dc2626;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.video-card-title {
+    font-size: 1.12rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.45;
+    margin-bottom: 0.6rem;
+}
+
+.video-card-desc {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex: 1;
+}
+
+.video-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn-video-watch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #dc2626;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-video-watch:hover {
+    color: #b91c1c;
+    transform: translateX(3px);
+}
+
+.youtube-channel-banner {
+    margin-top: 2.5rem;
+    background: linear-gradient(135deg, #7f1d1d, #991b1b, #b91c1c);
+    border-radius: 18px;
+    padding: 1.75rem 2rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    box-shadow: 0 12px 30px rgba(185, 28, 28, 0.25);
+}
+
+.youtube-banner-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.youtube-banner-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.youtube-banner-text h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-heading);
+}
+
+.youtube-banner-text p {
+    font-size: 0.92rem;
+    color: #fecaca;
+    margin: 0;
+}
+
+.btn-youtube {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #ffffff;
+    color: #dc2626;
+    padding: 0.75rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-youtube:hover {
+    background: #fef2f2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   TEWARIPAKSH PDF SECTION
+   -------------------------------------------------------------------------- */
+.tewaripaksh-pdf-section {
+    background: #fffbeb;
+    border: 2px dashed #f59e0b;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2.5rem;
+}
+
+.tewaripaksh-pdf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tewaripaksh-pdf-title-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tewaripaksh-pdf-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #ea580c;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.tewaripaksh-pdf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.magazine-pdf-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 0.85rem;
+    border: 1px solid #fed7aa;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.magazine-pdf-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(234, 88, 12, 0.18);
+}
+
+.magazine-pdf-cover-wrap {
+    position: relative;
+    width: 140px;
+    height: 195px;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.magazine-pdf-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.magazine-pdf-cover-wrap:hover .magazine-pdf-cover {
+    transform: scale(1.05);
+}
+
+.magazine-pdf-badge {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    right: 6px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #fef08a;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.magazine-pdf-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    min-height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-pdf-read {
+    background: linear-gradient(135deg, #ea580c, #c2410c);
+    color: #ffffff !important;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-pdf-read:hover {
+    background: #f97316;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   READER COMMENT & DELETION SYSTEM
+   -------------------------------------------------------------------------- */
+.reader-comment-box {
+    margin-top: 3rem;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    border: 1.5px solid #e2e8f0;
+}
+
+.reader-comment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1.5px solid #f1f5f9;
+    padding-bottom: 1rem;
+}
+
+.reader-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #ecfdf5;
+    color: #059669;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid #a7f3d0;
+}
+
+.comment-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.85rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.btn-delete-comment {
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.btn-delete-comment:hover {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.comment-rating-stars {
+    color: #f59e0b;
+    font-size: 0.88rem;
+}
