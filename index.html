@@ -816,13 +816,49 @@
                         <textarea id="readerCommentText" class="form-textarea" required rows="3" placeholder="यहाँ रमेशराज जी के साहित्य, तेवरी विधा अथवा इस वेबसाइट के संबंध में अपने विचार लिखें..." data-hi="यहाँ रमेशराज जी के साहित्य, तेवरी विधा अथवा इस वेबसाइट के संबंध में अपने विचार लिखें..." data-en="Write your thoughts or appreciation here..."></textarea>
                     </div>
 
+                    <!-- Screenshot / Image Attachment Zone -->
+                    <div class="form-group comment-screenshot-upload-group">
+                        <label class="form-label" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span data-hi="स्क्रीनशॉट अथवा फोटो संलग्न करें (वैकल्पिक)" data-en="Attach Screenshot or Photo (Optional)"><i class="fas fa-camera" style="color: #ea580c; margin-right: 6px;"></i> स्क्रीनशॉट अथवा फोटो संलग्न करें (वैकल्पिक)</span>
+                            <span class="upload-badge-opt" data-hi="वैकल्पिक" data-en="Optional">वैकल्पिक</span>
+                        </label>
+                        <div class="screenshot-drop-zone" id="screenshotDropZone">
+                            <input type="file" id="readerScreenshot" name="screenshot" accept="image/png, image/jpeg, image/webp" class="screenshot-file-input">
+                            <div class="drop-zone-prompt" id="dropZonePrompt">
+                                <div class="drop-zone-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                <div class="drop-zone-text">
+                                    <strong data-hi="स्क्रीनशॉट या फोटो चुनें" data-en="Select Screenshot or Photo">स्क्रीनशॉट या फोटो चुनें</strong>
+                                    <span data-hi="क्लिक करें या यहाँ ड्रैग करें • क्लिपबोर्ड से पेस्ट (Ctrl+V) भी कर सकते हैं" data-en="Click to upload or drag & drop • or Paste (Ctrl+V)">क्लिक करें या यहाँ ड्रैग करें • क्लिपबोर्ड से पेस्ट (Ctrl+V) भी कर सकते हैं</span>
+                                </div>
+                                <button type="button" class="btn-browse-file" onclick="document.getElementById('readerScreenshot').click()">
+                                    <i class="fas fa-folder-open"></i> <span data-hi="फोटो चुनें" data-en="Browse">फोटो चुनें</span>
+                                </button>
+                            </div>
+                            
+                            <div class="screenshot-preview-wrapper" id="screenshotPreviewWrapper" style="display: none;">
+                                <div class="preview-img-container">
+                                    <img id="screenshotPreviewImg" src="" alt="संलग्न स्क्रीनशॉट प्रीव्यू" class="screenshot-preview-img">
+                                </div>
+                                <div class="preview-meta">
+                                    <div class="preview-info">
+                                        <span class="preview-filename" id="previewFilename">screenshot.jpg</span>
+                                        <span class="preview-filesize" id="previewFilesize"></span>
+                                    </div>
+                                    <button type="button" class="btn-remove-preview" id="btnRemovePreview" title="हटाएं / Remove">
+                                        <i class="fas fa-times-circle"></i> <span data-hi="हटाएं" data-en="Remove">हटाएं</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
                         <div style="font-size: 0.82rem; color: #94a3b8;">
-                            <i class="fas fa-shield-alt" style="color: #10b981;"></i> <span data-hi="टिप्पणी तुरंत वेबसाइट पर प्रकाशित हो जाएगी।" data-en="Comment will be published instantly on site.">टिप्पणी तुरंत वेबसाइट पर प्रकाशित हो जाएगी।</span>
+                            <i class="fas fa-shield-alt" style="color: #10b981;"></i> <span data-hi="टिप्पणी तुरंत वेबसाइट पर प्रकाशित होगी जिसे सभी देख सकेंगे।" data-en="Comment will be published live for all visitors worldwide.">टिप्पणी तुरंत वेबसाइट पर प्रकाशित होगी जिसे सभी देख सकेंगे।</span>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-hi="टिप्पणी वेबसाइट पर प्रकाशित करें" data-en="Publish Comment on Website">टिप्पणी वेबसाइट पर प्रकाशित करें</span>
+                        <button type="submit" class="btn btn-primary" id="btnSubmitComment">
+                            <i class="fas fa-paper-plane" id="btnSubmitIcon"></i>
+                            <span id="btnSubmitText" data-hi="टिप्पणी वेबसाइट पर प्रकाशित करें" data-en="Publish Comment on Website">टिप्पणी वेबसाइट पर प्रकाशित करें</span>
                         </button>
                     </div>
                 </form>

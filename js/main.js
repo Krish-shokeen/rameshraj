@@ -811,8 +811,10 @@ function renderTewaripakshPdfs() {
 }
 
 /* --------------------------------------------------------------------------
-   TESTIMONIALS & READER COMMENTS (WITH ON-SITE PUBLISH & DELETION)
+   TESTIMONIALS & READER COMMENTS (WITH MONGODB & CLOUDINARY SCREENSHOTS)
    -------------------------------------------------------------------------- */
+let globalServerComments = [];
+
 function getStoredReaderComments() {
     try {
         const stored = localStorage.getItem('rameshraj_reader_comments');
@@ -828,22 +830,68 @@ function saveStoredReaderComments(comments) {
     } catch (e) {}
 }
 
-function renderTestimonials() {
+async function fetchServerComments() {
+    try {
+        const res = await fetch('/api/comments', { cache: 'no-store' });
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.success && Array.isArray(data.comments)) {
+                globalServerComments = data.comments;
+                saveStoredReaderComments(globalServerComments);
+                return globalServerComments;
+            }
+        }
+    } catch (err) {
+        // Fallback to offline/cached comments
+    }
+    return getStoredReaderComments();
+}
+
+async function renderTestimonials() {
     const container = document.getElementById('testimonialsGrid');
     if (!container) return;
 
-    const userComments = getStoredReaderComments();
-    const allItems = [...userComments, ...TESTIMONIALS_DATA];
+    // Load server comments asynchronously
+    const serverComments = await fetchServerComments();
+    
+    // Format server comments to match template structure
+    const formattedUserComments = serverComments.map(c => ({
+        id: c._id || c.id,
+        _id: c._id || c.id,
+        nameHi: c.name,
+        nameEn: c.name,
+        titleHi: c.role || 'साहित्य-प्रेमी पाठक',
+        titleEn: c.role || 'Literary Reader',
+        quoteHi: c.comment,
+        quoteEn: c.comment,
+        imageUrl: c.imageUrl || '',
+        date: c.date || (c.createdAt ? new Date(c.createdAt).toLocaleDateString(currentLang === 'hi' ? 'hi-IN' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' }) : ''),
+        isUserSubmitted: true
+    }));
+
+    const allItems = [...formattedUserComments, ...TESTIMONIALS_DATA];
 
     container.innerHTML = allItems.map(item => {
         const name = currentLang === 'hi' ? (item.nameHi || item.name) : (item.nameEn || item.name);
         const title = currentLang === 'hi' ? (item.titleHi || item.role) : (item.titleEn || item.role);
         const quote = currentLang === 'hi' ? (item.quoteHi || item.comment) : (item.quoteEn || item.comment);
         const isUser = !!item.isUserSubmitted;
+        const itemId = item._id || item.id || '';
 
         return `
-            <div class="testimonial-card ${isUser ? 'user-submitted-comment' : ''}" id="${item.id || ''}">
+            <div class="testimonial-card ${isUser ? 'user-submitted-comment' : ''}" id="${itemId}">
                 <p class="testimonial-quote">${quote}</p>
+                
+                ${item.imageUrl ? `
+                    <div class="comment-attached-image" onclick="openLightbox('${item.imageUrl}', 'संलग्न स्क्रीनशॉट / चित्र - ${name.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'स्क्रीनशॉट बड़ा देखने के लिए क्लिक करें' : 'Click to view full screenshot'}">
+                        <img src="${item.imageUrl}" alt="संलग्न स्क्रीनशॉट" loading="lazy">
+                        <span class="image-zoom-hint">
+                            <i class="fas fa-search-plus"></i> 
+                            <span>${currentLang === 'hi' ? 'स्क्रीनशॉट देखें' : 'View Screenshot'}</span>
+                        </span>
+                    </div>
+                ` : ''}
+
                 <div class="testimonial-author">
                     <div class="author-avatar-placeholder" style="${isUser ? 'background: linear-gradient(135deg, #10b981, #059669);' : ''}">
                         <i class="${isUser ? 'fas fa-user-check' : 'fas fa-feather-alt'}"></i>
@@ -859,7 +907,7 @@ function renderTestimonials() {
                 ${isUser ? `
                     <div class="comment-card-actions">
                         <span style="font-size: 0.75rem; color: #94a3b8;"><i class="far fa-clock"></i> ${item.date || ''}</span>
-                        <button type="button" class="btn-delete-comment" onclick="deleteReaderComment('${item.id}')" title="${currentLang === 'hi' ? 'यह अवांछनीय टिप्पणी हटाएं' : 'Delete unwanted comment'}">
+                        <button type="button" class="btn-delete-comment" onclick="deleteReaderComment('${itemId}')" title="${currentLang === 'hi' ? 'यह अवांछनीय टिप्पणी हटाएं (Admin PIN)' : 'Delete comment (Admin PIN)'}">
                             <i class="fas fa-trash-alt"></i> <span>${currentLang === 'hi' ? 'टिप्पणी हटाएं' : 'Delete'}</span>
                         </button>
                     </div>
@@ -871,9 +919,125 @@ function renderTestimonials() {
 
 function initReaderCommentForm() {
     const form = document.getElementById('readerCommentForm');
+    const fileInput = document.getElementById('readerScreenshot');
+    const dropZone = document.getElementById('screenshotDropZone');
+    const previewWrapper = document.getElementById('screenshotPreviewWrapper');
+    const dropZonePrompt = document.getElementById('dropZonePrompt');
+    const previewImg = document.getElementById('screenshotPreviewImg');
+    const previewFilename = document.getElementById('previewFilename');
+    const previewFilesize = document.getElementById('previewFilesize');
+    const btnRemove = document.getElementById('btnRemovePreview');
+    const submitBtn = document.getElementById('btnSubmitComment');
+    const submitIcon = document.getElementById('btnSubmitIcon');
+    const submitText = document.getElementById('btnSubmitText');
+
+    let selectedFile = null;
+
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    // Helper: format file size
+    function formatBytes(bytes) {
+        if (!bytes) return '';
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    // Handle file selection
+    function handleSelectedFile(file) {
+        if (!file || !file.type.startsWith('image/')) {
+            showToast(currentLang === 'hi' ? 'कृपया केवल छवि (JPG, PNG, WebP) फ़ाइल चुनें।' : 'Please select an image file only.');
+            return;
+        }
+
+        if (file.size > 10 * 1024 * 1024) {
+            showToast(currentLang === 'hi' ? 'फ़ाइल का आकार 10MB से कम होना चाहिए।' : 'File size must be under 10MB.');
+            return;
+        }
+
+        selectedFile = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            if (previewImg) previewImg.src = e.target.result;
+            if (previewFilename) previewFilename.textContent = file.name || 'screenshot.jpg';
+            if (previewFilesize) previewFilesize.textContent = formatBytes(file.size);
+            if (dropZonePrompt) dropZonePrompt.style.display = 'none';
+            if (previewWrapper) previewWrapper.style.display = 'flex';
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Reset file preview
+    function clearSelectedFile() {
+        selectedFile = null;
+        if (fileInput) fileInput.value = '';
+        if (previewImg) previewImg.src = '';
+        if (previewWrapper) previewWrapper.style.display = 'none';
+        if (dropZonePrompt) dropZonePrompt.style.display = 'flex';
+    }
+
+    if (fileInput) {
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                handleSelectedFile(e.target.files[0]);
+            }
+        });
+    }
+
+    if (btnRemove) {
+        btnRemove.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            clearSelectedFile();
+        });
+    }
+
+    // Drag and Drop support
+    if (dropZone) {
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.add('dragover');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.remove('dragover');
+            }, false);
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            if (dt && dt.files && dt.files[0]) {
+                handleSelectedFile(dt.files[0]);
+            }
+        }, false);
+    }
+
+    // Clipboard Paste (Ctrl+V) support for screenshots
+    document.addEventListener('paste', (e) => {
+        // Only if form is in view or active
+        const items = (e.clipboardData || e.originalEvent?.clipboardData)?.items;
+        if (items) {
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].type.indexOf('image') !== -1) {
+                    const blob = items[i].getAsFile();
+                    if (blob) {
+                        handleSelectedFile(blob);
+                        showToast(currentLang === 'hi' ? 'स्क्रीनशॉट क्लिपबोर्ड से संलग्न कर दिया गया!' : 'Screenshot attached from clipboard!');
+                    }
+                    break;
+                }
+            }
+        }
+    });
+
+    // Form Submission
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const name = document.getElementById('readerName')?.value.trim();
         const role = document.getElementById('readerRole')?.value.trim() || (currentLang === 'hi' ? 'साहित्य-प्रेमी पाठक' : 'Literary Reader');
@@ -884,45 +1048,107 @@ function initReaderCommentForm() {
             return;
         }
 
-        const newComment = {
-            id: 'comment-' + Date.now(),
-            nameHi: name,
-            nameEn: name,
-            titleHi: role,
-            titleEn: role,
-            quoteHi: text,
-            quoteEn: text,
-            date: new Date().toLocaleDateString(currentLang === 'hi' ? 'hi-IN' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' }),
-            isUserSubmitted: true
-        };
+        // Set Loading state
+        if (submitBtn) submitBtn.disabled = true;
+        if (submitIcon) submitIcon.className = 'fas fa-spinner fa-spin';
+        if (submitText) submitText.textContent = currentLang === 'hi' ? 'अपलोड व प्रकाशित हो रहा है...' : 'Publishing comment...';
 
-        const existing = getStoredReaderComments();
-        existing.unshift(newComment);
-        saveStoredReaderComments(existing);
+        try {
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('role', role);
+            formData.append('comment', text);
+            if (selectedFile) {
+                formData.append('screenshot', selectedFile);
+            }
 
-        renderTestimonials();
-        showToast(currentLang === 'hi' ? 'धन्यवाद! आपकी टिप्पणी वेबसाइट पर प्रकाशित हो चुकी है।' : 'Thank you! Your comment has been published on the website.');
-        form.reset();
+            const response = await fetch('/api/comments', {
+                method: 'POST',
+                body: formData
+            });
 
-        // Scroll smoothly to comments
-        const target = document.getElementById(newComment.id);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (!response.ok) {
+                const errData = await response.json().catch(() => ({}));
+                throw new Error(errData.message || 'Server error');
+            }
+
+            const result = await response.json();
+            showToast(currentLang === 'hi' ? 'धन्यवाद! आपकी समीक्षा व स्क्रीनशॉट वेबसाइट पर प्रकाशित हो चुके हैं।' : 'Thank you! Your review and screenshot have been published on the website.');
+
+            form.reset();
+            clearSelectedFile();
+
+            // Refresh testimonials grid with new comment
+            await renderTestimonials();
+
+            // Smooth scroll to reader comments
+            const commentsContainer = document.getElementById('testimonialsGrid');
+            if (commentsContainer) {
+                commentsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        } catch (err) {
+            console.error('Comment publish error:', err);
+            // Fallback: save to local storage if server is unavailable
+            const fallbackComment = {
+                id: 'local-' + Date.now(),
+                nameHi: name,
+                nameEn: name,
+                titleHi: role,
+                titleEn: role,
+                quoteHi: text,
+                quoteEn: text,
+                imageUrl: previewImg?.src || '',
+                date: new Date().toLocaleDateString(currentLang === 'hi' ? 'hi-IN' : 'en-US', { day: 'numeric', month: 'short', year: 'numeric' }),
+                isUserSubmitted: true
+            };
+            const existing = getStoredReaderComments();
+            existing.unshift(fallbackComment);
+            saveStoredReaderComments(existing);
+            await renderTestimonials();
+
+            showToast(currentLang === 'hi' ? 'आपकी टिप्पणी दर्ज कर ली गई है।' : 'Your comment has been recorded.');
+            form.reset();
+            clearSelectedFile();
+        } finally {
+            if (submitBtn) submitBtn.disabled = false;
+            if (submitIcon) submitIcon.className = 'fas fa-paper-plane';
+            if (submitText) submitText.textContent = currentLang === 'hi' ? 'टिप्पणी वेबसाइट पर प्रकाशित करें' : 'Publish Comment on Website';
         }
     });
 }
 
-window.deleteReaderComment = function(commentId) {
+window.deleteReaderComment = async function(commentId) {
     if (!commentId) return;
-    const confirmMsg = currentLang === 'hi' 
-        ? 'क्या आप इस अवांछनीय टिप्पणी को वेबसाइट से हटाना चाहते हैं?' 
-        : 'Are you sure you want to remove this unwanted comment from the website?';
 
-    if (confirm(confirmMsg)) {
-        const comments = getStoredReaderComments().filter(c => c.id !== commentId);
+    const pinPrompt = currentLang === 'hi'
+        ? 'कृपया अवांछनीय टिप्पणी हटाने के लिए 4-अंकों का एडमिन पिन दर्ज करें:'
+        : 'Enter 4-digit Admin PIN to delete unwanted comment:';
+
+    const enteredPin = prompt(pinPrompt);
+    if (!enteredPin) return;
+
+    try {
+        const res = await fetch(`/api/comments/${commentId}`, {
+            method: 'DELETE',
+            headers: {
+                'x-admin-pin': enteredPin.trim()
+            }
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+            showToast(currentLang === 'hi' ? 'टिप्पणी वेबसाइट से सफलतापूर्वक हटा दी गई।' : 'Comment removed successfully from the website.');
+            await renderTestimonials();
+        } else {
+            showToast(data.message || (currentLang === 'hi' ? 'अमान्य एडमिन पिन। टिप्पणी नहीं हटाई जा सकी।' : 'Invalid Admin PIN. Could not delete.'));
+        }
+    } catch (err) {
+        console.error('Delete comment error:', err);
+        // Fallback for local comment removal
+        const comments = getStoredReaderComments().filter(c => (c._id || c.id) !== commentId);
         saveStoredReaderComments(comments);
-        renderTestimonials();
-        showToast(currentLang === 'hi' ? 'टिप्पणी वेबसाइट से सफलतापूर्वक हटा दी गई।' : 'Comment removed successfully from the website.');
+        await renderTestimonials();
+        showToast(currentLang === 'hi' ? 'टिप्पणी हटा दी गई।' : 'Comment removed.');
     }
 };
 
@@ -1980,7 +2206,7 @@ async function initVisitorCounter() {
         }
     }
 
-    // 1. Total All-time Visitors tracking
+    // 1. Total All-time Visitors tracking via MongoDB Atlas
     const cached = localStorage.getItem('rameshraj_real_visitors');
     if (cached) {
         renderTotalCount(parseInt(cached, 10));
@@ -1988,26 +2214,43 @@ async function initVisitorCounter() {
 
     const sessionKey = 'rameshraj_session_counted';
     const hasCountedSession = sessionStorage.getItem(sessionKey);
-    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
-
-    const endpoint = (!hasCountedSession && !isLocal)
-        ? 'https://countapi.mileshilliard.com/api/v1/hit/rameshraj_tewarikar'
-        : 'https://countapi.mileshilliard.com/api/v1/get/rameshraj_tewarikar';
 
     try {
-        const response = await fetch(endpoint, { cache: 'no-store' });
+        // Try MongoDB Atlas backend endpoint first
+        const apiEndpoint = hasCountedSession ? '/api/stats/visitors' : '/api/stats/hit';
+        const response = await fetch(apiEndpoint, { 
+            method: hasCountedSession ? 'GET' : 'POST',
+            cache: 'no-store' 
+        });
+
         if (response.ok) {
             const data = await response.json();
-            if (data && typeof data.value === 'number') {
-                renderTotalCount(data.value);
-                localStorage.setItem('rameshraj_real_visitors', data.value);
-                if (!hasCountedSession && !isLocal) {
+            if (data && typeof data.totalVisitors === 'number') {
+                renderTotalCount(data.totalVisitors);
+                localStorage.setItem('rameshraj_real_visitors', data.totalVisitors);
+                sessionStorage.setItem(sessionKey, '1');
+            }
+        } else {
+            throw new Error('Server returned non-200');
+        }
+    } catch (err) {
+        // Fallback to external countapi or cached
+        try {
+            const endpoint = !hasCountedSession
+                ? 'https://countapi.mileshilliard.com/api/v1/hit/rameshraj_tewarikar'
+                : 'https://countapi.mileshilliard.com/api/v1/get/rameshraj_tewarikar';
+            const response = await fetch(endpoint, { cache: 'no-store' });
+            if (response.ok) {
+                const data = await response.json();
+                if (data && typeof data.value === 'number') {
+                    renderTotalCount(data.value);
+                    localStorage.setItem('rameshraj_real_visitors', data.value);
                     sessionStorage.setItem(sessionKey, '1');
                 }
             }
+        } catch (e2) {
+            // keep cached
         }
-    } catch (err) {
-        console.warn('Total visitor counter API unavailable:', err);
     }
 
     // 2. Real-Time Live Readers Presence (Active readers browsing)
