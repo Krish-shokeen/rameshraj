@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderAwards();
     renderGallery();
     renderVideos();
+    renderFeaturedBooksPdfs();
     renderTewaripakshPdfs();
     renderTestimonials();
     initReaderCommentForm();
@@ -201,6 +202,7 @@ function updatePageLanguage() {
     renderAwards();
     renderGallery();
     renderVideos();
+    renderFeaturedBooksPdfs();
     renderTewaripakshPdfs();
     renderTestimonials();
 }
@@ -771,6 +773,37 @@ function renderVideos() {
                         <a href="${video.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn-video-watch">
                             <i class="fab fa-youtube"></i>
                             <span>${currentLang === 'hi' ? 'YouTube पर देखें ↗' : 'Watch on YouTube ↗'}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+/* --------------------------------------------------------------------------
+   FEATURED BOOKS & RESEARCH TREATISES PDF DOWNLOAD COLLECTION
+   -------------------------------------------------------------------------- */
+function renderFeaturedBooksPdfs() {
+    const container = document.getElementById('featuredBooksPdfGrid');
+    if (!container || typeof FEATURED_BOOKS_PDF_DATA === 'undefined') return;
+
+    container.innerHTML = FEATURED_BOOKS_PDF_DATA.map(item => {
+        const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
+        const type = currentLang === 'hi' ? item.typeHi : item.typeEn;
+
+        return `
+            <div class="magazine-pdf-card">
+                <div class="magazine-pdf-cover-wrap" onclick="openLightbox('${item.coverImage}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'कवर बड़ा देखें' : 'View Full Cover'}">
+                    <img src="${item.coverImage}" alt="${title}" loading="lazy" class="magazine-pdf-cover">
+                    <span class="magazine-pdf-badge" style="background: rgba(37, 99, 235, 0.9);"><i class="fas fa-file-pdf"></i> ${type}</span>
+                </div>
+                <div class="magazine-pdf-info">
+                    <h4 class="magazine-pdf-title" style="min-height: 2.8rem;">${title}</h4>
+                    <div class="magazine-pdf-actions">
+                        <a href="${item.readUrl}" target="_blank" rel="noopener noreferrer" class="btn-pdf-read" style="background: #2563eb; border-color: #2563eb;">
+                            <i class="fas fa-file-download"></i>
+                            <span>${currentLang === 'hi' ? 'पढ़ें व PDF डाउनलोड ↗' : 'Read & Download ↗'}</span>
                         </a>
                     </div>
                 </div>

@@ -2735,6 +2735,77 @@ const YOUTUBE_VIDEOS_DATA = [
     }
 ];
 
+// 6 Core Milestone Books & Research Treatises E-Books & PDF Collection
+// (क्लाइंट अनुरोध: "अभी जुबां कटी नहीं, कबीर ज़िंदा है, इतिहास घायल है, विरोध रस, विचार और रस, काव्य की आत्मा और आत्मीयकरण का भी डाउनलोड सिस्टम बना दो")
+const FEATURED_BOOKS_PDF_DATA = [
+    {
+        id: "book-pdf-01",
+        titleHi: "अभी जुबां कटी नहीं (प्रथम ऐतिहासिक तेवरी-संग्रह)",
+        titleEn: "Abhi Zubaan Kati Nahi (Historic 1st Tewari)",
+        coverImage: "assets/images/books/abhi-zuban-kati-nahin.jpg",
+        year: "फ़रवरी 1983",
+        typeHi: "तेवरी संग्रह एवं PDF",
+        typeEn: "Tewari Anthology & PDF",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/02/abhi-jubaan-kati-nhi.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/abhi-jubaan-kati-nhi.html"
+    },
+    {
+        id: "book-pdf-02",
+        titleHi: "कबीर ज़िन्दा है (संपादित तेवरी-संग्रह)",
+        titleEn: "Kabir Zinda Hai (Edited Tewari Anthology)",
+        coverImage: "assets/images/books/kabir-zinda-hai.jpg",
+        year: "1987",
+        typeHi: "तेवरी संग्रह एवं PDF",
+        typeEn: "Tewari Anthology & PDF",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/02/kabeer-zinda-hai.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/kabeer-zinda-hai.html"
+    },
+    {
+        id: "book-pdf-03",
+        titleHi: "इतिहास घायल है (संपादित तेवरी-संग्रह)",
+        titleEn: "Itihas Ghayal Hai (Tewari Anthology)",
+        coverImage: "assets/images/books/itihaas-ghayal-hai.jpg",
+        year: "1992",
+        typeHi: "तेवरी संग्रह एवं PDF",
+        typeEn: "Tewari Anthology & PDF",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/02/itihas-ghayal-hai_17.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/itihas-ghayal-hai_17.html"
+    },
+    {
+        id: "book-pdf-04",
+        titleHi: "विरोध-रस (10वां रस : मौलिक शोध-प्रबंध)",
+        titleEn: "Virodh-Ras (10th Poetic Rasa Treatise)",
+        coverImage: "assets/images/books/virodh-ras.jpg",
+        year: "शोध-ग्रंथ",
+        typeHi: "शोध-प्रबंध एवं PDF",
+        typeEn: "Research Treatise & PDF",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/02/virodh-ras.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/virodh-ras.html"
+    },
+    {
+        id: "book-pdf-05",
+        titleHi: "विचार और रस (विवेचनात्मक निबंध संग्रह)",
+        titleEn: "Vichar Aur Ras (Critical Poetics Essays)",
+        coverImage: "assets/images/books/vichar-aur-ras.jpg",
+        year: "रस-सिद्धांत",
+        typeHi: "शोध-ग्रंथ एवं PDF",
+        typeEn: "Critical Essays & PDF",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post_17.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post_17.html"
+    },
+    {
+        id: "book-pdf-06",
+        titleHi: "काव्य की आत्मा और आत्मीयकरण (शोध-प्रबंध)",
+        titleEn: "Kavya Ki Aatma Aur Aatmeeyakaran",
+        coverImage: "assets/images/books/kavya-ki-aatma.jpg",
+        year: "काव्यशास्त्र",
+        typeHi: "शोध-प्रबंध एवं PDF",
+        typeEn: "Aesthetic Treatise & PDF",
+        readUrl: "https://hinditewari-7.blogspot.com/?m=1",
+        downloadUrl: "https://hinditewari-7.blogspot.com/?m=1"
+    }
+];
+
 // Tewaripaksh E-Magazine & PDF Collection
 const TEWARIPAKSH_PDF_DATA = [
     {
@@ -2793,6 +2864,7 @@ if (typeof window !== 'undefined') {
     window.TESTIMONIALS_DATA = typeof TESTIMONIALS_DATA !== 'undefined' ? TESTIMONIALS_DATA : [];
     window.AWARDS_DATA = typeof AWARDS_DATA !== 'undefined' ? AWARDS_DATA : [];
     window.YOUTUBE_VIDEOS_DATA = typeof YOUTUBE_VIDEOS_DATA !== 'undefined' ? YOUTUBE_VIDEOS_DATA : [];
+    window.FEATURED_BOOKS_PDF_DATA = typeof FEATURED_BOOKS_PDF_DATA !== 'undefined' ? FEATURED_BOOKS_PDF_DATA : [];
     window.TEWARIPAKSH_PDF_DATA = typeof TEWARIPAKSH_PDF_DATA !== 'undefined' ? TEWARIPAKSH_PDF_DATA : [];
     window.HOMEPAGE_BOOK_REELS = HOMEPAGE_BOOK_REELS;
 }
