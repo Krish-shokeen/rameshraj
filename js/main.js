@@ -813,6 +813,10 @@ function renderTewaripakshPdfs() {
 /* --------------------------------------------------------------------------
    TESTIMONIALS & READER COMMENTS (WITH MONGODB & CLOUDINARY SCREENSHOTS)
    -------------------------------------------------------------------------- */
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname || window.location.hostname.includes('rameshraj-wzjc.onrender.com'))
+    ? ''
+    : 'https://rameshraj-wzjc.onrender.com';
+
 let globalServerComments = [];
 
 function getStoredReaderComments() {
@@ -832,7 +836,7 @@ function saveStoredReaderComments(comments) {
 
 async function fetchServerComments() {
     try {
-        const res = await fetch('/api/comments', { cache: 'no-store' });
+        const res = await fetch(`${API_BASE_URL}/api/comments`, { cache: 'no-store' });
         if (res.ok) {
             const data = await res.json();
             if (data && data.success && Array.isArray(data.comments)) {
@@ -1062,7 +1066,7 @@ function initReaderCommentForm() {
                 formData.append('screenshot', selectedFile);
             }
 
-            const response = await fetch('/api/comments', {
+            const response = await fetch(`${API_BASE_URL}/api/comments`, {
                 method: 'POST',
                 body: formData
             });
@@ -1128,7 +1132,7 @@ window.deleteReaderComment = async function(commentId) {
     if (!enteredPin) return;
 
     try {
-        const res = await fetch(`/api/comments/${commentId}`, {
+        const res = await fetch(`${API_BASE_URL}/api/comments/${commentId}`, {
             method: 'DELETE',
             headers: {
                 'x-admin-pin': enteredPin.trim()
@@ -2217,7 +2221,9 @@ async function initVisitorCounter() {
 
     try {
         // Try MongoDB Atlas backend endpoint first
-        const apiEndpoint = hasCountedSession ? '/api/stats/visitors' : '/api/stats/hit';
+        const apiEndpoint = hasCountedSession 
+            ? `${API_BASE_URL}/api/stats/visitors` 
+            : `${API_BASE_URL}/api/stats/hit`;
         const response = await fetch(apiEndpoint, { 
             method: hasCountedSession ? 'GET' : 'POST',
             cache: 'no-store' 
