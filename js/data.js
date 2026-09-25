@@ -2779,8 +2779,8 @@ const FEATURED_BOOKS_PDF_DATA = [
         year: "शोध-ग्रंथ",
         typeHi: "शोध-प्रबंध एवं PDF",
         typeEn: "Research Treatise & PDF",
-        readUrl: "https://hinditewari-25.blogspot.com/2019/02/virodh-ras.html",
-        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/virodh-ras.html"
+        readUrl: "https://hinditewari-2.blogspot.com/?m=1",
+        downloadUrl: "https://hinditewari-2.blogspot.com/?m=1"
     },
     {
         id: "book-pdf-05",
