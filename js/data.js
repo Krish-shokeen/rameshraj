@@ -2854,6 +2854,94 @@ const TEWARIPAKSH_PDF_DATA = [
     }
 ];
 
+// Curated Audio Recitations & Podcasts (कवि की बुलंद आवाज़ में कालजयी तेवरी-पाठ)
+const PODCAST_AUDIO_DATA = [
+    {
+        id: "podcast-01",
+        titleHi: "तेवर-चालीसा (बुलंद आवाज़ में संपूर्ण तेवर-पाठ)",
+        titleEn: "Tewar-Chalisa (Recitation in Resonant Voice)",
+        categoryHi: "तेवरी उद्घोष / विरोध-रस",
+        categoryEn: "Tewari Proclamation",
+        speakerHi: "कवि रमेशराज तेवरीकार",
+        speakerEn: "Kavi Rameshraj Tewarikar",
+        duration: "04:35",
+        youtubeId: "uZHkErHpLhk",
+        youtubeUrl: "https://www.youtube.com/watch?v=uZHkErHpLhk",
+        versesHi: "तेवर की हुंकार से, कांपे हर अन्याय।\nशोषित जन के कंठ से, जागे नव अध्याय॥\n\nसत्य-धार पर जो चले, वही कलम सिरमौर।\nतेवर ही तो तोड़ते, अंधियारे का दौर॥",
+        versesEn: "With the defiant roar of Tewari, injustice trembles;\nFrom the throat of the oppressed, a new epoch awakens.\n\nThe pen that marches on the blade of truth alone reigns supreme;\nIt is defiant Tewar alone that shatters the age of darkness."
+    },
+    {
+        id: "podcast-02",
+        titleHi: "अभी जुबां कटी नहीं (प्रथम ऐतिहासिक तेवरी-पाठ)",
+        titleEn: "Abhi Zubaan Kati Nahi (Historic Foundational Tewari)",
+        categoryHi: "क्रांति-काव्य / तेवरी",
+        categoryEn: "Revolutionary Tewari",
+        speakerHi: "कवि रमेशराज तेवरीकार",
+        speakerEn: "Kavi Rameshraj Tewarikar",
+        duration: "03:42",
+        youtubeId: "ohORvIjKGeA",
+        youtubeUrl: "https://www.youtube.com/watch?v=ohORvIjKGeA",
+        versesHi: "रोक सको तो रोक लो, बहती हुई बयार को।\nहम भी ज़रा परखेंगे अब, ज़ुल्म की हर तलवार को॥\n\nसच कहने का हौसला, सीने में जब तक ज़िंदा है,\nकौन झुका पाएगा इस, जन-आक्रोश की धार को॥",
+        versesEn: "Halt the surging gale if you dare;\nWe shall test every sword of tyranny today.\n\nAs long as the courage to voice truth breathes within our chest,\nWho can ever bow the tempest of public dissent?"
+    },
+    {
+        id: "podcast-03",
+        titleHi: "कबीर ज़िन्दा है (युग-चेतना एवं प्रतिरोध का स्वर)",
+        titleEn: "Kabir Zinda Hai (Conscience & Defiance)",
+        categoryHi: "जन-प्रतिरोध / तेवरी",
+        categoryEn: "Public Resistance",
+        speakerHi: "कवि रमेशराज तेवरीकार",
+        speakerEn: "Kavi Rameshraj Tewarikar",
+        duration: "04:10",
+        youtubeId: "ohORvIjKGeA",
+        youtubeUrl: "https://www.youtube.com/watch?v=ohORvIjKGeA",
+        versesHi: "ढूंढ रहे हो किस लिए, संतों की चौपाल में,\nकबीर ज़िन्दा है आज भी, हर जन के सवाल में॥\n\nदंभ भरे जो सिंहासन, उनसे आंख मिलाता है,\nवही कबीर आज भी सच की, मशाल जलाता है॥",
+        versesEn: "Why seek him only in the cloistered courtyards of the saints?\nKabir breathes alive today in every questioning voice of the people.\n\nHe who looks straight into the eyes of arrogant thrones,\nThat very Kabir still illuminates the blazing torch of truth."
+    },
+    {
+        id: "podcast-04",
+        titleHi: "एक प्यारा लोक गीत (स्वर एवं सृजन : रमेशराज तेवरीकार)",
+        titleEn: "A Beloved Folk Song (Voice & Lyrics: Rameshraj)",
+        categoryHi: "लोक-संस्कृति / संगीत",
+        categoryEn: "Folk Song & Melody",
+        speakerHi: "कवि रमेशराज तेवरीकार",
+        speakerEn: "Kavi Rameshraj Tewarikar",
+        duration: "03:55",
+        youtubeId: "KHX9fRn3Pr8",
+        youtubeUrl: "https://www.youtube.com/watch?v=KHX9fRn3Pr8",
+        versesHi: "माटी की सौंधी महक, खेतों की हरियाली रे,\nगीतों में गूंजे सदा, जीवन की खुशियाली रे॥\n\nगाँव-गली की धूप-छाँव, पुरखों की अनमोल धरोहर,\nलोक-राग में बसा हुआ, संस्कृति का निर्मल सरवर॥",
+        versesEn: "The earthy fragrance of the soil, the green expanse of fields,\nIn our folk melodies forever resounds the joy of honest labor.\n\nThe sunlight and shadows of village lanes, the ancestral heritage,\nIn folk rhythms dwells the pristine lake of Indian culture."
+    },
+    {
+        id: "podcast-05",
+        titleHi: "मधुर प्रेम-गीत (कवि के स्वयं के कंठ से कर्णप्रिय गायन)",
+        titleEn: "Melodious Love Song (Sung by Rameshraj)",
+        categoryHi: "गीत-काव्य / मधुर गायन",
+        categoryEn: "Lyrical Melody",
+        speakerHi: "कवि रमेशराज तेवरीकार",
+        speakerEn: "Kavi Rameshraj Tewarikar",
+        duration: "04:48",
+        youtubeId: "C2DYy-iqthU",
+        youtubeUrl: "https://www.youtube.com/watch?v=C2DYy-iqthU",
+        versesHi: "मन के सूने तार पर, तुमने छेड़ा राग,\nपतझड़ में जैसे खिला, फिर से कोई पराग॥\n\nसांसों की सरगम बनी, यादों की परछाईं,\nएक तुम्हारी चाह में, सारी सृष्टि समाई॥",
+        versesEn: "Upon the silent strings of the soul, you struck a resonant melody,\nAs though in the heart of autumn, pollen bloomed anew.\n\nThe shadows of memory became the symphony of breath,\nIn the yearning of your affection, the whole universe found refuge."
+    },
+    {
+        id: "podcast-06",
+        titleHi: "इतिहास घायल है (युग-सत्य एवं व्यवस्था पर प्रहार)",
+        titleEn: "Itihas Ghayal Hai (The Wounded History)",
+        categoryHi: "युग-बोध / तेवरी",
+        categoryEn: "Socio-Political Tewari",
+        speakerHi: "कवि रमेशराज तेवरीकार",
+        speakerEn: "Kavi Rameshraj Tewarikar",
+        duration: "03:25",
+        youtubeId: "swXN876nMVA",
+        youtubeUrl: "https://www.youtube.com/watch?v=swXN876nMVA",
+        versesHi: "जब सियासत मौन साधे, सच लहूलुहान हो,\nकलम को कर्तव्य है कि, वह मुखर संज्ञान हो॥\n\nझूठ के महलों को सच की, एक चोट ही काफी,\nइतिहास घायल है मगर, लेगा न कोई माफी॥",
+        versesEn: "When politics chooses silence and truth lies bleeding,\nIt is the sacred duty of the pen to rise in vocal witness.\n\nA single blow of truth suffices against palaces of falsehood;\nHistory may be wounded, but it yields no cowardly apology."
+    }
+];
+
 // Ensure global accessibility on window object
 if (typeof window !== 'undefined') {
     window.HERO_SLIDER_DATA = typeof HERO_SLIDER_DATA !== 'undefined' ? HERO_SLIDER_DATA : [];
@@ -2866,5 +2954,6 @@ if (typeof window !== 'undefined') {
     window.YOUTUBE_VIDEOS_DATA = typeof YOUTUBE_VIDEOS_DATA !== 'undefined' ? YOUTUBE_VIDEOS_DATA : [];
     window.FEATURED_BOOKS_PDF_DATA = typeof FEATURED_BOOKS_PDF_DATA !== 'undefined' ? FEATURED_BOOKS_PDF_DATA : [];
     window.TEWARIPAKSH_PDF_DATA = typeof TEWARIPAKSH_PDF_DATA !== 'undefined' ? TEWARIPAKSH_PDF_DATA : [];
+    window.PODCAST_AUDIO_DATA = typeof PODCAST_AUDIO_DATA !== 'undefined' ? PODCAST_AUDIO_DATA : [];
     window.HOMEPAGE_BOOK_REELS = HOMEPAGE_BOOK_REELS;
 }

@@ -129,8 +129,16 @@
                     </a>
                 </div>
 
-                <!-- Right / Actions Group: Blogger + Share + Lang + Hamburger -->
+                <!-- Right / Actions Group: Download Center + Blogger + Share + Lang + Hamburger -->
                 <div class="header-actions-col">
+                    <!-- Central Direct Download Badge (Google AI Recommendation 2) -->
+                    <a href="#download-center" class="sketch-download-badge" title="केंद्रीय डाउनलोड केंद्र / E-Library">
+                        <span class="sketch-download-title" data-hi="डाउनलोड केंद्र" data-en="E-Library">डाउनलोड केंद्र</span>
+                        <span class="sketch-download-icon-wrap">
+                            <i class="fas fa-file-download"></i>
+                        </span>
+                    </a>
+
                     <!-- Blogger Badge: 'ब्लॉग ग्रंथालय' directly above the Blogger [B] icon -->
                     <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="sketch-blogger-badge" title="ब्लॉग ग्रंथालय (39+ साहित्यिक मंच)">
                         <span class="sketch-blogger-title" data-hi="ब्लॉग ग्रंथालय" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय</span>
@@ -158,7 +166,7 @@
             </div>
         </div>
 
-        <!-- Tier 2: Sleek Sub-Navbar with all 8 site links -->
+        <!-- Tier 2: Sleek Sub-Navbar with all site links -->
         <nav class="sub-navbar" id="subNavbar">
             <div class="container">
                 <ul class="nav-menu" id="navMenu">
@@ -173,19 +181,24 @@
                     </li>
                     <li><a href="#home" class="nav-link active" data-hi="मुख्यपृष्ठ" data-en="Home">मुख्यपृष्ठ</a></li>
                     <li><a href="#about" class="nav-link" data-hi="परिचय" data-en="About">परिचय</a></li>
+                    <li><a href="#virodh-ras" class="nav-link" data-hi="विरोध-रस दर्शन" data-en="Virodh-Ras Poetics">विरोध-रस दर्शन</a></li>
                     <li><a href="#books" class="nav-link" data-hi="किताबों की श्रेणियां" data-en="Book Categories">किताबों की श्रेणियां</a></li>
+                    <li><a href="#download-center" class="nav-link nav-highlight-download" data-hi="डाउनलोड केंद्र (E-Library)" data-en="Download Center (E-Library)"><i class="fas fa-file-download"></i> <span>डाउनलोड केंद्र</span></a></li>
                     <li><a href="#gallery" class="nav-link" data-hi="मंच के छाया चित्र" data-en="Stage Photos">मंच के छाया चित्र</a></li>
-                    <li><a href="#videos" class="nav-link" data-hi="वीडियो" data-en="Videos">वीडियो</a></li>
+                    <li><a href="#media-archive" class="nav-link" data-hi="पॉडकास्ट व वीडियो" data-en="Podcasts & Videos">पॉडकास्ट व वीडियो</a></li>
                     <li><a href="#blogs" class="nav-link" data-hi="ब्लॉग ग्रंथालय" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय</a></li>
                     <li><a href="#awards" class="nav-link" data-hi="उपलब्धियाँ" data-en="Honors">उपलब्धियाँ</a></li>
                     <li><a href="#reviews" class="nav-link" data-hi="समीक्षा व टिप्पणियाँ" data-en="Reviews & Comments">समीक्षा व टिप्पणियाँ</a></li>
                     <li><a href="#contact" class="nav-link" data-hi="संपर्क" data-en="Contact">संपर्क</a></li>
                     <li class="nav-drawer-footer">
                         <div class="drawer-action-btns">
+                            <a href="#download-center" class="btn btn-sm btn-drawer-download" style="flex: 1; justify-content: center; background: #2563eb; color: #ffffff; border-radius: 8px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; font-size: 0.82rem; text-decoration: none;">
+                                <i class="fas fa-file-download"></i> <span data-hi="डाउनलोड केंद्र" data-en="Download Center">डाउनलोड केंद्र</span>
+                            </a>
                             <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="btn btn-blogger btn-sm" style="flex: 1; justify-content: center;">
                                 <i class="fab fa-blogger-b"></i> <span>ब्लॉग ग्रंथालय</span>
                             </a>
-                            <button class="btn btn-share-header btn-sm" onclick="openShareModal(event)" style="flex: 1; justify-content: center;">
+                            <button class="btn btn-share-header btn-sm" onclick="openShareModal(event)" style="flex: 0 0 auto; justify-content: center; padding: 7px 12px;">
                                 <i class="fas fa-share-alt"></i> <span>शेयर</span>
                             </button>
                         </div>
@@ -453,6 +466,148 @@
     </section>
 
     <!-- ====================================================================
+         VIRODH-RAS & TEWARI POETICS: MULTILINGUAL SCHOLARLY SUMMARY
+         (Google AI अनुशंसा 3: गैर-हिन्दी एवं अंतर्राष्ट्रीय शोधार्थियों हेतु सैद्धांतिक परिचय)
+         ==================================================================== -->
+    <section class="section virodh-ras-section" id="virodh-ras">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge" style="background: #7c2d12; color: #fef3c7;">
+                    <i class="fas fa-graduation-cap"></i> <span data-hi="काव्यशास्त्र एवं रस-मीमांसा • अंतर्राष्ट्रीय शोध-सार" data-en="Classical Poetics & Aesthetic Theory • Scholarly Abstract">काव्यशास्त्र एवं रस-मीमांसा • अंतर्राष्ट्रीय शोध-सार</span>
+                </span>
+                <h2 class="section-title" data-hi="तेवरी आन्दोलन एवं 'विरोध-रस' का काव्य-दर्शन" data-en="The Tewari Movement & The Poetics of Virodh-Ras (Aesthetic of Dissent)">तेवरी आन्दोलन एवं 'विरोध-रस' का काव्य-दर्शन</h2>
+                <p class="section-subtitle" data-hi="भारतीय काव्यशास्त्र में 10वें रस की मौलिक स्थापना, सामाजिक चेतना और जनवादी काव्य-शिल्प का प्रामाणिक बहुभाषी सैद्धांतिक परिचय" data-en="An authoritative bilingual compendium on the 10th Aesthetic Rasa, subaltern resistance, and metric innovations for global researchers">
+                    भारतीय काव्यशास्त्र में 10वें रस की मौलिक स्थापना, सामाजिक चेतना और जनवादी काव्य-शिल्प का प्रामाणिक बहुभाषी सैद्धांतिक परिचय
+                </p>
+            </div>
+
+            <!-- Scholarly Bilingual Abstract Grid -->
+            <div class="scholarly-abstract-grid">
+                <!-- Card 1: Genesis of Tewari Movement -->
+                <div class="scholarly-card">
+                    <div class="scholarly-card-icon" style="background: #fff7ed; color: #ea580c;">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <div class="scholarly-card-body">
+                        <span class="scholarly-card-tag" data-hi="विधागत क्रांति" data-en="Genre Revolution">विधागत क्रांति</span>
+                        <h3 class="scholarly-card-title" data-hi="तेवरी आन्दोलन का अभ्युदय : ग़ज़ल से जन-प्रतिरोध तक" data-en="Genesis of the Tewari Movement: From Ghazal to Resistance">
+                            तेवरी आन्दोलन का अभ्युदय : ग़ज़ल से जन-प्रतिरोध तक
+                        </h3>
+                        <p class="scholarly-card-text" data-hi="बीसवीं सदी के उत्तरार्द्ध में पारंपरिक उर्दू/फ़ारसी ग़ज़ल के रूमानी और दरबारी मिज़ाज से अलग, भारतीय लोक-जीवन के संघर्ष, पीड़ा और आक्रोश को अभिव्यक्ति देने हेतु रमेशराज जी ने 'तेवरी' विधा का सूत्रपात किया। 'तेवरी' शब्द 'तेवर' (भौंहों की तनी हुई भंगिमा) से व्युत्पन्न है, जो सामाजिक विषमता, भ्रष्टाचार और राजनीतिक छल के विरुद्ध नैतिक प्रतिरोध का प्रतीक है।" data-en="In the late 20th century, seeking to transcend the courtly romanticism of conventional Urdu/Persian Ghazals, Rameshraj pioneered 'Tewari' as an indigenous poetic form embodying democratic struggle. Derived from 'Tewar' (the furrowed brow of moral indignation), every couplet acts as an arrow of civic resistance against systemic inequality and bureaucratic apathy.">
+                            बीसवीं सदी के उत्तरार्द्ध में पारंपरिक उर्दू/फ़ारसी ग़ज़ल के रूमानी और दरबारी मिज़ाज से अलग, भारतीय लोक-जीवन के संघर्ष, पीड़ा और आक्रोश को अभिव्यक्ति देने हेतु रमेशराज जी ने 'तेवरी' विधा का सूत्रपात किया। 'तेवरी' शब्द 'तेवर' (भौंहों की तनी हुई भंगिमा) से व्युत्पन्न है, जो सामाजिक विषमता, भ्रष्टाचार और राजनीतिक छल के विरुद्ध नैतिक प्रतिरोध का प्रतीक है।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Doctrine of Virodh-Ras -->
+                <div class="scholarly-card">
+                    <div class="scholarly-card-icon" style="background: #fef2f2; color: #dc2626;">
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <div class="scholarly-card-body">
+                        <span class="scholarly-card-tag" data-hi="दसवाँ मौलिक रस" data-en="The 10th Aesthetic Rasa">दसवाँ मौलिक रस</span>
+                        <h3 class="scholarly-card-title" data-hi="'विरोध-रस' की अवधारणा : भरतमुनि से आगे की रस-मीमांसा" data-en="The Doctrine of 'Virodh-Ras': Expanding Classical Indian Poetics">
+                            'विरोध-रस' की अवधारणा : भरतमुनि से आगे की रस-मीमांसा
+                        </h3>
+                        <p class="scholarly-card-text" data-hi="आचार्य भरतमुनि के 'नाट्यशास्त्र' में प्रतिपादित 8 रसों, अभिनवगुप्त के 9वें 'शांत रस', तथा बाद के 'वात्सल्य' व 'भक्ति' रसों से आगे बढ़ते हुए रमेशराज ने लोकतंत्र के आधुनिक जनमानस हेतु 'विरोध-रस' की स्वतंत्र स्थापना की। यह 'रौद्र रस' के व्यक्तिगत विनाशकारी क्रोध तथा 'वीर रस' के युद्धोन्माद से भिन्न, न्याय एवं मानवीय गरिमा के लिए सामूहिक, विवेकशील जन-आक्रोश का सौन्दर्यशास्त्र है।" data-en="Extending beyond the 8 classical Rasas of Bharata Muni's Natyashastra, the 9th Shanta of Abhinavagupta, and later Vatsalya and Bhakti, Rameshraj established 'Virodh-Ras' as an independent 10th Rasa. Distinct from the destructive rage of Raudra and martial war-frenzy of Vira, Virodh-Ras crystallizes principled, non-violent democratic resistance and collective moral outrage.">
+                            आचार्य भरतमुनि के 'नाट्यशास्त्र' में प्रतिपादित 8 रसों, अभिनवगुप्त के 9वें 'शांत रस', तथा बाद के 'वात्सल्य' व 'भक्ति' रसों से आगे बढ़ते हुए रमेशराज ने लोकतंत्र के आधुनिक जनमानस हेतु 'विरोध-रस' की स्वतंत्र स्थापना की। यह 'रौद्र रस' के व्यक्तिगत विनाशकारी क्रोध तथा 'वीर रस' के युद्धोन्माद से भिन्न, न्याय एवं मानवीय गरिमा के लिए सामूहिक, विवेकशील जन-आक्रोश का सौन्दर्यशास्त्र है।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Metric Innovations -->
+                <div class="scholarly-card">
+                    <div class="scholarly-card-icon" style="background: #f0fdf4; color: #16a34a;">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <div class="scholarly-card-body">
+                        <span class="scholarly-card-tag" data-hi="छंद-शास्त्रीय नवाचार" data-en="Metric Innovations">छंद-शास्त्रीय नवाचार</span>
+                        <h3 class="scholarly-card-title" data-hi="जनक छन्द एवं नव कुण्डलिया राज छन्द का विधान" data-en="Metric Innovations: Janak Chhand & Nav Kundaliya">
+                            जनक छन्द एवं नव कुण्डलिया राज छन्द का विधान
+                        </h3>
+                        <p class="scholarly-card-text" data-hi="कवि ने छंदशास्त्र के क्षेत्र में भी युगांतरकारी योगदान दिया। अपने पिता लोककवि रामचरन गुप्त की स्मृति में 28 मात्राओं (16-12 पर यति) के सुगठित 'जनक छन्द' का प्रवर्तन किया। साथ ही मध्यकालीन कुण्डलिया के पारंपरिक ढांचे को समकालीन सामाजिक समस्याओं से जोड़ते हुए 'नव कुण्डलिया राज छन्द' की प्रतिष्ठा की।" data-en="Rameshraj also transformed classical Indian prosody. In honor of his father Lokkavi Ramcharan Gupta, he devised 'Janak Chhand'—a balanced 28-matra metric structure (caesura at 16 and 12 matras). Furthermore, he restructured medieval Kundaliya into 'Nav Kundaliya Raj Chhand', tailoring it for modern socio-political discourse.">
+                            कवि ने छंदशास्त्र के क्षेत्र में भी युगांतरकारी योगदान दिया। अपने पिता लोककवि रामचरन गुप्त की स्मृति में 28 मात्राओं (16-12 पर यति) के सुगठित 'जनक छन्द' का प्रवर्तन किया। साथ ही मध्यकालीन कुण्डलिया के पारंपरिक ढांचे को समकालीन सामाजिक समस्याओं से जोड़ते हुए 'नव कुण्डलिया राज छन्द' की प्रतिष्ठा की।
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rasa Classical Framework Table (रस-सामग्री विश्लेषण) -->
+            <div class="rasa-framework-box">
+                <div class="rasa-framework-head">
+                    <h4><i class="fas fa-scroll"></i> <span data-hi="'विरोध-रस' का शास्त्रीय घटक विश्लेषण (The 4 Classical Pillars of Virodh-Ras)" data-en="Classical Structural Analysis of Virodh-Ras (The 4 Poetic Pillars)">'विरोध-रस' का शास्त्रीय घटक विश्लेषण (The 4 Classical Pillars of Virodh-Ras)</span></h4>
+                    <span class="rasa-status-badge" data-hi="मौलिक शोध मीमांसा" data-en="Original Aesthetic Doctrine">मौलिक शोध मीमांसा</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="rasa-analysis-table">
+                        <thead>
+                            <tr>
+                                <th data-hi="शास्त्रीय अंग (Classical Element)" data-en="Aesthetic Constituent">शास्त्रीय अंग (Classical Element)</th>
+                                <th data-hi="पारंपरिक रसशास्त्र संदर्भ" data-en="Classical Poetics Analogy">पारंपरिक रसशास्त्र संदर्भ</th>
+                                <th data-hi="'विरोध-रस' में स्वरूप (स्वरूप एवं अभिव्यक्ति)" data-en="Manifestation in Virodh-Ras">'विरोध-रस' में स्वरूप (स्वरूप एवं अभिव्यक्ति)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>स्थायी भाव (Sthayi Bhava)</strong></td>
+                                <td data-hi="मूल भाव (जैसे रति, हास, शोक, क्रोध, उत्साह)" data-en="Core Permanent Emotion (e.g. Rati, Krodha, Utsaha)">मूल भाव (जैसे रति, हास, शोक, क्रोध, उत्साह)</td>
+                                <td class="highlight-cell"><strong data-hi="जन-आक्रोश एवं नैतिक प्रतिकार" data-en="Righteous Collective Outrage & Moral Dissent">जन-आक्रोश एवं नैतिक प्रतिकार</strong> <span class="rasa-note">(शोषण व अन्याय के विरुद्ध जाग्रत स्थायी चेतना)</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>आलम्बन विभाव (Alambana Vibhava)</strong></td>
+                                <td data-hi="मूल विषय / प्रेरक पात्र" data-en="Primary Focus / Subject">मूल विषय / प्रेरक पात्र</td>
+                                <td data-hi="व्यवस्थागत भ्रष्टाचार, सामाजिक विषमता, निरंकुश सत्ता, शोषितों का दमन" data-en="Systemic corruption, socio-economic disparity, authoritarian apathy, exploitation of subalterns">व्यवस्थागत भ्रष्टाचार, सामाजिक विषमता, निरंकुश सत्ता, शोषितों का दमन</td>
+                            </tr>
+                            <tr>
+                                <td><strong>उद्दीपन विभाव (Uddipana Vibhava)</strong></td>
+                                <td data-hi="भाव को तीव्र करने वाली परिस्थितियाँ" data-en="Catalysts / Intensifying Conditions">भाव को तीव्र करने वाली परिस्थितियाँ</td>
+                                <td data-hi="अन्याय का खुला प्रदर्शन, जनसाधारण की विवशता, शासक वर्ग का पाखंड, अधिकारों का हनन" data-en="Brazen injustice, helplessness of marginalized citizens, ruling-class hypocrisy, curtailment of rights">अन्याय का खुला प्रदर्शन, जनसाधारण की विवशता, शासक वर्ग का पाखंड, अधिकारों का हनन</td>
+                            </tr>
+                            <tr>
+                                <td><strong>अनुभाव (Anubhava)</strong></td>
+                                <td data-hi="शारीरिक व वाचिक प्रतिक्रिया" data-en="Physical & Verbal Expressions">शारीरिक व वाचिक प्रतिक्रिया</td>
+                                <td data-hi="तनी हुई भौंहें (तेवर), ओजस्वी काव्य-पाठ, मुट्ठियाँ भींचना, सत्याग्रह, निडर उद्घोष" data-en="Furrowed brows (Tewar), impassioned verse recitation, clenched fists, civic resistance, fearless public critique">तनी हुई भौंहें (तेवर), ओजस्वी काव्य-पाठ, मुट्ठियाँ भींचना, सत्याग्रह, निडर उद्घोष</td>
+                            </tr>
+                            <tr>
+                                <td><strong>संचारी भाव (Sanchari Bhava)</strong></td>
+                                <td data-hi="क्षणिक सहायक मनोभाव" data-en="Transient Emotional States">क्षणिक सहायक मनोभाव</td>
+                                <td data-hi="अमर्ष (रोष), धृति (धैर्य/संकल्प), निर्भीकता, विषाद (जन-पीड़ा पर करुणा), गर्व (नैतिक श्रेष्ठता)" data-en="Amarsha (righteous indignation), Dhriti (firm resolve), Fearlessness, Compassionate grief, Moral pride">अमर्ष (रोष), धृति (धैर्य/संकल्प), निर्भीकता, विषाद (जन-पीड़ा पर करुणा), गर्व (नैतिक श्रेष्ठता)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Academic Citation Box for Research Scholars (MLA, APA, Chicago) -->
+            <div class="scholarly-citation-card">
+                <div class="citation-header-row">
+                    <div class="citation-title-wrap">
+                        <i class="fas fa-quote-left"></i>
+                        <div>
+                            <h4 data-hi="शोधार्थियों हेतु प्रामाणिक संदर्भ एवं उद्धरण (Academic Citation)" data-en="Authoritative Academic Citation for Scholars & Theses">शोधार्थियों हेतु प्रामाणिक संदर्भ एवं उद्धरण (Academic Citation)</h4>
+                            <p data-hi="एम.फिल, पी-एच.डी, शोध-पत्रों एवं राष्ट्रीय सेमिनारों हेतु उद्धरण प्रारूप" data-en="Standardized citation formats for Ph.D./M.Phil dissertations, UGC journals, and conference papers">एम.फिल, पी-एच.डी, शोध-पत्रों एवं राष्ट्रीय सेमिनारों हेतु उद्धरण प्रारूप</p>
+                        </div>
+                    </div>
+                    <div class="citation-tabs" id="citationTabs">
+                        <button class="citation-tab-btn active" onclick="switchCitationFormat('mla')">MLA</button>
+                        <button class="citation-tab-btn" onclick="switchCitationFormat('apa')">APA</button>
+                        <button class="citation-tab-btn" onclick="switchCitationFormat('chicago')">Chicago</button>
+                    </div>
+                </div>
+                <div class="citation-text-box" id="citationTextBox">
+                    Gupta, Ramesh Chandra (Rameshraj Tewarikar). <em>Virodh-Ras: Siddhant Evam Saundaryabodh (The Aesthetic Doctrine of Dissent in Hindi Poetics)</em>. Aligarh: Tewari Sahitya Parishad, 1983–2024. Web. &lt;https://rameshraj-tewarikar.onrender.com/#virodh-ras&gt;.
+                </div>
+                <div class="citation-footer-row">
+                    <span class="citation-note"><i class="fas fa-check-circle"></i> <span data-hi="UGC-CARE एवं अंतर्राष्ट्रीय शोध-मानकों के अनुरूप" data-en="Compliant with UGC-CARE & International Research Norms">UGC-CARE एवं अंतर्राष्ट्रीय शोध-मानकों के अनुरूप</span></span>
+                    <button class="btn btn-sm btn-citation-copy" onclick="copyActiveCitation()">
+                        <i class="fas fa-copy"></i> <span data-hi="उद्धरण कॉपी करें" data-en="Copy Citation">उद्धरण कॉपी करें</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
          BOOKS SHOWCASE: 6 CONTINUOUS REELS (पुस्तकों की रील - drnamitasingh.com STYLE)
          ==================================================================== -->
     <section class="quick-peak-section" id="books">
@@ -491,6 +646,64 @@
                     <div class="home-gallery-marquee-track js-gallery-marquee-track" id="galleryMarqueeTrack">
                         <!-- Rendered via renderGalleryMarquee() from GALLERY_DATA -->
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
+         CENTRAL DOWNLOAD CENTER & E-LIBRARY (केंद्रीय डाउनलोड सेंटर)
+         (Google AI अनुशंसा 2: मुख्य मेनू में सीधा 'Download Center' या 'E-Library' बटन)
+         ==================================================================== -->
+    <section class="section download-center-section" id="download-center">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge" style="background: #1d4ed8; color: #eff6ff;">
+                    <i class="fas fa-cloud-download-alt"></i> <span data-hi="केंद्रीय ई-लाइब्रेरी • 1-क्लिक डाउनलोड केंद्र" data-en="Central E-Library • 1-Click Download Center">केंद्रीय ई-लाइब्रेरी • 1-क्लिक डाउनलोड केंद्र</span>
+                </span>
+                <h2 class="section-title" data-hi="केंद्रीय 'Download Center' एवं ई-ग्रंथालय" data-en="Central 'Download Center' & E-Library">केंद्रीय 'Download Center' एवं ई-ग्रंथालय</h2>
+                <p class="section-subtitle" data-hi="शोधार्थियों, प्राध्यापकों एवं पाठकों हेतु ऐतिहासिक तेवरी संग्रहों, मौलिक शोध-ग्रंथों एवं 'तेवरीपक्ष' पत्रिका के ई-संस्करणों का सीधा डाउनलोड हब" data-en="Direct download and reading hub for landmark Tewari anthologies, poetics treatises, and 'Tewaripaksh' quarterly e-magazines">
+                    शोधार्थियों, प्राध्यापकों एवं पाठकों हेतु ऐतिहासिक तेवरी संग्रहों, मौलिक शोध-ग्रंथों एवं 'तेवरीपक्ष' पत्रिका के ई-संस्करणों का सीधा डाउनलोड हब
+                </p>
+            </div>
+
+            <!-- Download Center Toolbar: Search & Category Pills -->
+            <div class="download-toolbar-card">
+                <div class="download-search-wrap">
+                    <i class="fas fa-search download-search-icon"></i>
+                    <input type="text" id="downloadCenterSearch" class="download-search-input" placeholder="पुस्तक, शोध-ग्रंथ या पत्रिका का नाम खोजें..." data-hi="पुस्तक, शोध-ग्रंथ या पत्रिका का नाम खोजें..." data-en="Search book, research treatise, or magazine title...">
+                    <button class="download-search-clear" id="downloadSearchClear" onclick="clearDownloadSearch()" style="display:none;" title="Clear Search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="download-filter-pills" id="downloadFilterPills">
+                    <button class="download-filter-pill active" onclick="setDownloadCategoryFilter('all', this)" data-hi="सभी ई-संस्करण (12+)" data-en="All Editions (12+)">
+                        <i class="fas fa-layer-group"></i> <span>सभी ई-संस्करण (12+)</span>
+                    </button>
+                    <button class="download-filter-pill" onclick="setDownloadCategoryFilter('tewari', this)" data-hi="ऐतिहासिक तेवरी संग्रह" data-en="Historic Tewari Anthologies">
+                        <i class="fas fa-feather-alt"></i> <span>ऐतिहासिक तेवरी संग्रह</span>
+                    </button>
+                    <button class="download-filter-pill" onclick="setDownloadCategoryFilter('research', this)" data-hi="काव्यशास्त्रीय शोध-ग्रंथ" data-en="Research Treatises">
+                        <i class="fas fa-book-reader"></i> <span>काव्यशास्त्रीय शोध-ग्रंथ</span>
+                    </button>
+                    <button class="download-filter-pill" onclick="setDownloadCategoryFilter('magazine', this)" data-hi="'तेवरीपक्ष' पत्रिका ई-अंक" data-en="'Tewaripaksh' E-Issues">
+                        <i class="fas fa-newspaper"></i> <span>'तेवरीपक्ष' पत्रिका ई-अंक</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Download Center Dynamic Grid -->
+            <div class="download-center-grid" id="downloadCenterGrid">
+                <!-- Rendered dynamically via renderDownloadCenterGrid() from FEATURED_BOOKS_PDF_DATA & TEWARIPAKSH_PDF_DATA -->
+            </div>
+
+            <!-- Download Center Helper Note -->
+            <div class="download-center-info-strip">
+                <div class="download-info-icon"><i class="fas fa-info-circle"></i></div>
+                <div class="download-info-text">
+                    <p data-hi="सभी कृतियाँ एवं पत्रिका ई-अंक शोधार्थियों के निर्बाध पठन व गैर-व्यावसायिक शैक्षिक उपयोग हेतु निःशुल्क उपलब्ध हैं। ब्लॉग पर सुरक्षित भंडारित मूल PDF सीधे खोली अथवा डाउनलोड की जा सकती हैं।" data-en="All literary works and e-magazine issues are made freely accessible for academic research and non-commercial educational study. The authentic PDFs archived on the official blogs can be directly viewed or downloaded.">
+                        सभी कृतियाँ एवं पत्रिका ई-अंक शोधार्थियों के निर्बाध पठन व गैर-व्यावसायिक शैक्षिक उपयोग हेतु निःशुल्क उपलब्ध हैं। ब्लॉग पर सुरक्षित भंडारित मूल PDF सीधे खोली अथवा डाउनलोड की जा सकती हैं।
+                    </p>
                 </div>
             </div>
         </div>
@@ -762,16 +975,114 @@
     </section>
 
     <!-- ====================================================================
-         YOUTUBE VIDEOS & RECITATIONS (काव्य-पाठ एवं वीडियो)
+         AUDIO PODCASTS & VIDEO ARCHIVE (ऑडियो-पॉडकास्ट एवं वीडियो आर्काइव)
+         (Google AI अनुशंसा 1: रमेशराज जी की बुलंद आवाज़ में कालजयी तेवरियों का पाठ - Podcasts)
          ==================================================================== -->
-    <section class="section section-alt" id="videos">
+    <section class="section section-alt media-archive-section" id="media-archive">
+        <div id="videos" style="position: relative; top: -80px;"></div>
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge" data-hi="यूट्यूब काव्य-पाठ एवं प्रस्तुतियाँ" data-en="YouTube Videos & Recitations"><i class="fab fa-youtube" style="color: #dc2626;"></i> यूट्यूब काव्य-पाठ एवं प्रस्तुतियाँ</span>
-                <h2 class="section-title" data-hi="रमेशराज तेवरीकार के काव्य-पाठ एवं वीडियो" data-en="Poetry Recitations & Videos">रमेशराज तेवरीकार के काव्य-पाठ एवं वीडियो</h2>
-                <p class="section-subtitle" data-hi="कवि के अधिकृत यूट्यूब चैनल से चयनित ग़ज़ल, तेवर-चालीसा, प्रेम-गीत एवं परिचयात्मक प्रस्तुतियाँ" data-en="Featured Ghazals, Tewar-Chalisa, songs, and introductory recitations from the official YouTube channel">
-                    कवि के अधिकृत यूट्यूब चैनल से चयनित ग़ज़ल, तेवर-चालीसा, प्रेम-गीत एवं परिचयात्मक प्रस्तुतियाँ
+            <div class="section-header text-center">
+                <span class="section-badge" style="background: #dc2626; color: #ffffff;">
+                    <i class="fas fa-podcast"></i> <span data-hi="ऑडियो-पॉडकास्ट एवं वीडियो आर्काइव" data-en="Audio Podcasts & Video Archive">ऑडियो-पॉडकास्ट एवं वीडियो आर्काइव</span>
+                </span>
+                <h2 class="section-title" data-hi="रमेशराज तेवरीकार : काव्य-स्वर (Podcasts) एवं वीडियो" data-en="Rameshraj Tewarikar: Audio Podcasts & Video Archive">रमेशराज तेवरीकार : काव्य-स्वर (Podcasts) एवं वीडियो</h2>
+                <p class="section-subtitle" data-hi="रमेशराज जी की बुलंद आवाज़ में उनकी कालजयी तेवरियों का ओजस्वी पाठ (Podcasts) एवं अधिकृत यूट्यूब काव्य-प्रस्तुतियाँ" data-en="Listen to the fiery resonance of landmark Tewari poetry recited in the author's own commanding voice alongside official video recordings">
+                    रमेशराज जी की बुलंद आवाज़ में उनकी कालजयी तेवरियों का ओजस्वी पाठ (Podcasts) एवं अधिकृत यूट्यूब काव्य-प्रस्तुतियाँ
                 </p>
+            </div>
+
+            <!-- Studio-Grade Audio & Podcast Player Widget -->
+            <div class="podcast-studio-player-card" id="podcastPlayerCard">
+                <div class="podcast-player-layout">
+                    <!-- Left: Active Track Visualizer & Controls -->
+                    <div class="podcast-player-main">
+                        <div class="podcast-track-meta">
+                            <div class="podcast-cover-artwork">
+                                <img src="assets/images/rameshraj-profile.jpg" alt="कवि रमेशराज तेवरीकार" id="podcastAuthorImg" class="podcast-author-avatar">
+                                <div class="podcast-live-eq" id="podcastWaveform">
+                                    <span class="eq-bar eq-bar-1"></span>
+                                    <span class="eq-bar eq-bar-2"></span>
+                                    <span class="eq-bar eq-bar-3"></span>
+                                    <span class="eq-bar eq-bar-4"></span>
+                                    <span class="eq-bar eq-bar-5"></span>
+                                </div>
+                            </div>
+                            <div class="podcast-meta-info">
+                                <div class="podcast-genre-pill" id="podcastCategoryPill">
+                                    <i class="fas fa-microphone-alt"></i> <span id="podcastActiveCategory">तेवरी उद्घोष / विरोध-रस</span>
+                                </div>
+                                <h3 class="podcast-active-title" id="podcastActiveTitle">तेवर-चालीसा (बुलंद आवाज़ में संपूर्ण तेवर-पाठ)</h3>
+                                <p class="podcast-active-speaker" id="podcastActiveSpeaker">
+                                    <i class="fas fa-feather-alt"></i> <span>स्वर एवं रचना: कवि रमेशराज तेवरीकार</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Progress Scrubber -->
+                        <div class="podcast-scrubber-wrap">
+                            <div class="podcast-time-display">
+                                <span class="time-current" id="podcastTimeCurrent">00:00</span>
+                                <span class="time-total" id="podcastTimeTotal">04:35</span>
+                            </div>
+                            <div class="podcast-progress-bar-container" id="podcastProgressTrack">
+                                <div class="podcast-progress-fill" id="podcastProgressFill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Player Controls Bar -->
+                        <div class="podcast-controls-row">
+                            <div class="podcast-speed-wrap">
+                                <button class="btn-player-aux" id="podcastSpeedBtn" onclick="cyclePodcastSpeed()" title="Playback Speed">1.0x</button>
+                            </div>
+                            <div class="podcast-main-actions">
+                                <button class="btn-player-ctrl" onclick="prevPodcastTrack()" title="Previous Track" aria-label="Previous Track">
+                                    <i class="fas fa-step-backward"></i>
+                                </button>
+                                <button class="btn-player-play" id="podcastPlayBtn" onclick="togglePodcastPlayback()" title="Play / Pause" aria-label="Play Track">
+                                    <i class="fas fa-play" id="podcastPlayIcon"></i>
+                                </button>
+                                <button class="btn-player-ctrl" onclick="nextPodcastTrack()" title="Next Track" aria-label="Next Track">
+                                    <i class="fas fa-step-forward"></i>
+                                </button>
+                            </div>
+                            <div class="podcast-vol-wrap">
+                                <button class="btn-player-aux" id="podcastWatchVideoBtn" onclick="watchCurrentPodcastVideo()" title="Watch Video on YouTube">
+                                    <i class="fab fa-youtube" style="color: #dc2626;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Synchronized Verse Box (साथ-साथ पढ़ें) -->
+                        <div class="podcast-verse-box">
+                            <div class="podcast-verse-head">
+                                <span class="verse-head-tag"><i class="fas fa-quote-left"></i> <span data-hi="पाठ के साथ-साथ पंक्तियाँ पढ़ें" data-en="Read-Along Poetic Verses">पाठ के साथ-साथ पंक्तियाँ पढ़ें</span></span>
+                                <span class="verse-status-tag" id="podcastStatusTag"><i class="fas fa-volume-up"></i> <span data-hi="सुनने के लिए प्ले करें" data-en="Click Play to Listen">सुनने के लिए प्ले करें</span></span>
+                            </div>
+                            <div class="podcast-verse-content" id="podcastVerseContent">
+                                <!-- Verse lines updated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Curated Playlist (6 Tracks) -->
+                    <div class="podcast-playlist-col">
+                        <div class="podcast-playlist-head">
+                            <h4><i class="fas fa-list-ul"></i> <span data-hi="कालजयी तेवरी-पाठ एवं गीत संकलन" data-en="Landmark Recitations & Songs">कालजयी तेवरी-पाठ एवं गीत संकलन</span></h4>
+                            <span class="playlist-count-badge" data-hi="6 ट्रैक" data-en="6 Tracks">6 ट्रैक</span>
+                        </div>
+                        <div class="podcast-playlist-list" id="podcastPlaylistList">
+                            <!-- Populated dynamically via renderPodcastPlaylist() -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YouTube Videos Section Heading -->
+            <div class="youtube-section-subhead" style="margin-top: 3.5rem; margin-bottom: 1.5rem; text-align: center;">
+                <span class="section-badge" style="background: #fef2f2; color: #dc2626; border: 1px solid #fecaca;">
+                    <i class="fab fa-youtube"></i> <span data-hi="आधिकारिक वीडियो प्रस्तुतियाँ" data-en="Official Video Presentations">आधिकारिक वीडियो प्रस्तुतियाँ</span>
+                </span>
+                <h3 style="font-family: var(--font-heading); color: #0f172a; font-size: 1.5rem; margin-top: 0.5rem;" data-hi="मंच काव्य-पाठ, साक्षात्कार एवं गौरव वृत्तचित्र" data-en="Stage Recitations, Interviews & Documentaries">मंच काव्य-पाठ, साक्षात्कार एवं गौरव वृत्तचित्र</h3>
             </div>
 
             <div class="videos-grid" id="videosGrid">

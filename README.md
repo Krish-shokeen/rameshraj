@@ -45,7 +45,25 @@ The website provides an elegant, immersive experience showcasing his lifetime li
 - Displays prestigious recognitions including the **साहित्य-श्री सम्मान (Sahitya-Shri)**, **तेवरी-शलाका सम्मान**, **कबीर सम्मान**, and more.
 - Full-screen **Lightbox Modal** for high-resolution certificate and vintage photograph inspection.
 
-### 6. 🌐 Dual-Language Localization (हिन्दी / English)
+### 6. 🎙️ ऑडियो-पॉडकास्ट एवं काव्य-स्वर आर्काइव (Audio Recitations & Podcasts)
+- **Studio-Grade Audio Player**: Interactive player widget featuring live animated audio equalizer waveform bars, seek slider, speed controller (1.0x, 1.25x, 1.5x), and volume toggle.
+- **6 Curated Classic Recitations**: Includes *तेवर-चालीसा*, *अभी जुबां कटी नहीं*, *कबीर ज़िन्दा है*, *इतिहास घायल है*, *लोकगीत*, and *प्रेम-गीत*.
+- **Synchronized Read-Along Verse Display**: Poetic couplets dynamically render and highlight in sync with the active recitation.
+- **Official YouTube Video Archive**: Integrated responsive video grid featuring stage conclaves, author interviews, and historic documentaries.
+
+### 7. 📥 केंद्रीय 'Download Center' एवं ई-ग्रंथालय (1-Click E-Library)
+- **Top Header Direct Action**: Prominent one-click download badge in the top header and navigation menu.
+- **Instant Search & Category Pills**: Real-time filtering across historic Tewari anthologies (*अभी जुबां कटी नहीं*, *कबीर ज़िन्दा है*, *इतिहास घायल है*), research treatises (*विरोध-रस*, *विचार और रस*, *काव्य की आत्मा*), and quarterly *तेवरीपक्ष* magazine issues.
+- **One-Click Reading & Download**: Instant access to original archived PDFs.
+- **Academic Citation System**: Built-in 1-click citation generator for research scholars.
+
+### 8. 🎓 बहुभाषी सारांश : तेवरी आन्दोलन एवं 'विरोध-रस' (Multilingual Poetics Compendium)
+- **Authoritative Bilingual Exposition**: Structured theoretical overview in Hindi & English specifically crafted for national and international researchers.
+- **The Doctrine of Virodh-Ras (The 10th Rasa)**: Detailed 4-pillar classical analysis comparing classical Rasas (Natyashastra) with Virodh-Ras (*Sthayi Bhava*, *Alambana*, *Uddipana*, *Anubhava*, *Sanchari Bhava*).
+- **Metric Innovations**: Theoretical analysis of *Janak Chhand* (28 matras) and *Nav Kundaliya Raj Chhand*.
+- **Interactive Citation Generator**: Instant export of standardized MLA, APA, and Chicago citations for doctoral dissertations and academic journals.
+
+### 9. 🌐 Dual-Language Localization (हिन्दी / English)
 - Instant one-click language toggle across the entire site without page reloads using HTML5 `data-hi` and `data-en` attributes.
 
 ---

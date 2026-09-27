@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderVideos();
     renderFeaturedBooksPdfs();
     renderTewaripakshPdfs();
+    initDownloadCenter();
+    initPodcastPlayer();
     renderTestimonials();
     initReaderCommentForm();
     initModals();
@@ -204,6 +206,8 @@ function updatePageLanguage() {
     renderVideos();
     renderFeaturedBooksPdfs();
     renderTewaripakshPdfs();
+    renderDownloadCenterGrid();
+    renderPodcastPlayer();
     renderTestimonials();
 }
 
@@ -841,6 +845,435 @@ function renderTewaripakshPdfs() {
             </div>
         `;
     }).join('');
+}
+
+/* --------------------------------------------------------------------------
+   STUDIO PODCAST & AUDIO RECITATIONS (Google AI Recommendation 1)
+   -------------------------------------------------------------------------- */
+let currentPodcastIndex = 0;
+let isPodcastPlaying = false;
+let podcastPlaybackRate = 1.0;
+let podcastTimer = null;
+let podcastElapsedSec = 0;
+
+function initPodcastPlayer() {
+    const playerCard = document.getElementById('podcastPlayerCard');
+    if (!playerCard || typeof PODCAST_AUDIO_DATA === 'undefined' || !PODCAST_AUDIO_DATA.length) return;
+
+    renderPodcastPlayer();
+    renderPodcastPlaylist();
+    setupPodcastProgressScrubber();
+}
+
+function renderPodcastPlayer() {
+    if (typeof PODCAST_AUDIO_DATA === 'undefined' || !PODCAST_AUDIO_DATA.length) return;
+    const track = PODCAST_AUDIO_DATA[currentPodcastIndex];
+    if (!track) return;
+
+    const titleEl = document.getElementById('podcastActiveTitle');
+    const catEl = document.getElementById('podcastActiveCategory');
+    const speakerEl = document.getElementById('podcastActiveSpeaker');
+    const verseContentEl = document.getElementById('podcastVerseContent');
+    const timeTotalEl = document.getElementById('podcastTimeTotal');
+    const timeCurrentEl = document.getElementById('podcastTimeCurrent');
+    const progressFill = document.getElementById('podcastProgressFill');
+
+    if (titleEl) titleEl.textContent = currentLang === 'hi' ? track.titleHi : track.titleEn;
+    if (catEl) catEl.textContent = currentLang === 'hi' ? track.categoryHi : track.categoryEn;
+    if (speakerEl) {
+        speakerEl.innerHTML = `<i class="fas fa-feather-alt"></i> <span>${currentLang === 'hi' ? 'स्वर एवं रचना: ' + track.speakerHi : 'Voice & Verse: ' + track.speakerEn}</span>`;
+    }
+    if (verseContentEl) {
+        verseContentEl.textContent = currentLang === 'hi' ? track.versesHi : track.versesEn;
+    }
+    if (timeTotalEl) timeTotalEl.textContent = track.duration || '04:00';
+    if (timeCurrentEl && !isPodcastPlaying) timeCurrentEl.textContent = formatPodcastSeconds(podcastElapsedSec);
+    if (progressFill && !isPodcastPlaying) {
+        const totalSec = parseDurationToSeconds(track.duration);
+        const pct = totalSec > 0 ? (podcastElapsedSec / totalSec) * 100 : 0;
+        progressFill.style.width = `${pct}%`;
+    }
+}
+
+function renderPodcastPlaylist() {
+    const listEl = document.getElementById('podcastPlaylistList');
+    if (!listEl || typeof PODCAST_AUDIO_DATA === 'undefined') return;
+
+    listEl.innerHTML = PODCAST_AUDIO_DATA.map((item, idx) => {
+        const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
+        const isActive = idx === currentPodcastIndex;
+        const iconClass = isActive && isPodcastPlaying ? 'fa-volume-up' : (isActive ? 'fa-play' : 'fa-podcast');
+
+        return `
+            <div class="podcast-playlist-item ${isActive ? 'active' : ''}" onclick="selectPodcastTrack(${idx})">
+                <div class="playlist-item-left">
+                    <i class="fas ${iconClass} playlist-item-icon"></i>
+                    <span class="playlist-item-title">${title}</span>
+                </div>
+                <span class="playlist-item-time">${item.duration}</span>
+            </div>
+        `;
+    }).join('');
+}
+
+function selectPodcastTrack(index) {
+    if (index === currentPodcastIndex && isPodcastPlaying) {
+        togglePodcastPlayback();
+        return;
+    }
+    currentPodcastIndex = index;
+    podcastElapsedSec = 0;
+    renderPodcastPlayer();
+    startPodcastPlayback();
+    renderPodcastPlaylist();
+}
+
+function togglePodcastPlayback() {
+    if (isPodcastPlaying) {
+        pausePodcastPlayback();
+    } else {
+        startPodcastPlayback();
+    }
+}
+
+function startPodcastPlayback() {
+    isPodcastPlaying = true;
+    const playIcon = document.getElementById('podcastPlayIcon');
+    const waveform = document.getElementById('podcastWaveform');
+    const statusTag = document.getElementById('podcastStatusTag');
+
+    if (playIcon) playIcon.className = 'fas fa-pause';
+    if (waveform) waveform.classList.add('playing');
+    if (statusTag) {
+        statusTag.innerHTML = `<i class="fas fa-volume-up" style="color:#22c55e;"></i> <span style="color:#86efac;">${currentLang === 'hi' ? 'पाठ प्रसारित हो रहा है...' : 'Now Playing...'}</span>`;
+    }
+
+    try {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const track = PODCAST_AUDIO_DATA[currentPodcastIndex];
+            const textToSpeak = currentLang === 'hi' 
+                ? (track.titleHi + "। " + track.versesHi.replace(/\n/g, ' '))
+                : (track.titleEn + ". " + track.versesEn.replace(/\n/g, ' '));
+            
+            const utter = new SpeechSynthesisUtterance(textToSpeak);
+            utter.lang = currentLang === 'hi' ? 'hi-IN' : 'en-US';
+            utter.rate = podcastPlaybackRate;
+            utter.onend = () => {
+                nextPodcastTrack();
+            };
+            window.speechSynthesis.speak(utter);
+        }
+    } catch (e) {
+        console.warn('Speech synthesis error:', e);
+    }
+
+    clearInterval(podcastTimer);
+    const track = PODCAST_AUDIO_DATA[currentPodcastIndex];
+    const totalSec = parseDurationToSeconds(track.duration);
+
+    podcastTimer = setInterval(() => {
+        podcastElapsedSec += 1;
+        const timeCurrentEl = document.getElementById('podcastTimeCurrent');
+        const progressFill = document.getElementById('podcastProgressFill');
+
+        if (timeCurrentEl) timeCurrentEl.textContent = formatPodcastSeconds(podcastElapsedSec);
+        if (progressFill && totalSec > 0) {
+            const pct = Math.min(100, (podcastElapsedSec / totalSec) * 100);
+            progressFill.style.width = `${pct}%`;
+        }
+
+        if (podcastElapsedSec >= totalSec) {
+            nextPodcastTrack();
+        }
+    }, 1000 / podcastPlaybackRate);
+
+    renderPodcastPlaylist();
+}
+
+function pausePodcastPlayback() {
+    isPodcastPlaying = false;
+    const playIcon = document.getElementById('podcastPlayIcon');
+    const waveform = document.getElementById('podcastWaveform');
+    const statusTag = document.getElementById('podcastStatusTag');
+
+    if (playIcon) playIcon.className = 'fas fa-play';
+    if (waveform) waveform.classList.remove('playing');
+    if (statusTag) {
+        statusTag.innerHTML = `<i class="fas fa-pause-circle"></i> <span>${currentLang === 'hi' ? 'ठहराव (Paused)' : 'Paused'}</span>`;
+    }
+
+    try {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.pause();
+        }
+    } catch (e) {}
+
+    clearInterval(podcastTimer);
+    renderPodcastPlaylist();
+}
+
+function prevPodcastTrack() {
+    currentPodcastIndex = (currentPodcastIndex - 1 + PODCAST_AUDIO_DATA.length) % PODCAST_AUDIO_DATA.length;
+    podcastElapsedSec = 0;
+    renderPodcastPlayer();
+    if (isPodcastPlaying) {
+        startPodcastPlayback();
+    } else {
+        renderPodcastPlaylist();
+    }
+}
+
+function nextPodcastTrack() {
+    currentPodcastIndex = (currentPodcastIndex + 1) % PODCAST_AUDIO_DATA.length;
+    podcastElapsedSec = 0;
+    renderPodcastPlayer();
+    if (isPodcastPlaying) {
+        startPodcastPlayback();
+    } else {
+        renderPodcastPlaylist();
+    }
+}
+
+function cyclePodcastSpeed() {
+    const speeds = [1.0, 1.25, 1.5];
+    const currentIdx = speeds.indexOf(podcastPlaybackRate);
+    podcastPlaybackRate = speeds[(currentIdx + 1) % speeds.length];
+    
+    const btn = document.getElementById('podcastSpeedBtn');
+    if (btn) btn.textContent = `${podcastPlaybackRate}x`;
+
+    if (isPodcastPlaying) {
+        startPodcastPlayback();
+    }
+    showToast(currentLang === 'hi' ? `गति: ${podcastPlaybackRate}x` : `Speed: ${podcastPlaybackRate}x`);
+}
+
+function watchCurrentPodcastVideo() {
+    const track = PODCAST_AUDIO_DATA[currentPodcastIndex];
+    if (track && track.youtubeUrl) {
+        window.open(track.youtubeUrl, '_blank');
+    }
+}
+
+function setupPodcastProgressScrubber() {
+    const trackEl = document.getElementById('podcastProgressTrack');
+    if (!trackEl) return;
+
+    trackEl.addEventListener('click', (e) => {
+        const rect = trackEl.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const width = rect.width;
+        const pct = Math.max(0, Math.min(1, clickX / width));
+
+        const track = PODCAST_AUDIO_DATA[currentPodcastIndex];
+        const totalSec = parseDurationToSeconds(track.duration);
+        podcastElapsedSec = Math.floor(pct * totalSec);
+
+        const progressFill = document.getElementById('podcastProgressFill');
+        const timeCurrentEl = document.getElementById('podcastTimeCurrent');
+        if (progressFill) progressFill.style.width = `${pct * 100}%`;
+        if (timeCurrentEl) timeCurrentEl.textContent = formatPodcastSeconds(podcastElapsedSec);
+
+        if (isPodcastPlaying) {
+            startPodcastPlayback();
+        }
+    });
+}
+
+function parseDurationToSeconds(str) {
+    if (!str) return 240;
+    const parts = str.split(':');
+    if (parts.length === 2) {
+        return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+    }
+    return 240;
+}
+
+function formatPodcastSeconds(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+}
+
+/* --------------------------------------------------------------------------
+   CENTRAL DOWNLOAD CENTER & CITATION SYSTEM (Google AI Recommendation 2 & 3)
+   -------------------------------------------------------------------------- */
+let currentDownloadFilter = 'all';
+let currentDownloadQuery = '';
+
+function initDownloadCenter() {
+    const searchInput = document.getElementById('downloadCenterSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentDownloadQuery = e.target.value.trim().toLowerCase();
+            const clearBtn = document.getElementById('downloadSearchClear');
+            if (clearBtn) clearBtn.style.display = currentDownloadQuery ? 'flex' : 'none';
+            renderDownloadCenterGrid();
+        });
+    }
+    renderDownloadCenterGrid();
+}
+
+function setDownloadCategoryFilter(category, btnElement) {
+    currentDownloadFilter = category;
+    const pills = document.querySelectorAll('.download-filter-pill');
+    pills.forEach(p => p.classList.remove('active'));
+    if (btnElement) btnElement.classList.add('active');
+    renderDownloadCenterGrid();
+}
+
+function clearDownloadSearch() {
+    const searchInput = document.getElementById('downloadCenterSearch');
+    const clearBtn = document.getElementById('downloadSearchClear');
+    if (searchInput) searchInput.value = '';
+    if (clearBtn) clearBtn.style.display = 'none';
+    currentDownloadQuery = '';
+    renderDownloadCenterGrid();
+}
+
+function getMasterDownloadList() {
+    const list = [];
+    if (typeof FEATURED_BOOKS_PDF_DATA !== 'undefined') {
+        FEATURED_BOOKS_PDF_DATA.forEach(item => {
+            const isTreatise = item.typeHi.includes('शोध') || item.typeHi.includes('काव्यशास्त्र') || item.typeHi.includes('रस');
+            list.push({
+                ...item,
+                category: isTreatise ? 'research' : 'tewari',
+                isMagazine: false
+            });
+        });
+    }
+    if (typeof TEWARIPAKSH_PDF_DATA !== 'undefined') {
+        TEWARIPAKSH_PDF_DATA.forEach(item => {
+            list.push({
+                ...item,
+                category: 'magazine',
+                isMagazine: true
+            });
+        });
+    }
+    return list;
+}
+
+function renderDownloadCenterGrid() {
+    const grid = document.getElementById('downloadCenterGrid');
+    if (!grid) return;
+
+    let items = getMasterDownloadList();
+
+    if (currentDownloadFilter !== 'all') {
+        items = items.filter(item => item.category === currentDownloadFilter);
+    }
+
+    if (currentDownloadQuery) {
+        items = items.filter(item => {
+            const tHi = (item.titleHi || '').toLowerCase();
+            const tEn = (item.titleEn || '').toLowerCase();
+            const y = (item.year || '').toLowerCase();
+            const typeHi = (item.typeHi || '').toLowerCase();
+            const typeEn = (item.typeEn || '').toLowerCase();
+            return tHi.includes(currentDownloadQuery) || 
+                   tEn.includes(currentDownloadQuery) || 
+                   y.includes(currentDownloadQuery) ||
+                   typeHi.includes(currentDownloadQuery) ||
+                   typeEn.includes(currentDownloadQuery);
+        });
+    }
+
+    if (!items.length) {
+        grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 3rem; background: #ffffff; border-radius: 12px; border: 1px dashed #cbd5e1;">
+                <i class="fas fa-search" style="font-size: 2.5rem; color: #94a3b8; margin-bottom: 1rem;"></i>
+                <h4 style="color: #0f172a; margin-bottom: 0.5rem;">${currentLang === 'hi' ? 'कोई पुस्तक या पत्रिका नहीं मिली' : 'No editions found'}</h4>
+                <p style="color: #64748b; font-size: 0.9rem;">${currentLang === 'hi' ? 'कृपया अलग कीवर्ड से खोजें या फ़िल्टर बदलें।' : 'Please try a different search keyword or category filter.'}</p>
+                <button class="btn btn-sm btn-primary" onclick="clearDownloadSearch()">${currentLang === 'hi' ? 'फ़िल्टर हटाएं' : 'Reset Filters'}</button>
+            </div>
+        `;
+        return;
+    }
+
+    grid.innerHTML = items.map(item => {
+        const title = currentLang === 'hi' ? item.titleHi : item.titleEn;
+        const type = currentLang === 'hi' ? item.typeHi : item.typeEn;
+        const badgeColor = item.category === 'tewari' ? 'rgba(234, 88, 12, 0.9)' : (item.category === 'research' ? 'rgba(37, 99, 235, 0.9)' : 'rgba(15, 23, 42, 0.9)');
+
+        return `
+            <div class="download-center-card">
+                <div class="download-card-cover-wrap" onclick="openLightbox('${item.coverImage}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'कवर बड़ा देखें' : 'View Full Cover'}">
+                    <img src="${item.coverImage}" alt="${title}" loading="lazy">
+                    <span class="download-card-badge" style="background: ${badgeColor};">
+                        <i class="fas fa-file-pdf"></i> ${type}
+                    </span>
+                </div>
+                <h4 class="download-card-title">${title}</h4>
+                <div class="download-card-meta">
+                    <i class="fas fa-calendar-alt"></i> ${item.year || 'ऐतिहासिक संस्करण'}
+                </div>
+                <div class="download-card-actions">
+                    <a href="${item.downloadUrl || item.readUrl}" target="_blank" rel="noopener noreferrer" class="btn-dl-direct" title="${currentLang === 'hi' ? '1-क्लिक में डाउनलोड व पठन' : 'Direct Download & Read'}">
+                        <i class="fas fa-file-download"></i>
+                        <span>${currentLang === 'hi' ? 'PDF डाउनलोड / पढ़ें ↗' : 'Download / Read PDF ↗'}</span>
+                    </a>
+                    <button class="btn-dl-cite" onclick="copyCitationForBook('${title.replace(/'/g, "\\'")}', '${item.year || '2024'}', '${type.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'शोध उद्धरण कॉपी करें' : 'Copy Academic Citation'}">
+                        <i class="fas fa-quote-right"></i>
+                        <span>${currentLang === 'hi' ? 'शोध उद्धरण (Cite)' : 'Cite Work'}</span>
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function copyCitationForBook(title, year, type) {
+    const citation = `Gupta, Ramesh Chandra (Rameshraj Tewarikar). "${title}". ${type}, Aligarh, ${year}. Digital Literary Archive: https://rameshraj-tewarikar.onrender.com/#download-center.`;
+    navigator.clipboard.writeText(citation).then(() => {
+        showToast(currentLang === 'hi' ? `शोध उद्धरण कॉपी हो गया: "${title.substring(0, 25)}..."` : `Citation copied: "${title.substring(0, 25)}..."`);
+    }).catch(() => {
+        showToast(currentLang === 'hi' ? 'उद्धरण कॉपी किया गया' : 'Citation copied');
+    });
+}
+
+/* --- Scholarly Citation Tab & Copy for Virodh-Ras Section --- */
+let activeCitationFormat = 'mla';
+
+const CITATION_TEMPLATES = {
+    mla: 'Gupta, Ramesh Chandra (Rameshraj Tewarikar). <em>Virodh-Ras: Siddhant Evam Saundaryabodh (The Aesthetic Doctrine of Dissent in Hindi Poetics)</em>. Aligarh: Tewari Sahitya Parishad, 1983–2024. Web. &lt;https://rameshraj-tewarikar.onrender.com/#virodh-ras&gt;.',
+    apa: 'Tewarikar, R. C. (1983–2024). <em>Virodh-Ras and the Tewari Movement: An Aesthetic Compendium of Resistance in Hindi Poetics</em>. Aligarh: Tewari Sahitya Sansthan. Retrieved from https://rameshraj-tewarikar.onrender.com/#virodh-ras',
+    chicago: 'Rameshraj Tewarikar. <em>Virodh-Ras: Siddhant Evam Saundaryabodh (Tewari Movement Poetics)</em>. Aligarh: Tewari Sahitya Parishad, 2015. https://rameshraj-tewarikar.onrender.com/#virodh-ras.'
+};
+
+const CITATION_PLAIN_TEXTS = {
+    mla: 'Gupta, Ramesh Chandra (Rameshraj Tewarikar). Virodh-Ras: Siddhant Evam Saundaryabodh (The Aesthetic Doctrine of Dissent in Hindi Poetics). Aligarh: Tewari Sahitya Parishad, 1983–2024. Web. https://rameshraj-tewarikar.onrender.com/#virodh-ras.',
+    apa: 'Tewarikar, R. C. (1983–2024). Virodh-Ras and the Tewari Movement: An Aesthetic Compendium of Resistance in Hindi Poetics. Aligarh: Tewari Sahitya Sansthan. Retrieved from https://rameshraj-tewarikar.onrender.com/#virodh-ras',
+    chicago: 'Rameshraj Tewarikar. Virodh-Ras: Siddhant Evam Saundaryabodh (Tewari Movement Poetics). Aligarh: Tewari Sahitya Parishad, 2015. https://rameshraj-tewarikar.onrender.com/#virodh-ras.'
+};
+
+function switchCitationFormat(format) {
+    activeCitationFormat = format;
+    const box = document.getElementById('citationTextBox');
+    const tabs = document.querySelectorAll('.citation-tab-btn');
+
+    tabs.forEach(tab => {
+        if (tab.textContent.toLowerCase().includes(format)) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+
+    if (box && CITATION_TEMPLATES[format]) {
+        box.innerHTML = CITATION_TEMPLATES[format];
+    }
+}
+
+function copyActiveCitation() {
+    const text = CITATION_PLAIN_TEXTS[activeCitationFormat] || CITATION_PLAIN_TEXTS.mla;
+    navigator.clipboard.writeText(text).then(() => {
+        showToast(currentLang === 'hi' ? `${activeCitationFormat.toUpperCase()} शोध संदर्भ सफलतापूर्वक कॉपी हो गया!` : `${activeCitationFormat.toUpperCase()} citation copied to clipboard!`);
+    }).catch(() => {
+        showToast(currentLang === 'hi' ? 'उद्धरण कॉपी हो गया' : 'Citation copied');
+    });
 }
 
 /* --------------------------------------------------------------------------
