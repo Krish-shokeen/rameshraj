@@ -66,6 +66,19 @@ The website provides an elegant, immersive experience showcasing his lifetime li
 ### 9. 🌐 Dual-Language Localization (हिन्दी / English)
 - Instant one-click language toggle across the entire site without page reloads using HTML5 `data-hi` and `data-en` attributes.
 
+### 10. 🔗 7 प्रमुख कृतियों के समर्पित शेयर लिंक्स एवं डीप-लिंकिंग सुइट (Dedicated Deep Links & Promotion Suite)
+- **Dedicated Shareable URLs & Hash Routing**: Individual direct links with auto-scrolling, section pulsing, and spotlight popup for the 7 milestone works requested by the client:
+  1. `/#abhi-zuban-kati-nahin` — *अभी जुबां कटी नहीं* (प्रथम ऐतिहासिक तेवरी-संग्रह 1983)
+  2. `/#kabir-zinda-hai` — *कबीर ज़िन्दा है* (संपादित ऐतिहासिक तेवरी-संग्रह 1987)
+  3. `/#itihaas-ghayal-hai` — *इतिहास घायल है* (संपादित ऐतिहासिक तेवरी-संग्रह 1992)
+  4. `/#virodh-ras` — *विरोध-रस* (काव्यशास्त्र का 10वां रस : मौलिक शोध-प्रबंध)
+  5. `/#vichar-aur-ras` — *विचार और रस* (काव्यशास्त्र एवं समीक्षात्मक निबंध संग्रह)
+  6. `/#kavya-ki-aatma` — *काव्य की आत्मा और आत्मीयकरण* (रस-निष्पत्ति शोध-प्रबंध)
+  7. `/#tewaripaksh` — *तेवरीपक्ष त्रैमासिक पत्रिका* (1982 से निरंतर प्रकाशित आंदोलन पत्रिका)
+- **Work Spotlight Modal**: Dedicated high-focus viewer displaying the cover, subtitle, synopsis, representative verse, direct PDF read/download link, audio recitation link, and copyable deep link.
+- **Dynamic Open Graph & Social Card Route (`/work/:slug`)**: Express route delivering dynamic Open Graph metadata and cover images for rich preview cards when sharing links on WhatsApp, Facebook, Twitter, and Telegram.
+- **1-Click WhatsApp & Social Sharing**: Pre-formatted rich messages with author attribution, quotes, and direct portal links for rapid promotion across literary groups.
+
 ---
 
 ## 🛠️ Technology Stack

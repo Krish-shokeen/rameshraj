@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFeaturedBooksPdfs();
     renderTewaripakshPdfs();
     initDownloadCenter();
+    renderPromotionalWorksPills();
+    initDirectWorkRouting();
     initPodcastPlayer();
     renderTestimonials();
     initReaderCommentForm();
@@ -207,6 +209,7 @@ function updatePageLanguage() {
     renderFeaturedBooksPdfs();
     renderTewaripakshPdfs();
     renderDownloadCenterGrid();
+    renderPromotionalWorksPills();
     renderPodcastPlayer();
     renderTestimonials();
 }
@@ -797,7 +800,7 @@ function renderFeaturedBooksPdfs() {
         const type = currentLang === 'hi' ? item.typeHi : item.typeEn;
 
         return `
-            <div class="magazine-pdf-card">
+            <div class="magazine-pdf-card" id="card-${item.id}">
                 <div class="magazine-pdf-cover-wrap" onclick="openLightbox('${item.coverImage}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'कवर बड़ा देखें' : 'View Full Cover'}">
                     <img src="${item.coverImage}" alt="${title}" loading="lazy" class="magazine-pdf-cover">
                     <span class="magazine-pdf-badge" style="background: rgba(37, 99, 235, 0.9);"><i class="fas fa-file-pdf"></i> ${type}</span>
@@ -809,6 +812,10 @@ function renderFeaturedBooksPdfs() {
                             <i class="fas fa-file-download"></i>
                             <span>${currentLang === 'hi' ? 'पढ़ें व PDF डाउनलोड ↗' : 'Read & Download ↗'}</span>
                         </a>
+                        <button class="btn-pdf-share" onclick="openShareModalForWork('${item.id}')" title="${currentLang === 'hi' ? 'सीधा शेयर लिंक' : 'Share Direct Link'}">
+                            <i class="fas fa-share-alt"></i>
+                            <span>${currentLang === 'hi' ? 'शेयर' : 'Share'}</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -828,7 +835,7 @@ function renderTewaripakshPdfs() {
         const type = currentLang === 'hi' ? item.typeHi : item.typeEn;
 
         return `
-            <div class="magazine-pdf-card">
+            <div class="magazine-pdf-card" id="card-${item.id}">
                 <div class="magazine-pdf-cover-wrap" onclick="openLightbox('${item.coverImage}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'कवर बड़ा देखें' : 'View Full Cover'}">
                     <img src="${item.coverImage}" alt="${title}" loading="lazy" class="magazine-pdf-cover">
                     <span class="magazine-pdf-badge"><i class="fas fa-file-pdf"></i> ${type}</span>
@@ -840,6 +847,10 @@ function renderTewaripakshPdfs() {
                             <i class="fas fa-book-reader"></i>
                             <span>${currentLang === 'hi' ? 'ब्लॉग पर ई-अंक पढ़ें ↗' : 'Read Edition ↗'}</span>
                         </a>
+                        <button class="btn-pdf-share" onclick="openShareModalForWork('tewaripaksh')" title="${currentLang === 'hi' ? 'तेवरीपक्ष पत्रिका शेयर लिंक' : 'Share Tewaripaksh Link'}">
+                            <i class="fas fa-share-alt"></i>
+                            <span>${currentLang === 'hi' ? 'शेयर' : 'Share'}</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1199,7 +1210,7 @@ function renderDownloadCenterGrid() {
         const badgeColor = item.category === 'tewari' ? 'rgba(234, 88, 12, 0.9)' : (item.category === 'research' ? 'rgba(37, 99, 235, 0.9)' : 'rgba(15, 23, 42, 0.9)');
 
         return `
-            <div class="download-center-card">
+            <div class="download-center-card" id="card-${item.id}">
                 <div class="download-card-cover-wrap" onclick="openLightbox('${item.coverImage}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'कवर बड़ा देखें' : 'View Full Cover'}">
                     <img src="${item.coverImage}" alt="${title}" loading="lazy">
                     <span class="download-card-badge" style="background: ${badgeColor};">
@@ -1215,6 +1226,10 @@ function renderDownloadCenterGrid() {
                         <i class="fas fa-file-download"></i>
                         <span>${currentLang === 'hi' ? 'PDF डाउनलोड / पढ़ें ↗' : 'Download / Read PDF ↗'}</span>
                     </a>
+                    <button class="btn-dl-share" onclick="openShareModalForWork('${item.id}')" title="${currentLang === 'hi' ? 'सीधा शेयर लिंक' : 'Share Work Link'}">
+                        <i class="fas fa-share-alt"></i>
+                        <span>${currentLang === 'hi' ? 'शेयर' : 'Share'}</span>
+                    </button>
                     <button class="btn-dl-cite" onclick="copyCitationForBook('${title.replace(/'/g, "\\'")}', '${item.year || '2024'}', '${type.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'शोध उद्धरण कॉपी करें' : 'Copy Academic Citation'}">
                         <i class="fas fa-quote-right"></i>
                         <span>${currentLang === 'hi' ? 'शोध उद्धरण (Cite)' : 'Cite Work'}</span>
@@ -1628,6 +1643,7 @@ window.deleteReaderComment = async function(commentId) {
 window.closeAllModals = function(fromPopstate) {
     if (window.closeLightbox) window.closeLightbox(fromPopstate);
     if (window.closeBookModal) window.closeBookModal();
+    if (window.closeWorkSpotlightModal) window.closeWorkSpotlightModal();
     if (window.closeAuthorFullBio) window.closeAuthorFullBio();
     if (window.closeShareModal) window.closeShareModal();
     if (window.closeAllBooksModal) window.closeAllBooksModal();
@@ -1862,23 +1878,105 @@ window.openAuthorBioModal = function(e) {
     }
 };
 
-/* --- Share Modal (Client's explicit WhatsApp & Social Share request) --- */
+/* --- Share Modal (Client's explicit WhatsApp & Social Share request + Individual Works Deep Links) --- */
 const LIVE_SITE_URL = 'https://rameshraj-tewarikar.onrender.com/';
+let activeShareWork = null;
+
+function findPromotionalWork(query) {
+    if (!query || typeof PROMOTIONAL_WORKS_DATA === 'undefined') return null;
+    const q = String(query).toLowerCase().trim().replace(/^#/, '').replace(/^\/work\//, '').replace(/^card-/, '');
+    return PROMOTIONAL_WORKS_DATA.find(w => 
+        w.id === q || 
+        w.slug === q || 
+        (w.cardId && w.cardId.replace(/^card-/, '') === q) ||
+        (w.aliases && w.aliases.includes(q))
+    );
+}
+
+function getWorkDirectUrl(slug) {
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
+    const base = isLocal ? window.location.origin : 'https://rameshraj-tewarikar.onrender.com';
+    return `${base}/#${slug}`;
+}
+
+window.openShareModalForWork = function(slugOrId) {
+    const work = findPromotionalWork(slugOrId);
+    if (!work) {
+        window.openShareModal();
+        return;
+    }
+    activeShareWork = work;
+    const modal = document.getElementById('shareModal');
+    if (!modal) return;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const titleEl = document.getElementById('shareModalTitle');
+    const badgeEl = document.getElementById('shareModalBadge');
+    const hintEl = document.getElementById('shareModalHint');
+    const previewCard = document.getElementById('shareWorkPreviewCard');
+    const previewImg = document.getElementById('shareWorkPreviewImg');
+    const previewTitle = document.getElementById('shareWorkPreviewTitle');
+    const previewSub = document.getElementById('shareWorkPreviewSub');
+    const previewBadge = document.getElementById('shareWorkPreviewBadge');
+    const urlInput = document.getElementById('shareUrlInput');
+    const urlLabel = document.getElementById('shareUrlLabel');
+
+    const title = currentLang === 'hi' ? work.titleHi : work.titleEn;
+    const sub = currentLang === 'hi' ? work.subtitleHi : work.subtitleEn;
+    const cat = currentLang === 'hi' ? work.categoryHi : work.categoryEn;
+
+    if (badgeEl) badgeEl.innerHTML = `<i class="fas fa-bullhorn"></i> <span>${cat}</span>`;
+    if (titleEl) titleEl.textContent = currentLang === 'hi' ? `"${work.titleHi}" — सीधा शेयर लिंक` : `"${work.titleEn}" — Share Link`;
+    if (hintEl) hintEl.textContent = currentLang === 'hi' 
+        ? `रमेशराज तेवरीकार की ऐतिहासिक कृति "${work.titleHi}" को व्हाट्सएप व सोशल मीडिया पर साझा करें:`
+        : `Share Rameshraj Tewarikar's milestone work "${work.titleEn}" with fellow scholars & readers:`;
+
+    if (previewCard && previewImg && previewTitle && previewSub) {
+        previewCard.style.display = 'flex';
+        previewImg.src = work.coverImage;
+        previewImg.alt = title;
+        previewTitle.textContent = title;
+        previewSub.textContent = sub;
+        if (previewBadge) previewBadge.textContent = cat;
+    }
+
+    if (urlLabel) urlLabel.textContent = currentLang === 'hi' ? `"${work.titleHi}" का सीधा लिंक:` : `Direct link to "${work.titleEn}":`;
+    if (urlInput) urlInput.value = getWorkDirectUrl(work.slug);
+};
 
 window.openShareModal = function() {
+    activeShareWork = null;
     const modal = document.getElementById('shareModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        const urlInput = document.getElementById('shareUrlInput');
-        if (urlInput) {
-            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
-            urlInput.value = isLocal ? LIVE_SITE_URL : window.location.href;
-        }
+    if (!modal) return;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const titleEl = document.getElementById('shareModalTitle');
+    const badgeEl = document.getElementById('shareModalBadge');
+    const hintEl = document.getElementById('shareModalHint');
+    const previewCard = document.getElementById('shareWorkPreviewCard');
+    const urlInput = document.getElementById('shareUrlInput');
+    const urlLabel = document.getElementById('shareUrlLabel');
+
+    if (badgeEl) badgeEl.innerHTML = `<i class="fas fa-share-alt"></i> <span>${currentLang === 'hi' ? 'साझा करें' : 'Share'}</span>`;
+    if (titleEl) titleEl.textContent = currentLang === 'hi' ? 'रमेशराज तेवरीकार का साहित्य-संसार साझा करें' : "Share Rameshraj Tewarikar's Literature World";
+    if (hintEl) hintEl.textContent = currentLang === 'hi' 
+        ? 'हिन्दी साहित्य के इस ऐतिहासिक संग्रह और तेवरी आंदोलन को अपने मित्रों व साहित्य-प्रेमियों के साथ साझा करें:'
+        : 'Share this historic Hindi literature portal and Tewari movement archives with fellow readers:';
+
+    if (previewCard) previewCard.style.display = 'none';
+    if (urlLabel) urlLabel.textContent = currentLang === 'hi' ? 'वेबसाइट लिंक कॉपी करें:' : 'Copy website link:';
+    if (urlInput) {
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
+        urlInput.value = isLocal ? LIVE_SITE_URL : window.location.href;
     }
 };
 
 window.closeShareModal = function() {
+    activeShareWork = null;
     const modal = document.getElementById('shareModal');
     if (modal) {
         modal.classList.remove('active');
@@ -1887,33 +1985,75 @@ window.closeShareModal = function() {
 };
 
 window.shareToPlatform = function(platform) {
-    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
-    const currentUrl = isLocal ? LIVE_SITE_URL : window.location.href;
-    const url = encodeURIComponent(currentUrl);
-    // Client strictly requested: "केवल *रमेशराज तेवरीकार का साहित्य-संसार* आना चाहिए"
-    const shareTitle = currentLang === 'hi' 
-        ? 'रमेशराज तेवरीकार का साहित्य-संसार' 
-        : "Rameshraj Tewarikar's Literary World";
-    const title = encodeURIComponent(shareTitle);
+    let targetUrl, shareTitle;
+
+    if (activeShareWork) {
+        targetUrl = getWorkDirectUrl(activeShareWork.slug);
+        const wTitle = currentLang === 'hi' ? activeShareWork.titleHi : activeShareWork.titleEn;
+        const wSub = currentLang === 'hi' ? activeShareWork.subtitleHi : activeShareWork.subtitleEn;
+        shareTitle = currentLang === 'hi' 
+            ? `📚 *रमेशराज तेवरीकार का साहित्य-संसार*\n📖 कृति: *${wTitle}* (${wSub})\n${activeShareWork.quoteHi ? `\n"${activeShareWork.quoteHi}"\n` : ''}\nतेवरी आन्दोलन के प्रवर्तक रमेशराज जी की इस ऐतिहासिक कृति को ऑनलाइन पढ़ें, डाउनलोड करें व समीक्षा देखें:`
+            : `📚 *Rameshraj Tewarikar's Literary Universe*\n📖 Work: *${wTitle}* (${wSub})\n\nExplore online reading, PDF download, and critical reviews:`;
+    } else {
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || !window.location.hostname;
+        targetUrl = isLocal ? LIVE_SITE_URL : window.location.href;
+        shareTitle = currentLang === 'hi' 
+            ? 'रमेशराज तेवरीकार का साहित्य-संसार' 
+            : "Rameshraj Tewarikar's Literary World";
+    }
+
+    const encUrl = encodeURIComponent(targetUrl);
+    const encTitle = encodeURIComponent(shareTitle);
     let shareUrl = '';
 
     switch (platform) {
         case 'whatsapp':
-            // Placing the URL first ensures WhatsApp's crawler immediately fetches and displays the rich preview card with image
-            shareUrl = `https://api.whatsapp.com/send?text=${url}%0A%0A${title}`;
+            shareUrl = activeShareWork 
+                ? `https://api.whatsapp.com/send?text=${encTitle}%0A👉 ${encUrl}`
+                : `https://api.whatsapp.com/send?text=${encUrl}%0A%0A${encTitle}`;
             break;
         case 'facebook':
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encUrl}`;
             break;
         case 'twitter':
-            shareUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+            shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(activeShareWork ? (currentLang === 'hi' ? activeShareWork.titleHi : activeShareWork.titleEn) : shareTitle)}&url=${encUrl}`;
             break;
         case 'telegram':
-            shareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
+            shareUrl = `https://t.me/share/url?url=${encUrl}&text=${encodeURIComponent(activeShareWork ? (currentLang === 'hi' ? activeShareWork.titleHi : activeShareWork.titleEn) : shareTitle)}`;
             break;
     }
     if (shareUrl) {
         window.open(shareUrl, '_blank', 'noopener,noreferrer,width=650,height=520');
+    }
+};
+
+window.shareWorkWhatsAppDirect = function(slugOrId) {
+    const work = findPromotionalWork(slugOrId);
+    if (!work) return;
+    const url = getWorkDirectUrl(work.slug);
+    const title = currentLang === 'hi' ? work.titleHi : work.titleEn;
+    const sub = currentLang === 'hi' ? work.subtitleHi : work.subtitleEn;
+    const quote = work.quoteHi ? `\n\n"${work.quoteHi}"\n` : '\n';
+    const text = currentLang === 'hi'
+        ? `📚 *रमेशराज तेवरीकार का साहित्य-संसार*\n📖 कृति: *${title}* (${sub})${quote}\nतेवरी आन्दोलन के प्रवर्तक रमेशराज जी की इस ऐतिहासिक कृति को ऑनलाइन पढ़ें, डाउनलोड करें व समीक्षा देखें:\n👉 ${url}`
+        : `📚 *Rameshraj Tewarikar's Literary Universe*\n📖 Work: *${title}* (${sub})\n\nRead online and download PDF:\n👉 ${url}`;
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+};
+
+window.copyWorkDeepLink = function(slugOrId) {
+    const work = findPromotionalWork(slugOrId);
+    if (!work) return;
+    const url = getWorkDirectUrl(work.slug);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+            showToast(currentLang === 'hi' 
+                ? `✓ "${work.titleHi}" का सीधा शेयर लिंक कॉपी हो गया!` 
+                : `✓ Direct link for "${work.titleEn}" copied!`);
+        }).catch(() => {
+            showToast(currentLang === 'hi' ? 'लिंक कॉपी हो गया' : 'Link copied');
+        });
+    } else {
+        showToast(currentLang === 'hi' ? 'लिंक कॉपी हो गया' : 'Link copied');
     }
 };
 
@@ -2801,4 +2941,208 @@ async function initVisitorCounter() {
             } catch (e) {}
         });
     }
+}
+
+/* ==========================================================================
+   PROMOTIONAL WORKS QUICK-SHARE HUB & DEEP LINK ROUTER
+   (क्लाइंट अनुरोध: "क्या अभी जुबां कटी नहीं, कबीर ज़िंदा है, इतिहास घायल है,
+   विरोधरस, विचार और रस, काव्य की आत्मा और आत्मीयकरण और तेवरीपक्ष की अलग से लिंक्स नहीं बनाई जा सकतीं ताकि उन्हें अलग अलग शेयर किया जा सके")
+   ========================================================================== */
+
+function renderPromotionalWorksPills() {
+    const container = document.getElementById('promoWorksGrid');
+    if (!container || typeof PROMOTIONAL_WORKS_DATA === 'undefined') return;
+
+    container.innerHTML = PROMOTIONAL_WORKS_DATA.map(work => {
+        const title = currentLang === 'hi' ? work.titleHi : work.titleEn;
+        const sub = currentLang === 'hi' ? work.subtitleHi : work.subtitleEn;
+        const cat = currentLang === 'hi' ? work.categoryHi : work.categoryEn;
+
+        return `
+            <div class="promo-work-card" id="promo-card-${work.slug}">
+                <div class="promo-card-top">
+                    <div class="promo-card-cover-wrap" onclick="openWorkSpotlightModal('${work.slug}')" title="${currentLang === 'hi' ? 'विस्तार से देखें / पूरा विवरण' : 'View Full Details'}">
+                        <img src="${work.coverImage}" alt="${title}" class="promo-card-cover" loading="lazy">
+                    </div>
+                    <div class="promo-card-meta">
+                        <span class="promo-card-badge">${cat}</span>
+                        <h4 class="promo-card-title">${title}</h4>
+                        <p class="promo-card-sub">${sub}</p>
+                    </div>
+                </div>
+                <div class="promo-card-actions">
+                    <button class="btn-promo-action btn-promo-wa" onclick="shareWorkWhatsAppDirect('${work.slug}')" title="${currentLang === 'hi' ? 'व्हाट्सएप पर शेयर करें' : 'Share on WhatsApp'}">
+                        <i class="fab fa-whatsapp"></i> <span>${currentLang === 'hi' ? 'व्हाट्सएप' : 'WhatsApp'}</span>
+                    </button>
+                    <button class="btn-promo-action btn-promo-copy" onclick="copyWorkDeepLink('${work.slug}')" title="${currentLang === 'hi' ? 'सीधा शेयर लिंक कॉपी करें' : 'Copy Direct Link'}">
+                        <i class="fas fa-link"></i> <span>${currentLang === 'hi' ? 'लिंक' : 'Copy'}</span>
+                    </button>
+                    <button class="btn-promo-action btn-promo-view" onclick="openWorkSpotlightModal('${work.slug}')" title="${currentLang === 'hi' ? 'विस्तार व डाउनलोड' : 'Details & PDF'}">
+                        <i class="fas fa-external-link-alt"></i> <span>${currentLang === 'hi' ? 'विवरण' : 'Details'}</span>
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+window.openWorkSpotlightModal = function(slugOrId) {
+    const work = findPromotionalWork(slugOrId);
+    if (!work) return;
+
+    const modal = document.getElementById('workSpotlightModal');
+    const container = document.getElementById('workSpotlightContent');
+    if (!modal || !container) return;
+
+    const title = currentLang === 'hi' ? work.titleHi : work.titleEn;
+    const sub = currentLang === 'hi' ? work.subtitleHi : work.subtitleEn;
+    const cat = currentLang === 'hi' ? work.categoryHi : work.categoryEn;
+    const desc = currentLang === 'hi' ? work.descriptionHi : work.descriptionEn;
+    const directUrl = getWorkDirectUrl(work.slug);
+
+    const hasAudio = !!work.podcastId;
+    let audioTrackIdx = -1;
+    if (hasAudio && typeof PODCAST_AUDIO_DATA !== 'undefined') {
+        audioTrackIdx = PODCAST_AUDIO_DATA.findIndex(t => t.id === work.podcastId);
+    }
+
+    container.innerHTML = `
+        <div class="spotlight-header-strip">
+            <span class="spotlight-badge"><i class="fas fa-book-open"></i> ${cat}</span>
+            <span class="spotlight-direct-tag"><i class="fas fa-check-circle"></i> ${currentLang === 'hi' ? 'अधिकृत डिजिटल संस्करण' : 'Official Digital Edition'}</span>
+        </div>
+        <div class="spotlight-layout">
+            <div class="spotlight-left">
+                <img src="${work.coverImage}" alt="${title}" class="spotlight-cover-img" onclick="openLightbox('${work.coverImage}', '${title.replace(/'/g, "\\'")}')" title="${currentLang === 'hi' ? 'कवर बड़ा देखें' : 'View Full Cover'}">
+                <div class="spotlight-actions-row" style="width: 100%;">
+                    <a href="${work.downloadUrl || work.readUrl}" target="_blank" rel="noopener noreferrer" class="btn-spotlight-dl" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-file-download"></i> <span>${currentLang === 'hi' ? 'PDF डाउनलोड / पढ़ें ↗' : 'Download / Read PDF ↗'}</span>
+                    </a>
+                    ${hasAudio && audioTrackIdx >= 0 ? `
+                    <button class="btn-spotlight-audio" style="width: 100%; justify-content: center;" onclick="playSpotlightAudio(${audioTrackIdx})">
+                        <i class="fas fa-headphones"></i> <span>${currentLang === 'hi' ? 'कवि-कंठ में ऑडियो पाठ सुनें' : 'Listen Author Recitation'}</span>
+                    </button>
+                    ` : ''}
+                </div>
+            </div>
+            <div class="spotlight-right">
+                <h3 class="spotlight-title">${title}</h3>
+                <p class="spotlight-subtitle">${sub}</p>
+                <p class="spotlight-author-line">
+                    <i class="fas fa-user-edit" style="color: #ea580c;"></i> <strong>${currentLang === 'hi' ? 'रचनाकार:' : 'Author:'}</strong> रमेशराज तेवरीकार (Rameshraj Tewarikar) • <strong>${currentLang === 'hi' ? 'प्रकाशन:' : 'Year:'}</strong> ${work.year || 'ऐतिहासिक'}
+                </p>
+
+                ${work.quoteHi ? `
+                <div class="spotlight-quote-box">
+                    <strong>${currentLang === 'hi' ? 'प्रमुख तेवर / काव्य-पंक्ति:' : 'Prominent Verse:'}</strong>
+                    ${currentLang === 'hi' ? work.quoteHi : (work.quoteEn || work.quoteHi)}
+                </div>
+                ` : ''}
+
+                <p class="spotlight-description">${desc}</p>
+
+                <div class="spotlight-url-box">
+                    <span class="spotlight-url-text">${directUrl}</span>
+                    <button class="btn-promo-action btn-promo-copy" onclick="copyWorkDeepLink('${work.slug}')" style="flex: none; padding: 0.35rem 0.75rem;">
+                        <i class="fas fa-copy"></i> <span>${currentLang === 'hi' ? 'लिंक कॉपी' : 'Copy Link'}</span>
+                    </button>
+                </div>
+
+                <div class="spotlight-actions-row">
+                    <button class="btn-spotlight-wa" onclick="shareWorkWhatsAppDirect('${work.slug}')">
+                        <i class="fab fa-whatsapp"></i> <span>${currentLang === 'hi' ? 'व्हाट्सएप पर शेयर करें' : 'Share on WhatsApp'}</span>
+                    </button>
+                    <button class="btn-spotlight-copy" onclick="openShareModalForWork('${work.slug}')">
+                        <i class="fas fa-share-alt"></i> <span>${currentLang === 'hi' ? 'अन्य सोशल प्लेटफॉर्म' : 'More Social Options'}</span>
+                    </button>
+                    <button class="btn-spotlight-copy" onclick="copyCitationForBook('${title.replace(/'/g, "\\'")}', '${work.year || '2024'}', '${cat.replace(/'/g, "\\'")}')">
+                        <i class="fas fa-quote-right"></i> <span>${currentLang === 'hi' ? 'शोध उद्धरण (Cite)' : 'Cite Work'}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Gently update hash without jumping
+    if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', `#${work.slug}`);
+    }
+};
+
+window.closeWorkSpotlightModal = function() {
+    const modal = document.getElementById('workSpotlightModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+window.playSpotlightAudio = function(trackIdx) {
+    window.closeWorkSpotlightModal();
+    const mediaSec = document.getElementById('media-archive');
+    if (mediaSec) {
+        mediaSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    if (typeof selectPodcastTrack === 'function') {
+        selectPodcastTrack(trackIdx);
+        setTimeout(() => {
+            if (typeof togglePodcastPlayback === 'function' && !isPodcastPlaying) {
+                togglePodcastPlayback();
+            }
+        }, 300);
+    }
+};
+
+function initDirectWorkRouting() {
+    function checkAndRoute() {
+        let slug = null;
+        if (window.INITIAL_WORK_SLUG) {
+            slug = window.INITIAL_WORK_SLUG;
+            window.INITIAL_WORK_SLUG = null;
+        } else if (window.location.search) {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('work')) slug = params.get('work');
+            else if (params.get('book')) slug = params.get('book');
+            else if (params.get('kriti')) slug = params.get('kriti');
+        }
+        
+        if (!slug && window.location.hash) {
+            slug = window.location.hash.replace(/^#/, '').trim();
+        }
+
+        if (!slug) return;
+
+        const work = findPromotionalWork(slug);
+        if (!work) return;
+
+        // Give DOM time to settle
+        setTimeout(() => {
+            if (work.targetSection) {
+                const targetEl = document.getElementById(work.targetSection);
+                if (targetEl) {
+                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    targetEl.classList.add('work-highlight-pulse');
+                    setTimeout(() => targetEl.classList.remove('work-highlight-pulse'), 3000);
+                }
+            } else {
+                const cardEl = document.getElementById(work.cardId) || document.getElementById(`promo-card-${work.slug}`);
+                if (cardEl) {
+                    cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    cardEl.classList.add('work-highlight-pulse');
+                    setTimeout(() => cardEl.classList.remove('work-highlight-pulse'), 3000);
+                } else {
+                    const dlSec = document.getElementById('download-center');
+                    if (dlSec) dlSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            openWorkSpotlightModal(work.slug);
+        }, 350);
+    }
+
+    checkAndRoute();
+    window.addEventListener('hashchange', checkAndRoute);
 }

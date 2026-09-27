@@ -667,6 +667,25 @@
                 </p>
             </div>
 
+            <!-- ================================================================
+                 QUICK SHAREABLE DEEP-LINKS SHOWCASE (7 MILESTONE WORKS)
+                 (क्लाइंट अनुरोध: "क्या अभी जुबां कटी नहीं, कबीर ज़िंदा है, इतिहास घायल है, विरोधरस, विचार और रस, काव्य की आत्मा और आत्मीयकरण और तेवरीपक्ष की अलग से लिंक्स नहीं बनाई जा सकतीं ताकि उन्हें अलग अलग शेयर किया जा सके। यह कार्य हो जाये तो प्रचार करने में बहुत सुविधा रहेगी")
+                 ================================================================ -->
+            <div class="promotional-share-hub" id="promoShareHub">
+                <div class="promo-hub-header">
+                    <div class="promo-hub-title-box">
+                        <span class="promo-hub-tag"><i class="fas fa-bullhorn"></i> <span data-hi="साहित्य-प्रचार एवं व्यक्तिगत शेयर लिंक्स" data-en="Literary Outreach & Individual Share Links">साहित्य-प्रचार एवं व्यक्तिगत शेयर लिंक्स</span></span>
+                        <h3 data-hi="7 प्रमुख ऐतिहासिक कृतियों के अलग-अलग शेयर लिंक्स (Dedicated Deep Links)" data-en="7 Milestone Literary Works — Dedicated Shareable Deep Links">7 प्रमुख ऐतिहासिक कृतियों के अलग-अलग शेयर लिंक्स (Dedicated Deep Links)</h3>
+                        <p data-hi="व्हाट्सएप, फेसबुक एवं शोध-समीक्षा हेतु प्रत्येक कृति का स्वतंत्र लिंक। 1-क्लिक में व्हाट्सएप पर साझा करें अथवा सीधा लिंक कॉपी करें:" data-en="Dedicated URLs for individual sharing across WhatsApp, social media, and academic citations. 1-click share or copy link:">
+                            व्हाट्सएप, फेसबुक एवं शोध-समीक्षा हेतु प्रत्येक कृति का स्वतंत्र लिंक। 1-क्लिक में व्हाट्सएप पर साझा करें अथवा सीधा लिंक कॉपी करें:
+                        </p>
+                    </div>
+                </div>
+                <div class="promo-works-grid" id="promoWorksGrid">
+                    <!-- Populated dynamically via renderPromotionalWorksPills() from PROMOTIONAL_WORKS_DATA -->
+                </div>
+            </div>
+
             <!-- Download Center Toolbar: Search & Category Pills -->
             <div class="download-toolbar-card">
                 <div class="download-search-wrap">
@@ -1420,6 +1439,20 @@
     </div>
 
     <!-- ====================================================================
+         WORK SPOTLIGHT MODAL (7 प्रमुख कृतियों का विशेष डीप-लिंक दर्शक)
+         ==================================================================== -->
+    <div class="modal-overlay work-spotlight-modal" id="workSpotlightModal" role="dialog" aria-modal="true">
+        <div class="modal-container work-spotlight-container">
+            <button class="modal-close-btn" onclick="closeWorkSpotlightModal()" title="बंद करें (Close)" aria-label="बंद करें / Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="work-spotlight-content" id="workSpotlightContent">
+                <!-- Populated dynamically via openWorkSpotlightModal(slug) -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
          MEDIA LIGHTBOX MODAL (चित्र दर्शक एवं सुरक्षित वापसी)
          ==================================================================== -->
     <div class="lightbox-overlay" id="mediaLightbox" role="dialog" aria-modal="true" aria-label="चित्र दर्शक">
@@ -1600,15 +1633,25 @@
         <div class="share-modal-container">
             <div class="share-modal-header">
                 <div class="share-modal-title-area">
-                    <span class="share-modal-badge"><i class="fas fa-share-alt"></i> <span data-hi="साझा करें" data-en="Share">साझा करें</span></span>
-                    <h3 class="share-modal-title" data-hi="रमेशराज तेवरीकार का साहित्य-संसार साझा करें" data-en="Share Rameshraj Tewarikar's Literature World">रमेशराज तेवरीकार का साहित्य-संसार साझा करें</h3>
+                    <span class="share-modal-badge" id="shareModalBadge"><i class="fas fa-share-alt"></i> <span data-hi="साझा करें" data-en="Share">साझा करें</span></span>
+                    <h3 class="share-modal-title" id="shareModalTitle" data-hi="रमेशराज तेवरीकार का साहित्य-संसार साझा करें" data-en="Share Rameshraj Tewarikar's Literature World">रमेशराज तेवरीकार का साहित्य-संसार साझा करें</h3>
                 </div>
                 <button class="share-modal-close" onclick="closeShareModal()" aria-label="Close share dialog">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="share-modal-body">
-                <p class="share-modal-hint" data-hi="हिन्दी साहित्य के इस ऐतिहासिक संग्रह और तेवरी आंदोलन को अपने मित्रों व साहित्य-प्रेमियों के साथ साझा करें:" data-en="Share this historic Hindi literature portal and Tewari movement archives with fellow readers:">
+                <!-- Dedicated Work Preview Card (Populated when sharing an individual work) -->
+                <div class="share-work-preview-card" id="shareWorkPreviewCard" style="display:none;">
+                    <img id="shareWorkPreviewImg" src="" alt="Work Cover" class="share-work-preview-cover">
+                    <div class="share-work-preview-meta">
+                        <span class="share-work-preview-badge" id="shareWorkPreviewBadge">ऐतिहासिक तेवरी संग्रह</span>
+                        <h4 id="shareWorkPreviewTitle" class="share-work-preview-title">अभी जुबां कटी नहीं</h4>
+                        <p id="shareWorkPreviewSub" class="share-work-preview-sub">प्रथम ऐतिहासिक तेवरी-संग्रह (1983)</p>
+                    </div>
+                </div>
+
+                <p class="share-modal-hint" id="shareModalHint" data-hi="हिन्दी साहित्य के इस ऐतिहासिक संग्रह और तेवरी आंदोलन को अपने मित्रों व साहित्य-प्रेमियों के साथ साझा करें:" data-en="Share this historic Hindi literature portal and Tewari movement archives with fellow readers:">
                     हिन्दी साहित्य के इस ऐतिहासिक संग्रह और तेवरी आंदोलन को अपने मित्रों व साहित्य-प्रेमियों के साथ साझा करें:
                 </p>
                 
@@ -1632,7 +1675,7 @@
                 </div>
 
                 <div class="share-copy-box">
-                    <label for="shareUrlInput" data-hi="वेबसाइट लिंक कॉपी करें:" data-en="Copy website link:">वेबसाइट लिंक कॉपी करें:</label>
+                    <label for="shareUrlInput" id="shareUrlLabel" data-hi="वेबसाइट लिंक कॉपी करें:" data-en="Copy website link:">वेबसाइट लिंक कॉपी करें:</label>
                     <div class="share-copy-input-row">
                         <input type="text" id="shareUrlInput" class="share-copy-input" readonly value="https://rameshraj-tewarikar.onrender.com/">
                         <button class="share-copy-btn" id="shareCopyBtn" onclick="copySiteLink()">

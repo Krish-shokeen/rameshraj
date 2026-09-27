@@ -2942,6 +2942,149 @@ const PODCAST_AUDIO_DATA = [
     }
 ];
 
+// 7 Milestone Works with Dedicated Shareable Links & Deep Links
+// (क्लाइंट अनुरोध: "क्या अभी जुबां कटी नहीं, कबीर ज़िंदा है, इतिहास घायल है, विरोधरस, विचार और रस, काव्य की आत्मा और आत्मीयकरण और तेवरीपक्ष की अलग से लिंक्स नहीं बनाई जा सकतीं ताकि उन्हें अलग अलग शेयर किया जा सके")
+const PROMOTIONAL_WORKS_DATA = [
+    {
+        id: "abhi-zuban-kati-nahin",
+        slug: "abhi-zuban-kati-nahin",
+        aliases: ["abhi-zubaan-kati-nahin", "abhizubankatinahin", "abhi-jubaan-kati-nhi", "book-pdf-01", "book-1"],
+        titleHi: "अभी जुबां कटी नहीं",
+        subtitleHi: "प्रथम ऐतिहासिक तेवरी-संग्रह (फ़रवरी 1983)",
+        titleEn: "Abhi Zubaan Kati Nahin",
+        subtitleEn: "Foundational First Tewari Anthology (February 1983)",
+        categoryHi: "ऐतिहासिक तेवरी संग्रह",
+        categoryEn: "Historic Tewari Anthology",
+        year: "फ़रवरी 1983",
+        coverImage: "assets/images/books/abhi-zuban-kati-nahin.jpg",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/02/abhi-jubaan-kati-nhi.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/abhi-jubaan-kati-nhi.html",
+        podcastId: "podcast-02",
+        cardId: "card-book-pdf-01",
+        descriptionHi: "फ़रवरी 1983 में रमेशराज के संपादन में प्रकाशित 'अभी जुबां कटी नहीं' हिन्दी साहित्य का पहला ऐतिहासिक तेवरी संग्रह था जिसने जन-सरोकारों, शोषण-विरोध और व्यवस्था-प्रतिरोध की एक ऐसी मशाल जलाई जो आज भी देदीप्यमान है।",
+        descriptionEn: "Published in February 1983 under the pioneering editorship of Rameshraj, 'Abhi Zubaan Kati Nahin' was the first historical anthology that catalyzed the nationwide Tewari movement.",
+        quoteHi: "रोक सको तो रोक लो, बहती हुई बयार को।\nहम भी ज़रा परखेंगे अब, ज़ुल्म की हर तलवार को॥\nसच कहने का हौसला, सीने में जब तक ज़िंदा है,\nकौन झुका पाएगा इस, जन-आक्रोश की धार को॥"
+    },
+    {
+        id: "kabir-zinda-hai",
+        slug: "kabir-zinda-hai",
+        aliases: ["kabeer-zinda-hai", "kabirzindahai", "book-pdf-02", "book-2"],
+        titleHi: "कबीर ज़िन्दा है",
+        subtitleHi: "संपादित ऐतिहासिक तेवरी-संग्रह (1987)",
+        titleEn: "Kabir Zinda Hai",
+        subtitleEn: "Landmark Edited Tewari Anthology (1987)",
+        categoryHi: "ऐतिहासिक तेवरी संग्रह",
+        categoryEn: "Historic Tewari Anthology",
+        year: "1987",
+        coverImage: "assets/images/books/kabir-zinda-hai.jpg",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/02/kabeer-zinda-hai.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/kabeer-zinda-hai.html",
+        podcastId: "podcast-03",
+        cardId: "card-book-pdf-02",
+        descriptionHi: "1987 में प्रकाशित 'कबीर ज़िन्दा है' ने संत कबीर की निर्भीक जनवादी व फक्कड़ चेतना को आधुनिक तेवरी विधा के माध्यम से समकालीन सामाजिक विषमताओं और पाखंड पर प्रहार का सशक्त माध्यम बनाया।",
+        descriptionEn: "Reviving the fearless conscience of Sant Kabir through razor-sharp Tewaris, this 1987 compilation stood as a fearless indictment of institutional falsehood and injustice.",
+        quoteHi: "ढूंढ रहे हो किस लिए, संतों की चौपाल में,\nकबीर ज़िन्दा है आज भी, हर जन के सवाल में॥\nदंभ भरे जो सिंहासन, उनसे आंख मिलाता है,\nवही कबीर आज भी सच की, मशाल जलाता है॥"
+    },
+    {
+        id: "itihaas-ghayal-hai",
+        slug: "itihaas-ghayal-hai",
+        aliases: ["itihas-ghayal-hai", "itihaasghayalhai", "book-pdf-03", "book-3"],
+        titleHi: "इतिहास घायल है",
+        subtitleHi: "संपादित ऐतिहासिक तेवरी-संग्रह (1992)",
+        titleEn: "Itihaas Ghayal Hai",
+        subtitleEn: "Major Edited Tewari Anthology (1992)",
+        categoryHi: "ऐतिहासिक तेवरी संग्रह",
+        categoryEn: "Historic Tewari Anthology",
+        year: "1992",
+        coverImage: "assets/images/books/itihaas-ghayal-hai.jpg",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/02/itihas-ghayal-hai_17.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/02/itihas-ghayal-hai_17.html",
+        podcastId: "podcast-06",
+        cardId: "card-book-pdf-03",
+        descriptionHi: "1992 में प्रकाशित यह युगांतरकारी संग्रह समकालीन राजनीति, सामाजिक विसंगतियों और इतिहास के जख्मों पर तेवरी की बेबाक चोट करता है। इसमें देश भर के शीर्ष तेवरीकारों की प्रतिनिधि रचनाएँ संकलित हैं।",
+        descriptionEn: "A profound anthology confronting socio-political inertia and historical wounds through the uncompromising prism of resistance literature.",
+        quoteHi: "जब सियासत मौन साधे, सच लहूलुहान हो,\nकलम को कर्तव्य है कि, वह मुखर संज्ञान हो॥\nझूठ के महलों को सच की, एक चोट ही काफी,\nइतिहास घायल है मगर, लेगा न कोई माफी॥"
+    },
+    {
+        id: "virodh-ras",
+        slug: "virodh-ras",
+        aliases: ["virodhras", "virodh-rasa", "book-pdf-04", "book-4", "10th-rasa"],
+        titleHi: "विरोध-रस",
+        subtitleHi: "काव्यशास्त्र का 10वां रस : युगांतरकारी शोध-प्रबंध",
+        titleEn: "Virodh-Ras (The Aesthetic of Dissent)",
+        subtitleEn: "10th Poetic Rasa : Foundational Theoretical Treatise",
+        categoryHi: "काव्यशास्त्रीय शोध-ग्रंथ",
+        categoryEn: "Aesthetic Research Treatise",
+        year: "मौलिक शोध-ग्रंथ",
+        coverImage: "assets/images/books/virodh-ras.jpg",
+        readUrl: "https://hinditewari-2.blogspot.com/?m=1",
+        downloadUrl: "https://hinditewari-2.blogspot.com/?m=1",
+        targetSection: "virodh-ras",
+        cardId: "card-book-pdf-04",
+        descriptionHi: "आचार्य भरतमुनि के नाट्यशास्त्र के 9 रसों के पश्चात रमेशराज द्वारा प्रतिपादित 'विरोध-रस' (स्थायी भाव: आक्रोश) हिन्दी काव्यशास्त्र को विश्व साहित्य की मौलिक देन है। इसमें स्थायी भाव, आलम्बन, उद्दीपन, अनुभाव और संचारी भावों का पूर्ण शास्त्रीय निरूपण है।",
+        descriptionEn: "Groundbreaking theoretical treatise elevating 'Dissent & Resistance' to the status of the 10th autonomous Rasa in Sanskrit-Hindi poetics, defining Aakrosh (righteous anger) as its Sthayi Bhava.",
+        quoteHi: "जहाँ व्यवस्था के अन्याय के विरुद्ध जन-आक्रोश स्थायी भाव बनता है, वहीं 'विरोध-रस' की परिपक्व निष्पत्ति होती है।"
+    },
+    {
+        id: "vichar-aur-ras",
+        slug: "vichar-aur-ras",
+        aliases: ["vicharaurras", "vichar-aur-rasa", "book-pdf-05", "book-5"],
+        titleHi: "विचार और रस",
+        subtitleHi: "काव्यशास्त्र एवं विवेचनात्मक निबंध संग्रह",
+        titleEn: "Vichar Aur Ras",
+        subtitleEn: "Thought & Aesthetics : Critical Poetics Essays",
+        categoryHi: "काव्यशास्त्रीय शोध-ग्रंथ",
+        categoryEn: "Critical Essays & Poetics",
+        year: "रस-सिद्धांत शोध",
+        coverImage: "assets/images/books/vichar-aur-ras.jpg",
+        readUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post_17.html",
+        downloadUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post_17.html",
+        cardId: "card-book-pdf-05",
+        descriptionHi: "काव्यशास्त्र में बुद्धि, विचार और अनुभूति के समन्वय पर युगांतरकारी शोधग्रंथ जिसमें 'अनुभाव, अनुभव और अनुभूति' की त्रयी का वैज्ञानिक विश्लेषण कर कविता के नए समाजशास्त्रीय प्रतिमान स्थापित किए गए हैं।",
+        descriptionEn: "A foundational essay compilation critically examining the dialectic between intellectual thought and aesthetic emotion, redefining 21st-century Hindi poetic criticism.",
+        quoteHi: "काव्य में विचार जब अनुभूति की अग्नि में तपकर प्रस्फुटित होता है, तब वह स्थायी रस-रूप ग्रहण करता है।"
+    },
+    {
+        id: "kavya-ki-aatma",
+        slug: "kavya-ki-aatma",
+        aliases: ["kavya-ki-aatma-aur-aatmiyakaran", "aatmiyakaran", "book-pdf-06", "book-6"],
+        titleHi: "काव्य की आत्मा और आत्मीयकरण",
+        subtitleHi: "रस-निष्पत्ति एवं आत्मीयकरण सिद्धांत शोध-प्रबंध",
+        titleEn: "Kavya Ki Aatma Aur Aatmeeyakaran",
+        subtitleEn: "The Soul of Poetry & Emotional Self-Identification",
+        categoryHi: "काव्यशास्त्रीय शोध-ग्रंथ",
+        categoryEn: "Aesthetic Theory Treatise",
+        year: "काव्यशास्त्र शोध",
+        coverImage: "assets/images/books/kavya-ki-aatma.jpg",
+        readUrl: "https://hinditewari-7.blogspot.com/?m=1",
+        downloadUrl: "https://hinditewari-7.blogspot.com/?m=1",
+        cardId: "card-book-pdf-06",
+        descriptionHi: "रस-निष्पत्ति में 'साधारणीकरण' के पारंपरिक शास्त्रीय सिद्धांत के समानांतर रमेशराज द्वारा आविष्कृत 'आत्मीयकरण सिद्धांत' का युगांतरकारी विवेचन, जो पाठक और कवि के अंतर्मन के तादात्म्य की नई मीमांसा करता है।",
+        descriptionEn: "A pathbreaking aesthetic thesis proposing 'Aatmeeyakaran' (Subjective Empathetic Identification) as an advanced psychological evolution over classical Sadharanikaran.",
+        quoteHi: "कविता केवल भाव का साधारणीकरण नहीं, वरन पाठक और कवि के अंतर्मन का सम्पूर्ण आत्मीयकरण है।"
+    },
+    {
+        id: "tewaripaksh",
+        slug: "tewaripaksh",
+        aliases: ["tewaripaksha", "tewari-paksh", "tewaripaksh-magazine", "magazines", "mag-01"],
+        titleHi: "तेवरीपक्ष त्रैमासिक पत्रिका",
+        subtitleHi: "सन 1982 से निरंतर प्रकाशित तेवरी आन्दोलन की मुख्य राष्ट्रीय पत्रिका",
+        titleEn: "Tewaripaksh Quarterly Magazine",
+        subtitleEn: "Flagship National Movement Journal (Published continuously since 1982)",
+        categoryHi: "आधिकारिक आंदोलन पत्रिका",
+        categoryEn: "Official Movement Journal",
+        year: "1982 से निरंतर",
+        coverImage: "assets/images/magazines/tewaripaksh-01.jpg",
+        readUrl: "https://hinditewari-22.blogspot.com/",
+        downloadUrl: "https://hinditewari-22.blogspot.com/",
+        targetSection: "tewaripakshPdfGrid",
+        cardId: "card-mag-01",
+        descriptionHi: "तेवरी आंदोलन की राष्ट्रीय त्रैमासिक पत्रिका जिसके प्रथम अंक (1982) से लेकर समकालीन विशेषांकों तक ने हिन्दी साहित्य में तेवरीकारों की तीन पीढ़ियों को संगठित किया और जनवादी चेतना का प्रसार किया।",
+        descriptionEn: "The flagship quarterly magazine founded in 1982 that united poets, critics, and readers across India to document and sustain the nationwide Tewari movement.",
+        quoteHi: "तेवरीपक्ष केवल पत्रिका नहीं, हिन्दी में जनपक्षधर तेवरी साहित्य का जीवंत इतिहास है।"
+    }
+];
+
 // Ensure global accessibility on window object
 if (typeof window !== 'undefined') {
     window.HERO_SLIDER_DATA = typeof HERO_SLIDER_DATA !== 'undefined' ? HERO_SLIDER_DATA : [];
@@ -2955,5 +3098,6 @@ if (typeof window !== 'undefined') {
     window.FEATURED_BOOKS_PDF_DATA = typeof FEATURED_BOOKS_PDF_DATA !== 'undefined' ? FEATURED_BOOKS_PDF_DATA : [];
     window.TEWARIPAKSH_PDF_DATA = typeof TEWARIPAKSH_PDF_DATA !== 'undefined' ? TEWARIPAKSH_PDF_DATA : [];
     window.PODCAST_AUDIO_DATA = typeof PODCAST_AUDIO_DATA !== 'undefined' ? PODCAST_AUDIO_DATA : [];
+    window.PROMOTIONAL_WORKS_DATA = typeof PROMOTIONAL_WORKS_DATA !== 'undefined' ? PROMOTIONAL_WORKS_DATA : [];
     window.HOMEPAGE_BOOK_REELS = HOMEPAGE_BOOK_REELS;
 }
