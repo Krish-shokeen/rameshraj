@@ -563,23 +563,112 @@
     </section>
 
     <!-- ====================================================================
-         BOOKS SHOWCASE: 6 CONTINUOUS REELS (पुस्तकों की रील - drnamitasingh.com STYLE)
+         UNIFIED LITERARY LIBRARY: BOOKS & BLOGS SIDE-BY-SIDE
+         (कम स्क्रॉलिंग - पुस्तकें एवं ब्लॉग्स एक ही साथ आमने-सामने)
          ==================================================================== -->
-    <section class="quick-peak-section" id="books">
+    <section class="section side-library-section" id="books">
+        <div id="blogs" style="position: relative; top: -100px;"></div>
         <div class="container">
-            <h3 class="quick-peak-main-title" data-hi="किताबों की श्रेणियां" data-en="Book Categories">किताबों की श्रेणियां</h3>
-            
-            <!-- 6 Book Category Marquees (चलते हुए चित्रों की 6 स्थान पर सज्जा) -->
-            <div class="home-book-categories-wrap" id="homeBookCategoriesWrap">
-                <!-- Rendered dynamically via renderHomepageBookMarquees() from HOMEPAGE_BOOK_REELS -->
+            <div class="section-header text-center" style="margin-bottom: 1.5rem;">
+                <span class="section-badge">
+                    <i class="fas fa-layer-group"></i> 
+                    <span data-hi="साहित्यिक ग्रंथालय • 58+ पुस्तकें एवं 39+ ब्लॉग मंच" data-en="Literary Granthalaya • 58+ Books & 39+ Blogs">साहित्यिक ग्रंथालय • 58+ पुस्तकें एवं 39+ ब्लॉग मंच</span>
+                </span>
+                <h2 class="section-title" data-hi="समग्र कृतियाँ एवं डिजिटल ब्लॉग ग्रंथालय" data-en="Complete Works & Digital Blog Granthalaya">समग्र कृतियाँ एवं डिजिटल ब्लॉग ग्रंथालय</h2>
+                <p class="section-subtitle" data-hi="एक ही स्थान पर लेखक की समस्त पुस्तकें और सभी 39+ आधिकारिक ब्लॉग मंच" data-en="Author's complete published works and official Blogger platforms side-by-side">
+                    एक ही स्थान पर लेखक की समस्त पुस्तकें और सभी 39+ आधिकारिक ब्लॉग मंच
+                </p>
+
+                <!-- Interactive View Switcher Tabs -->
+                <div class="library-view-switcher">
+                    <button type="button" class="lib-switch-btn active" onclick="switchLibraryView('both', this)">
+                        <i class="fas fa-columns"></i> <span data-hi="📚 पुस्तकें एवं 🌐 ब्लॉग्स (आमने-सामने)" data-en="📚 Books & 🌐 Blogs">📚 पुस्तकें एवं 🌐 ब्लॉग्स (आमने-सामने)</span>
+                    </button>
+                    <button type="button" class="lib-switch-btn" onclick="switchLibraryView('books', this)">
+                        <i class="fas fa-book"></i> <span data-hi="📚 केवल पुस्तकें (58+)" data-en="📚 Books Only (58+)">📚 केवल पुस्तकें (58+)</span>
+                    </button>
+                    <button type="button" class="lib-switch-btn" onclick="switchLibraryView('blogs', this)">
+                        <i class="fab fa-blogger-b"></i> <span data-hi="🌐 केवल ब्लॉग मंच (39+)" data-en="🌐 Blogs Only (39+)">🌐 केवल ब्लॉग मंच (39+)</span>
+                    </button>
+                </div>
             </div>
 
-            <!-- View Full Searchable/Filterable Catalog in Popup -->
-            <div class="quick-peak-catalog-bar text-center">
-                <button class="btn btn-primary" onclick="openAllBooksModal('all')">
-                    <i class="fas fa-book-open"></i>
-                    <span data-hi="समग्र 58+ पुस्तकें एवं कृतियाँ देखें (खोज व विधा फिल्टर सहित) »" data-en="View Complete 58+ Books & Works Catalog »">समग्र 58+ पुस्तकें एवं कृतियाँ देखें (खोज व विधा फिल्टर सहित) »</span>
-                </button>
+            <!-- Two-Column Side-by-Side Container -->
+            <div class="side-library-grid" id="sideLibraryGrid">
+                
+                <!-- LEFT SIDE: ALL BOOKS -->
+                <div class="side-lib-col side-lib-books-col" id="sideLibBooksCol">
+                    <div class="side-lib-card">
+                        <div class="side-lib-card-header books-header">
+                            <div class="side-lib-header-info">
+                                <h3><i class="fas fa-book-open"></i> <span data-hi="समग्र पुस्तकें एवं कृतियाँ" data-en="Published Books & Works">समग्र पुस्तकें एवं कृतियाँ</span></h3>
+                                <span class="side-lib-count-badge" data-hi="58+ संग्रह" data-en="58+ Works">58+ संग्रह</span>
+                            </div>
+                            <button type="button" class="side-lib-all-btn" onclick="openAllBooksModal('all')" title="फुल कैटलॉग खोलें">
+                                <span data-hi="सभी 58+ देखें »" data-en="View All 58+ »">सभी 58+ देखें »</span>
+                            </button>
+                        </div>
+
+                        <!-- Category Filter Pills for Books -->
+                        <div class="side-lib-filter-pills" id="booksSideFilterPills">
+                            <button type="button" class="side-filter-pill active" onclick="filterSideBooks('all', this)" data-hi="सभी" data-en="All">सभी</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('tewari', this)" data-hi="तेवरी संग्रह" data-en="Tewari">तेवरी संग्रह</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('shopizen', this)" data-hi="शॉपीज़ान (8)" data-en="Shopizen (8)">शॉपीज़ान (8)</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('rachnaye', this)" data-hi="रचनाये" data-en="Rachnaye">रचनाये</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('bal', this)" data-hi="बाल साहित्य" data-en="Children's">बाल साहित्य</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('shodh', this)" data-hi="काव्यशास्त्र" data-en="Poetics">काव्यशास्त्र</button>
+                        </div>
+
+                        <!-- Scrollable Book List (Compact, doesn't bloat the page scroll) -->
+                        <div class="side-lib-list-scroll side-books-scroll" id="sideBooksList">
+                            <!-- Rendered dynamically via renderSideBooks() -->
+                        </div>
+
+                        <div class="side-lib-card-footer">
+                            <button type="button" class="btn btn-sm btn-primary" onclick="openAllBooksModal('all')" style="width: 100%; justify-content: center;">
+                                <i class="fas fa-search"></i>
+                                <span data-hi="खोज व विधा फिल्टर सहित समस्त 58+ पुस्तकें देखें »" data-en="Browse Full 58+ Books Catalog with Search »">समस्त 58+ पुस्तकें कैटलॉग में खोजें »</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: ALL BLOGS -->
+                <div class="side-lib-col side-lib-blogs-col" id="sideLibBlogsCol">
+                    <div class="side-lib-card">
+                        <div class="side-lib-card-header blogs-header">
+                            <div class="side-lib-header-info">
+                                <h3><i class="fab fa-blogger-b"></i> <span data-hi="ब्लॉग ग्रंथालय (डिजिटल मंच)" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय (डिजिटल मंच)</span></h3>
+                                <span class="side-lib-count-badge badge-orange" data-hi="39+ मंच" data-en="39+ Blogs">39+ मंच</span>
+                            </div>
+                            <button type="button" class="side-lib-all-btn btn-orange" onclick="openAllBlogsModal()" title="सभी ब्लॉग मंच देखें">
+                                <span data-hi="सभी 39+ देखें »" data-en="View All 39+ »">सभी 39+ देखें »</span>
+                            </button>
+                        </div>
+
+                        <!-- Category Filter Pills for Blogs -->
+                        <div class="side-lib-filter-pills" id="blogsSideFilterPills">
+                            <button type="button" class="side-filter-pill active" onclick="filterSideBlogs('all', this)" data-hi="सभी मंच" data-en="All Blogs">सभी मंच</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('tewari', this)" data-hi="तेवरी आंदोलन" data-en="Tewari">तेवरी आंदोलन</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('shodh', this)" data-hi="शोध व रस" data-en="Poetics">शोध व रस</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('chhand', this)" data-hi="छंद व विधा" data-en="Metrics">छंद व विधा</button>
+                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('sahitya', this)" data-hi="साहित्यिक धरोहर" data-en="Heritage">साहित्यिक धरोहर</button>
+                        </div>
+
+                        <!-- Scrollable Blog List (Compact, doesn't bloat the page scroll) -->
+                        <div class="side-lib-list-scroll side-blogs-scroll" id="sideBlogsList">
+                            <!-- Rendered dynamically via renderSideBlogs() -->
+                        </div>
+
+                        <div class="side-lib-card-footer">
+                            <button type="button" class="btn btn-sm btn-cta-orange" onclick="openAllBlogsModal()" style="width: 100%; justify-content: center; background: #ea580c; color: #fff;">
+                                <i class="fab fa-blogger"></i>
+                                <span data-hi="समस्त 32+ साहित्यिक ब्लॉग मंच खोलें (Popup) »" data-en="Explore All 32+ Blogger Platforms (Popup) »">समस्त 32+ ब्लॉग मंच सूची में देखें »</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -658,40 +747,7 @@
         </div>
     </section>
 
-    <!-- ====================================================================
-         BLOGS & BLOGGER INTEGRATION (ब्लॉग ग्रंथालय - Open in Popup)
-         ==================================================================== -->
-    <section class="section" id="blogs">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge" data-hi="Blogger पर 39+ समर्पित साहित्यिक मंच" data-en="39+ Dedicated Blogger Publications">Blogger पर 39+ समर्पित साहित्यिक मंच</span>
-                <h2 class="section-title" data-hi="रमेशराज तेवरीकार का साहित्य-संसार — ब्लॉग ग्रंथालय (39+ मंच)" data-en="Author's Blogs & Digital Archive (39+ Platforms)">रमेशराज तेवरीकार का साहित्य-संसार — ब्लॉग ग्रंथालय (39+ मंच)</h2>
-                <p class="section-subtitle" data-hi="रमेशराज के समस्त ब्लॉग्स, तेवरी संग्रह, शोध आलेख व पत्रिका के सीधे लिंक" data-en="Direct gateways to Rameshraj's complete Blogger archive, poems, and critical essays">
-                    रमेशराज के समस्त ब्लॉग्स, तेवरी संग्रह, शोध आलेख व पत्रिका के सीधे लिंक
-                </p>
-            </div>
 
-
-
-
-
-            <!-- View All Blogs CTA Card -->
-            <div class="view-all-cta-card view-all-cta-card-blogs">
-                <div class="view-all-cta-content">
-                    <span class="cta-mini-tag"><i class="fab fa-blogger"></i> <span data-hi="समस्त 32+ डिजिटल ब्लॉग ग्रंथालय" data-en="Complete 32+ Blog Granthalaya">समस्त 32+ डिजिटल ब्लॉग ग्रंथालय</span></span>
-                    <h3 data-hi="रमेशराज तेवरीकार के समस्त 32+ साहित्यिक ब्लॉग मंच" data-en="All 32+ Literary Blogger Platforms of Rameshraj">रमेशराज तेवरीकार के समस्त 32+ साहित्यिक ब्लॉग मंच</h3>
-                    <p data-hi="तेवरी आंदोलन, नव कुण्डलिया, शोध-निबंध, बालगीत, ग़ज़ल एवं आलोचना पर केंद्रित लेखक के सभी 32+ ब्लॉग्स का आधिकारिक डिजिटल ग्रंथालय एवं सीधे पठन लिंक।" data-en="Complete digital archive of all 32+ active literary blogs covering Tewari, poetics, metrics, research, ghazals, and reviews with direct links.">
-                        तेवरी आंदोलन, नव कुण्डलिया, शोध-निबंध, बालगीत, ग़ज़ल एवं आलोचना पर केंद्रित लेखक के सभी 32+ ब्लॉग्स का आधिकारिक डिजिटल ग्रंथालय एवं सीधे पठन लिंक।
-                    </p>
-                </div>
-                <div class="view-all-cta-actions">
-                    <button class="btn btn-cta-gold btn-cta-orange" onclick="openAllBlogsModal()">
-                        <i class="fab fa-blogger-b"></i> <span data-hi="समस्त 32+ ब्लॉग मंच देखें (Popup)" data-en="View All 32+ Blogs (Popup)">समस्त 32+ ब्लॉग मंच देखें (Popup)</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ====================================================================
          AWARDS & HONORS (उपलब्धियाँ एवं सम्मान)
