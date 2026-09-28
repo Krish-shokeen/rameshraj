@@ -4847,64 +4847,43 @@
 }
 
 /* ==========================================================================
-   HEADER & NAVBAR DOWNLOAD BUTTON (Google AI Recommendation 2)
+   HEADER & NAVBAR DOWNLOAD BUTTON
    ========================================================================== */
 .sketch-download-badge {
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 6px;
     text-decoration: none;
-    padding: 3px 12px;
-    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    padding: 7px 14px;
+    background: #eff6ff;
     border: 1.5px solid #bfdbfe;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    flex-shrink: 0;
-}
-.sketch-download-badge:hover {
-    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-    border-color: #93c5fd;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
-}
-.sketch-download-badge .sketch-download-title {
-    font-size: 0.76rem;
-    font-weight: 800;
+    border-radius: 20px;
     color: #1d4ed8;
-    letter-spacing: 0.2px;
-    margin-bottom: 2px;
-    line-height: 1.1;
+    box-shadow: 0 1px 4px rgba(37, 99, 235, 0.08);
+    transition: all 0.2s ease;
+    font-size: 0.84rem;
+    font-weight: 700;
     white-space: nowrap;
 }
-.sketch-download-badge .sketch-download-icon-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
+.sketch-download-badge:hover {
     background: #2563eb;
+    border-color: #2563eb;
     color: #ffffff;
-    border-radius: 4px;
-    font-size: 0.8rem;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+.sketch-download-badge .sketch-download-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 @media (max-width: 991px) {
     .sketch-download-badge {
         display: none !important;
     }
-}
-
-.nav-highlight-download {
-    background: #eff6ff !important;
-    color: #1d4ed8 !important;
-    border-radius: 6px;
-    font-weight: 700 !important;
-}
-.nav-highlight-download:hover {
-    background: #dbeafe !important;
-    color: #1e40af !important;
 }
 
 /* ==========================================================================

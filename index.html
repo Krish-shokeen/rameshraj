@@ -130,23 +130,19 @@
 
                 <!-- Right / Actions Group: Download Center + Blogger + Share + Lang + Hamburger -->
                 <div class="header-actions-col">
-                    <!-- Central Direct Download Badge (Google AI Recommendation 2) -->
+                    <!-- Central Direct Download Badge -->
                     <a href="#download-center" class="sketch-download-badge" title="केंद्रीय डाउनलोड केंद्र / E-Library">
+                        <i class="fas fa-file-download"></i>
                         <span class="sketch-download-title" data-hi="डाउनलोड केंद्र" data-en="E-Library">डाउनलोड केंद्र</span>
-                        <span class="sketch-download-icon-wrap">
-                            <i class="fas fa-file-download"></i>
-                        </span>
                     </a>
 
-                    <!-- Blogger Badge: 'ब्लॉग ग्रंथालय' directly above the Blogger [B] icon -->
+                    <!-- Blogger Badge -->
                     <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="sketch-blogger-badge" title="ब्लॉग ग्रंथालय (39+ साहित्यिक मंच)">
+                        <i class="fab fa-blogger-b"></i>
                         <span class="sketch-blogger-title" data-hi="ब्लॉग ग्रंथालय" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय</span>
-                        <span class="sketch-blogger-icon-wrap">
-                            <i class="fab fa-blogger-b"></i>
-                        </span>
                     </a>
 
-                    <!-- Share Button (<i class="fas fa-share-alt"></i> शेयर) -->
+                    <!-- Share Button -->
                     <button class="sketch-share-btn" onclick="openShareModal(event)" title="वेबसाइट साझा करें / Share Website" aria-label="शेयर">
                         <i class="fas fa-share-alt"></i>
                         <span data-hi="शेयर" data-en="Share">शेयर</span>
@@ -182,7 +178,7 @@
                     <li><a href="#about" class="nav-link" data-hi="परिचय" data-en="About">परिचय</a></li>
                     <li><a href="#virodh-ras" class="nav-link" data-hi="विरोध-रस दर्शन" data-en="Virodh-Ras Poetics">विरोध-रस दर्शन</a></li>
                     <li><a href="#books" class="nav-link" data-hi="किताबों की श्रेणियां" data-en="Book Categories">किताबों की श्रेणियां</a></li>
-                    <li><a href="#download-center" class="nav-link nav-highlight-download" data-hi="डाउनलोड केंद्र (E-Library)" data-en="Download Center (E-Library)"><i class="fas fa-file-download"></i> <span>डाउनलोड केंद्र</span></a></li>
+                    <li><a href="#download-center" class="nav-link" data-hi="डाउनलोड केंद्र" data-en="Download Center"><i class="fas fa-file-download"></i> <span>डाउनलोड केंद्र</span></a></li>
                     <li><a href="#gallery" class="nav-link" data-hi="मंच के छाया चित्र" data-en="Stage Photos">मंच के छाया चित्र</a></li>
                     <li><a href="#videos" class="nav-link" data-hi="वीडियो प्रस्तुतियाँ" data-en="Videos">वीडियो प्रस्तुतियाँ</a></li>
                     <li><a href="#blogs" class="nav-link" data-hi="ब्लॉग ग्रंथालय" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय</a></li>
@@ -209,31 +205,15 @@
     <div class="nav-backdrop" id="navBackdrop"></div>
 
     <!-- ====================================================================
-         HERO SECTION: AUTHOR TITLE BANNER (रमेशराज तेवरीकार का साहित्य-संसार)
-         ==================================================================== -->
-    <section class="hero-landing-section" id="home">
-        <div class="hero-collage-wrapper">
-            <div class="container hero-collage-container">
-                <div class="hero-collage-card hero-banner-card">
-                    <img src="assets/images/author-title-banner.jpg" 
-                         alt="रमेशराज तेवरीकार का साहित्य-संसार" 
-                         class="hero-collage-img hero-banner-img" 
-                         loading="eager" 
-                         fetchpriority="high">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====================================================================
          ABOUT THE AUTHOR (परिचय - लेखक द्वारा दिया गया सम्पूर्ण प्रामाणिक परिचय)
          ==================================================================== -->
-    <section class="features-section author-parichay-official" id="about">
+    <section class="features-section author-parichay-official" id="home">
+        <div id="about" style="position: relative; top: -100px;"></div>
         <div class="container">
-            <div class="features-header-wrap text-center">
-                <span class="section-badge"><i class="fas fa-feather-alt"></i> प्रामाणिक परिचय</span>
-                <h3 class="features-heading" data-hi="परिचय" data-en="Introduction">परिचय</h3>
-                <strong class="title"><span data-hi="रमेशराज तेवरीकार" data-en="Rameshraj Tewarikar">रमेशराज तेवरीकार</span></strong>
+            <div class="features-header-wrap text-center" style="margin-bottom: 2rem;">
+                <span class="section-badge"><i class="fas fa-feather-alt"></i> प्रामाणिक साहित्यिक परिचय</span>
+                <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #0f172a; margin: 0.6rem 0 0.35rem;" data-hi="रमेशराज तेवरीकार" data-en="Rameshraj Tewarikar">रमेशराज तेवरीकार</h2>
+                <p style="font-size: 1.05rem; color: #ea580c; font-weight: 600; margin: 0;" data-hi="तेवरी आन्दोलन के ऐतिहासिक प्रवर्तक एवं 'विरोध-रस' के प्रतिष्ठापक" data-en="Historical Pioneer of the Tewari Movement & Founder of Virodh-Ras">तेवरी आन्दोलन के ऐतिहासिक प्रवर्तक एवं 'विरोध-रस' के प्रतिष्ठापक</p>
             </div>
 
             <!-- Profile & Personal Details Card -->
@@ -1116,15 +1096,6 @@
                     <div class="bio-meta-row">
                         <span class="bio-meta-key"><i class="fas fa-graduation-cap"></i> <strong data-hi="शिक्षा:" data-en="Education:">शिक्षा:</strong></span>
                         <span class="bio-meta-val" data-hi="एम. ए. (हिंदी साहित्य) एवं एम. ए. (भूगोल)" data-en="M.A. (Hindi Literature) & M.A. (Geography)">एम. ए. (हिंदी साहित्य) एवं एम. ए. (भूगोल)</span>
-                    </div>
-                    <div class="bio-meta-row">
-                        <span class="bio-meta-key"><i class="fas fa-home"></i> <strong data-hi="स्थायी पता:" data-en="Permanent Address:">स्थायी पता:</strong></span>
-                        <span class="bio-meta-val" data-hi="15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उ.प्र.)" data-en="15/109, Near Thana Sasnigate, Aligarh - 202001 (U.P.), India">15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उ.प्र.)</span>
-                    </div>
-
-                    <div class="bio-meta-row">
-                        <span class="bio-meta-key"><i class="fas fa-envelope"></i> <strong data-hi="ई-मेल (Email):" data-en="Email Address:">ई-मेल (Email):</strong></span>
-                        <span class="bio-meta-val"><a href="mailto:rameshraj5452@gmail.com" style="color: #ea580c; font-weight: 700;">rameshraj5452@gmail.com</a></span>
                     </div>
                 </div>
 
