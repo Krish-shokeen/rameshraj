@@ -886,71 +886,12 @@
         </div>
     </section>
 
-    <!-- ====================================================================
-         CONTACT & INQUIRIES (संपर्क करें)
-         ==================================================================== -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge" data-hi="संवाद एवं संपर्क सूत्र" data-en="Get in Touch">संवाद एवं संपर्क सूत्र</span>
-                <h2 class="section-title" data-hi="साहित्यिक संपर्क एवं संवाद" data-en="Contact & Literary Inquiries">साहित्यिक संपर्क एवं संवाद</h2>
-                <p class="section-subtitle" data-hi="पुस्तकों, शोध-परामर्श, सम्मेलनों में आमंत्रण एवं पाठकीय प्रतिक्रिया हेतु" data-en="For book inquiries, research guidance, literary conclave invitations, and reader feedback">
-                    पुस्तकों, शोध-परामर्श, सम्मेलनों में आमंत्रण एवं पाठकीय प्रतिक्रिया हेतु
-                </p>
-            </div>
 
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <!-- Author Contact Identity Card -->
-                    <div class="contact-author-badge">
-                        <img src="assets/images/author-portrait-formal.jpg" alt="रमेशराज तेवरीकार" class="contact-author-avatar" onclick="openLightbox('assets/images/author-portrait-formal.jpg', 'रमेशराज तेवरीकार - साहित्यकार एवं सम्पादक')" style="cursor: pointer;" title="चित्र देखें / View image">
-                        <div class="contact-author-meta">
-                            <h4 data-hi="रमेशराज तेवरीकार" data-en="Rameshraj Tewarikar">रमेशराज तेवरीकार</h4>
-                            <p data-hi="वरिष्ठ साहित्यकार, कवि एवं सम्पादक 'तेवरीपक्ष'" data-en="Eminent Author, Poet & Editor">वरिष्ठ साहित्यकार, कवि एवं सम्पादक 'तेवरीपक्ष'</p>
-                            <span class="contact-author-sub" data-hi="15/109, निकट-थाना सासनीगेट, अलीगढ़ (उ.प्र.)" data-en="15/109, Near Sasnigate, Aligarh (U.P.)">15/109, निकट-थाना सासनीगेट, अलीगढ़ (उ.प्र.)</span>
-                        </div>
-                    </div>
-
-                    <h3 style="font-size: 1.4rem; color: #0f172a; margin-bottom: 0.5rem;" data-hi="सीधा संपर्क सूत्र" data-en="Direct Contact Information">सीधा संपर्क सूत्र</h3>
-                    <p style="color: #64748b; margin-bottom: 1.5rem;" data-hi="आप पुस्तकों, शोध कार्यों अथवा साहित्यिक सम्मेलनों के संदर्भ में लेखक से सीधे संपर्क कर सकते हैं।" data-en="Feel free to connect directly with the author for books, research guidance, or invitations.">
-                        आप पुस्तकों, शोध कार्यों अथवा साहित्यिक सम्मेलनों के संदर्भ में लेखक से सीधे संपर्क कर सकते हैं।
-                    </p>
-
-                    <ul class="contact-info-list">
-                        <li class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="contact-detail">
-                                <h5 data-hi="स्थायी निवास व पत्राचार" data-en="Residence & Postal Address">स्थायी निवास व पत्राचार</h5>
-                                <p data-hi="15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उत्तर प्रदेश), भारत" data-en="15/109, Near Thana Sasnigate, Aligarh - 202001 (U.P.), India">
-                                    15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उत्तर प्रदेश), भारत
-                                </p>
-                            </div>
-                        </li>
-
-                        <li class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-detail">
-                                <h5 data-hi="ई-मेल आईडी" data-en="Email Address">ई-मेल आईडी</h5>
-                                <p><a href="mailto:rameshraj5452@gmail.com">rameshraj5452@gmail.com</a></p>
-                            </div>
-                        </li>
-                        <li class="contact-item">
-                            <div class="contact-icon"><i class="fab fa-blogger"></i></div>
-                            <div class="contact-detail">
-                                <h5 data-hi="अधिकृत ब्लॉगर प्रोफ़ाइल" data-en="Official Blogger Profile">अधिकृत ब्लॉगर प्रोफ़ाइल</h5>
-                                <p><a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener">blogger.com/profile/10299195093677463730</a></p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ====================================================================
          FOOTER
          ==================================================================== -->
-    <footer class="site-footer">
+    <footer class="site-footer" id="contact">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -983,12 +924,13 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4 data-hi="कार्यालय एवं संपर्क" data-en="Literary Address">कार्यालय एवं संपर्क</h4>
-                    <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6;">
+                    <h4 data-hi="कार्यालय एवं संपर्क" data-en="Literary Address & Contact">कार्यालय एवं संपर्क</h4>
+                    <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.8;">
                         रमेशराज तेवरीकार<br>
                         15/109, निकट-थाना सासनीगेट<br>
                         अलीगढ़ - 202001 (उ.प्र.), भारत<br>
                         <i class="fas fa-phone-alt" style="color: #d97706; margin-right: 6px;"></i> <a href="tel:+918171455889" style="color: #cbd5e1;">+91 81714 55889</a><br>
+                        <i class="fab fa-whatsapp" style="color: #25d366; margin-right: 6px; font-size: 1rem;"></i> <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" style="color: #4ade80; font-weight: 600;">+91 81714 55889 (WhatsApp ↗)</a><br>
                         <i class="fas fa-envelope" style="color: #d97706; margin-right: 6px;"></i> <a href="mailto:rameshraj5452@gmail.com" style="color: #cbd5e1;">rameshraj5452@gmail.com</a>
                     </p>
                 </div>
@@ -1011,7 +953,7 @@
                     </span>
                 </div>
                 <div>
-                    15/109, सासनीगेट, अलीगढ़-202001 (उ.प्र.) &bull; मो: +91 81714 55889 &bull; प्रवर्तक: तेवरी आन्दोलन
+                    15/109, सासनीगेट, अलीगढ़-202001 (उ.प्र.) &bull; <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" style="color: #4ade80; text-decoration: none;"><i class="fab fa-whatsapp" style="color: #25d366; margin-right: 3px;"></i> WhatsApp / मो: +91 81714 55889</a> &bull; प्रवर्तक: तेवरी आन्दोलन
                 </div>
             </div>
         </div>
