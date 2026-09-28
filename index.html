@@ -75,6 +75,7 @@
             "postalCode": "202001",
             "addressCountry": "IN"
           },
+          "telephone": "+91-8171455889",
           "email": "rameshraj5452@gmail.com",
           "award": [
             "Sahitya-Shri Award 2015 (साहित्यश्री सम्मान २०१५)",
@@ -130,19 +131,23 @@
 
                 <!-- Right / Actions Group: Download Center + Blogger + Share + Lang + Hamburger -->
                 <div class="header-actions-col">
-                    <!-- Central Direct Download Badge -->
+                    <!-- Central Direct Download Badge (Google AI Recommendation 2) -->
                     <a href="#download-center" class="sketch-download-badge" title="केंद्रीय डाउनलोड केंद्र / E-Library">
-                        <i class="fas fa-file-download"></i>
                         <span class="sketch-download-title" data-hi="डाउनलोड केंद्र" data-en="E-Library">डाउनलोड केंद्र</span>
+                        <span class="sketch-download-icon-wrap">
+                            <i class="fas fa-file-download"></i>
+                        </span>
                     </a>
 
-                    <!-- Blogger Badge -->
+                    <!-- Blogger Badge: 'ब्लॉग ग्रंथालय' directly above the Blogger [B] icon -->
                     <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="sketch-blogger-badge" title="ब्लॉग ग्रंथालय (39+ साहित्यिक मंच)">
-                        <i class="fab fa-blogger-b"></i>
                         <span class="sketch-blogger-title" data-hi="ब्लॉग ग्रंथालय" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय</span>
+                        <span class="sketch-blogger-icon-wrap">
+                            <i class="fab fa-blogger-b"></i>
+                        </span>
                     </a>
 
-                    <!-- Share Button -->
+                    <!-- Share Button (<i class="fas fa-share-alt"></i> शेयर) -->
                     <button class="sketch-share-btn" onclick="openShareModal(event)" title="वेबसाइट साझा करें / Share Website" aria-label="शेयर">
                         <i class="fas fa-share-alt"></i>
                         <span data-hi="शेयर" data-en="Share">शेयर</span>
@@ -178,9 +183,9 @@
                     <li><a href="#about" class="nav-link" data-hi="परिचय" data-en="About">परिचय</a></li>
                     <li><a href="#virodh-ras" class="nav-link" data-hi="विरोध-रस दर्शन" data-en="Virodh-Ras Poetics">विरोध-रस दर्शन</a></li>
                     <li><a href="#books" class="nav-link" data-hi="किताबों की श्रेणियां" data-en="Book Categories">किताबों की श्रेणियां</a></li>
-                    <li><a href="#download-center" class="nav-link" data-hi="डाउनलोड केंद्र" data-en="Download Center"><i class="fas fa-file-download"></i> <span>डाउनलोड केंद्र</span></a></li>
+                    <li><a href="#download-center" class="nav-link nav-highlight-download" data-hi="डाउनलोड केंद्र (E-Library)" data-en="Download Center (E-Library)"><i class="fas fa-file-download"></i> <span>डाउनलोड केंद्र</span></a></li>
                     <li><a href="#gallery" class="nav-link" data-hi="मंच के छाया चित्र" data-en="Stage Photos">मंच के छाया चित्र</a></li>
-                    <li><a href="#videos" class="nav-link" data-hi="वीडियो प्रस्तुतियाँ" data-en="Videos">वीडियो प्रस्तुतियाँ</a></li>
+                    <li><a href="#media-archive" class="nav-link" data-hi="पॉडकास्ट व वीडियो" data-en="Podcasts & Videos">पॉडकास्ट व वीडियो</a></li>
                     <li><a href="#blogs" class="nav-link" data-hi="ब्लॉग ग्रंथालय" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय</a></li>
                     <li><a href="#awards" class="nav-link" data-hi="उपलब्धियाँ" data-en="Honors">उपलब्धियाँ</a></li>
                     <li><a href="#reviews" class="nav-link" data-hi="समीक्षा व टिप्पणियाँ" data-en="Reviews & Comments">समीक्षा व टिप्पणियाँ</a></li>
@@ -205,15 +210,34 @@
     <div class="nav-backdrop" id="navBackdrop"></div>
 
     <!-- ====================================================================
+         HERO SECTION: KAVYA-YATRA COLLAGE (काव्य-यात्रा : रमेशराज तेवरीकार)
+         ==================================================================== -->
+    <section class="hero-landing-section" id="home">
+        <div class="hero-collage-wrapper">
+            <div class="container hero-collage-container">
+                <div class="hero-collage-card" onclick="openLightbox('assets/images/kavya-yatra-collage.jpg', 'काव्य-यात्रा : रमेशराज तेवरीकार (युवावस्था से आज तक) — तेवरी के सशक्त हस्ताक्षर - 8 यादों का सफर')" title="क्लिक करके बड़ा देखें / Click to zoom">
+                    <img src="assets/images/kavya-yatra-collage.jpg" 
+                         alt="काव्य-यात्रा : रमेशराज तेवरीकार (युवावस्था से आज तक) - तेवरी के सशक्त हस्ताक्षर - 8 यादों का सफर" 
+                         class="hero-collage-img" 
+                         loading="eager" 
+                         fetchpriority="high">
+                    <div class="hero-collage-zoom-badge">
+                        <i class="fas fa-search-plus"></i> <span data-hi="बड़ा देखें" data-en="Zoom">बड़ा देखें</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================================
          ABOUT THE AUTHOR (परिचय - लेखक द्वारा दिया गया सम्पूर्ण प्रामाणिक परिचय)
          ==================================================================== -->
-    <section class="features-section author-parichay-official" id="home">
-        <div id="about" style="position: relative; top: -100px;"></div>
+    <section class="features-section author-parichay-official" id="about">
         <div class="container">
-            <div class="features-header-wrap text-center" style="margin-bottom: 2rem;">
-                <span class="section-badge"><i class="fas fa-feather-alt"></i> प्रामाणिक साहित्यिक परिचय</span>
-                <h2 style="font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: #0f172a; margin: 0.6rem 0 0.35rem;" data-hi="रमेशराज तेवरीकार" data-en="Rameshraj Tewarikar">रमेशराज तेवरीकार</h2>
-                <p style="font-size: 1.05rem; color: #ea580c; font-weight: 600; margin: 0;" data-hi="तेवरी आन्दोलन के ऐतिहासिक प्रवर्तक एवं 'विरोध-रस' के प्रतिष्ठापक" data-en="Historical Pioneer of the Tewari Movement & Founder of Virodh-Ras">तेवरी आन्दोलन के ऐतिहासिक प्रवर्तक एवं 'विरोध-रस' के प्रतिष्ठापक</p>
+            <div class="features-header-wrap text-center">
+                <span class="section-badge"><i class="fas fa-feather-alt"></i> प्रामाणिक परिचय</span>
+                <h3 class="features-heading" data-hi="परिचय" data-en="Introduction">परिचय</h3>
+                <strong class="title"><span data-hi="रमेशराज तेवरीकार" data-en="Rameshraj Tewarikar">रमेशराज तेवरीकार</span></strong>
             </div>
 
             <!-- Profile & Personal Details Card -->
@@ -223,6 +247,10 @@
                         <div class="parichay-avatar-wrap">
                             <img src="assets/images/author-portrait-formal.jpg" alt="रमेशराज तेवरीकार" class="parichay-avatar-img">
                             <span class="parichay-avatar-caption">रमेशराज तेवरीकार</span>
+                        </div>
+                        <div class="parichay-avatar-wrap">
+                            <img src="assets/images/lokkavi-ramcharan-gupt.jpg" alt="लोककवि रामचरन गुप्त" class="parichay-avatar-img">
+                            <span class="parichay-avatar-caption">पूज्य पिता: लोककवि रामचरन गुप्त</span>
                         </div>
                     </div>
 
@@ -398,7 +426,7 @@
                 </div>
             </div>
 
-            <!-- Awards and Honors Section -->
+            <!-- Awards and Contact Section -->
             <div class="parichay-extra-grid">
                 <!-- पुरस्कार और सम्मान -->
                 <div class="parichay-card parichay-awards-box">
@@ -415,6 +443,23 @@
                         <li><i class="fas fa-award"></i> अभिनंदन - सुर साहित्य संगम, एटा</li>
                         <li><i class="fas fa-award"></i> 'परिवर्तन तेवरी-रत्न', बुलंदशहर</li>
                     </ul>
+                </div>
+
+                <!-- सम्पर्क -->
+                <div class="parichay-card parichay-contact-box">
+                    <div class="parichay-card-title">
+                        <i class="fas fa-address-book"></i>
+                        <h5>सम्पर्क</h5>
+                    </div>
+                    <div class="parichay-contact-content">
+                        <h4 class="contact-name">रमेशराज</h4>
+                        <p class="contact-address"><i class="fas fa-map-marker-alt"></i> 15/109, निकट-थाना सासनीगेट, अलीगढ़-202001</p>
+                        <p class="contact-phone"><i class="fas fa-phone-alt"></i> मो- <a href="tel:+918171455889">8171455889</a></p>
+                        <div class="contact-actions">
+                            <a href="tel:+918171455889" class="btn btn-sm btn-call"><i class="fas fa-phone"></i> कॉल करें</a>
+                            <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp"><i class="fab fa-whatsapp"></i> व्हाट्सएप</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -448,8 +493,8 @@
                         <h3 class="scholarly-card-title" data-hi="तेवरी आन्दोलन का अभ्युदय : ग़ज़ल से जन-प्रतिरोध तक" data-en="Genesis of the Tewari Movement: From Ghazal to Resistance">
                             तेवरी आन्दोलन का अभ्युदय : ग़ज़ल से जन-प्रतिरोध तक
                         </h3>
-                        <p class="scholarly-card-text" data-hi="बीसवीं सदी के उत्तरार्द्ध में पारंपरिक उर्दू/फ़ारसी ग़ज़ल के रूमानी और दरबारी मिज़ाज से अलग, भारतीय लोक-जीवन के संघर्ष, पीड़ा और आक्रोश को अभिव्यक्ति देने हेतु रमेशराज जी की तेवरी विधा को आगे बढ़ाने में अग्रिम, विशिष्ट और महत्वपूर्ण भूमिका रही है। यही कारण है कि इन्हें तेवरी का सूत्रधार माना जाने लगा है। 'तेवरी' शब्द 'तेवर' (भौंहों की तनी हुई भंगिमा) से व्युत्पन्न है, जो सामाजिक विषमता, भ्रष्टाचार और राजनीतिक छल के विरुद्ध नैतिक प्रतिरोध का प्रतीक है।" data-en="In the late 20th century, departing from the romantic and courtly temperament of conventional Urdu/Persian Ghazals, Rameshraj played a pioneering, distinguished, and monumental role in advancing the 'Tewari' genre to give voice to public struggle, sorrow, and indignation. Consequently, he has been recognized as the principal architect (Sutradhar) of the Tewari movement. Derived from 'Tewar' (the furrowed brow of moral indignation), every couplet serves as a symbol of moral resistance against systemic inequality, corruption, and political deceit.">
-                            बीसवीं सदी के उत्तरार्द्ध में पारंपरिक उर्दू/फ़ारसी ग़ज़ल के रूमानी और दरबारी मिज़ाज से अलग, भारतीय लोक-जीवन के संघर्ष, पीड़ा और आक्रोश को अभिव्यक्ति देने हेतु रमेशराज जी की तेवरी विधा को आगे बढ़ाने में अग्रिम, विशिष्ट और महत्वपूर्ण भूमिका रही है। यही कारण है कि इन्हें तेवरी का सूत्रधार माना जाने लगा है। 'तेवरी' शब्द 'तेवर' (भौंहों की तनी हुई भंगिमा) से व्युत्पन्न है, जो सामाजिक विषमता, भ्रष्टाचार और राजनीतिक छल के विरुद्ध नैतिक प्रतिरोध का प्रतीक है।
+                        <p class="scholarly-card-text" data-hi="बीसवीं सदी के उत्तरार्द्ध में पारंपरिक उर्दू/फ़ारसी ग़ज़ल के रूमानी और दरबारी मिज़ाज से अलग, भारतीय लोक-जीवन के संघर्ष, पीड़ा और आक्रोश को अभिव्यक्ति देने हेतु रमेशराज जी ने 'तेवरी' विधा का सूत्रपात किया। 'तेवरी' शब्द 'तेवर' (भौंहों की तनी हुई भंगिमा) से व्युत्पन्न है, जो सामाजिक विषमता, भ्रष्टाचार और राजनीतिक छल के विरुद्ध नैतिक प्रतिरोध का प्रतीक है।" data-en="In the late 20th century, seeking to transcend the courtly romanticism of conventional Urdu/Persian Ghazals, Rameshraj pioneered 'Tewari' as an indigenous poetic form embodying democratic struggle. Derived from 'Tewar' (the furrowed brow of moral indignation), every couplet acts as an arrow of civic resistance against systemic inequality and bureaucratic apathy.">
+                            बीसवीं सदी के उत्तरार्द्ध में पारंपरिक उर्दू/फ़ारसी ग़ज़ल के रूमानी और दरबारी मिज़ाज से अलग, भारतीय लोक-जीवन के संघर्ष, पीड़ा और आक्रोश को अभिव्यक्ति देने हेतु रमेशराज जी ने 'तेवरी' विधा का सूत्रपात किया। 'तेवरी' शब्द 'तेवर' (भौंहों की तनी हुई भंगिमा) से व्युत्पन्न है, जो सामाजिक विषमता, भ्रष्टाचार और राजनीतिक छल के विरुद्ध नैतिक प्रतिरोध का प्रतीक है।
                         </p>
                     </div>
                 </div>
@@ -480,8 +525,8 @@
                         <h3 class="scholarly-card-title" data-hi="जनक छन्द एवं नव कुण्डलिया राज छन्द का विधान" data-en="Metric Innovations: Janak Chhand & Nav Kundaliya">
                             जनक छन्द एवं नव कुण्डलिया राज छन्द का विधान
                         </h3>
-                        <p class="scholarly-card-text" data-hi="कवि ने छंदशास्त्र के क्षेत्र में भी युगांतरकारी योगदान दिया और 28 मात्राओं (16-12 पर यति) के सुगठित 'जनक छन्द' का प्रवर्तन किया। साथ ही मध्यकालीन कुण्डलिया के पारंपरिक ढांचे को समकालीन सामाजिक समस्याओं से जोड़ते हुए 'नव कुण्डलिया राज छन्द' की प्रतिष्ठा की।" data-en="Rameshraj also transformed classical Indian prosody and devised 'Janak Chhand'—a balanced 28-matra metric structure (caesura at 16 and 12 matras). Furthermore, he restructured medieval Kundaliya into 'Nav Kundaliya Raj Chhand', tailoring it for modern socio-political discourse.">
-                            कवि ने छंदशास्त्र के क्षेत्र में भी युगांतरकारी योगदान दिया और 28 मात्राओं (16-12 पर यति) के सुगठित 'जनक छन्द' का प्रवर्तन किया। साथ ही मध्यकालीन कुण्डलिया के पारंपरिक ढांचे को समकालीन सामाजिक समस्याओं से जोड़ते हुए 'नव कुण्डलिया राज छन्द' की प्रतिष्ठा की।
+                        <p class="scholarly-card-text" data-hi="कवि ने छंदशास्त्र के क्षेत्र में भी युगांतरकारी योगदान दिया। अपने पिता लोककवि रामचरन गुप्त की स्मृति में 28 मात्राओं (16-12 पर यति) के सुगठित 'जनक छन्द' का प्रवर्तन किया। साथ ही मध्यकालीन कुण्डलिया के पारंपरिक ढांचे को समकालीन सामाजिक समस्याओं से जोड़ते हुए 'नव कुण्डलिया राज छन्द' की प्रतिष्ठा की।" data-en="Rameshraj also transformed classical Indian prosody. In honor of his father Lokkavi Ramcharan Gupta, he devised 'Janak Chhand'—a balanced 28-matra metric structure (caesura at 16 and 12 matras). Furthermore, he restructured medieval Kundaliya into 'Nav Kundaliya Raj Chhand', tailoring it for modern socio-political discourse.">
+                            कवि ने छंदशास्त्र के क्षेत्र में भी युगांतरकारी योगदान दिया। अपने पिता लोककवि रामचरन गुप्त की स्मृति में 28 मात्राओं (16-12 पर यति) के सुगठित 'जनक छन्द' का प्रवर्तन किया। साथ ही मध्यकालीन कुण्डलिया के पारंपरिक ढांचे को समकालीन सामाजिक समस्याओं से जोड़ते हुए 'नव कुण्डलिया राज छन्द' की प्रतिष्ठा की।
                         </p>
                     </div>
                 </div>
@@ -563,112 +608,23 @@
     </section>
 
     <!-- ====================================================================
-         UNIFIED LITERARY LIBRARY: BOOKS & BLOGS SIDE-BY-SIDE
-         (कम स्क्रॉलिंग - पुस्तकें एवं ब्लॉग्स एक ही साथ आमने-सामने)
+         BOOKS SHOWCASE: 6 CONTINUOUS REELS (पुस्तकों की रील - drnamitasingh.com STYLE)
          ==================================================================== -->
-    <section class="section side-library-section" id="books">
-        <div id="blogs" style="position: relative; top: -100px;"></div>
+    <section class="quick-peak-section" id="books">
         <div class="container">
-            <div class="section-header text-center" style="margin-bottom: 1.5rem;">
-                <span class="section-badge">
-                    <i class="fas fa-layer-group"></i> 
-                    <span data-hi="साहित्यिक ग्रंथालय • 58+ पुस्तकें एवं 39+ ब्लॉग मंच" data-en="Literary Granthalaya • 58+ Books & 39+ Blogs">साहित्यिक ग्रंथालय • 58+ पुस्तकें एवं 39+ ब्लॉग मंच</span>
-                </span>
-                <h2 class="section-title" data-hi="समग्र कृतियाँ एवं डिजिटल ब्लॉग ग्रंथालय" data-en="Complete Works & Digital Blog Granthalaya">समग्र कृतियाँ एवं डिजिटल ब्लॉग ग्रंथालय</h2>
-                <p class="section-subtitle" data-hi="एक ही स्थान पर लेखक की समस्त पुस्तकें और सभी 39+ आधिकारिक ब्लॉग मंच" data-en="Author's complete published works and official Blogger platforms side-by-side">
-                    एक ही स्थान पर लेखक की समस्त पुस्तकें और सभी 39+ आधिकारिक ब्लॉग मंच
-                </p>
-
-                <!-- Interactive View Switcher Tabs -->
-                <div class="library-view-switcher">
-                    <button type="button" class="lib-switch-btn active" onclick="switchLibraryView('both', this)">
-                        <i class="fas fa-columns"></i> <span data-hi="📚 पुस्तकें एवं 🌐 ब्लॉग्स (आमने-सामने)" data-en="📚 Books & 🌐 Blogs">📚 पुस्तकें एवं 🌐 ब्लॉग्स (आमने-सामने)</span>
-                    </button>
-                    <button type="button" class="lib-switch-btn" onclick="switchLibraryView('books', this)">
-                        <i class="fas fa-book"></i> <span data-hi="📚 केवल पुस्तकें (58+)" data-en="📚 Books Only (58+)">📚 केवल पुस्तकें (58+)</span>
-                    </button>
-                    <button type="button" class="lib-switch-btn" onclick="switchLibraryView('blogs', this)">
-                        <i class="fab fa-blogger-b"></i> <span data-hi="🌐 केवल ब्लॉग मंच (39+)" data-en="🌐 Blogs Only (39+)">🌐 केवल ब्लॉग मंच (39+)</span>
-                    </button>
-                </div>
+            <h3 class="quick-peak-main-title" data-hi="किताबों की श्रेणियां" data-en="Book Categories">किताबों की श्रेणियां</h3>
+            
+            <!-- 6 Book Category Marquees (चलते हुए चित्रों की 6 स्थान पर सज्जा) -->
+            <div class="home-book-categories-wrap" id="homeBookCategoriesWrap">
+                <!-- Rendered dynamically via renderHomepageBookMarquees() from HOMEPAGE_BOOK_REELS -->
             </div>
 
-            <!-- Two-Column Side-by-Side Container -->
-            <div class="side-library-grid" id="sideLibraryGrid">
-                
-                <!-- LEFT SIDE: ALL BOOKS -->
-                <div class="side-lib-col side-lib-books-col" id="sideLibBooksCol">
-                    <div class="side-lib-card">
-                        <div class="side-lib-card-header books-header">
-                            <div class="side-lib-header-info">
-                                <h3><i class="fas fa-book-open"></i> <span data-hi="समग्र पुस्तकें एवं कृतियाँ" data-en="Published Books & Works">समग्र पुस्तकें एवं कृतियाँ</span></h3>
-                                <span class="side-lib-count-badge" data-hi="58+ संग्रह" data-en="58+ Works">58+ संग्रह</span>
-                            </div>
-                            <button type="button" class="side-lib-all-btn" onclick="openAllBooksModal('all')" title="फुल कैटलॉग खोलें">
-                                <span data-hi="सभी 58+ देखें »" data-en="View All 58+ »">सभी 58+ देखें »</span>
-                            </button>
-                        </div>
-
-                        <!-- Category Filter Pills for Books -->
-                        <div class="side-lib-filter-pills" id="booksSideFilterPills">
-                            <button type="button" class="side-filter-pill active" onclick="filterSideBooks('all', this)" data-hi="सभी" data-en="All">सभी</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('tewari', this)" data-hi="तेवरी संग्रह" data-en="Tewari">तेवरी संग्रह</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('shopizen', this)" data-hi="शॉपीज़ान (8)" data-en="Shopizen (8)">शॉपीज़ान (8)</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('rachnaye', this)" data-hi="रचनाये" data-en="Rachnaye">रचनाये</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('bal', this)" data-hi="बाल साहित्य" data-en="Children's">बाल साहित्य</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBooks('shodh', this)" data-hi="काव्यशास्त्र" data-en="Poetics">काव्यशास्त्र</button>
-                        </div>
-
-                        <!-- Scrollable Book List (Compact, doesn't bloat the page scroll) -->
-                        <div class="side-lib-list-scroll side-books-scroll" id="sideBooksList">
-                            <!-- Rendered dynamically via renderSideBooks() -->
-                        </div>
-
-                        <div class="side-lib-card-footer">
-                            <button type="button" class="btn btn-sm btn-primary" onclick="openAllBooksModal('all')" style="width: 100%; justify-content: center;">
-                                <i class="fas fa-search"></i>
-                                <span data-hi="खोज व विधा फिल्टर सहित समस्त 58+ पुस्तकें देखें »" data-en="Browse Full 58+ Books Catalog with Search »">समस्त 58+ पुस्तकें कैटलॉग में खोजें »</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT SIDE: ALL BLOGS -->
-                <div class="side-lib-col side-lib-blogs-col" id="sideLibBlogsCol">
-                    <div class="side-lib-card">
-                        <div class="side-lib-card-header blogs-header">
-                            <div class="side-lib-header-info">
-                                <h3><i class="fab fa-blogger-b"></i> <span data-hi="ब्लॉग ग्रंथालय (डिजिटल मंच)" data-en="Blog Granthalaya">ब्लॉग ग्रंथालय (डिजिटल मंच)</span></h3>
-                                <span class="side-lib-count-badge badge-orange" data-hi="39+ मंच" data-en="39+ Blogs">39+ मंच</span>
-                            </div>
-                            <button type="button" class="side-lib-all-btn btn-orange" onclick="openAllBlogsModal()" title="सभी ब्लॉग मंच देखें">
-                                <span data-hi="सभी 39+ देखें »" data-en="View All 39+ »">सभी 39+ देखें »</span>
-                            </button>
-                        </div>
-
-                        <!-- Category Filter Pills for Blogs -->
-                        <div class="side-lib-filter-pills" id="blogsSideFilterPills">
-                            <button type="button" class="side-filter-pill active" onclick="filterSideBlogs('all', this)" data-hi="सभी मंच" data-en="All Blogs">सभी मंच</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('tewari', this)" data-hi="तेवरी आंदोलन" data-en="Tewari">तेवरी आंदोलन</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('shodh', this)" data-hi="शोध व रस" data-en="Poetics">शोध व रस</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('chhand', this)" data-hi="छंद व विधा" data-en="Metrics">छंद व विधा</button>
-                            <button type="button" class="side-filter-pill" onclick="filterSideBlogs('sahitya', this)" data-hi="साहित्यिक धरोहर" data-en="Heritage">साहित्यिक धरोहर</button>
-                        </div>
-
-                        <!-- Scrollable Blog List (Compact, doesn't bloat the page scroll) -->
-                        <div class="side-lib-list-scroll side-blogs-scroll" id="sideBlogsList">
-                            <!-- Rendered dynamically via renderSideBlogs() -->
-                        </div>
-
-                        <div class="side-lib-card-footer">
-                            <button type="button" class="btn btn-sm btn-cta-orange" onclick="openAllBlogsModal()" style="width: 100%; justify-content: center; background: #ea580c; color: #fff;">
-                                <i class="fab fa-blogger"></i>
-                                <span data-hi="समस्त 32+ साहित्यिक ब्लॉग मंच खोलें (Popup) »" data-en="Explore All 32+ Blogger Platforms (Popup) »">समस्त 32+ ब्लॉग मंच सूची में देखें »</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
+            <!-- View Full Searchable/Filterable Catalog in Popup -->
+            <div class="quick-peak-catalog-bar text-center">
+                <button class="btn btn-primary" onclick="openAllBooksModal('all')">
+                    <i class="fas fa-book-open"></i>
+                    <span data-hi="समग्र 58+ पुस्तकें एवं कृतियाँ देखें (खोज व विधा फिल्टर सहित) »" data-en="View Complete 58+ Books & Works Catalog »">समग्र 58+ पुस्तकें एवं कृतियाँ देखें (खोज व विधा फिल्टर सहित) »</span>
+                </button>
             </div>
         </div>
     </section>
@@ -711,7 +667,24 @@
                 </p>
             </div>
 
-
+            <!-- ================================================================
+                 QUICK SHAREABLE DEEP-LINKS SHOWCASE (7 MILESTONE WORKS)
+                 (क्लाइंट अनुरोध: "क्या अभी जुबां कटी नहीं, कबीर ज़िंदा है, इतिहास घायल है, विरोधरस, विचार और रस, काव्य की आत्मा और आत्मीयकरण और तेवरीपक्ष की अलग से लिंक्स नहीं बनाई जा सकतीं ताकि उन्हें अलग अलग शेयर किया जा सके। यह कार्य हो जाये तो प्रचार करने में बहुत सुविधा रहेगी")
+                 ================================================================ -->
+            <div class="promotional-share-hub" id="promoShareHub">
+                <div class="promo-hub-header">
+                    <div class="promo-hub-title-box">
+                        <span class="promo-hub-tag"><i class="fas fa-bullhorn"></i> <span data-hi="साहित्य-प्रचार एवं व्यक्तिगत शेयर लिंक्स" data-en="Literary Outreach & Individual Share Links">साहित्य-प्रचार एवं व्यक्तिगत शेयर लिंक्स</span></span>
+                        <h3 data-hi="7 प्रमुख ऐतिहासिक कृतियों के अलग-अलग शेयर लिंक्स (Dedicated Deep Links)" data-en="7 Milestone Literary Works — Dedicated Shareable Deep Links">7 प्रमुख ऐतिहासिक कृतियों के अलग-अलग शेयर लिंक्स (Dedicated Deep Links)</h3>
+                        <p data-hi="व्हाट्सएप, फेसबुक एवं शोध-समीक्षा हेतु प्रत्येक कृति का स्वतंत्र लिंक। 1-क्लिक में व्हाट्सएप पर साझा करें अथवा सीधा लिंक कॉपी करें:" data-en="Dedicated URLs for individual sharing across WhatsApp, social media, and academic citations. 1-click share or copy link:">
+                            व्हाट्सएप, फेसबुक एवं शोध-समीक्षा हेतु प्रत्येक कृति का स्वतंत्र लिंक। 1-क्लिक में व्हाट्सएप पर साझा करें अथवा सीधा लिंक कॉपी करें:
+                        </p>
+                    </div>
+                </div>
+                <div class="promo-works-grid" id="promoWorksGrid">
+                    <!-- Populated dynamically via renderPromotionalWorksPills() from PROMOTIONAL_WORKS_DATA -->
+                </div>
+            </div>
 
             <!-- Download Center Toolbar: Search & Category Pills -->
             <div class="download-toolbar-card">
@@ -743,11 +716,244 @@
                 <!-- Rendered dynamically via renderDownloadCenterGrid() from FEATURED_BOOKS_PDF_DATA & TEWARIPAKSH_PDF_DATA -->
             </div>
 
-
+            <!-- Download Center Helper Note -->
+            <div class="download-center-info-strip">
+                <div class="download-info-icon"><i class="fas fa-info-circle"></i></div>
+                <div class="download-info-text">
+                    <p data-hi="सभी कृतियाँ एवं पत्रिका ई-अंक शोधार्थियों के निर्बाध पठन व गैर-व्यावसायिक शैक्षिक उपयोग हेतु निःशुल्क उपलब्ध हैं। ब्लॉग पर सुरक्षित भंडारित मूल PDF सीधे खोली अथवा डाउनलोड की जा सकती हैं।" data-en="All literary works and e-magazine issues are made freely accessible for academic research and non-commercial educational study. The authentic PDFs archived on the official blogs can be directly viewed or downloaded.">
+                        सभी कृतियाँ एवं पत्रिका ई-अंक शोधार्थियों के निर्बाध पठन व गैर-व्यावसायिक शैक्षिक उपयोग हेतु निःशुल्क उपलब्ध हैं। ब्लॉग पर सुरक्षित भंडारित मूल PDF सीधे खोली अथवा डाउनलोड की जा सकती हैं।
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- ====================================================================
+         BLOGS & BLOGGER INTEGRATION (ब्लॉग ग्रंथालय - Open in Popup)
+         ==================================================================== -->
+    <section class="section" id="blogs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-hi="Blogger पर 39+ समर्पित साहित्यिक मंच" data-en="39+ Dedicated Blogger Publications">Blogger पर 39+ समर्पित साहित्यिक मंच</span>
+                <h2 class="section-title" data-hi="रमेशराज तेवरीकार का साहित्य-संसार — ब्लॉग ग्रंथालय (39+ मंच)" data-en="Author's Blogs & Digital Archive (39+ Platforms)">रमेशराज तेवरीकार का साहित्य-संसार — ब्लॉग ग्रंथालय (39+ मंच)</h2>
+                <p class="section-subtitle" data-hi="रमेशराज के समस्त ब्लॉग्स, तेवरी संग्रह, शोध आलेख व पत्रिका के सीधे लिंक" data-en="Direct gateways to Rameshraj's complete Blogger archive, poems, and critical essays">
+                    रमेशराज के समस्त ब्लॉग्स, तेवरी संग्रह, शोध आलेख व पत्रिका के सीधे लिंक
+                </p>
+            </div>
 
+            <!-- Blogger Banner Notice -->
+            <!-- ================================================================
+                 PRIORITY HERITAGE BLOG SPOTLIGHT: LOKKAVI RAMCHARAN GUPT
+                 ================================================================ -->
+            <div class="father-blog-spotlight-card">
+                <div class="father-blog-photo-col">
+                    <div class="father-blog-avatar-wrap">
+                        <img src="assets/images/lokkavi-ramcharan-gupt.jpg" alt="लोककवि रामचरन गुप्त" class="father-blog-avatar-img" onclick="openLightbox('assets/images/lokkavi-ramcharan-gupt.jpg', 'लोककवि रामचरन गुप्त (पूज्य पिता श्री)')" title="चित्र बड़ा करें / Click to view photo">
+                        <span class="father-blog-photo-badge" data-hi="पूज्य पिता श्री" data-en="Revered Father">पूज्य पिता श्री</span>
+                    </div>
+                </div>
+                <div class="father-blog-info-col">
+                    <div class="father-blog-pills">
+                        <span class="father-blog-pill priority"><i class="fas fa-star"></i> <span data-hi="प्राथमिकता मंच" data-en="Priority Heritage Blog">प्राथमिकता मंच</span></span>
+                        <span class="father-blog-pill heritage"><i class="fas fa-landmark"></i> <span data-hi="ब्रजभाषा साहित्यकार व स्वाधीनता सेनानी" data-en="Braj Litterateur & Freedom Fighter">ब्रजभाषा साहित्यकार व स्वाधीनता सेनानी</span></span>
+                    </div>
+                    <h3 class="father-blog-heading">
+                        <span data-hi="ब्रजभाषा और काव्य के चर्चित हस्ताक्षर : लोककवि रामचरन गुप्त" data-en="Prominent Signature of Braj Bhasha : Lokkavi Ramcharan Gupta">ब्रजभाषा और काव्य के चर्चित हस्ताक्षर : लोककवि रामचरन गुप्त</span>
+                    </h3>
+                    <p class="father-blog-summary" data-hi="स्वाधीनता संग्राम सेनानी एवं ब्रजभाषा के अमर लोककवि रामचरन गुप्त के व्यक्तित्व, कृतित्व, राष्ट्रीय क्रांति-गीतों, रसिया परंपरा और अप्रतिम लोक-काव्य का अधिकृत डिजिटल मंच।" data-en="Official digital archive celebrating the patriotic songs, folklore legacy, and literature of freedom fighter and Braj poet Lokkavi Ramcharan Gupta.">
+                        स्वाधीनता संग्राम सेनानी एवं ब्रजभाषा के अमर लोककवि रामचरन गुप्त के व्यक्तित्व, कृतित्व, राष्ट्रीय क्रांति-गीतों, रसिया परंपरा और अप्रतिम लोक-काव्य का अधिकृत डिजिटल मंच।
+                    </p>
+                    <div class="father-blog-cta-row">
+                        <a href="https://hinditewari-5.blogspot.com/?m=1" target="_blank" rel="noopener noreferrer" class="btn btn-father-blog-visit">
+                            <i class="fab fa-blogger-b"></i>
+                            <span data-hi="लोककवि रामचरन गुप्त ब्लॉग पढ़ें ↗" data-en="Visit Lokkavi Ramcharan Gupta Blog ↗">लोककवि रामचरन गुप्त ब्लॉग पढ़ें ↗</span>
+                        </a>
+                        <span class="father-blog-domain"><i class="fas fa-external-link-alt"></i> hinditewari-5.blogspot.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blogs-intro-card">
+                <div class="blogs-intro-content">
+                    <h3 data-hi="अधिकृत ब्लॉगर प्रोफ़ाइल एवं विशाल डिजिटल संकलन" data-en="Official Blogger Profile & Vast Digital Collection">
+                        अधिकृत ब्लॉगर प्रोफ़ाइल एवं विशाल डिजिटल संकलन
+                    </h3>
+                    <p data-hi="लेखक द्वारा विभिन्न साहित्यिक विधाओं (तेवरी, हाइकु, नव कुण्डलिया, बालगीत, शोध आलेख) पर 39 से अधिक स्वतंत्र ब्लॉग संचालित हैं।" data-en="The author maintains over 39 specialized Blogger platforms covering Tewari, Haiku, metric poetry, research articles, and children's literature.">
+                        लेखक द्वारा विभिन्न साहित्यिक विधाओं (तेवरी, हाइकु, नव कुण्डलिया, बालगीत, शोध आलेख) पर 39 से अधिक स्वतंत्र ब्लॉग संचालित हैं।
+                    </p>
+                </div>
+                <a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener noreferrer" class="btn btn-blogger">
+                    <i class="fab fa-blogger"></i>
+                    <span data-hi="सम्पूर्ण ब्लॉगर प्रोफ़ाइल देखें ↗" data-en="View Complete Blogger Profile ↗">सम्पूर्ण ब्लॉगर प्रोफ़ाइल देखें ↗</span>
+                </a>
+            </div>
+
+            <!-- Blog Categories Hub Cards (Photo-Free on Main Page) -->
+            <div class="genre-overview-grid" style="margin-bottom: 2rem;">
+                <div class="genre-card" onclick="openAllBlogsModal('tewari')">
+                    <div class="genre-card-head">
+                        <div class="genre-icon-wrap" style="color: #ea580c; background: #fff7ed; border-color: #ffedd5;"><i class="fas fa-feather-alt"></i></div>
+                        <span class="genre-count-pill" style="color: #c2410c; background: #ffedd5; border-color: #fed7aa;" data-hi="10 मंच" data-en="10 Platforms">10 मंच</span>
+                    </div>
+                    <h3 class="genre-title" data-hi="तेवरी आन्दोलन मंच" data-en="Tewari Movement Blogs">तेवरी आन्दोलन मंच</h3>
+                    <p class="genre-desc" data-hi="रमेशराज तेवरीकार, हिन्दी तेवरी साहित्य, तेवरीपक्ष व चर्चित संग्रहों के प्रमुख ब्लॉग।" data-en="Primary platforms dedicated to the nationwide Tewari movement and anthologies.">
+                        रमेशराज तेवरीकार, हिन्दी तेवरी साहित्य, तेवरीपक्ष व चर्चित संग्रहों के प्रमुख ब्लॉग।
+                    </p>
+                    <button class="btn-genre-link" style="color: #ea580c;">
+                        <span data-hi="ब्लॉग्स देखें »" data-en="View Blogs »">ब्लॉग्स देखें »</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="genre-card" onclick="openAllBlogsModal('shodh')">
+                    <div class="genre-card-head">
+                        <div class="genre-icon-wrap" style="color: #ea580c; background: #fff7ed; border-color: #ffedd5;"><i class="fas fa-book-reader"></i></div>
+                        <span class="genre-count-pill" style="color: #c2410c; background: #ffedd5; border-color: #fed7aa;" data-hi="6 मंच" data-en="6 Platforms">6 मंच</span>
+                    </div>
+                    <h3 class="genre-title" data-hi="शोध एवं रस-सिद्धांत" data-en="Poetics & Research">शोध एवं रस-सिद्धांत</h3>
+                    <p class="genre-desc" data-hi="विरोध-रस, तेवरी का सौन्दर्यबोध, नव रस-मीमांसा एवं शास्त्रीय शोध आलेखों के मंच।" data-en="Research portals exploring Virodh-Ras, aesthetics, and poetic criticism.">
+                        विरोध-रस, तेवरी का सौन्दर्यबोध, नव रस-मीमांसा एवं शास्त्रीय शोध आलेखों के मंच।
+                    </p>
+                    <button class="btn-genre-link" style="color: #ea580c;">
+                        <span data-hi="ब्लॉग्स देखें »" data-en="View Blogs »">ब्लॉग्स देखें »</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="genre-card" onclick="openAllBlogsModal('chhand')">
+                    <div class="genre-card-head">
+                        <div class="genre-icon-wrap" style="color: #ea580c; background: #fff7ed; border-color: #ffedd5;"><i class="fas fa-pen-fancy"></i></div>
+                        <span class="genre-count-pill" style="color: #c2410c; background: #ffedd5; border-color: #fed7aa;" data-hi="5 मंच" data-en="5 Platforms">5 मंच</span>
+                    </div>
+                    <h3 class="genre-title" data-hi="छंद नवाचार एवं विधाएँ" data-en="Metric Innovations">छंद नवाचार एवं विधाएँ</h3>
+                    <p class="genre-desc" data-hi="जनक छन्द, नव कुण्डलिया राज छंद, सर्पकुण्डली छंद एवं छंदशास्त्र के आलेख।" data-en="Portals dedicated to newly invented classical meters and poetic structures.">
+                        जनक छन्द, नव कुण्डलिया राज छंद, सर्पकुण्डली छंद एवं छंदशास्त्र के आलेख।
+                    </p>
+                    <button class="btn-genre-link" style="color: #ea580c;">
+                        <span data-hi="ब्लॉग्स देखें »" data-en="View Blogs »">ब्लॉग्स देखें »</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="genre-card" onclick="openAllBlogsModal('geet')">
+                    <div class="genre-card-head">
+                        <div class="genre-icon-wrap" style="color: #ea580c; background: #fff7ed; border-color: #ffedd5;"><i class="fas fa-music"></i></div>
+                        <span class="genre-count-pill" style="color: #c2410c; background: #ffedd5; border-color: #fed7aa;" data-hi="5 मंच" data-en="5 Platforms">5 मंच</span>
+                    </div>
+                    <h3 class="genre-title" data-hi="बालगीत, नवगीत व ग़ज़ल" data-en="Songs & Ghazals">बालगीत, नवगीत व ग़ज़ल</h3>
+                    <p class="genre-desc" data-hi="सार्थक बाल कविताएँ, गेय नवगीत, दोहावली एवं समकालीन ग़ज़ल विमर्श के मंच।" data-en="Children's verse, lyric songs, dohas, and contemporary ghazal debates.">
+                        सार्थक बाल कविताएँ, गेय नवगीत, दोहावली एवं समकालीन ग़ज़ल विमर्श के मंच।
+                    </p>
+                    <button class="btn-genre-link" style="color: #ea580c;">
+                        <span data-hi="ब्लॉग्स देखें »" data-en="View Blogs »">ब्लॉग्स देखें »</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="genre-card" onclick="openAllBlogsModal('sahitya')">
+                    <div class="genre-card-head">
+                        <div class="genre-icon-wrap" style="color: #ea580c; background: #fff7ed; border-color: #ffedd5;"><i class="fas fa-landmark"></i></div>
+                        <span class="genre-count-pill" style="color: #c2410c; background: #ffedd5; border-color: #fed7aa;" data-hi="6 मंच" data-en="6 Platforms">6 मंच</span>
+                    </div>
+                    <h3 class="genre-title" data-hi="साहित्यिक धरोहर एवं पत्रिकाएँ" data-en="Literary Heritage">साहित्यिक धरोहर एवं पत्रिकाएँ</h3>
+                    <p class="genre-desc" data-hi="लोककवि रामचरन गुप्त समग्र, राष्ट्रीय आन्दोलन एवं अलीगढ़ की साहित्यिक विरासत।" data-en="Archival portals on Lokkavi Ramcharan Gupta and historical literary records.">
+                        लोककवि रामचरन गुप्त समग्र, राष्ट्रीय आन्दोलन एवं अलीगढ़ की साहित्यिक विरासत।
+                    </p>
+                    <button class="btn-genre-link" style="color: #ea580c;">
+                        <span data-hi="ब्लॉग्स देखें »" data-en="View Blogs »">ब्लॉग्स देखें »</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="genre-card" onclick="openAllBlogsModal('all')">
+                    <div class="genre-card-head">
+                        <div class="genre-icon-wrap" style="color: #ea580c; background: #fff7ed; border-color: #ffedd5;"><i class="fab fa-blogger-b"></i></div>
+                        <span class="genre-count-pill" style="color: #c2410c; background: #ffedd5; border-color: #fed7aa;" data-hi="32 मंच" data-en="32 Platforms">32 मंच</span>
+                    </div>
+                    <h3 class="genre-title" data-hi="समस्त 32+ डिजिटल मंच" data-en="All 32+ Digital Platforms">समस्त 32+ डिजिटल मंच</h3>
+                    <p class="genre-desc" data-hi="रमेशराज द्वारा संचालित सभी 32 साहित्यिक ब्लॉग्स की सम्पूर्ण संकलित सूची।" data-en="Master directory of all 32 specialized literary platforms with direct reading links.">
+                        रमेशराज द्वारा संचालित सभी 32 साहित्यिक ब्लॉग्स की सम्पूर्ण संकलित सूची।
+                    </p>
+                    <button class="btn-genre-link" style="color: #ea580c;">
+                        <span data-hi="समग्र ग्रंथालय देखें »" data-en="View Complete Library »">समग्र ग्रंथालय देखें »</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- View All Blogs CTA Card -->
+            <div class="view-all-cta-card view-all-cta-card-blogs">
+                <div class="view-all-cta-content">
+                    <span class="cta-mini-tag"><i class="fab fa-blogger"></i> <span data-hi="समस्त 32+ डिजिटल ब्लॉग ग्रंथालय" data-en="Complete 32+ Blog Granthalaya">समस्त 32+ डिजिटल ब्लॉग ग्रंथालय</span></span>
+                    <h3 data-hi="रमेशराज तेवरीकार के समस्त 32+ साहित्यिक ब्लॉग मंच" data-en="All 32+ Literary Blogger Platforms of Rameshraj">रमेशराज तेवरीकार के समस्त 32+ साहित्यिक ब्लॉग मंच</h3>
+                    <p data-hi="तेवरी आंदोलन, नव कुण्डलिया, शोध-निबंध, बालगीत, ग़ज़ल एवं आलोचना पर केंद्रित लेखक के सभी 32+ ब्लॉग्स का आधिकारिक डिजिटल ग्रंथालय एवं सीधे पठन लिंक।" data-en="Complete digital archive of all 32+ active literary blogs covering Tewari, poetics, metrics, research, ghazals, and reviews with direct links.">
+                        तेवरी आंदोलन, नव कुण्डलिया, शोध-निबंध, बालगीत, ग़ज़ल एवं आलोचना पर केंद्रित लेखक के सभी 32+ ब्लॉग्स का आधिकारिक डिजिटल ग्रंथालय एवं सीधे पठन लिंक।
+                    </p>
+                </div>
+                <div class="view-all-cta-actions">
+                    <button class="btn btn-cta-gold btn-cta-orange" onclick="openAllBlogsModal()">
+                        <i class="fab fa-blogger-b"></i> <span data-hi="समस्त 32+ ब्लॉग मंच देखें (Popup)" data-en="View All 32+ Blogs (Popup)">समस्त 32+ ब्लॉग मंच देखें (Popup)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================================================================
+                 FEATURED BOOKS & RESEARCH TREATISES — E-BOOKS & PDF COLLECTION
+                 (क्लाइंट अनुरोध: "जिस तरह तेवरीपक्ष की pdf की व्यवस्था की है ठीक उसी तरह अभी जुबां कटी नहीं, कबीर ज़िंदा है, इतिहास घायल है, विरोध रस, विचार और रस, काव्य की आत्मा और आत्मीयकरण का भी डाउनलोड सिस्टम बना दो. यह तेवरीपक्ष के ऊपर बनने हैं")
+                 ================================================================ -->
+            <div class="tewaripaksh-pdf-section" style="margin-bottom: 2rem; background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%); border-color: #cbd5e1;">
+                <div class="tewaripaksh-pdf-header">
+                    <div class="tewaripaksh-pdf-title-area">
+                        <div class="tewaripaksh-pdf-icon" style="background: #eff6ff; color: #2563eb;"><i class="fas fa-book-open"></i></div>
+                        <div>
+                            <span class="section-badge" style="background: #2563eb; color: #ffffff;" data-hi="प्रमुख कृतियाँ • ई-पुस्तक व PDF डाउनलोड" data-en="Milestone Works • E-Books & PDF Download">प्रमुख कृतियाँ • ई-पुस्तक व PDF डाउनलोड</span>
+                            <h3 style="font-size: 1.35rem; font-family: var(--font-heading); color: #0f172a; margin: 0.25rem 0;" data-hi="ऐतिहासिक तेवरी संग्रह एवं काव्यशास्त्रीय शोध-ग्रंथ — ई-संस्करण व PDF" data-en="Historic Tewari Anthologies & Research Treatises — E-Editions & PDF">ऐतिहासिक तेवरी संग्रह एवं काव्यशास्त्रीय शोध-ग्रंथ — ई-संस्करण व PDF</h3>
+                            <p style="font-size: 0.88rem; color: #64748b; margin: 0;" data-hi="तेवरी आंदोलन के ऐतिहासिक संग्रहों ('अभी जुबां कटी नहीं', 'कबीर ज़िंदा है', 'इतिहास घायल है') एवं मौलिक रस-सिद्धांत शोधग्रंथों के सीधे पठन व डाउनलोड लिंक" data-en="Direct reading and download links for landmark Tewari anthologies and aesthetic research treatises">
+                                तेवरी आंदोलन के ऐतिहासिक संग्रहों ('अभी जुबां कटी नहीं', 'कबीर ज़िंदा है', 'इतिहास घायल है') एवं मौलिक रस-सिद्धांत शोधग्रंथों के सीधे पठन व डाउनलोड लिंक
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="https://hinditewari-25.blogspot.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="background: #2563eb; border-color: #2563eb;">
+                            <i class="fab fa-blogger-b"></i> <span data-hi="चर्चित संग्रह ब्लॉग देखें ↗" data-en="Visit Collections Blog ↗">चर्चित संग्रह ब्लॉग देखें ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tewaripaksh-pdf-grid" id="featuredBooksPdfGrid">
+                    <!-- Injected dynamically via JavaScript from FEATURED_BOOKS_PDF_DATA -->
+                </div>
+            </div>
+
+            <!-- ================================================================
+                 TEWARIPAKSH QUARTERLY MAGAZINE — E-EDITIONS & PDF COLLECTION
+                 (क्लाइंट अनुरोध: "Pdf के लिए मेरे ब्लॉग से तेवरीपक्ष पत्रिका का कोई अंक डाउनलोड कर सकते हो")
+                 ================================================================ -->
+            <div class="tewaripaksh-pdf-section">
+                <div class="tewaripaksh-pdf-header">
+                    <div class="tewaripaksh-pdf-title-area">
+                        <div class="tewaripaksh-pdf-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div>
+                            <span class="section-badge" style="background: #ea580c; color: #ffffff;" data-hi="पत्रिका ई-अंक व PDF डाउनलोड" data-en="E-Magazine & PDF Archive">पत्रिका ई-अंक व PDF डाउनलोड</span>
+                            <h3 style="font-size: 1.35rem; font-family: var(--font-heading); color: #0f172a; margin: 0.25rem 0;" data-hi="'तेवरीपक्ष' पत्रिका — ई-अंक एवं PDF ग्रंथालय" data-en="'Tewaripaksh' Quarterly Magazine — E-Editions & PDF Archive">'तेवरीपक्ष' पत्रिका — ई-अंक एवं PDF ग्रंथालय</h3>
+                            <p style="font-size: 0.88rem; color: #64748b; margin: 0;" data-hi="सन 1982 से निरंतर प्रकाशित हो रही तेवरी आन्दोलन की प्रमुख राष्ट्रीय त्रैमासिक पत्रिका के ऐतिहासिक अंक एवं सीधे पठन/डाउनलोड लिंक" data-en="Historic editions of the flagship quarterly magazine published since 1982 with direct reading and download links">
+                                सन 1982 से निरंतर प्रकाशित हो रही तेवरी आन्दोलन की प्रमुख राष्ट्रीय त्रैमासिक पत्रिका के ऐतिहासिक अंक एवं सीधे पठन/डाउनलोड लिंक
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="https://hinditewari-22.blogspot.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                            <i class="fab fa-blogger-b"></i> <span data-hi="तेवरीपक्ष ब्लॉग पर समस्त अंक देखें ↗" data-en="Visit Tewaripaksh Blog ↗">तेवरीपक्ष ब्लॉग पर समस्त अंक देखें ↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="tewaripaksh-pdf-grid" id="tewaripakshPdfGrid">
+                    <!-- Injected dynamically via JavaScript from TEWARIPAKSH_PDF_DATA -->
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ====================================================================
          AWARDS & HONORS (उपलब्धियाँ एवं सम्मान)
@@ -788,18 +994,114 @@
     </section>
 
     <!-- ====================================================================
-         VIDEO ARCHIVE (मंच काव्य-पाठ एवं वीडियो प्रस्तुतियाँ)
+         AUDIO PODCASTS & VIDEO ARCHIVE (ऑडियो-पॉडकास्ट एवं वीडियो आर्काइव)
+         (Google AI अनुशंसा 1: रमेशराज जी की बुलंद आवाज़ में कालजयी तेवरियों का पाठ - Podcasts)
          ==================================================================== -->
-    <section class="section section-alt media-archive-section" id="videos">
+    <section class="section section-alt media-archive-section" id="media-archive">
+        <div id="videos" style="position: relative; top: -80px;"></div>
         <div class="container">
             <div class="section-header text-center">
+                <span class="section-badge" style="background: #dc2626; color: #ffffff;">
+                    <i class="fas fa-podcast"></i> <span data-hi="ऑडियो-पॉडकास्ट एवं वीडियो आर्काइव" data-en="Audio Podcasts & Video Archive">ऑडियो-पॉडकास्ट एवं वीडियो आर्काइव</span>
+                </span>
+                <h2 class="section-title" data-hi="रमेशराज तेवरीकार : काव्य-स्वर (Podcasts) एवं वीडियो" data-en="Rameshraj Tewarikar: Audio Podcasts & Video Archive">रमेशराज तेवरीकार : काव्य-स्वर (Podcasts) एवं वीडियो</h2>
+                <p class="section-subtitle" data-hi="रमेशराज जी की बुलंद आवाज़ में उनकी कालजयी तेवरियों का ओजस्वी पाठ (Podcasts) एवं अधिकृत यूट्यूब काव्य-प्रस्तुतियाँ" data-en="Listen to the fiery resonance of landmark Tewari poetry recited in the author's own commanding voice alongside official video recordings">
+                    रमेशराज जी की बुलंद आवाज़ में उनकी कालजयी तेवरियों का ओजस्वी पाठ (Podcasts) एवं अधिकृत यूट्यूब काव्य-प्रस्तुतियाँ
+                </p>
+            </div>
+
+            <!-- Studio-Grade Audio & Podcast Player Widget -->
+            <div class="podcast-studio-player-card" id="podcastPlayerCard">
+                <div class="podcast-player-layout">
+                    <!-- Left: Active Track Visualizer & Controls -->
+                    <div class="podcast-player-main">
+                        <div class="podcast-track-meta">
+                            <div class="podcast-cover-artwork">
+                                <img src="assets/images/rameshraj-profile.jpg" alt="कवि रमेशराज तेवरीकार" id="podcastAuthorImg" class="podcast-author-avatar">
+                                <div class="podcast-live-eq" id="podcastWaveform">
+                                    <span class="eq-bar eq-bar-1"></span>
+                                    <span class="eq-bar eq-bar-2"></span>
+                                    <span class="eq-bar eq-bar-3"></span>
+                                    <span class="eq-bar eq-bar-4"></span>
+                                    <span class="eq-bar eq-bar-5"></span>
+                                </div>
+                            </div>
+                            <div class="podcast-meta-info">
+                                <div class="podcast-genre-pill" id="podcastCategoryPill">
+                                    <i class="fas fa-microphone-alt"></i> <span id="podcastActiveCategory">तेवरी उद्घोष / विरोध-रस</span>
+                                </div>
+                                <h3 class="podcast-active-title" id="podcastActiveTitle">तेवर-चालीसा (बुलंद आवाज़ में संपूर्ण तेवर-पाठ)</h3>
+                                <p class="podcast-active-speaker" id="podcastActiveSpeaker">
+                                    <i class="fas fa-feather-alt"></i> <span>स्वर एवं रचना: कवि रमेशराज तेवरीकार</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Progress Scrubber -->
+                        <div class="podcast-scrubber-wrap">
+                            <div class="podcast-time-display">
+                                <span class="time-current" id="podcastTimeCurrent">00:00</span>
+                                <span class="time-total" id="podcastTimeTotal">04:35</span>
+                            </div>
+                            <div class="podcast-progress-bar-container" id="podcastProgressTrack">
+                                <div class="podcast-progress-fill" id="podcastProgressFill" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Player Controls Bar -->
+                        <div class="podcast-controls-row">
+                            <div class="podcast-speed-wrap">
+                                <button class="btn-player-aux" id="podcastSpeedBtn" onclick="cyclePodcastSpeed()" title="Playback Speed">1.0x</button>
+                            </div>
+                            <div class="podcast-main-actions">
+                                <button class="btn-player-ctrl" onclick="prevPodcastTrack()" title="Previous Track" aria-label="Previous Track">
+                                    <i class="fas fa-step-backward"></i>
+                                </button>
+                                <button class="btn-player-play" id="podcastPlayBtn" onclick="togglePodcastPlayback()" title="Play / Pause" aria-label="Play Track">
+                                    <i class="fas fa-play" id="podcastPlayIcon"></i>
+                                </button>
+                                <button class="btn-player-ctrl" onclick="nextPodcastTrack()" title="Next Track" aria-label="Next Track">
+                                    <i class="fas fa-step-forward"></i>
+                                </button>
+                            </div>
+                            <div class="podcast-vol-wrap">
+                                <button class="btn-player-aux" id="podcastWatchVideoBtn" onclick="watchCurrentPodcastVideo()" title="Watch Video on YouTube">
+                                    <i class="fab fa-youtube" style="color: #dc2626;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Synchronized Verse Box (साथ-साथ पढ़ें) -->
+                        <div class="podcast-verse-box">
+                            <div class="podcast-verse-head">
+                                <span class="verse-head-tag"><i class="fas fa-quote-left"></i> <span data-hi="पाठ के साथ-साथ पंक्तियाँ पढ़ें" data-en="Read-Along Poetic Verses">पाठ के साथ-साथ पंक्तियाँ पढ़ें</span></span>
+                                <span class="verse-status-tag" id="podcastStatusTag"><i class="fas fa-volume-up"></i> <span data-hi="सुनने के लिए प्ले करें" data-en="Click Play to Listen">सुनने के लिए प्ले करें</span></span>
+                            </div>
+                            <div class="podcast-verse-content" id="podcastVerseContent">
+                                <!-- Verse lines updated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Curated Playlist (6 Tracks) -->
+                    <div class="podcast-playlist-col">
+                        <div class="podcast-playlist-head">
+                            <h4><i class="fas fa-list-ul"></i> <span data-hi="कालजयी तेवरी-पाठ एवं गीत संकलन" data-en="Landmark Recitations & Songs">कालजयी तेवरी-पाठ एवं गीत संकलन</span></h4>
+                            <span class="playlist-count-badge" data-hi="6 ट्रैक" data-en="6 Tracks">6 ट्रैक</span>
+                        </div>
+                        <div class="podcast-playlist-list" id="podcastPlaylistList">
+                            <!-- Populated dynamically via renderPodcastPlaylist() -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YouTube Videos Section Heading -->
+            <div class="youtube-section-subhead" style="margin-top: 3.5rem; margin-bottom: 1.5rem; text-align: center;">
                 <span class="section-badge" style="background: #fef2f2; color: #dc2626; border: 1px solid #fecaca;">
                     <i class="fab fa-youtube"></i> <span data-hi="आधिकारिक वीडियो प्रस्तुतियाँ" data-en="Official Video Presentations">आधिकारिक वीडियो प्रस्तुतियाँ</span>
                 </span>
-                <h2 class="section-title" data-hi="मंच काव्य-पाठ, साक्षात्कार एवं गौरव वृत्तचित्र" data-en="Stage Recitations, Interviews & Documentaries">मंच काव्य-पाठ, साक्षात्कार एवं गौरव वृत्तचित्र</h2>
-                <p class="section-subtitle" data-hi="रमेशराज तेवरीकार के मंच काव्य-पाठ, साक्षात्कारों एवं अधिकृत यूट्यूब काव्य-प्रस्तुतियों का संकलन" data-en="Curated stage recitations, literary discourses, and video presentations from the official YouTube channel">
-                    रमेशराज तेवरीकार के मंच काव्य-पाठ, साक्षात्कारों एवं अधिकृत यूट्यूब काव्य-प्रस्तुतियों का संकलन
-                </p>
+                <h3 style="font-family: var(--font-heading); color: #0f172a; font-size: 1.5rem; margin-top: 0.5rem;" data-hi="मंच काव्य-पाठ, साक्षात्कार एवं गौरव वृत्तचित्र" data-en="Stage Recitations, Interviews & Documentaries">मंच काव्य-पाठ, साक्षात्कार एवं गौरव वृत्तचित्र</h3>
             </div>
 
             <div class="videos-grid" id="videosGrid">
@@ -922,12 +1224,140 @@
         </div>
     </section>
 
+    <!-- ====================================================================
+         CONTACT & INQUIRIES (संपर्क करें)
+         ==================================================================== -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-hi="संवाद एवं संपर्क सूत्र" data-en="Get in Touch">संवाद एवं संपर्क सूत्र</span>
+                <h2 class="section-title" data-hi="साहित्यिक संपर्क एवं संवाद" data-en="Contact & Literary Inquiries">साहित्यिक संपर्क एवं संवाद</h2>
+                <p class="section-subtitle" data-hi="पुस्तकों, शोध-परामर्श, सम्मेलनों में आमंत्रण एवं पाठकीय प्रतिक्रिया हेतु" data-en="For book inquiries, research guidance, literary conclave invitations, and reader feedback">
+                    पुस्तकों, शोध-परामर्श, सम्मेलनों में आमंत्रण एवं पाठकीय प्रतिक्रिया हेतु
+                </p>
+            </div>
 
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <!-- Author Contact Identity Card -->
+                    <div class="contact-author-badge">
+                        <img src="assets/images/author-portrait-formal.jpg" alt="रमेशराज तेवरीकार" class="contact-author-avatar" onclick="openLightbox('assets/images/author-portrait-formal.jpg', 'रमेशराज तेवरीकार - साहित्यकार एवं सम्पादक')" style="cursor: pointer;" title="चित्र देखें / View image">
+                        <div class="contact-author-meta">
+                            <h4 data-hi="रमेशराज तेवरीकार" data-en="Rameshraj Tewarikar">रमेशराज तेवरीकार</h4>
+                            <p data-hi="वरिष्ठ साहित्यकार, कवि एवं सम्पादक 'तेवरीपक्ष'" data-en="Eminent Author, Poet & Editor">वरिष्ठ साहित्यकार, कवि एवं सम्पादक 'तेवरीपक्ष'</p>
+                            <span class="contact-author-sub" data-hi="15/109, निकट-थाना सासनीगेट, अलीगढ़ (उ.प्र.)" data-en="15/109, Near Sasnigate, Aligarh (U.P.)">15/109, निकट-थाना सासनीगेट, अलीगढ़ (उ.प्र.)</span>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.4rem; color: #0f172a; margin-bottom: 0.5rem;" data-hi="सीधा संपर्क सूत्र" data-en="Direct Contact Information">सीधा संपर्क सूत्र</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;" data-hi="आप पुस्तकों, शोध कार्यों अथवा साहित्यिक सम्मेलनों के संदर्भ में लेखक से सीधे संपर्क कर सकते हैं।" data-en="Feel free to connect directly with the author for books, research guidance, or invitations.">
+                        आप पुस्तकों, शोध कार्यों अथवा साहित्यिक सम्मेलनों के संदर्भ में लेखक से सीधे संपर्क कर सकते हैं।
+                    </p>
+
+                    <ul class="contact-info-list">
+                        <li class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-detail">
+                                <h5 data-hi="स्थायी निवास व पत्राचार" data-en="Residence & Postal Address">स्थायी निवास व पत्राचार</h5>
+                                <p data-hi="15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उत्तर प्रदेश), भारत" data-en="15/109, Near Thana Sasnigate, Aligarh - 202001 (U.P.), India">
+                                    15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उत्तर प्रदेश), भारत
+                                </p>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="contact-detail">
+                                <h5 data-hi="मोबाइल दूरभाष" data-en="Mobile Phone">मोबाइल दूरभाष</h5>
+                                <p><a href="tel:+918171455889" style="font-weight: 700; color: #0f172a;">+91 81714 55889</a></p>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon" style="background: #e8fbf0; color: #25d366;"><i class="fab fa-whatsapp"></i></div>
+                            <div class="contact-detail">
+                                <h5 data-hi="व्हाट्सएप सीधा संवाद" data-en="WhatsApp Direct">व्हाट्सएप सीधा संवाद</h5>
+                                <p><a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" style="color: #16a34a; font-weight: 600;">+91 81714 55889 (WhatsApp पर संदेश भेजें ↗)</a></p>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-detail">
+                                <h5 data-hi="ई-मेल आईडी" data-en="Email Address">ई-मेल आईडी</h5>
+                                <p><a href="mailto:rameshraj5452@gmail.com">rameshraj5452@gmail.com</a></p>
+                            </div>
+                        </li>
+                        <li class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-blogger"></i></div>
+                            <div class="contact-detail">
+                                <h5 data-hi="अधिकृत ब्लॉगर प्रोफ़ाइल" data-en="Official Blogger Profile">अधिकृत ब्लॉगर प्रोफ़ाइल</h5>
+                                <p><a href="https://www.blogger.com/profile/10299195093677463730" target="_blank" rel="noopener">blogger.com/profile/10299195093677463730</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form-card contact-direct-connect-card">
+                    <div style="margin-bottom: 1.25rem;">
+                        <span class="section-badge" style="background: #fff7ed; color: #ea580c; border: 1px solid #ffedd5;" data-hi="सीधा संपर्क सूत्र" data-en="Direct Contact Hub"><i class="fas fa-envelope-open-text"></i> सीधा संपर्क सूत्र</span>
+                        <h4 style="font-size: 1.35rem; color: #0f172a; margin: 0.5rem 0 0.35rem 0; font-weight: 800; font-family: var(--font-heading);">
+                            <span data-hi="लेखक से सीधे संवाद के माध्यम" data-en="Direct Ways to Connect with Author">लेखक से सीधे संवाद के माध्यम</span>
+                        </h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin: 0; line-height: 1.6;" data-hi="पुस्तकों की प्राप्ति, शोध-मार्गदर्शन, साहित्यिक आयोजनों में आमंत्रण एवं पत्राचार हेतु सीधे संपर्क करें:" data-en="Connect directly for book inquiries, research consultation, literary invitations, and correspondence:">
+                            पुस्तकों की प्राप्ति, शोध-मार्गदर्शन, साहित्यिक आयोजनों में आमंत्रण एवं पत्राचार हेतु सीधे संपर्क करें:
+                        </p>
+                    </div>
+
+                    <div class="direct-contact-action-list">
+                        <!-- WhatsApp Action -->
+                        <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" class="direct-action-tile whatsapp-tile">
+                            <div class="direct-action-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="direct-action-meta">
+                                <span class="direct-action-label" data-hi="व्हाट्सएप पर सीधा संदेश" data-en="Direct WhatsApp Chat">व्हाट्सएप पर सीधा संदेश</span>
+                                <span class="direct-action-val">+91 81714 55889 (संदेश भेजें ↗)</span>
+                            </div>
+                            <i class="fas fa-arrow-right direct-action-arrow"></i>
+                        </a>
+
+                        <!-- Gmail Action -->
+                        <a href="mailto:rameshraj5452@gmail.com?subject=साहित्यिक%20संवाद%20-%20रमेशराज%20तेवरीकार" class="direct-action-tile email-tile">
+                            <div class="direct-action-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="direct-action-meta">
+                                <span class="direct-action-label" data-hi="ई-मेल द्वारा सीधा संपर्क" data-en="Email Correspondence">ई-मेल द्वारा सीधा संपर्क</span>
+                                <span class="direct-action-val">rameshraj5452@gmail.com</span>
+                            </div>
+                            <i class="fas fa-arrow-right direct-action-arrow"></i>
+                        </a>
+
+                        <!-- Phone Call Action -->
+                        <a href="tel:+918171455889" class="direct-action-tile phone-tile">
+                            <div class="direct-action-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="direct-action-meta">
+                                <span class="direct-action-label" data-hi="सीधा मोबाइल दूरभाष" data-en="Direct Phone Call">सीधा मोबाइल दूरभाष</span>
+                                <span class="direct-action-val">+91 81714 55889 (कॉल करें)</span>
+                            </div>
+                            <i class="fas fa-arrow-right direct-action-arrow"></i>
+                        </a>
+                    </div>
+
+                    <!-- Single Comment Hub Redirect -->
+                    <div class="contact-comment-redirect-box">
+                        <div class="redirect-box-text">
+                            <h5 style="margin: 0 0 0.25rem 0; font-size: 0.95rem; font-weight: 700; color: #0f172a;" data-hi="वेबसाइट पर सार्वजनिक टिप्पणी दर्ज करनी है?" data-en="Want to post a public review on the website?">वेबसाइट पर सार्वजनिक टिप्पणी दर्ज करनी है?</h5>
+                            <p style="margin: 0; font-size: 0.84rem; color: #64748b;" data-hi="पाठकीय समीक्षा एवं विचार सीधे 'समीक्षा व टिप्पणियाँ' अनुभाग में प्रकाशित होते हैं।" data-en="Reader reviews and comments are published directly on the site under Reviews & Comments.">पाठकीय समीक्षा एवं विचार सीधे 'समीक्षा व टिप्पणियाँ' अनुभाग में प्रकाशित होते हैं।</p>
+                        </div>
+                        <a href="#readerCommentsArea" class="btn btn-primary btn-sm" style="white-space: nowrap; margin-top: 0.65rem; display: inline-flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-comments"></i>
+                            <span data-hi="यहाँ अपनी टिप्पणी दर्ज करें »" data-en="Post Comment Here »">यहाँ अपनी टिप्पणी दर्ज करें »</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ====================================================================
          FOOTER
          ==================================================================== -->
-    <footer class="site-footer" id="contact">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -960,13 +1390,13 @@
                 </div>
 
                 <div class="footer-col">
-                    <h4 data-hi="कार्यालय एवं संपर्क" data-en="Literary Address & Contact">कार्यालय एवं संपर्क</h4>
-                    <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.8;">
+                    <h4 data-hi="कार्यालय एवं संपर्क" data-en="Literary Address">कार्यालय एवं संपर्क</h4>
+                    <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6;">
                         रमेशराज तेवरीकार<br>
                         15/109, निकट-थाना सासनीगेट<br>
                         अलीगढ़ - 202001 (उ.प्र.), भारत<br>
                         <i class="fas fa-phone-alt" style="color: #d97706; margin-right: 6px;"></i> <a href="tel:+918171455889" style="color: #cbd5e1;">+91 81714 55889</a><br>
-                        <i class="fab fa-whatsapp" style="color: #25d366; margin-right: 6px; font-size: 1rem;"></i> <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" style="color: #4ade80; font-weight: 600;">+91 81714 55889 (WhatsApp ↗)</a><br>
+                        <i class="fab fa-whatsapp" style="color: #25d366; margin-right: 6px;"></i> <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" style="color: #34d399; font-weight: 600;">व्हाट्सएप: +91 81714 55889</a><br>
                         <i class="fas fa-envelope" style="color: #d97706; margin-right: 6px;"></i> <a href="mailto:rameshraj5452@gmail.com" style="color: #cbd5e1;">rameshraj5452@gmail.com</a>
                     </p>
                 </div>
@@ -989,7 +1419,7 @@
                     </span>
                 </div>
                 <div>
-                    15/109, सासनीगेट, अलीगढ़-202001 (उ.प्र.) &bull; <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" style="color: #4ade80; text-decoration: none;"><i class="fab fa-whatsapp" style="color: #25d366; margin-right: 3px;"></i> WhatsApp / मो: +91 81714 55889</a> &bull; प्रवर्तक: तेवरी आन्दोलन
+                    15/109, सासनीगेट, अलीगढ़-202001 (उ.प्र.) &bull; मो: +91 81714 55889 &bull; प्रवर्तक: तेवरी आन्दोलन
                 </div>
             </div>
         </div>
@@ -1138,6 +1568,11 @@
                         <h4 data-hi="रमेशराज तेवरीकार" data-en="Rameshraj Tewarikar">रमेशराज तेवरीकार</h4>
                         <p class="author-bio-role" data-hi="प्रवर्तक: तेवरी विधा एवं 'विरोध-रस'" data-en="Pioneer: Tewari Genre & Virodh-Ras">प्रवर्तक: तेवरी विधा एवं 'विरोध-रस'</p>
                     </div>
+                    <div class="author-bio-father-card">
+                        <img src="assets/images/lokkavi-ramcharan-gupt.jpg" alt="लोककवि रामचरन गुप्त" class="author-bio-portrait-img">
+                        <h4 data-hi="पूज्य पिता: लोककवि रामचरन गुप्त" data-en="Father: Lokkavi Ramcharan Gupta">पूज्य पिता: लोककवि रामचरन गुप्त</h4>
+                        <p class="author-bio-role" data-hi="मूर्धन्य ब्रजभाषा साहित्यकार व स्वतंत्रता सेनानी" data-en="Renowned Brajbhasha Litterateur & Freedom Fighter">मूर्धन्य ब्रजभाषा साहित्यकार व स्वतंत्रता सेनानी</p>
+                    </div>
                 </div>
 
                 <div class="author-bio-meta-table">
@@ -1153,6 +1588,18 @@
                         <span class="bio-meta-key"><i class="fas fa-graduation-cap"></i> <strong data-hi="शिक्षा:" data-en="Education:">शिक्षा:</strong></span>
                         <span class="bio-meta-val" data-hi="एम. ए. (हिंदी साहित्य) एवं एम. ए. (भूगोल)" data-en="M.A. (Hindi Literature) & M.A. (Geography)">एम. ए. (हिंदी साहित्य) एवं एम. ए. (भूगोल)</span>
                     </div>
+                    <div class="bio-meta-row">
+                        <span class="bio-meta-key"><i class="fas fa-home"></i> <strong data-hi="स्थायी पता:" data-en="Permanent Address:">स्थायी पता:</strong></span>
+                        <span class="bio-meta-val" data-hi="15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उ.प्र.)" data-en="15/109, Near Thana Sasnigate, Aligarh - 202001 (U.P.), India">15/109, निकट-थाना सासनीगेट, अलीगढ़ - 202001 (उ.प्र.)</span>
+                    </div>
+                    <div class="bio-meta-row">
+                        <span class="bio-meta-key"><i class="fas fa-phone-alt"></i> <strong data-hi="सम्पर्क / WhatsApp:" data-en="Contact / WhatsApp:">सम्पर्क / WhatsApp:</strong></span>
+                        <span class="bio-meta-val"><a href="tel:+918171455889" style="color: #ea580c; font-weight: 700;">+91 81714 55889</a></span>
+                    </div>
+                    <div class="bio-meta-row">
+                        <span class="bio-meta-key"><i class="fas fa-envelope"></i> <strong data-hi="ई-मेल (Email):" data-en="Email Address:">ई-मेल (Email):</strong></span>
+                        <span class="bio-meta-val"><a href="mailto:rameshraj5452@gmail.com" style="color: #ea580c; font-weight: 700;">rameshraj5452@gmail.com</a></span>
+                    </div>
                 </div>
 
                 <div class="author-bio-article-content">
@@ -1167,8 +1614,8 @@
                     </p>
 
                     <h3 data-hi="3. छंद-विधान में मौलिक नवाचार: जनक छन्द व नव कुण्डलिया" data-en="3. Metric Innovations: Janak Chhand & Nav Kundaliya">3. छंद-विधान में मौलिक नवाचार: जनक छन्द व नव कुण्डलिया</h3>
-                    <p data-hi="छंदशास्त्र के क्षेत्र में रमेशराज ने 24 मात्राओं के लयात्मक 'जनक छन्द' (13-11 पर यति) का आविष्कार किया, जिसे 'जनक छन्द शतक' में लिपिबद्ध किया। साथ ही 'नव कुण्डलिया राज छंद' और 'सर्पकुण्डली छंद' जैसी मौलिक शास्त्रीय संरचनाएँ हिन्दी छंद-संसार को समर्पित कीं।" data-en="In metric poetics, Rameshraj invented 'Janak Chhand' (24 matras with 13-11 caesura), recorded in 'Janak Chhand Shatak', alongside inventing 'Nav Kundaliya Raj Chhand' and 'Sarpakundali Chhand'.">
-                        छंदशास्त्र के क्षेत्र में रमेशराज ने 24 मात्राओं के लयात्मक 'जनक छन्द' (13-11 पर यति) का आविष्कार किया, जिसे 'जनक छन्द शतक' में लिपिबद्ध किया। साथ ही 'नव कुण्डलिया राज छंद' और 'सर्पकुण्डली छंद' जैसी मौलिक शास्त्रीय संरचनाएँ हिन्दी छंद-संसार को समर्पित कीं।
+                    <p data-hi="छंदशास्त्र के क्षेत्र में रमेशराज ने अपने पूज्य पिता लोककवि रामचरन गुप्त के सम्मान में 24 मात्राओं के लयात्मक 'जनक छन्द' (13-11 पर यति) का आविष्कार किया, जिसे 'जनक छन्द शतक' में लिपिबद्ध किया। साथ ही 'नव कुण्डलिया राज छंद' और 'सर्पकुण्डली छंद' जैसी मौलिक शास्त्रीय संरचनाएँ हिन्दी छंद-संसार को समर्पित कीं।" data-en="In metric poetics, Rameshraj invented 'Janak Chhand' (24 matras with 13-11 caesura) in loving memory of his father Lokkavi Ramcharan Gupta, alongside inventing 'Nav Kundaliya Raj Chhand' and 'Sarpakundali Chhand'.">
+                        छंदशास्त्र के क्षेत्र में रमेशराज ने अपने पूज्य पिता लोककवि रामचरन गुप्त के सम्मान में 24 मात्राओं के लयात्मक 'जनक छन्द' (13-11 पर यति) का आविष्कार किया, जिसे 'जनक छन्द शतक' में लिपिबद्ध किया। साथ ही 'नव कुण्डलिया राज छंद' और 'सर्पकुण्डली छंद' जैसी मौलिक शास्त्रीय संरचनाएँ हिन्दी छंद-संसार को समर्पित कीं।
                     </p>
 
                     <h3 data-hi="4. 'तेवरीपक्ष' त्रैमासिक पत्रिका एवं 39+ मंचों का ब्लॉग ग्रंथालय" data-en="4. 'Tewaripaksh' Quarterly & 39+ Blogs Digital Granthalaya">4. 'तेवरीपक्ष' त्रैमासिक पत्रिका एवं 39+ मंचों का ब्लॉग ग्रंथालय</h3>
@@ -1278,7 +1725,10 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-
+    <!-- Floating WhatsApp Direct Button -->
+    <a href="https://wa.me/918171455889" target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" title="WhatsApp पर सीधा संवाद करें" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="js/data.js?v=2.7"></script>

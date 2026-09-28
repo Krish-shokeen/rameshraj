@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguageSwitcher();
     initHeroSlider();
     initHeroCounters();
-    renderSideBySideLibrary();
     renderHomepageBookMarquees();
     renderGalleryMarquee();
     initHomepageMarquees();
@@ -198,7 +197,6 @@ function updatePageLanguage() {
 
     // Re-render dynamic sections
     renderHeroSlider();
-    renderSideBySideLibrary();
     renderHomepageBookMarquees();
     renderGalleryMarquee();
     initHomepageMarquees();
@@ -3002,8 +3000,11 @@ window.openWorkSpotlightModal = function(slugOrId) {
     const desc = currentLang === 'hi' ? work.descriptionHi : work.descriptionEn;
     const directUrl = getWorkDirectUrl(work.slug);
 
-    const hasAudio = false; // Audio tracks removed per client request
+    const hasAudio = !!work.podcastId;
     let audioTrackIdx = -1;
+    if (hasAudio && typeof PODCAST_AUDIO_DATA !== 'undefined') {
+        audioTrackIdx = PODCAST_AUDIO_DATA.findIndex(t => t.id === work.podcastId);
+    }
 
     container.innerHTML = `
         <div class="spotlight-header-strip">
@@ -3145,146 +3146,3 @@ function initDirectWorkRouting() {
     checkAndRoute();
     window.addEventListener('hashchange', checkAndRoute);
 }
-
-/* --------------------------------------------------------------------------
-   SIDE-BY-SIDE UNIFIED LIBRARY (BOOKS & BLOGS)
-   -------------------------------------------------------------------------- */
-let currentSideBookCategory = 'all';
-let currentSideBlogCategory = 'all';
-
-function renderSideBooks(category) {
-    if (category !== undefined) currentSideBookCategory = category;
-    const container = document.getElementById('sideBooksList');
-    if (!container) return;
-
-    const works = (typeof ALL_WORKS_LIST !== 'undefined' ? ALL_WORKS_LIST : [])
-        .filter(w => w.hasPhoto || w.cover || w.titleHi);
-
-    let list = works;
-    const cat = currentSideBookCategory;
-
-    if (cat === 'tewari') {
-        list = works.filter(w => (w.categoryId === 'tewari-sangrah' || (w.titleHi && w.titleHi.includes('तेवरी')) || (w.type && w.type.includes('तेवरी'))));
-    } else if (cat === 'shopizen') {
-        list = works.filter(w => (w.categoryId === 'shopizen' || (w.buyUrl && w.buyUrl.includes('shopizen')) || (w.id && w.id.includes('shopizen'))));
-    } else if (cat === 'rachnaye') {
-        list = works.filter(w => (w.buyUrl && w.buyUrl.includes('rachnaye')) || w.categoryId === 'rachnaye');
-    } else if (cat === 'bal') {
-        list = works.filter(w => (w.categoryId === 'bal-sahitya' || (w.titleHi && (w.titleHi.includes('बाल') || w.titleHi.includes('गीत')))));
-    } else if (cat === 'shodh') {
-        list = works.filter(w => (w.categoryId === 'ras' || w.categoryId === 'shodh' || (w.titleHi && (w.titleHi.includes('रस') || w.titleHi.includes('काव्य') || w.titleHi.includes('शोध')))));
-    }
-
-    if (!list.length) list = works.slice(0, 20);
-
-    const readMoreText = currentLang === 'hi' ? 'विवरण' : 'Details';
-    const buyText = currentLang === 'hi' ? 'खरीदें' : 'Buy';
-
-    container.innerHTML = list.map(item => {
-        const title = currentLang === 'hi' ? (item.titleHi || item.title) : (item.titleEn || item.title);
-        const coverImg = item.cover || 'assets/images/books/abhi-zuban-kati-nahin.jpg';
-        const catName = currentLang === 'hi' ? (item.categoryHi || item.type || 'साहित्यिक कृति') : (item.categoryEn || item.type || 'Literary Work');
-        const buyBtn = item.buyUrl ? `
-            <a href="${item.buyUrl}" target="_blank" rel="noopener noreferrer" class="side-book-buy-btn" title="ऑनलाइन प्राप्त करें" onclick="event.stopPropagation();">
-                <i class="fas fa-shopping-cart"></i> <span>${buyText}</span>
-            </a>
-        ` : '';
-
-        return `
-            <div class="side-book-item">
-                <img src="${coverImg}" alt="${title}" class="side-book-thumb" onclick="openBookModal('${item.id}')" loading="lazy" onerror="this.src='assets/images/books/abhi-zuban-kati-nahin.jpg'">
-                <div class="side-book-info">
-                    <h4 class="side-book-title" onclick="openBookModal('${item.id}')" title="${title}">${title}</h4>
-                    <span class="side-book-category">${catName}</span>
-                </div>
-                <div class="side-book-actions">
-                    <button type="button" class="side-book-btn" onclick="openBookModal('${item.id}')" title="विस्तृत जानकारी देखें">
-                        <i class="fas fa-info-circle"></i> <span>${readMoreText}</span>
-                    </button>
-                    ${buyBtn}
-                </div>
-            </div>
-        `;
-    }).join('');
-}
-
-function renderSideBlogs(category) {
-    if (category !== undefined) currentSideBlogCategory = category;
-    const container = document.getElementById('sideBlogsList');
-    if (!container) return;
-
-    const blogs = typeof BLOGS_DATA !== 'undefined' ? BLOGS_DATA : [];
-    let list = blogs;
-    const cat = currentSideBlogCategory;
-
-    if (cat !== 'all') {
-        list = blogs.filter(b => b.category === cat);
-    }
-    if (!list.length) list = blogs;
-
-    const openBlogText = currentLang === 'hi' ? 'ब्लॉग खोलें' : 'Open Blog';
-
-    container.innerHTML = list.map(b => {
-        const title = currentLang === 'hi' ? (b.titleHi || b.title) : (b.titleEn || b.title);
-        const catName = currentLang === 'hi' ? (b.categoryHi || 'साहित्यिक मंच') : (b.categoryEn || 'Blogger Platform');
-        const desc = currentLang === 'hi' ? (b.descriptionHi || b.featuredArticle || '') : (b.descriptionEn || b.featuredArticle || '');
-
-        return `
-            <div class="side-blog-item">
-                <div class="side-blog-icon-wrap" title="${catName}">
-                    <i class="fab fa-blogger-b"></i>
-                </div>
-                <div class="side-blog-info">
-                    <h4 class="side-blog-title" title="${title}">${title}</h4>
-                    <p class="side-blog-desc" title="${desc}">${desc || catName}</p>
-                </div>
-                <a href="${b.url}" target="_blank" rel="noopener noreferrer" class="side-blog-link-btn" title="सीधे ब्लॉगर मंच पर पढ़ें">
-                    <span>${openBlogText}</span> <i class="fas fa-external-link-alt" style="font-size: 0.65rem;"></i>
-                </a>
-            </div>
-        `;
-    }).join('');
-}
-
-function switchLibraryView(view, btn) {
-    const grid = document.getElementById('sideLibraryGrid');
-    if (!grid) return;
-
-    const btns = document.querySelectorAll('.lib-switch-btn');
-    btns.forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-
-    grid.classList.remove('view-books-only', 'view-blogs-only');
-    if (view === 'books') {
-        grid.classList.add('view-books-only');
-    } else if (view === 'blogs') {
-        grid.classList.add('view-blogs-only');
-    }
-}
-
-function filterSideBooks(cat, btn) {
-    const pills = document.querySelectorAll('#booksSideFilterPills .side-filter-pill');
-    pills.forEach(p => p.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-    renderSideBooks(cat);
-}
-
-function filterSideBlogs(cat, btn) {
-    const pills = document.querySelectorAll('#blogsSideFilterPills .side-filter-pill');
-    pills.forEach(p => p.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-    renderSideBlogs(cat);
-}
-
-function renderSideBySideLibrary() {
-    renderSideBooks();
-    renderSideBlogs();
-}
-
-window.renderSideBySideLibrary = renderSideBySideLibrary;
-window.renderSideBooks = renderSideBooks;
-window.renderSideBlogs = renderSideBlogs;
-window.switchLibraryView = switchLibraryView;
-window.filterSideBooks = filterSideBooks;
-window.filterSideBlogs = filterSideBlogs;
-
