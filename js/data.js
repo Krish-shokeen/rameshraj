@@ -2276,28 +2276,6 @@ const GALLERY_DATA = [
         captionEn: "Explaining the theoretical foundations of Virodh-Ras as modern India's 10th poetic aesthetic."
     },
     {
-        id: "gal-father-ramcharan",
-        titleHi: "लोककवि रामचरन गुप्त (पूज्य पिता श्री)",
-        titleEn: "Lokkavi Ramcharan Gupta (Author's Father)",
-        category: "archival",
-        categoryHi: "ऐतिहासिक धरोहर",
-        categoryEn: "Archival",
-        image: "assets/images/lokkavi-ramcharan-gupt.jpg",
-        captionHi: "ब्रजभाषा के मूर्धन्य साहित्यकार, स्वाधीनता संग्राम सेनानी एवं रमेशराज के पूज्य पिता लोककवि रामचरन गुप्त।",
-        captionEn: "Eminent Brajbhasha poet, celebrated freedom fighter, and revered father of Rameshraj, Lokkavi Ramcharan Gupta."
-    },
-    {
-        id: "gal-author-formal",
-        titleHi: "रमेशराज तेवरीकार — आधिकारिक छायाचित्र",
-        titleEn: "Rameshraj Tewarikar — Official Portrait",
-        category: "portrait",
-        categoryHi: "कवि व्यक्तित्व",
-        categoryEn: "Portrait",
-        image: "assets/images/author-portrait-formal.jpg",
-        captionHi: "तेवरी आन्दोलन के प्रवर्तक, 'विरोध-रस' के प्रतिष्ठापक एवं 50+ कृतियों के सर्जक रमेशराज तेवरीकार।",
-        captionEn: "Official formal portrait of Pioneer of Tewari Movement and Founder of Virodh-Ras, Rameshraj."
-    },
-    {
         id: "gal-bulandprabha",
         titleHi: "बुलन्दप्रभा — 'तेवरीकार रमेश राज विशेषांक' (2015)",
         titleEn: "Bulandprabha — Ramesh Raj Special Consecration",
