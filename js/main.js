@@ -3000,11 +3000,8 @@ window.openWorkSpotlightModal = function(slugOrId) {
     const desc = currentLang === 'hi' ? work.descriptionHi : work.descriptionEn;
     const directUrl = getWorkDirectUrl(work.slug);
 
-    const hasAudio = !!work.podcastId;
+    const hasAudio = false; // Audio tracks removed per client request
     let audioTrackIdx = -1;
-    if (hasAudio && typeof PODCAST_AUDIO_DATA !== 'undefined') {
-        audioTrackIdx = PODCAST_AUDIO_DATA.findIndex(t => t.id === work.podcastId);
-    }
 
     container.innerHTML = `
         <div class="spotlight-header-strip">

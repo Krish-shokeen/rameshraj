@@ -3749,8 +3749,14 @@
 /* Awards and Contact Section */
 .parichay-extra-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
+}
+
+.parichay-awards-box .parichay-bullet-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.75rem 1.5rem;
 }
 
 .parichay-bullet-list {
