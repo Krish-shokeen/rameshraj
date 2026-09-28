@@ -935,6 +935,34 @@
     transform: translateY(-4px);
 }
 
+/* --------------------------------------------------------------------------
+   WHATSAPP QUICK FLOAT BUTTON
+   -------------------------------------------------------------------------- */
+.whatsapp-float-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 52px;
+    height: 52px;
+    background: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+    z-index: 998;
+    transition: transform 0.25s, box-shadow 0.25s;
+    text-decoration: none;
+}
+
+.whatsapp-float-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.6);
+    color: #ffffff;
+}
+
 /* ==========================================================================
    RESPONSIVE COMPONENT FIXES (MODAL, LIGHTBOX, TOAST)
    ========================================================================== */
@@ -1052,21 +1080,21 @@
         justify-content: center;
     }
 
-    .back-to-top {
-        bottom: 4.5rem;
-        right: 1.25rem;
-        left: auto;
-        width: 42px;
-        height: 42px;
-        font-size: 1rem;
+    .whatsapp-float-btn {
+        bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+        right: calc(1.25rem + env(safe-area-inset-right, 0px));
+        width: 46px;
+        height: 46px;
+        font-size: 1.45rem;
     }
 
-    .whatsapp-float-btn {
-        bottom: 1.25rem;
-        right: 1.25rem;
-        width: 44px;
-        height: 44px;
-        font-size: 1.4rem;
+    .back-to-top {
+        bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+        right: calc(1.25rem + env(safe-area-inset-right, 0px));
+        left: auto;
+        width: 46px;
+        height: 46px;
+        font-size: 1.05rem;
     }
 
     .toast-notice {
@@ -1099,6 +1127,22 @@
 
     .modal-synopsis-text {
         font-size: 0.88rem;
+    }
+
+    .whatsapp-float-btn {
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+        right: calc(1rem + env(safe-area-inset-right, 0px));
+        width: 44px;
+        height: 44px;
+        font-size: 1.35rem;
+    }
+
+    .back-to-top {
+        bottom: calc(4.6rem + env(safe-area-inset-bottom, 0px));
+        right: calc(1rem + env(safe-area-inset-right, 0px));
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
     }
 
     .toast-notice {
@@ -1384,32 +1428,6 @@
 .work-item-link:hover {
     color: #b45309;
     text-decoration: underline;
-}
-
-/* WhatsApp Quick Button */
-.whatsapp-float-btn {
-    position: fixed;
-    bottom: 5.5rem;
-    right: 2rem;
-    width: 52px;
-    height: 52px;
-    background: #25D366;
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.7rem;
-    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
-    z-index: 99;
-    transition: transform 0.25s, box-shadow 0.25s;
-    text-decoration: none;
-}
-
-.whatsapp-float-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.6);
-    color: #ffffff;
 }
 
 /* Father Tribute in Credentials Card */
