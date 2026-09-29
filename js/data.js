@@ -559,8 +559,8 @@ const ALL_WORKS_LIST = [
         categoryHi: "स्वरचित कृतियां (रस से संबंधित)",
         categoryEn: "Treatises on Poetic Rasa",
         type: "विवेचनात्मक निबंध एवं रस-सिद्धांत",
-        descHi: "काव्यशास्त्र में 'विरोध-रस' (स्थायी भाव: आक्रोश) एवं 'विद्रोह-रस' की सैद्धांतिक स्थापना करने वाला युगांतरकारी ग्रंथ।",
-        descEn: "Groundbreaking critical treatise formalizing 'Virodh-Ras' (Aesthetics of Dissent) in Hindi poetics.",
+        descHi: "रमेशराज द्वारा लिखित विवेचनात्मक कृति 'विचार और रस' का मुख्य सार पारंपरिक भारतीय रस-सिद्धांत की पुनर्व्याख्या और उसमें वैचारिक चेतना व सामाजिक संवेदना के समावेशन पर आधारित है। पुस्तक यह स्थापित करती है कि काव्य में रस और विचार एक-दूसरे के पूरक हैं, जहाँ साहित्यिक आनंद के साथ युगीन सत्य और सामाजिक आक्रोश की अभिव्यक्ति भी अनिवार्य है।",
+        descEn: "Groundbreaking critical treatise formalizing the complementary relationship between thought and poetic rasa in modern poetics.",
         cover: "assets/images/books/vichar-aur-ras.jpg",
         bloggerUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post_17.html"
     },
@@ -589,8 +589,8 @@ const ALL_WORKS_LIST = [
         categoryHi: "स्वरचित कृतियां (रस से संबंधित)",
         categoryEn: "Treatises on Poetic Rasa",
         type: "मौलिक शोध-प्रबंध",
-        descHi: "काव्य-चेतना, रस-निष्पत्ति में 'अनुभाव, अनुभव और अनुभूति' की दार्शनिक त्रयी और आत्मीयकरण का गंभीर अध्ययन।",
-        descEn: "Philosophical research treatise on the soul of poetry, emotional cognition, and empathetic aestheticization.",
+        descHi: "समकालीन आलोचक और विचारक रमेशराज तेवरीकार द्वारा लिखित लेख श्रृंखला और वैचारिक विमर्श का मुख्य सार यह है कि काव्य की आत्मा कोई बाहरी शब्दाडंबर या कोरी तुकबंदी नहीं, बल्कि वह तत्व है जिसमें रागात्मकता, सत्योन्मुखी चेतना और सात्विक बुद्धि का वास होता है। उन्होंने भारतीय काव्यशास्त्र के पारंपरिक सिद्धांतों (रस, अलंकार, रीति आदि) की आधुनिक परिप्रेक्ष्य में समीक्षा करते हुए 'आत्मीकरण' (काव्य के मूल भाव को आत्मसात करने और उसे लोक-कल्याण से जोड़ने) पर विशेष बल दिया है।",
+        descEn: "Philosophical research treatise examining the soul of poetry and proposing empathetic identification (Aatmeeyakaran) in contemporary poetics.",
         cover: "assets/images/books/kavya-ki-aatma.jpg",
         bloggerUrl: "https://hinditewari-25.blogspot.com/",
         buyUrl: "https://rachnaye.chottu.link/FrHZ",
@@ -2476,8 +2476,8 @@ const TESTIMONIALS_DATA = [
 const HOMEPAGE_BOOK_REELS = [
     {
         "id": "tewari-sangrah",
-        "titleHi": "तेवरी संग्रह",
-        "titleEn": "Tewari Anthologies",
+        "titleHi": "रमेशराज के चर्चित तेवरी संग्रह",
+        "titleEn": "Rameshraj's Famous Tewari Anthologies",
         "icon": "fas fa-book-open",
         "filterKey": "tewari-sangrah",
         "bookIds": [
@@ -2556,8 +2556,8 @@ const HOMEPAGE_BOOK_REELS = [
     },
     {
         "id": "tewaripaksh-reel",
-        "titleHi": "तेवरीपक्ष (त्रैमासिक पत्रिका)",
-        "titleEn": "Tewaripaksh (Quarterly Journal)",
+        "titleHi": "तेवरीपक्ष के अंक (त्रैमासिक पत्रिका)",
+        "titleEn": "Tewaripaksh Magazine Issues (Quarterly Journal)",
         "icon": "fas fa-newspaper",
         "filterKey": "tewaripaksh",
         "bookIds": [
@@ -3040,7 +3040,7 @@ const PROMOTIONAL_WORKS_DATA = [
         readUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post_17.html",
         downloadUrl: "https://hinditewari-25.blogspot.com/2019/08/blog-post_17.html",
         cardId: "card-book-pdf-05",
-        descriptionHi: "काव्यशास्त्र में बुद्धि, विचार और अनुभूति के समन्वय पर युगांतरकारी शोधग्रंथ जिसमें 'अनुभाव, अनुभव और अनुभूति' की त्रयी का वैज्ञानिक विश्लेषण कर कविता के नए समाजशास्त्रीय प्रतिमान स्थापित किए गए हैं।",
+        descriptionHi: "रमेशराज द्वारा लिखित विवेचनात्मक कृति 'विचार और रस' का मुख्य सार पारंपरिक भारतीय रस-सिद्धांत की पुनर्व्याख्या और उसमें वैचारिक चेतना व सामाजिक संवेदना के समावेशन पर आधारित है। पुस्तक यह स्थापित करती है कि काव्य में रस और विचार एक-दूसरे के पूरक हैं, जहाँ साहित्यिक आनंद के साथ युगीन सत्य और सामाजिक आक्रोश की अभिव्यक्ति भी अनिवार्य है।",
         descriptionEn: "A foundational essay compilation critically examining the dialectic between intellectual thought and aesthetic emotion, redefining 21st-century Hindi poetic criticism.",
         quoteHi: "काव्य में विचार जब अनुभूति की अग्नि में तपकर प्रस्फुटित होता है, तब वह स्थायी रस-रूप ग्रहण करता है।"
     },
@@ -3059,7 +3059,7 @@ const PROMOTIONAL_WORKS_DATA = [
         readUrl: "https://hinditewari-7.blogspot.com/?m=1",
         downloadUrl: "https://hinditewari-7.blogspot.com/?m=1",
         cardId: "card-book-pdf-06",
-        descriptionHi: "रस-निष्पत्ति में 'साधारणीकरण' के पारंपरिक शास्त्रीय सिद्धांत के समानांतर रमेशराज द्वारा आविष्कृत 'आत्मीयकरण सिद्धांत' का युगांतरकारी विवेचन, जो पाठक और कवि के अंतर्मन के तादात्म्य की नई मीमांसा करता है।",
+        descriptionHi: "समकालीन आलोचक और विचारक रमेशराज तेवरीकार द्वारा लिखित लेख श्रृंखला और वैचारिक विमर्श का मुख्य सार यह है कि काव्य की आत्मा कोई बाहरी शब्दाडंबर या कोरी तुकबंदी नहीं, बल्कि वह तत्व है जिसमें रागात्मकता, सत्योन्मुखी चेतना और सात्विक बुद्धि का वास होता है। उन्होंने भारतीय काव्यशास्त्र के पारंपरिक सिद्धांतों (रस, अलंकार, रीति आदि) की आधुनिक परिप्रेक्ष्य में समीक्षा करते हुए 'आत्मीकरण' (काव्य के मूल भाव को आत्मसात करने और उसे लोक-कल्याण से जोड़ने) पर विशेष बल दिया है।",
         descriptionEn: "A pathbreaking aesthetic thesis proposing 'Aatmeeyakaran' (Subjective Empathetic Identification) as an advanced psychological evolution over classical Sadharanikaran.",
         quoteHi: "कविता केवल भाव का साधारणीकरण नहीं, वरन पाठक और कवि के अंतर्मन का सम्पूर्ण आत्मीयकरण है।"
     },
