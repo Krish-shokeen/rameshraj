@@ -107,8 +107,8 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=2.6">
-    <link rel="stylesheet" href="css/components.css?v=2.7">
+    <link rel="stylesheet" href="css/style.css?v=2.8">
+    <link rel="stylesheet" href="css/components.css?v=2.8">
 </head>
 <body>
 
@@ -672,13 +672,18 @@
                  (क्लाइंट अनुरोध: "क्या अभी जुबां कटी नहीं, कबीर ज़िंदा है, इतिहास घायल है, विरोधरस, विचार और रस, काव्य की आत्मा और आत्मीयकरण और तेवरीपक्ष की अलग से लिंक्स नहीं बनाई जा सकतीं ताकि उन्हें अलग अलग शेयर किया जा सके। यह कार्य हो जाये तो प्रचार करने में बहुत सुविधा रहेगी")
                  ================================================================ -->
             <div class="promotional-share-hub" id="promoShareHub">
-                <div class="promo-hub-header">
+                <div class="promo-hub-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
                     <div class="promo-hub-title-box">
                         <span class="promo-hub-tag"><i class="fas fa-bullhorn"></i> <span data-hi="साहित्य-प्रचार एवं व्यक्तिगत शेयर लिंक्स" data-en="Literary Outreach & Individual Share Links">साहित्य-प्रचार एवं व्यक्तिगत शेयर लिंक्स</span></span>
                         <h3 data-hi="7 प्रमुख ऐतिहासिक कृतियों के अलग-अलग शेयर लिंक्स (Dedicated Deep Links)" data-en="7 Milestone Literary Works — Dedicated Shareable Deep Links">7 प्रमुख ऐतिहासिक कृतियों के अलग-अलग शेयर लिंक्स (Dedicated Deep Links)</h3>
                         <p data-hi="व्हाट्सएप, फेसबुक एवं शोध-समीक्षा हेतु प्रत्येक कृति का स्वतंत्र लिंक। 1-क्लिक में व्हाट्सएप पर साझा करें अथवा सीधा लिंक कॉपी करें:" data-en="Dedicated URLs for individual sharing across WhatsApp, social media, and academic citations. 1-click share or copy link:">
                             व्हाट्सएप, फेसबुक एवं शोध-समीक्षा हेतु प्रत्येक कृति का स्वतंत्र लिंक। 1-क्लिक में व्हाट्सएप पर साझा करें अथवा सीधा लिंक कॉपी करें:
                         </p>
+                    </div>
+                    <div class="h-scroll-controls">
+                        <span class="h-scroll-hint"><i class="fas fa-arrows-alt-h"></i> <span data-hi="स्क्रॉल करें" data-en="Scroll">स्क्रॉल करें</span></span>
+                        <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('promoWorksGrid', -340)" title="Scroll Left" aria-label="Scroll Left"><i class="fas fa-chevron-left"></i></button>
+                        <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('promoWorksGrid', 340)" title="Scroll Right" aria-label="Scroll Right"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
                 <div class="promo-works-grid" id="promoWorksGrid">
@@ -695,19 +700,26 @@
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                <div class="download-filter-pills" id="downloadFilterPills">
-                    <button class="download-filter-pill active" onclick="setDownloadCategoryFilter('all', this)" data-hi="सभी ई-संस्करण (12+)" data-en="All Editions (12+)">
-                        <i class="fas fa-layer-group"></i> <span>सभी ई-संस्करण (12+)</span>
-                    </button>
-                    <button class="download-filter-pill" onclick="setDownloadCategoryFilter('tewari', this)" data-hi="ऐतिहासिक तेवरी संग्रह" data-en="Historic Tewari Anthologies">
-                        <i class="fas fa-feather-alt"></i> <span>ऐतिहासिक तेवरी संग्रह</span>
-                    </button>
-                    <button class="download-filter-pill" onclick="setDownloadCategoryFilter('research', this)" data-hi="काव्यशास्त्रीय शोध-ग्रंथ" data-en="Research Treatises">
-                        <i class="fas fa-book-reader"></i> <span>काव्यशास्त्रीय शोध-ग्रंथ</span>
-                    </button>
-                    <button class="download-filter-pill" onclick="setDownloadCategoryFilter('magazine', this)" data-hi="'तेवरीपक्ष' पत्रिका ई-अंक" data-en="'Tewaripaksh' E-Issues">
-                        <i class="fas fa-newspaper"></i> <span>'तेवरीपक्ष' पत्रिका ई-अंक</span>
-                    </button>
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem;">
+                    <div class="download-filter-pills" id="downloadFilterPills">
+                        <button class="download-filter-pill active" onclick="setDownloadCategoryFilter('all', this)" data-hi="सभी ई-संस्करण (12+)" data-en="All Editions (12+)">
+                            <i class="fas fa-layer-group"></i> <span>सभी ई-संस्करण (12+)</span>
+                        </button>
+                        <button class="download-filter-pill" onclick="setDownloadCategoryFilter('tewari', this)" data-hi="ऐतिहासिक तेवरी संग्रह" data-en="Historic Tewari Anthologies">
+                            <i class="fas fa-feather-alt"></i> <span>ऐतिहासिक तेवरी संग्रह</span>
+                        </button>
+                        <button class="download-filter-pill" onclick="setDownloadCategoryFilter('research', this)" data-hi="काव्यशास्त्रीय शोध-ग्रंथ" data-en="Research Treatises">
+                            <i class="fas fa-book-reader"></i> <span>काव्यशास्त्रीय शोध-ग्रंथ</span>
+                        </button>
+                        <button class="download-filter-pill" onclick="setDownloadCategoryFilter('magazine', this)" data-hi="'तेवरीपक्ष' पत्रिका ई-अंक" data-en="'Tewaripaksh' E-Issues">
+                            <i class="fas fa-newspaper"></i> <span>'तेवरीपक्ष' पत्रिका ई-अंक</span>
+                        </button>
+                    </div>
+                    <div class="h-scroll-controls">
+                        <span class="h-scroll-hint"><i class="fas fa-arrows-alt-h"></i> <span data-hi="स्क्रॉल करें" data-en="Scroll">स्क्रॉल करें</span></span>
+                        <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('downloadCenterGrid', -320)" title="Scroll Left" aria-label="Scroll Left"><i class="fas fa-chevron-left"></i></button>
+                        <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('downloadCenterGrid', 320)" title="Scroll Right" aria-label="Scroll Right"><i class="fas fa-chevron-right"></i></button>
+                    </div>
                 </div>
             </div>
 
@@ -817,12 +829,19 @@
          ==================================================================== -->
     <section class="section" id="gallery">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge" data-hi="समाचार, लोकार्पण एवं सम्मेलन" data-en="Press, Conclaves & Book Launches">समाचार, लोकार्पण एवं सम्मेलन</span>
-                <h2 class="section-title" data-hi="चित्रशाला एवं मीडिया कवरेज" data-en="Gallery & Media Coverage">चित्रशाला एवं मीडिया कवरेज</h2>
-                <p class="section-subtitle" data-hi="साहित्य सम्मेलनों, सम्मान समारोहों एवं राष्ट्रीय समाचार पत्रों में प्रकाशित झलकियाँ" data-en="Snapshots from national literary conclaves, award ceremonies, and prominent press features">
-                    साहित्य सम्मेलनों, सम्मान समारोहों एवं राष्ट्रीय समाचार पत्रों में प्रकाशित झलकियाँ
-                </p>
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <span class="section-badge" data-hi="समाचार, लोकार्पण एवं सम्मेलन" data-en="Press, Conclaves & Book Launches">समाचार, लोकार्पण एवं सम्मेलन</span>
+                    <h2 class="section-title" data-hi="चित्रशाला एवं मीडिया कवरेज" data-en="Gallery & Media Coverage">चित्रशाला एवं मीडिया कवरेज</h2>
+                    <p class="section-subtitle" data-hi="साहित्य सम्मेलनों, सम्मान समारोहों एवं राष्ट्रीय समाचार पत्रों में प्रकाशित झलकियाँ" data-en="Snapshots from national literary conclaves, award ceremonies, and prominent press features">
+                        साहित्य सम्मेलनों, सम्मान समारोहों एवं राष्ट्रीय समाचार पत्रों में प्रकाशित झलकियाँ
+                    </p>
+                </div>
+                <div class="h-scroll-controls">
+                    <span class="h-scroll-hint"><i class="fas fa-arrows-alt-h"></i> <span data-hi="स्क्रॉल करें" data-en="Scroll">स्क्रॉल करें</span></span>
+                    <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('galleryGrid', -320)" title="Scroll Left" aria-label="Scroll Left"><i class="fas fa-chevron-left"></i></button>
+                    <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('galleryGrid', 320)" title="Scroll Right" aria-label="Scroll Right"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
 
             <div class="gallery-grid" id="galleryGrid">
@@ -837,7 +856,7 @@
     <section class="section section-alt media-archive-section" id="videos">
         <div id="media-archive" style="position: relative; top: -80px;"></div>
         <div class="container">
-            <div class="section-header text-center">
+            <div class="section-header text-center" style="position: relative;">
                 <span class="section-badge" style="background: #dc2626; color: #ffffff;">
                     <i class="fab fa-youtube"></i> <span data-hi="आधिकारिक वीडियो प्रस्तुतियाँ" data-en="Official Video Presentations">आधिकारिक वीडियो प्रस्तुतियाँ</span>
                 </span>
@@ -845,6 +864,11 @@
                 <p class="section-subtitle" data-hi="मंच काव्य-पाठ, साक्षात्कार, वृत्तचित्र एवं अधिकृत यूट्यूब प्रस्तुतियाँ" data-en="Stage recitations, author interviews, documentaries and official YouTube recordings">
                     मंच काव्य-पाठ, साक्षात्कार, वृत्तचित्र एवं अधिकृत यूट्यूब प्रस्तुतियाँ
                 </p>
+                <div class="h-scroll-controls" style="margin-top: 1rem; justify-content: center;">
+                    <span class="h-scroll-hint"><i class="fas fa-arrows-alt-h"></i> <span data-hi="स्क्रॉल करें" data-en="Scroll">स्क्रॉल करें</span></span>
+                    <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('videosGrid', -340)" title="Scroll Left" aria-label="Scroll Left"><i class="fas fa-chevron-left"></i></button>
+                    <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('videosGrid', 340)" title="Scroll Right" aria-label="Scroll Right"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
 
             <div class="videos-grid" id="videosGrid">
@@ -875,12 +899,19 @@
          ==================================================================== -->
     <section class="section section-alt" id="reviews">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge" data-hi="विद्वानों एवं समालोचकों के विचार" data-en="Scholars & Critics Praises">विद्वानों एवं समालोचकों के विचार</span>
-                <h2 class="section-title" data-hi="प्रशंसापत्र एवं साहित्यिक समीक्षा" data-en="Testimonials & Critical Acclaim">प्रशंसापत्र एवं साहित्यिक समीक्षा</h2>
-                <p class="section-subtitle" data-hi="रमेशराज के कृतित्व और तेवरी आन्दोलन पर मूर्धन्य साहित्यकारों के विचार" data-en="Words of appreciation from eminent Hindi litterateurs and critical thinkers">
-                    रमेशराज के कृतित्व और तेवरी आन्दोलन पर मूर्धन्य साहित्यकारों के विचार
-                </p>
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <span class="section-badge" data-hi="विद्वानों एवं समालोचकों के विचार" data-en="Scholars & Critics Praises">विद्वानों एवं समालोचकों के विचार</span>
+                    <h2 class="section-title" data-hi="प्रशंसापत्र एवं साहित्यिक समीक्षा" data-en="Testimonials & Critical Acclaim">प्रशंसापत्र एवं साहित्यिक समीक्षा</h2>
+                    <p class="section-subtitle" data-hi="रमेशराज के कृतित्व और तेवरी आन्दोलन पर मूर्धन्य साहित्यकारों के विचार" data-en="Words of appreciation from eminent Hindi litterateurs and critical thinkers">
+                        रमेशराज के कृतित्व और तेवरी आन्दोलन पर मूर्धन्य साहित्यकारों के विचार
+                    </p>
+                </div>
+                <div class="h-scroll-controls">
+                    <span class="h-scroll-hint"><i class="fas fa-arrows-alt-h"></i> <span data-hi="स्क्रॉल करें" data-en="Scroll">स्क्रॉल करें</span></span>
+                    <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('testimonialsGrid', -360)" title="Scroll Left" aria-label="Scroll Left"><i class="fas fa-chevron-left"></i></button>
+                    <button class="h-scroll-arrow" onclick="scrollSectionHorizontal('testimonialsGrid', 360)" title="Scroll Right" aria-label="Scroll Right"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
 
             <div class="testimonials-grid" id="testimonialsGrid">
@@ -1344,7 +1375,7 @@
     </a>
 
     <!-- Scripts -->
-    <script src="js/data.js?v=2.7"></script>
-    <script src="js/main.js?v=2.7"></script>
+    <script src="js/data.js?v=2.8"></script>
+    <script src="js/main.js?v=2.8"></script>
 </body>
 </html>

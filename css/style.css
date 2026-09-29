@@ -1484,12 +1484,28 @@ img {
    MEDIA & GALLERY
    ========================================================================== */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.75rem;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 1.5rem;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+    scrollbar-width: thin;
+    scrollbar-color: #f59e0b #fef3c7;
+    cursor: grab;
+}
+.gallery-grid:active,
+.gallery-grid.is-dragging {
+    cursor: grabbing;
+    user-select: none;
 }
 
 .gallery-card {
+    flex: 0 0 280px !important;
+    width: 280px !important;
+    min-width: 280px !important;
     background: #ffffff;
     border-radius: var(--radius-md);
     overflow: hidden;
@@ -1498,6 +1514,7 @@ img {
     cursor: pointer;
     transition: var(--transition);
     position: relative;
+    box-sizing: border-box;
 }
 
 .gallery-card:hover {
@@ -1593,12 +1610,28 @@ img {
    TESTIMONIALS
    ========================================================================== */
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 1.5rem;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+    scrollbar-width: thin;
+    scrollbar-color: #d97706 #fef3c7;
+    cursor: grab;
+}
+.testimonials-grid:active,
+.testimonials-grid.is-dragging {
+    cursor: grabbing;
+    user-select: none;
 }
 
 .testimonial-card {
+    flex: 0 0 340px !important;
+    width: 340px !important;
+    min-width: 340px !important;
     background: #ffffff;
     border-radius: var(--radius-md);
     padding: 2.25rem;
@@ -1608,6 +1641,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .testimonial-card::before {
@@ -1925,7 +1959,7 @@ img {
         gap: 1.75rem;
     }
 
-    .awards-grid, .gallery-grid {
+    .awards-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
@@ -2694,8 +2728,8 @@ img {
         justify-content: center;
     }
 
-    /* --- Awards & Gallery Sections --- */
-    .awards-grid, .gallery-grid {
+    /* --- Awards Section --- */
+    .awards-grid {
         grid-template-columns: 1fr;
         gap: 1.25rem;
     }
