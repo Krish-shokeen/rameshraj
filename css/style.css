@@ -574,12 +574,30 @@ img {
     border-color: rgba(217, 119, 6, 0.85);
 }
 
+.hero-banner-card {
+    cursor: default;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(217, 119, 6, 0.2);
+}
+
+.hero-banner-card:hover {
+    transform: none;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(217, 119, 6, 0.3);
+    border-color: transparent;
+}
+
 .hero-collage-img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
     background: #0c0a09;
+}
+
+.hero-banner-img {
+    border-radius: 8px;
 }
 
 .hero-collage-zoom-badge {
