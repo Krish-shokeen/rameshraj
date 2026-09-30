@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderTewaripakshPdfs();
     initDownloadCenter();
     renderPromotionalWorksPills();
-    initHorizontalScrollTracks();
     initDirectWorkRouting();
     initPodcastPlayer();
     renderTestimonials();
@@ -2807,54 +2806,10 @@ function initHomepageMarquees() {
    HORIZONTAL SCROLLABLE TRACKS (Mouse Grab & Drag, Arrow Controls)
    -------------------------------------------------------------------------- */
 function initHorizontalScrollTracks() {
-    const trackIds = [
-        'downloadCenterGrid',
-        'promoWorksGrid',
-        'galleryGrid',
-        'videosGrid',
-        'testimonialsGrid'
-    ];
-
-    trackIds.forEach(id => {
-        const container = document.getElementById(id);
-        if (!container) return;
-
-        let isDown = false;
-        let startX, scrollLeft;
-
-        container.addEventListener('mousedown', (e) => {
-            if (e.target.closest('button, a, input, select, textarea, .download-card-actions, .promo-card-btn')) return;
-            isDown = true;
-            container.classList.add('is-dragging');
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-        });
-
-        container.addEventListener('mouseleave', () => {
-            isDown = false;
-            container.classList.remove('is-dragging');
-        });
-
-        container.addEventListener('mouseup', () => {
-            isDown = false;
-            container.classList.remove('is-dragging');
-        });
-
-        container.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX) * 1.5;
-            container.scrollLeft = scrollLeft - walk;
-        });
-    });
+    // Open grid mode enabled - no horizontal overflow tracks
 }
-
 function scrollSectionHorizontal(elementId, distance) {
-    const el = document.getElementById(elementId);
-    if (el) {
-        el.scrollBy({ left: distance, behavior: 'smooth' });
-    }
+    // No-op in open grid mode
 }
 window.scrollSectionHorizontal = scrollSectionHorizontal;
 window.initHorizontalScrollTracks = initHorizontalScrollTracks;

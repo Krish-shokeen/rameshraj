@@ -4118,29 +4118,13 @@
    YOUTUBE VIDEOS SHOWCASE SECTION
    -------------------------------------------------------------------------- */
 .videos-grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    gap: 1.5rem;
-    overflow-x: auto !important;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
     margin-top: 2rem;
-    scrollbar-width: thin;
-    scrollbar-color: #dc2626 #fee2e2;
-    cursor: grab;
-}
-.videos-grid:active,
-.videos-grid.is-dragging {
-    cursor: grabbing;
-    user-select: none;
 }
 
 .video-card {
-    flex: 0 0 320px !important;
-    width: 320px !important;
-    min-width: 320px !important;
     background: #ffffff;
     border-radius: 16px;
     overflow: hidden;
@@ -5566,28 +5550,12 @@
 }
 
 .download-center-grid {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    gap: 1.25rem;
-    overflow-x: auto !important;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
     margin-bottom: 2rem;
-    scrollbar-width: thin;
-    scrollbar-color: #2563eb #dbeafe;
-    cursor: grab;
-}
-.download-center-grid:active,
-.download-center-grid.is-dragging {
-    cursor: grabbing;
-    user-select: none;
 }
 .download-center-card {
-    flex: 0 0 250px !important;
-    width: 250px !important;
-    min-width: 250px !important;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
@@ -6646,89 +6614,6 @@
         width: 100%;
         justify-content: center;
     }
-}
-
-/* ==========================================================================
-   HORIZONTAL SCROLLABLE TRACKS CONTROLS & WEBKIT SCROLLBARS
-   ========================================================================== */
-.download-center-grid::-webkit-scrollbar,
-.promo-works-grid::-webkit-scrollbar,
-.gallery-grid::-webkit-scrollbar,
-.videos-grid::-webkit-scrollbar,
-.testimonials-grid::-webkit-scrollbar {
-    height: 8px;
-}
-
-.download-center-grid::-webkit-scrollbar-track,
-.promo-works-grid::-webkit-scrollbar-track,
-.gallery-grid::-webkit-scrollbar-track,
-.videos-grid::-webkit-scrollbar-track,
-.testimonials-grid::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 999px;
-}
-
-.download-center-grid::-webkit-scrollbar-thumb {
-    background: #2563eb;
-    border-radius: 999px;
-}
-.promo-works-grid::-webkit-scrollbar-thumb {
-    background: #ea580c;
-    border-radius: 999px;
-}
-.gallery-grid::-webkit-scrollbar-thumb {
-    background: #f59e0b;
-    border-radius: 999px;
-}
-.videos-grid::-webkit-scrollbar-thumb {
-    background: #dc2626;
-    border-radius: 999px;
-}
-.testimonials-grid::-webkit-scrollbar-thumb {
-    background: #d97706;
-    border-radius: 999px;
-}
-
-.h-scroll-controls {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-.h-scroll-arrow {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid #cbd5e1;
-    background: #ffffff;
-    color: #334155;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.88rem;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    transition: all 0.2s ease;
-}
-.h-scroll-arrow:hover {
-    background: #2563eb;
-    color: #ffffff;
-    border-color: #2563eb;
-    transform: scale(1.08);
-}
-.h-scroll-arrow:active {
-    transform: scale(0.96);
-}
-.h-scroll-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #64748b;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    padding: 4px 12px;
 }
 
 
